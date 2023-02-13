@@ -44,9 +44,9 @@ struct ChartView: View {
                         .fontWeight(.semibold)
                     Spacer()
                 }
-                .padding(.leading, 55)
+                .padding(.leading, 35)
                 ChartDetailView(time: data[selectedChart])
-                    .frame(width: 280, height: 70)
+                    .frame(width: 300, height: 70)
                     .padding(.bottom, -20)
                 HStack(alignment: .bottom){
                     ForEach(0..<ratData.count, id: \.self){index in

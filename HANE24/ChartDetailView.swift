@@ -15,7 +15,7 @@ struct ChartDetailView: View {
                 .foregroundColor(.chartDetailBG)
             VStack{
                 HStack{
-                    Text("2023.1")
+                    Text("2.12(월)-2.18(일)")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                     Spacer()

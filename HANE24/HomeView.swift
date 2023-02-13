@@ -22,12 +22,16 @@ struct HomeView: View {
                     Image(systemName: "bell")
                 }
                 .padding()
+                Spacer(minLength: 150)
                 TabView{
                     ChartView()
                     ChartView()
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
+                Spacer(minLength: 180)
             }
         }
     }

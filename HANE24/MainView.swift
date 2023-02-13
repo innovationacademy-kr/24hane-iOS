@@ -10,17 +10,20 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView{
-            Text("HomeView")
+            HomeView()
                 .tabItem{
                     Image(systemName: "house.fill")
+                        .foregroundColor(.iconColor)
                 }
             Text("Calendar View")
                 .tabItem{
                     Image(systemName: "calendar")
+                        .foregroundColor(.iconColor)
                 }
             Text("More View")
                 .tabItem{
                     Image(systemName: "line.3.horizontal")
+                        .foregroundColor(.iconColor)
                 }
         }
     }

@@ -14,6 +14,8 @@ extension Color{
     static let gradientBlue = Color(hex : "8EF2F3")
     static let gradientPurple = Color (hex: "735BF2")
     static let defaultBG = Color(hex: "F5F5F5")
+    static let iconColor = Color(hex: "5B5B5B")
+    
 }
 
 extension Color{
