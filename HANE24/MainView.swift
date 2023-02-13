@@ -26,6 +26,7 @@ struct MainView: View {
                         .foregroundColor(.iconColor)
                 }
         }
+        .accentColor(.black)
     }
 }
 
