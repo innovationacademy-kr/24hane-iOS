@@ -13,6 +13,11 @@
 		0E1654FA299A285E001E5EED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1654F9299A285E001E5EED /* Preview Assets.xcassets */; };
 		0E1654FC299A285E001E5EED /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654FB299A285E001E5EED /* Persistence.swift */; };
 		0E1654FF299A285E001E5EED /* HANE24.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654FD299A285E001E5EED /* HANE24.xcdatamodeld */; };
+		0E165508299A3C20001E5EED /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E165507299A3C20001E5EED /* ChartView.swift */; };
+		0E16550A299A3D8A001E5EED /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E165509299A3D8A001E5EED /* ColorExtension.swift */; };
+		0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550B299A3DF6001E5EED /* ChartDetailView.swift */; };
+		0E16550E299A5887001E5EED /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550D299A5887001E5EED /* MainView.swift */; };
+		0E165510299A5A82001E5EED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550F299A5A82001E5EED /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,11 @@
 		0E1654F9299A285E001E5EED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E1654FB299A285E001E5EED /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0E1654FE299A285E001E5EED /* HANE24.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HANE24.xcdatamodel; sourceTree = "<group>"; };
+		0E165507299A3C20001E5EED /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		0E165509299A3D8A001E5EED /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		0E16550B299A3DF6001E5EED /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
+		0E16550D299A5887001E5EED /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0E16550F299A5A82001E5EED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,11 @@
 			children = (
 				0E1654F2299A285B001E5EED /* HANE24App.swift */,
 				0E1654F4299A285B001E5EED /* ContentView.swift */,
+				0E165507299A3C20001E5EED /* ChartView.swift */,
+				0E16550D299A5887001E5EED /* MainView.swift */,
+				0E16550F299A5A82001E5EED /* HomeView.swift */,
+				0E16550B299A3DF6001E5EED /* ChartDetailView.swift */,
+				0E165509299A3D8A001E5EED /* ColorExtension.swift */,
 				0E1654F6299A285E001E5EED /* Assets.xcassets */,
 				0E1654FB299A285E001E5EED /* Persistence.swift */,
 				0E1654FD299A285E001E5EED /* HANE24.xcdatamodeld */,
@@ -143,9 +158,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
 				0E1654FC299A285E001E5EED /* Persistence.swift in Sources */,
+				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0E1654FF299A285E001E5EED /* HANE24.xcdatamodeld in Sources */,
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
+				0E16550A299A3D8A001E5EED /* ColorExtension.swift in Sources */,
+				0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */,
+				0E165508299A3C20001E5EED /* ChartView.swift in Sources */,
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
