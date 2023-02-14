@@ -19,10 +19,20 @@ struct AccTimeCardView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(color)
             VStack(spacing: 10) {
-                HStack {
+                HStack(){
                     Text(text)
+                        .font(.system(size: 16, weight: .bold))
                     Spacer()
-                    Text("\(time / 3600)시간 \(time % 3600 / 60)분")
+                    HStack(alignment: .center, spacing: 1){
+                        Text("\(time / 3600)")
+                            .font(.system(size: 20, weight: .semibold))
+                        Text("시간")
+                            .font(.system(size: 16, weight: .semibold))
+                        Text("\(time % 3600 / 60)")
+                            .font(.system(size: 20, weight: .semibold))
+                        Text("분")
+                            .font(.system(size: 16, weight: .semibold))
+                    }
                     Button {
                         isFold.toggle()
                     } label: {
@@ -31,7 +41,7 @@ struct AccTimeCardView: View {
                     }
                 }
                 .foregroundColor(.black)
-                .fontWeight(.semibold)
+               // .fontWeight(.semibold)
                 .padding()
                 if !isFold {
                     VStack {
@@ -43,7 +53,7 @@ struct AccTimeCardView: View {
                                 .foregroundColor(color)
                         }
                         .foregroundColor(.black)
-                        .fontWeight(.semibold)
+                        //.fontWeight(.semibold)
                         .padding(.horizontal)
                         ProgressCircle
                             .frame(width: 120, height: 120)
@@ -52,9 +62,9 @@ struct AccTimeCardView: View {
             }
             .padding()
         }
-        .padding()
+        //.padding()
         .frame(maxHeight: isFold ? 80 : 243)
-        .frame(width: 355)
+        .padding(.horizontal, 30)
     }
     
     let progress: Double = 0.7
