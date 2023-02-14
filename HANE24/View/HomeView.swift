@@ -22,7 +22,11 @@ struct HomeView: View {
                     Image(systemName: "bell")
                 }
                 .padding()
-                Spacer(minLength: 150)
+//                Spacer(minLength: 150)
+                
+                AccTimeCardView(text: "이용 시간", time: 77777)
+                AccTimeCardView(text: "이용 시간", time: 77777, color: Color(hex: "#735BF2"))
+                    .padding()
                 TabView{
                     ChartView()
                     ChartView()
@@ -31,7 +35,7 @@ struct HomeView: View {
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
-                Spacer(minLength: 180)
+//                Spacer(minLength: 180)
             }
         }
     }
