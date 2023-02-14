@@ -29,23 +29,23 @@ struct ChartView: View {
 
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 6)
+            RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
             VStack(alignment: .center){
                 HStack{
                     Text("\(item.title)")
                         .foregroundColor(.black)
-                        .fontWeight(.semibold)
+                        .font(.system(size: 14, weight: .semibold))
                     Text("(6주)")
                         .foregroundColor(.textGray)
-                        .fontWeight(.semibold)
+                        .font(.system(size: 14, weight: .semibold))
                     Spacer()
                 }
-                .padding(.leading, 30)
+                .padding(.leading, 20)
                 .padding(.bottom, 10)
                 ChartDetailView(id: item.id, time: item.data[selectedChart], period: item.period[selectedChart])
-                    .frame(width: 300, height: 70)
-                    .padding(.bottom, -20)
+                    .frame(width: 290, height: 60)
+                    .padding(.bottom, -22)
                 HStack(alignment: .bottom){
                     ForEach(0..<ratData.count, id: \.self){index in
                         Button{
@@ -60,8 +60,10 @@ struct ChartView: View {
                                         .transition(AnyTransition.opacity.animation(.easeIn(duration: 0.6)))
                                 }
                                 RoundedRectangle(cornerRadius: 4)
-                                    .frame(width:28, height: 100 * ratData[index])
-                                    .padding(4)
+                                    .frame(width:25, height: 100 * ratData[index])
+                                    .padding(.trailing, 4)
+                                    .padding(.leading, 4)
+                                    .padding(.bottom, 8)
                                     .foregroundStyle(
                                         LinearGradient(gradient: Gradient(colors: [.gradientBlue, .gradientPurple]), startPoint: .top, endPoint: .bottom)
                                     )

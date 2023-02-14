@@ -52,6 +52,7 @@ struct AccTimeCardView: View {
             }
             .padding()
         }
+        .padding()
         .frame(maxHeight: isFold ? 80 : 243)
         .frame(width: 355)
     }

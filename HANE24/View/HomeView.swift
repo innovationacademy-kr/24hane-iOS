@@ -20,45 +20,49 @@ var items: [chartItem] = [
 ]
 
 struct HomeView: View {
+    init() {
+              UIPageControl.appearance().currentPageIndicatorTintColor = .systemPurple
+              UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+    }
     var body: some View {
         NavigationView{
             ScrollView{
                 ZStack{
                     Color.defaultBG
-                    VStack(alignment: .center){
-                        HStack(alignment: .bottom){
+                    VStack(alignment: .center, spacing: 16){
+                        HStack(alignment: .center){
                             Image(systemName: "person")
                                 .resizable()
-                                .frame(width: 20, height: 20)
+                                .frame(width: 32, height: 32)
                                 .padding(.trailing, 3)
                             Text("hejang")
-                                .font(.system(size: 22, weight: .semibold))
+                                .font(.system(size: 20, weight: .semibold, design: .rounded))
                             Text("님")
-                                .font(.system(size: 18, weight: .light))
+                                .font(.system(size: 20, weight: .regular, design: .rounded))
                             Spacer()
                             NavigationLink(destination: notificationView()) {
                                 Image(systemName: "bell")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
                                     .foregroundColor(.iconColor)
                             }
-                            .frame(width: 20, height: 20)
+                            .frame(width: 24, height: 24)
                         }
-                        .padding()
-                        //                Spacer(minLength: 150)
+                        .frame(height: 94)
+                        .padding(.leading, 30)
+                        .padding(.trailing, 30)
                         
                         AccTimeCardView(text: "이용 시간", time: 77777)
                         AccTimeCardView(text: "이용 시간", time: 77777, color: Color(hex: "#735BF2"))
-                            .padding()
                         TabView{
                             ChartView(item: items[0])
                             ChartView(item: items[1])
                         }
-                        .frame(height: 310)
                         .tabViewStyle(.page)
-                        .indexViewStyle(.page(backgroundDisplayMode: .always))
-                        .padding(.leading, 20)
-                        .padding(.trailing, 20)
+                        .frame(width: 330, height: 289)
                         PopulationView()
-                            .padding()
+//                            .padding(.leading, 30)
+//                            .padding(.trailing, 30)
                     }
                 }
             }

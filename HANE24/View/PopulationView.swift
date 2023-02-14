@@ -11,47 +11,44 @@ struct PopulationView: View {
     var body: some View {
         ZStack{
             Color.defaultBG
-            VStack(alignment: .center){
+            VStack(alignment: .center, spacing: 8){
                 HStack{
-                    Text("실시간 현황")
-                        .fontWeight(.semibold)
-                        .padding(.leading, 20)
+                    Text("  실시간 현황")
+                        .font(.system(size: 18, weight: .semibold))
             
                     Spacer()
                 }
-                HStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 15)
+                HStack(spacing: 20){
+                    ZStack(alignment: .center){
+                        RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(.white)
-                            .frame(height: 80)
+                            .frame(width: 155, height: 80)
                         HStack{
                             Text("개포")
-                                .fontWeight(.semibold)
-                            Spacer()
+                                .font(.system(size: 14, weight: .semibold))
+                                .padding(.trailing, 20)
                             Text("\(420)명")
-                                .fontWeight(.semibold)
+                                .font(.system(size: 14, weight: .semibold))
+                                .padding(.leading, 20)
                         }
-                        .padding()
                     }
-                    .padding(.leading, 15)
-                    .padding(.trailing, 10)
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
                             .foregroundColor(.white)
-                            .frame(height: 80)
+                            .frame(width: 155, height: 80)
                         HStack{
                             Text("서초")
-                                .fontWeight(.semibold)
-                            Spacer()
+                                .font(.system(size: 14, weight: .semibold))
+                                .padding(.trailing, 20)
                             Text("\(240)명")
-                                .fontWeight(.semibold)
+                                .font(.system(size: 14, weight: .semibold))
+                                .padding(.leading, 20)
                         }
-                        .padding()
                     }
-                    .padding(.leading, 10)
-                    .padding(.trailing, 15)
                 }
             }
+            .padding(.leading, 30)
+            .padding(.trailing, 30)
         }
     }
 }

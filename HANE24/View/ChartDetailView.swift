@@ -19,30 +19,32 @@ struct ChartDetailView: View {
                 HStack{
                     Text(period)
                         .foregroundColor(.white)
-                        .fontWeight(.semibold)
+                        .font(.system(size: 12, weight: .semibold))
                     Spacer()
                     Text("총 \(time, specifier: "%.0f")시간")
                         .foregroundColor(.white)
-                        .fontWeight(.semibold)
+                        .font(.system(size: 12, weight: .semibold))
+
                 }
-                .padding(1)
+                .padding(.bottom, 2)
                 HStack{
                     Spacer()
                     Text("일 평균")
                         .foregroundColor(.white)
-                        .fontWeight(.semibold)
+                        .font(.system(size: 12, weight: .semibold))
                     if id == "주" {
                         Text("\(time / 7, specifier: "%.1f")시간")
                             .foregroundColor(.white)
-                            .fontWeight(.semibold)
+                            .font(.system(size: 12, weight: .semibold))
                     } else {
                         Text("\(time / 7, specifier: "%.1f")시간")
                         .foregroundColor(.white)
-                        .fontWeight(.semibold)
+                        .font(.system(size: 12, weight: .semibold))
                     }
                 }
             }
-            .padding()
+            .padding(.leading)
+            .padding(.trailing)
         }
     }
 }
