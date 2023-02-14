@@ -25,10 +25,10 @@ struct PopulationView: View {
                             .frame(width: 155, height: 80)
                         HStack{
                             Text("개포")
-                                .font(.system(size: 14, weight: .semibold))
+                                .font(.system(size: 16, weight: .semibold))
                                 .padding(.trailing, 20)
                             Text("\(420)명")
-                                .font(.system(size: 14, weight: .semibold))
+                                .font(.system(size: 16, weight: .semibold))
                                 .padding(.leading, 20)
                         }
                     }
@@ -38,17 +38,15 @@ struct PopulationView: View {
                             .frame(width: 155, height: 80)
                         HStack{
                             Text("서초")
-                                .font(.system(size: 14, weight: .semibold))
+                                .font(.system(size: 16, weight: .semibold))
                                 .padding(.trailing, 20)
                             Text("\(240)명")
-                                .font(.system(size: 14, weight: .semibold))
+                                .font(.system(size: 16, weight: .semibold))
                                 .padding(.leading, 20)
                         }
                     }
                 }
             }
-            .padding(.leading, 30)
-            .padding(.trailing, 30)
         }
     }
 }

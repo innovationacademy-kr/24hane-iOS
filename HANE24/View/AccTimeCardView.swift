@@ -26,6 +26,7 @@ struct AccTimeCardView: View {
             VStack(spacing: 18) {
                 HStack {
                     Text(text)
+                        .font(.system(size: 16, weight: .bold))
                     Spacer()
                     Text("\(accTime / 3600)시간 \(accTime % 3600 / 60)분")
                     Image(systemName: "chevron.right")
@@ -62,7 +63,7 @@ struct AccTimeCardView: View {
             .padding()
         }
         .frame(height: isFold ? 80 : 260, alignment: .top)
-        .frame(width: 330)
+        .padding(.horizontal, 30)
     }
     
 //    let progress: Double = Double(accTime) / Double(targetTime)
