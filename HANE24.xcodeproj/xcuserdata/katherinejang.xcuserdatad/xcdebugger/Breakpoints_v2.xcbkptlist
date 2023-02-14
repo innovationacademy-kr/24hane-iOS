@@ -52,5 +52,53 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61D609D2-71B2-44F5-926F-124E002284B1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HANE24/HANE24App.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "61D609D2-71B2-44F5-926F-124E002284B1 - 859475cc5fbfbcb0"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HANE24.HANE24App.body.getter : some"
+                  moduleName = "HANE24"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinejang/P/ios/HANE24/HANE24/HANE24App.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "61D609D2-71B2-44F5-926F-124E002284B1 - bc6f32f068a45383"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; HANE24.MainView in HANE24.HANE24App.body.getter : some"
+                  moduleName = "HANE24"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinejang/P/ios/HANE24/HANE24/HANE24App.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

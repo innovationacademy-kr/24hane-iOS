@@ -55,7 +55,7 @@ struct ChartView: View {
                                 if selectedChart == index {
                                     Rectangle()
                                         .frame(width: 3, height: 125)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.chartDetailBG)
                                         .padding(.bottom, 10)
                                         .transition(AnyTransition.opacity.animation(.easeIn(duration: 0.6)))
                                 }
@@ -72,7 +72,6 @@ struct ChartView: View {
                         }
                     }
                 }
-                .padding()
             }
         }
         
