@@ -18,6 +18,8 @@
 		0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550B299A3DF6001E5EED /* ChartDetailView.swift */; };
 		0E16550E299A5887001E5EED /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550D299A5887001E5EED /* MainView.swift */; };
 		0E165510299A5A82001E5EED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550F299A5A82001E5EED /* HomeView.swift */; };
+		0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */; };
+		0E17EFAC299B6CCD0089BCD8 /* notificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */; };
 		9A1A4BEE299ADE650076D650 /* AccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		0E16550B299A3DF6001E5EED /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 		0E16550D299A5887001E5EED /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0E16550F299A5A82001E5EED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationView.swift; sourceTree = "<group>"; };
+		0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationView.swift; sourceTree = "<group>"; };
 		9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,9 +95,11 @@
 			isa = PBXGroup;
 			children = (
 				0E165507299A3C20001E5EED /* ChartView.swift */,
+				0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */,
 				0E16550D299A5887001E5EED /* MainView.swift */,
 				9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */,
 				0E16550F299A5A82001E5EED /* HomeView.swift */,
+				0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */,
 				0E16550B299A3DF6001E5EED /* ChartDetailView.swift */,
 			);
 			path = View;
@@ -169,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */,
 				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
 				0E1654FC299A285E001E5EED /* Persistence.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
@@ -179,6 +186,7 @@
 				0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */,
 				0E165508299A3C20001E5EED /* ChartView.swift in Sources */,
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
+				0E17EFAC299B6CCD0089BCD8 /* notificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

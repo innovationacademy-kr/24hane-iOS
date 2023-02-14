@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ChartDetailView: View {
+    var id: String
     var time: Double
+    var period: String
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 6)
                 .foregroundColor(.chartDetailBG)
             VStack{
                 HStack{
-                    Text("2.12(월)-2.18(일)")
+                    Text(period)
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                     Spacer()
@@ -26,9 +28,18 @@ struct ChartDetailView: View {
                 .padding(1)
                 HStack{
                     Spacer()
-                    Text("일 평균 \(time / 7, specifier: "%.1f")시간")
+                    Text("일 평균")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
+                    if id == "주" {
+                        Text("\(time / 7, specifier: "%.1f")시간")
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+                    } else {
+                        Text("\(time / 7, specifier: "%.1f")시간")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                    }
                 }
             }
             .padding()
@@ -38,6 +49,6 @@ struct ChartDetailView: View {
 
 struct ChartDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartDetailView(time: 142)
+        ChartDetailView(id: "월", time: 142, period: "1.2(월)-1.8(일)")
     }
 }

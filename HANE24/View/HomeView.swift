@@ -7,37 +7,63 @@
 
 import SwiftUI
 
+struct chartItem: Identifiable {
+    var id: String
+    var title: String
+    var period: Array<String>
+    var data: Array<Double>
+}
+
+var items: [chartItem] = [
+    chartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)","2.6(월)-2.12(일)"], data:  [42, 20, 41, 33, 59, 50]),
+    chartItem(id: "월", title: "최근 월간 그래프", period: ["2023.2","2023.1","2022.12","2022.11","2022.10", "2022.10"], data:  [132, 100, 121, 123, 139, 120])
+]
+
 struct HomeView: View {
     var body: some View {
-        ZStack{
-            Color.defaultBG
-            VStack{
-                HStack{
-                    Image(systemName: "person")
-                    Text("hejang")
-                        .fontWeight(.semibold)
-                    Text("님")
-                        .fontWeight(.light)
-                    Spacer()
-                    Image(systemName: "bell")
+        NavigationView{
+            ScrollView{
+                ZStack{
+                    Color.defaultBG
+                    VStack(alignment: .center){
+                        HStack(alignment: .bottom){
+                            Image(systemName: "person")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .padding(.trailing, 3)
+                            Text("hejang")
+                                .font(.system(size: 22, weight: .semibold))
+                            Text("님")
+                                .font(.system(size: 18, weight: .light))
+                            Spacer()
+                            NavigationLink(destination: notificationView()) {
+                                Image(systemName: "bell")
+                                    .foregroundColor(.iconColor)
+                            }
+                            .frame(width: 20, height: 20)
+                        }
+                        .padding()
+                        //                Spacer(minLength: 150)
+                        
+                        AccTimeCardView(text: "이용 시간", time: 77777)
+                        AccTimeCardView(text: "이용 시간", time: 77777, color: Color(hex: "#735BF2"))
+                            .padding()
+                        TabView{
+                            ChartView(item: items[0])
+                            ChartView(item: items[1])
+                        }
+                        .frame(height: 310)
+                        .tabViewStyle(.page)
+                        .indexViewStyle(.page(backgroundDisplayMode: .always))
+                        .padding(.leading, 20)
+                        .padding(.trailing, 20)
+                        PopulationView()
+                            .padding()
+                    }
                 }
-                .padding()
-//                Spacer(minLength: 150)
-                
-                AccTimeCardView(text: "이용 시간", time: 77777)
-                AccTimeCardView(text: "이용 시간", time: 77777, color: Color(hex: "#735BF2"))
-                    .padding()
-                TabView{
-                    ChartView()
-                    ChartView()
-                }
-                .tabViewStyle(.page)
-                .indexViewStyle(.page(backgroundDisplayMode: .always))
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
-//                Spacer(minLength: 180)
             }
         }
+        .navigationTitle("알림")
     }
 }
 
