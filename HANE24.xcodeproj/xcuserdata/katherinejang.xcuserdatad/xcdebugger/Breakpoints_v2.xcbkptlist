@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1DE9EED5-68E8-4F91-84A5-579D64DBCA20"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HANE24/ChartDetailView.swift"
@@ -69,7 +69,7 @@
             <Locations>
                <Location
                   uuid = "61D609D2-71B2-44F5-926F-124E002284B1 - 859475cc5fbfbcb0"
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HANE24.HANE24App.body.getter : some"
@@ -80,7 +80,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15"
-                  offsetFromSymbolStart = "272">
+                  offsetFromSymbolStart = "192">
                </Location>
                <Location
                   uuid = "61D609D2-71B2-44F5-926F-124E002284B1 - bc6f32f068a45383"
