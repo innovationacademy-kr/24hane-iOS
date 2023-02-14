@@ -7,37 +7,67 @@
 
 import SwiftUI
 
+struct chartItem: Identifiable {
+    var id: String
+    var title: String
+    var period: Array<String>
+    var data: Array<Double>
+}
+
+var items: [chartItem] = [
+    chartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)","2.6(월)-2.12(일)"], data:  [42, 20, 41, 33, 59, 50]),
+    chartItem(id: "월", title: "최근 월간 그래프", period: ["2023.2","2023.1","2022.12","2022.11","2022.10", "2022.10"], data:  [132, 100, 121, 123, 139, 120])
+]
+
 struct HomeView: View {
+    init() {
+              UIPageControl.appearance().currentPageIndicatorTintColor = .systemPurple
+              UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+    }
     var body: some View {
-        ZStack{
-            Color.defaultBG
-            VStack{
-                HStack{
-                    Image(systemName: "person")
-                    Text("hejang")
-                        .fontWeight(.semibold)
-                    Text("님")
-                        .fontWeight(.light)
-                    Spacer()
-                    Image(systemName: "bell")
+        NavigationView{
+            ScrollView{
+                ZStack{
+                    Color.defaultBG
+                    VStack(alignment: .center, spacing: 16){
+                        HStack(alignment: .center){
+                            Image(systemName: "person")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(.trailing, 3)
+                            Text("hejang")
+                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                            Text("님")
+                                .font(.system(size: 20, weight: .regular, design: .rounded))
+                            Spacer()
+                            NavigationLink(destination: notificationView()) {
+                                Image(systemName: "bell")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(.iconColor)
+                            }
+                            .frame(width: 24, height: 24)
+                        }
+                        .frame(height: 94)
+                        .padding(.leading, 30)
+                        .padding(.trailing, 30)
+                        
+                        AccTimeCardView(text: "이용 시간", time: 77777)
+                        AccTimeCardView(text: "이용 시간", time: 77777, color: Color(hex: "#735BF2"))
+                        TabView{
+                            ChartView(item: items[0])
+                            ChartView(item: items[1])
+                        }
+                        .tabViewStyle(.page)
+                        .frame(width: 330, height: 289)
+                        PopulationView()
+//                            .padding(.leading, 30)
+//                            .padding(.trailing, 30)
+                    }
                 }
-                .padding()
-//                Spacer(minLength: 150)
-                
-                AccTimeCardView(text: "이용 시간", time: 77777)
-                AccTimeCardView(text: "이용 시간", time: 77777, color: Color(hex: "#735BF2"))
-                    .padding()
-                TabView{
-                    ChartView()
-                    ChartView()
-                }
-                .tabViewStyle(.page)
-                .indexViewStyle(.page(backgroundDisplayMode: .always))
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
-//                Spacer(minLength: 180)
             }
         }
+        .navigationTitle("알림")
     }
 }
 
