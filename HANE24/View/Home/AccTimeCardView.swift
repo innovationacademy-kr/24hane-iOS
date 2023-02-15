@@ -23,7 +23,7 @@ struct AccTimeCardView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(isFold ? viewColor : .white)
             
-            VStack(spacing: 18) {
+            VStack(spacing: 5) {
                 HStack {
                     Text(text)
                         .font(.system(size: 16, weight: .bold))
@@ -63,7 +63,7 @@ struct AccTimeCardView: View {
             .padding()
         }
         .frame(height: isFold ? 80 : 260, alignment: .top)
-        .padding(.horizontal, 30)
+      //  .padding(.horizontal, 30)
     }
     
 //    let progress: Double = Double(accTime) / Double(targetTime)
@@ -74,10 +74,10 @@ struct AccTimeCardView: View {
                 .font(.system(size: 30, weight: .medium, design: .default))
                 .foregroundColor(.black)
             Circle()
-                .stroke(Color(UIColor.systemGray3).opacity(0.5), lineWidth: 16)
+                .stroke(Color(UIColor.systemGray3).opacity(0.5), lineWidth: 8)
             Circle()
-                .trim(from:0, to: (Double(accTime) / Double(targetTime)))
-                .stroke(LinearGradient(gradient: Gradient(colors: [.gradientBlue, .gradientPurple]), startPoint: .top, endPoint: .bottom), style: StrokeStyle(lineWidth: 16, lineCap: .round))
+                .trim(from:0, to: (Double(accTime) / Double(accTime)))
+                .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 .rotationEffect(.degrees(270))
         }
     }
