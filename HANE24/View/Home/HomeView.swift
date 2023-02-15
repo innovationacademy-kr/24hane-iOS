@@ -54,7 +54,9 @@ struct HomeView: View {
                         .padding(.horizontal, 30)
 
                         AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
+                            .padding(.horizontal, 30)
                         AccTimeCardView(text: "월 누적 시간", accTime: 7777, isColored: true, viewColor: Color(hex: "#735BF2"))
+                            .padding(.horizontal, 30)
 
                         TabView{
                             ChartView(item: items[0])
