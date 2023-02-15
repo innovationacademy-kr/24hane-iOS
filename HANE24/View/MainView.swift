@@ -20,7 +20,7 @@ struct MainView: View {
                     Image(systemName: "calendar")
                         .foregroundColor(.iconColor)
                 }
-            Text("More View")
+            MoreView()
                 .tabItem{
                     Image(systemName: "line.3.horizontal")
                         .foregroundColor(.iconColor)
