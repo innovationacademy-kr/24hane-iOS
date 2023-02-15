@@ -35,10 +35,16 @@ struct CalendarView: View {
             .padding()
             
             // LazyGrid
+            let week = ["일", "월", "화", "수", "목", "금", "토"]
             let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
             
             VStack {
                 LazyVGrid(columns: cols, spacing: 12) {
+                    ForEach(week, id: \.self) { dayOfWeek in
+                        Text("\(dayOfWeek)")
+                            .foregroundColor(Color(hex: "#979797"))
+                            .font(.system(size: 13, weight: .light))
+                    }
                     ForEach((daysOfMonth(selectedDate)), id: \.self) { dayOfMonth in
                         if dayOfMonth > 0 {
                             ZStack {
@@ -55,6 +61,19 @@ struct CalendarView: View {
                     }
                 }
             }
+            
+            // AccTimeCardforCalendarView
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color(hex: "#333333"))
+                
+                Text("총 \(81)시간 \(41)분")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+            .frame(height: 45)
+            
+            // LogView
         }
     }
     
@@ -68,7 +87,6 @@ struct CalendarView: View {
         }
         var lastDay: Date {
             let cal = Calendar.current
-            let dateComponents = DateComponents(year: today.yearToInt, month: today.monthToInt)
             let nextMonth = cal.date(byAdding: .month, value: 1, to: firstDay) ?? today
             let endOfMonth = cal.date(byAdding: .day, value: -1, to: nextMonth) ?? today
             return endOfMonth
