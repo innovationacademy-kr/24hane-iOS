@@ -10,11 +10,6 @@ import SwiftUI
 /// selectedDate: Date = 선택 날짜
 struct CalendarView: View {
     @State var selectedDate: Date = Date()
-    var dateFormatter: DateFormatter {
-        let tmp = DateFormatter()
-        tmp.dateFormat = "yyyy.MM.dd"
-        return tmp
-    }
     
     var body: some View {
         VStack {
@@ -44,8 +39,19 @@ struct CalendarView: View {
             
             VStack {
                 LazyVGrid(columns: cols, spacing: 12) {
-                    ForEach((daysOfMonth(selectedDate)), id: \.self) { dayNum in
-                        Text("\(dayNum)")
+                    ForEach((daysOfMonth(selectedDate)), id: \.self) { dayOfMonth in
+                        if dayOfMonth > 0 {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: dayOfMonth == selectedDate.dayToInt ? 20 : 10)
+                                    .foregroundColor(Color(hex: "#B9ADF9"))
+                                    .isHidden(dayOfMonth > Date().dayToInt)
+                                
+                                Text("\(dayOfMonth)")
+                            }
+                            .frame(width: 30, height: 30)
+                        } else {
+                            Text("")
+                        }
                     }
                 }
             }
@@ -63,13 +69,14 @@ struct CalendarView: View {
         var lastDay: Date {
             let cal = Calendar.current
             let dateComponents = DateComponents(year: today.yearToInt, month: today.monthToInt)
-            let nextMonth = cal.date(byAdding: .month, value: 1, to: today) ?? Date()
-            return cal.date(byAdding: .day, value: -1, to: nextMonth) ?? Date()
+            let nextMonth = cal.date(byAdding: .month, value: 1, to: firstDay) ?? today
+            let endOfMonth = cal.date(byAdding: .day, value: -1, to: nextMonth) ?? today
+            return endOfMonth
         }
-        var days: [Int] = []
+        var days: [Int] = Array()
         
-        for _ in 0..<firstDay.weekdayToInt {
-            days.append(0)
+        for i in 1..<firstDay.weekdayToInt {
+            days.append(-i)
         }
         for i in 1...lastDay.dayToInt {
             days.append(i)
