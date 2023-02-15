@@ -15,7 +15,7 @@ struct MainView: View {
                     Image(systemName: "house.fill")
                         .foregroundColor(.iconColor)
                 }
-            Text("Calendar View")
+            CalendarView()
                 .tabItem{
                     Image(systemName: "calendar")
                         .foregroundColor(.iconColor)
