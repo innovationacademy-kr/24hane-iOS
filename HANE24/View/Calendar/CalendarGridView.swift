@@ -1,14 +1,13 @@
 //
-//  CalendarView.swift
+//  CalendarGridView.swift
 //  HANE24
 //
-//  Created by Yunki on 2023/02/15.
+//  Created by Yunki on 2023/02/16.
 //
 
 import SwiftUI
 
-/// selectedDate: Date = 선택 날짜
-struct CalendarView: View {
+struct CalendarGridView: View {
     @State var selectedDate: Date = Date()
     
     var body: some View {
@@ -20,10 +19,14 @@ struct CalendarView: View {
                 } label: {
                     Image(systemName: "chevron.left")
                 }
+                
                 Spacer()
+                
                 Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
                     .foregroundColor(.black)
+                
                 Spacer()
+                
                 Button {
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
                 } label: {
@@ -40,11 +43,14 @@ struct CalendarView: View {
             
             VStack {
                 LazyVGrid(columns: cols, spacing: 12) {
+                    // day of week
                     ForEach(week, id: \.self) { dayOfWeek in
                         Text("\(dayOfWeek)")
                             .foregroundColor(Color(hex: "#979797"))
                             .font(.system(size: 13, weight: .light))
                     }
+                    
+                    // days with color
                     ForEach((daysOfMonth(selectedDate)), id: \.self) { dayOfMonth in
                         if dayOfMonth > 0 {
                             ZStack {
@@ -61,19 +67,6 @@ struct CalendarView: View {
                     }
                 }
             }
-            
-            // AccTimeCardforCalendarView
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color(hex: "#333333"))
-                
-                Text("총 \(81)시간 \(41)분")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.white)
-            }
-            .frame(height: 45)
-            
-            // LogView
         }
     }
     
@@ -103,16 +96,8 @@ struct CalendarView: View {
     }
 }
 
-
-func theDate(_ str: String) -> Date {
-    let tmp = DateFormatter()
-    tmp.dateFormat = "yyyy.MM.dd"
-    return tmp.date(from: str)!
-}
-
-struct CalendarView_Previews: PreviewProvider {
-    
+struct CalendarGridView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView(selectedDate: theDate("2023.03.31"))
+        CalendarGridView()
     }
 }
