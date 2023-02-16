@@ -19,55 +19,100 @@ var items: [chartItem] = [
     chartItem(id: "월", title: "최근 월간 그래프", period: ["2023.2","2023.1","2022.12","2022.11","2022.10", "2022.10"], data:  [132, 100, 121, 123, 139, 120])
 ]
 
+struct PullToRefresh: View {
+    var coordinateSpaceName: String
+    var onRefresh: ()->Void
+    
+    @State var needRefresh: Bool = false
+    
+    var body: some View {
+        GeometryReader { geo in
+            if (geo.frame(in: .named(coordinateSpaceName))).midY > 50 {
+                Spacer()
+                    .onAppear{
+                        needRefresh = true
+                    }
+            } else if (geo.frame(in: .named(coordinateSpaceName)).midY < 10){
+                Spacer()
+                    .onAppear{
+                        if needRefresh {
+                            needRefresh = false
+                            onRefresh()
+                        }
+                    }
+            }
+            HStack{
+                Spacer()
+                if needRefresh {
+                    ProgressView()
+                }
+                Spacer()
+            }
+        } .padding(.top, -50)
+    }
+}
+
 
 struct HomeView: View {
     init() {
           UIPageControl.appearance().currentPageIndicatorTintColor = .systemPurple
           UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
     }
+    @State var test: Bool = true
+    
     var body: some View {
         NavigationView{
            ZStack{
+//               Image("background")
+//                   .resizable()
+//                   .edgesIgnoringSafeArea(.top)
+
                Color.defaultBG
-               ScrollView{
-                    VStack(alignment: .center, spacing: 16){
-                        HStack(alignment: .center){
-                            Image(systemName: "person")
+                   .ignoresSafeArea()
+               VStack(alignment: .center, spacing: 20){
+                    HStack(alignment: .center){
+                        Image(systemName: "person")
+                            .resizable()
+                            .frame(width: 28, height: 28)
+                            .padding(.trailing, 3)
+                        Text("hejang")
+                            .font(.system(size: 20, weight: .semibold, design: .rounded))
+                        Text("님")
+                            .font(.system(size: 20, weight: .regular, design: .rounded))
+                        Spacer()
+                        NavigationLink(destination: notificationView()) {
+                            Image(systemName: "bell")
                                 .resizable()
-                                .frame(width: 28, height: 28)
-                                .padding(.trailing, 3)
-                            Text("hejang")
-                                .font(.system(size: 20, weight: .semibold, design: .rounded))
-                            Text("님")
-                                .font(.system(size: 20, weight: .regular, design: .rounded))
-                            Spacer()
-                            NavigationLink(destination: notificationView()) {
-                                Image(systemName: "bell")
-                                    .resizable()
-                                    .frame(width: 24, height: 24)
-                                    .foregroundColor(.iconColor)
-                            }
-                            .navigationBarHidden(true)
-                            .frame(width: 24, height: 24)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(test ? .iconColor : .red)
                         }
-                        .frame(height: 94)
-                        .padding(.horizontal, 30)
-
-                        AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
-                            .padding(.horizontal, 30)
-                        AccTimeCardView(text: "월 누적 시간", accTime: 7777, isColored: true, viewColor: Color(hex: "#735BF2"))
-                            .padding(.horizontal, 30)
-
-                        TabView{
-                            ChartView(item: items[0])
-                            ChartView(item: items[1])
-                        }
-                        .tabViewStyle(.page)
-                        .padding(.horizontal, 30)
-                        .frame(height: 289)
-                        PopulationView()
-                            .padding(.horizontal, 30)
+                        .navigationBarHidden(true)
+                        .frame(width: 24, height: 24)
                     }
+                    .frame(height: 50)
+                    .padding(.horizontal, 30)
+                    ScrollView{
+                        PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+                            test.toggle()
+                            print("hi")
+                        }
+                        VStack(spacing: 22.5){
+                            AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
+                                .padding(.horizontal, 30)
+                            AccTimeCardView(text: "월 누적 시간", accTime: 7777, isColored: true, viewColor: Color(hex: "#735BF2"))
+                                .padding(.horizontal, 30)
+                            
+                            TabView{
+                                ChartView(item: items[0])
+                                ChartView(item: items[1])
+                            }
+                            .tabViewStyle(.page)
+                            .padding(.horizontal, 30)
+                            .frame(height: 289)
+                            PopulationView()
+                                .padding(.horizontal, 30)
+                        }
+                    } .coordinateSpace(name: "pullToRefresh")
                 }
             }
         }

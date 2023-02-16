@@ -20,10 +20,10 @@
 		0E165510299A5A82001E5EED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550F299A5A82001E5EED /* HomeView.swift */; };
 		0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */; };
 		0E17EFAC299B6CCD0089BCD8 /* notificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */; };
+		0EDB17AB299E0F2200782C21 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDB17AA299E0F2200782C21 /* CalendarView.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
 		9A1A4BEE299ADE650076D650 /* AccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */; };
-		9AEC1ACF299C9E9C00FB904E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC1ACE299C9E9C00FB904E /* CalendarView.swift */; };
 		9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
 		9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */; };
 		9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */; };
@@ -46,10 +46,10 @@
 		0E16550F299A5A82001E5EED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationView.swift; sourceTree = "<group>"; };
 		0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationView.swift; sourceTree = "<group>"; };
+		0EDB17AA299E0F2200782C21 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardView.swift; sourceTree = "<group>"; };
-		9AEC1ACE299C9E9C00FB904E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };

@@ -13,7 +13,7 @@ struct ChartDetailView: View {
     var period: String
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 6)
+            RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(.chartDetailBG)
             VStack{
                 HStack{

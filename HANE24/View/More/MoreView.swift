@@ -32,7 +32,8 @@ struct MoreView: View {
                     .ignoresSafeArea()
                 VStack(alignment: .leading, spacing: 36){
                     Text("더보기")
-                        .font(.system(size: 29, weight: .bold))
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(.top)
                     NavigationLink(destination: ReissuanceView()){
                         Image(systemName: "creditcard")
                             .resizable()

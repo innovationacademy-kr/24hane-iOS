@@ -40,7 +40,8 @@ struct ReissuanceView: View {
                         .padding(.leading, 70)
                         .padding(.trailing, 120)
                 }
-                VStack(spacing: 10){
+                .padding(.bottom, 15)
+                VStack(spacing: 15){
                     HStack{
                         Text("재발급 신청 방법")
                             .font(.system(size: 20, weight: .bold))
@@ -56,7 +57,7 @@ struct ReissuanceView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 20)
                     HStack{
                         Text("재발급 신청 현황")
                             .font(.system(size: 20, weight: .bold))
@@ -90,15 +91,13 @@ struct ReissuanceView: View {
             VStack(alignment: .leading){
                 HStack(spacing: 15){
                     ZStack{
+                        Circle()
+                        //    .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round))
+                            .foregroundColor(.gradientPurple)
+                            .frame(width: 50, height: 50)
                         Text("신청")
                             .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(.iconColor)
-                        Circle()
-                            .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                            .foregroundColor(.gradientPurple)
-//                            .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                  //          .rotationEffect(.degrees(270))
-                            .frame(width: 50, height: 50)
+                            .foregroundColor(Color(hex: "EAEAEA"))
                     }
                     VStack(alignment: .leading, spacing: 5){
                         Text("신청 후 업체에 입금해주세요.")
@@ -119,8 +118,6 @@ struct ReissuanceView: View {
                         Circle()
                             .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round))
                             .foregroundColor(Color(hex: "EAEAEA"))
-//                            .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                            .rotationEffect(.degrees(270))
                             .frame(width: 50, height: 50)
                     }
                     VStack(alignment: .leading, spacing: 5){
@@ -143,8 +140,6 @@ struct ReissuanceView: View {
                         Circle()
                             .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round))
                             .foregroundColor(Color(hex: "EAEAEA"))
-//                            .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                            .rotationEffect(.degrees(270))
                             .frame(width: 50, height: 50)
                     }
                     VStack(alignment: .leading, spacing: 5){
