@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TagLogView: View {
     @State var selectedDate: Date = Date()
-    @State var logList: [Log?] = []
+    @State var logList: [tagLog?] = []
     
     var body: some View {
         VStack(spacing: 4) {
@@ -64,7 +64,7 @@ struct TagLogView: View {
     }
     
     @ViewBuilder
-    func tagLog(_ log: Log) -> some View {
+    func tagLog(_ log: tagLog) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(Color(hex: "#EAEAEA"))
@@ -93,6 +93,6 @@ struct TagLogView: View {
 
 struct TagLogView_Previews: PreviewProvider {
     static var previews: some View {
-        TagLogView(logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
+        TagLogView(logList: [tagLog(inTime: "123", outTime: "456", logTime: "789"), tagLog(inTime: "123", outTime: "456", logTime: "789"), tagLog(inTime: "123", outTime: nil, logTime: "누락"), tagLog(inTime: "123", outTime: "456", logTime: "789"), tagLog(inTime: "123", outTime: nil, logTime: nil)])
     }
 }

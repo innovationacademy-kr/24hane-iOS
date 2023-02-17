@@ -18,7 +18,7 @@ struct CalendarView: View {
             VStack(spacing: 16) {
                 CalendarGridView(selectedDate: selectedDate)
                 AccTimeCardForCalendarView()
-                TagLogView(logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
+                TagLogView(logList: [tagLog(inTime: "123", outTime: "456", logTime: "789"), tagLog(inTime: "123", outTime: "456", logTime: "789"), tagLog(inTime: "123", outTime: nil, logTime: "누락"), tagLog(inTime: "123", outTime: "456", logTime: "789"), tagLog(inTime: "123", outTime: nil, logTime: nil)])
             }
             .padding(.horizontal, 30)
         }
