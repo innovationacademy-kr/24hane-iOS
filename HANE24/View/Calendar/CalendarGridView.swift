@@ -51,16 +51,51 @@ struct CalendarGridView: View {
                     }
                     
                     // days with color
+                    // is future ? disabled
+                    // is selected ? Circle with white font
+                    // is today ? border only
+                    // default
                     ForEach((daysOfMonth(selectedDate)), id: \.self) { dayOfMonth in
                         if dayOfMonth > 0 {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: dayOfMonth == selectedDate.dayToInt ? 20 : 10)
-                                    .foregroundColor(Color(hex: "#B9ADF9"))
-                                    .isHidden(dayOfMonth > Date().dayToInt)
-                                
-                                Text("\(dayOfMonth)")
+                            Button {
+                                print("\(selectedDate.yearToInt).\(selectedDate.monthToInt).\(dayOfMonth)")
+                                print(Date().yyyyMMdd)
+                                let dateFormatter = DateFormatter()
+                               dateFormatter.dateFormat = "yyyy.M.d"
+                               if let date = dateFormatter.date(from: "\(selectedDate.yearToInt).\(selectedDate.monthToInt).\(dayOfMonth)") {
+                                   selectedDate = date
+                               } else {
+                                   selectedDate = Date()
+                               }
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: dayOfMonth == selectedDate.dayToInt ? 20 : 10)
+                                        .foregroundColor(dayOfMonth == selectedDate.dayToInt
+                                                         ? Color(hex: "#735BF2")
+                                                         : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
+                                                         ? .defaultBG
+                                                         : Color(hex: "#B9ADF9")) //TODO -> colorLevelTable
+                                        .overlay {
+                                            if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd && dayOfMonth != selectedDate.dayToInt {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color(hex: "#735BF2"), lineWidth: 1)
+                                            }
+                                        }
+                                        .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
+                                    
+                                    Text("\(dayOfMonth)")
+                                        .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd
+                                                         ? Color(hex: "#979797")
+                                                         : dayOfMonth == selectedDate.dayToInt
+                                                         ? .white
+                                                         : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
+                                                         ? Color(hex: "#735BF2")
+                                                         : Color(hex: "#333333"))
+                                        .font(.system(size: 14, weight: .regular))
+                                }
                             }
                             .frame(width: 30, height: 30)
+                            .disabled("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
                         } else {
                             Text("")
                         }

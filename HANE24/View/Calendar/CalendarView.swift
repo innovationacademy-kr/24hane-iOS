@@ -12,12 +12,16 @@ struct CalendarView: View {
     @State var selectedDate: Date = Date()
     
     var body: some View {
-        VStack(spacing: 16) {
-            CalendarGridView(selectedDate: selectedDate)
-            AccTimeCardForCalendarView()
-            TagLogView(logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
+        ZStack {
+            Color.defaultBG
+                .ignoresSafeArea()
+            VStack(spacing: 16) {
+                CalendarGridView(selectedDate: selectedDate)
+                AccTimeCardForCalendarView()
+                TagLogView(logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
+            }
+            .padding(.horizontal, 30)
         }
-        .padding(.horizontal, 30)
     }
     
 }
