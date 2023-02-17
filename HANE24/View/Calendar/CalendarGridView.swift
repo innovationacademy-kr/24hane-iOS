@@ -73,7 +73,7 @@ struct CalendarGridView: View {
                                         .foregroundColor(dayOfMonth == selectedDate.dayToInt
                                                          ? Color(hex: "#735BF2")
                                                          : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
-                                                         ? .defaultBG
+                                                         ? .LightDefaultBG
                                                          : Color(hex: "#B9ADF9")) //TODO -> colorLevelTable
                                         .overlay {
                                             if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd && dayOfMonth != selectedDate.dayToInt {

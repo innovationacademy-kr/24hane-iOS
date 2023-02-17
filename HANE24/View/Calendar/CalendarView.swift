@@ -13,7 +13,7 @@ struct CalendarView: View {
     
     var body: some View {
         ZStack {
-            Color.defaultBG
+            Color.LightDefaultBG
                 .ignoresSafeArea()
             VStack(spacing: 16) {
                 CalendarGridView(selectedDate: selectedDate)

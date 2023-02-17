@@ -26,9 +26,18 @@ struct AccTimeCardView: View {
             VStack(spacing: 5) {
                 HStack {
                     Text(text)
-                        .font(.system(size: 16, weight: .bold))
+                    
                     Spacer()
-                    Text("\(accTime / 3600)시간 \(accTime % 3600 / 60)분")
+                    
+                    HStack(alignment: .bottom, spacing: 0) {
+                        Text("\(accTime / 3600)")
+                            .font(.system(size: 20, weight: .semibold))
+                        Text("시간 ")
+                        Text("\(accTime % 3600 / 60)")
+                            .font(.system(size: 20, weight: .semibold))
+                        Text("분")
+                    }
+                    
                     Image(systemName: "chevron.right")
                         .rotationEffect(isFold ? Angle(degrees: 0) : Angle(degrees: 90))
                 }
@@ -36,17 +45,25 @@ struct AccTimeCardView: View {
                 .font(.system(size: 16, weight: .semibold))
                 .padding()
                 .onTapGesture {
-//                    withAnimation {
-                        isFold.toggle()
-//                    }
+                    isFold.toggle()
                 }
                 
                 if !isFold {
                     VStack {
                         HStack {
                             Text("목표 시간")
+                            
                             Spacer()
-                            Text("\(targetTime / 3600)시간")
+                            
+                            HStack(alignment: .bottom, spacing: 0) {
+                                Text("\(accTime / 3600)")
+                                    .font(.system(size: 20, weight: .semibold))
+                                Text("시간 ")
+                                Text("\(accTime % 3600 / 60)")
+                                    .font(.system(size: 20, weight: .semibold))
+                                Text("분")
+                            }
+                            
                             Image(systemName: "chevron.right")
                                 .foregroundColor(isFold ? viewColor : .white)
                         }
