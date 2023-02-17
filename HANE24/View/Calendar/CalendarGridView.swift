@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalendarGridView: View {
     @State var selectedDate: Date = Date()
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
@@ -23,7 +24,6 @@ struct CalendarGridView: View {
                 Spacer()
                 
                 Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-                    .foregroundColor(.black)
                 
                 Spacer()
                 
@@ -33,7 +33,7 @@ struct CalendarGridView: View {
                     Image(systemName: "chevron.right")
                 }
             }
-            .foregroundColor(Color(hex: "#5B5B5B"))
+            .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
             .font(.system(size: 20, weight: .semibold))
             .padding()
             

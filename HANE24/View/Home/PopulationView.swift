@@ -16,7 +16,7 @@ struct PopulationView: View {
                 
                 Spacer()
             }
-            HStack(spacing: 20){
+            HStack(spacing: 25){
                 ZStack(alignment: .center){
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
@@ -25,22 +25,26 @@ struct PopulationView: View {
                         Text("개포")
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.trailing, 20)
+                            .foregroundColor(.black)
                         Text("\(420)명")
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.leading, 20)
+                            .foregroundColor(.black)
                     }
                 }
                 ZStack{
-                    RoundedRectangle(cornerRadius: 15)
+                    RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .frame(width: 155, height: 80)
                     HStack{
                         Text("서초")
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.trailing, 20)
+                            .foregroundColor(.black)
                         Text("\(240)명")
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.leading, 20)
+                            .foregroundColor(.black)
                     }
                 }
             }

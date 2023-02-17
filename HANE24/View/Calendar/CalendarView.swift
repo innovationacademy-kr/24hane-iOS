@@ -10,15 +10,17 @@ import SwiftUI
 /// selectedDate: Date = 선택 날짜
 struct CalendarView: View {
     @State var selectedDate: Date = Date()
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ZStack {
-            Color.LightDefaultBG
-                .ignoresSafeArea()
+            Theme.CalendarBackgoundColor(forScheme: colorScheme)
+                .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
             VStack(spacing: 16) {
                 CalendarGridView(selectedDate: selectedDate)
                 AccTimeCardForCalendarView()
                 TagLogView(logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
+                    .padding(.top, 10)
             }
             .padding(.horizontal, 30)
         }

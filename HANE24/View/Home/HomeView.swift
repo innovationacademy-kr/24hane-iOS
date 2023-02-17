@@ -59,6 +59,8 @@ struct HomeView: View {
           UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
     }
     @State var test: Bool = true
+    @Environment(\.colorScheme) var colorScheme
+    
     
     var body: some View {
         NavigationView{
@@ -66,9 +68,8 @@ struct HomeView: View {
 //               Image("background")
 //                   .resizable()
 //                   .edgesIgnoringSafeArea(.top)
-
-               Color.LightDefaultBG
-                   .ignoresSafeArea()
+               Theme.BackgoundColor(forScheme: colorScheme)
+                   .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
                VStack(alignment: .center, spacing: 20){
                     HStack(alignment: .center){
                         Image("cabi")
