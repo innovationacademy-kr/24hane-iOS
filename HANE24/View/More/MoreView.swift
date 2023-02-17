@@ -24,12 +24,13 @@ var listItems: [moreItem] = [
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationView{
             ZStack(alignment: .topLeading){
-                Color.LightDefaultBG
-                    .ignoresSafeArea()
+                Theme.BackgoundColor(forScheme: colorScheme)
+                    .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
                 VStack(alignment: .leading, spacing: 36){
                     Text("더보기")
                         .font(.system(size: 20, weight: .bold))
@@ -41,7 +42,7 @@ struct MoreView: View {
                                 .frame(width: 24, height: 24)
                                 .foregroundColor(.iconColor)
                             Text("카드 재발급 신청")
-                                .foregroundColor(.textGrayMoreView)
+                                .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
                                 .font(.system(size: 16, weight: .semibold))
                         }
                     }
@@ -59,7 +60,7 @@ struct MoreView: View {
                                 }
                             } label: {
                                 Text(item.title)
-                                    .foregroundColor(.textGrayMoreView)
+                                    .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
                                     .font(.system(size: 16, weight: .semibold))
                             }
                         }
@@ -70,7 +71,7 @@ struct MoreView: View {
                             .frame(width: 24, height: 24)
                             .foregroundColor(.iconColor)
                         Text("로그아웃")
-                            .foregroundColor(.textGrayMoreView)
+                            .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
                             .font(.system(size: 16, weight: .semibold))
                     }
                 }

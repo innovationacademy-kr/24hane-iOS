@@ -84,7 +84,6 @@ struct AccTimeCardView: View {
             .padding()
         }
         .frame(height: isFold ? 80 : 260, alignment: .top)
-      //  .padding(.horizontal, 30)
     }
     
 //    let progress: Double = Double(accTime) / Double(targetTime)
@@ -95,7 +94,7 @@ struct AccTimeCardView: View {
                 .font(.system(size: 30, weight: .medium, design: .default))
                 .foregroundColor(.black)
             Circle()
-                .stroke(Color(UIColor.systemGray3).opacity(0.5), lineWidth: 8)
+                .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.1), .gradientWhtie.opacity(0.1), .gradientPurple.opacity(0.1), .gradientPurple.opacity(0.1),.gradientWhtie.opacity(0.1), .gradientBlue.opacity(0.1)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
             Circle()
                 .trim(from:0, to: (Double(accTime) / Double(targetTime)))
                 .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))

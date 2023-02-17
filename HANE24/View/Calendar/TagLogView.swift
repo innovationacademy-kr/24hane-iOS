@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct TagLogView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var selectedDate: Date = Date()
     @State var logList: [Log?] = []
     
     var body: some View {
-        VStack(spacing: 4) {
+        VStack(alignment:.center, spacing: 4) {
             HStack{
-                Text("\(selectedDate.monthToInt).\(selectedDate.dayToInt)")
+                Text("\(selectedDate.monthToInt).\(selectedDate.dayToInt) 일요일")
+//                    .frame(width: 59, height: 24)
+                    .padding(.leading, 18)
                 Spacer()
                 Text("\(7)시간 \(48)분")
+//                    .frame(width: 59, height: 24)
+                    .padding(.trailing, 8)
             }
-            .font(.system(size: 15, weight: .medium, design: .default))
+            .font(.system(size: 14, weight: .medium, design: .default))
             .foregroundColor(Color.gray)
+//            .padding(.horizontal, 10)
             
             
             Divider()
@@ -39,8 +45,8 @@ struct TagLogView: View {
                 Text("체류시간")
                     .frame(width: 65, height: 24)
             }
-            .foregroundColor(Color(hex: "#333333"))
-            .font(.system(size: 14, weight: .semibold))
+            .foregroundColor(colorScheme == .dark ? .white : .DarkDefaultBG)
+            .font(.system(size: 14, weight: .bold))
             
             if logList.isEmpty {
                 Text("기록이 없습니다.")
@@ -67,7 +73,7 @@ struct TagLogView: View {
     func tagLog(_ log: Log) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(Color(hex: "#EAEAEA"))
+                .foregroundColor(colorScheme == .dark ? Color(hex: "555555") : Color(hex: "#EAEAEA"))
                 .frame(height: 24)
                 .isHidden((log.logTime ?? "-") != "누락")
             
@@ -85,8 +91,7 @@ struct TagLogView: View {
                 Text(log.logTime ?? "-")
                     .frame(width: 65, height: 24)
             }
-            .foregroundColor(Color(hex: "#333333"))
-            .font(.system(size: 14, weight: .semibold))
+            .font(.system(size: 14, weight: .regular))
         }
     }
 }
