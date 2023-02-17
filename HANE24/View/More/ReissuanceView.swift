@@ -21,7 +21,7 @@ struct ReissuanceView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack(alignment: .topLeading){
-            Color.defaultBG.ignoresSafeArea()
+            Color.LightDefaultBG.ignoresSafeArea()
                 .navigationBarBackButtonHidden(true)
                 .navigationBarHidden(true)
             

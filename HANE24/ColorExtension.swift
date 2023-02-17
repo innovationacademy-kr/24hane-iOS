@@ -13,10 +13,19 @@ extension Color{
     static let chartDetailBG = Color(hex: "333333")
     static let gradientBlue = Color(hex : "8EF2F3")
     static let gradientPurple = Color (hex: "735BF2")
-    static let defaultBG = Color(hex: "F5F5F5")
+    static let LightDefaultBG = Color(hex: "F5F5F5")
     static let iconColor = Color(hex: "5B5B5B")
     static let textGrayMoreView = Color(hex: "707070")
     static let gradientWhtie = Color (hex : "A3D1EC")
+    static let calendarColorLv1 = Color(hex : "F1EFFE")
+    static let calendarColorLv2 = Color(hex : "D5CEFB")
+    static let calendarColorLv3 = Color(hex : "B9ADF9")
+    static let calendarColorLv4 = Color(hex : "9D8CF6")
+    
+    static let DarkDefaultBG = Color(hex: "333333")
+    
+    
+    
     
 }
 

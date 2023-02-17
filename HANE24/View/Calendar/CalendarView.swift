@@ -23,7 +23,6 @@ struct CalendarView: View {
             .padding(.horizontal, 30)
         }
     }
-    
 }
 
 
