@@ -20,7 +20,15 @@
 		0E165510299A5A82001E5EED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550F299A5A82001E5EED /* HomeView.swift */; };
 		0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */; };
 		0E17EFAC299B6CCD0089BCD8 /* notificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */; };
+		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
+		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
 		9A1A4BEE299ADE650076D650 /* AccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */; };
+		9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
+		9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */; };
+		9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */; };
+		9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F2299D599300AF2E53 /* TagLogView.swift */; };
+		9AF730F6299E074800AF2E53 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F5299E074800AF2E53 /* Structs.swift */; };
+		9AF730F8299E2F5000AF2E53 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F7299E2F5000AF2E53 /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +46,15 @@
 		0E16550F299A5A82001E5EED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationView.swift; sourceTree = "<group>"; };
 		0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationView.swift; sourceTree = "<group>"; };
+		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardView.swift; sourceTree = "<group>"; };
+		9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
+		9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
+		9AF730F2299D599300AF2E53 /* TagLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLogView.swift; sourceTree = "<group>"; };
+		9AF730F5299E074800AF2E53 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		9AF730F7299E2F5000AF2E53 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +89,8 @@
 			children = (
 				0E1654F2299A285B001E5EED /* HANE24App.swift */,
 				0E1654F4299A285B001E5EED /* ContentView.swift */,
+				9AF730EB299CC53700AF2E53 /* Utils */,
+				9AF730F4299E071D00AF2E53 /* Model */,
 				9A1A4BEC299ADDDD0076D650 /* View */,
 				0E165509299A3D8A001E5EED /* ColorExtension.swift */,
 				0E1654F6299A285E001E5EED /* Assets.xcassets */,
@@ -91,18 +109,64 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0EE5818F299CC01D00EE3351 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */,
+				0E16550F299A5A82001E5EED /* HomeView.swift */,
+				9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */,
+				0E165507299A3C20001E5EED /* ChartView.swift */,
+				0E16550B299A3DF6001E5EED /* ChartDetailView.swift */,
+				0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0EE58190299CC02A00EE3351 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				9AF730F7299E2F5000AF2E53 /* CalendarView.swift */,
+				9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */,
+				9AF730F2299D599300AF2E53 /* TagLogView.swift */,
+				9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		0EE58191299CC03100EE3351 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				0EE58192299CC24000EE3351 /* MoreView.swift */,
+				0EE58197299CC74C00EE3351 /* ReissuanceView.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		9A1A4BEC299ADDDD0076D650 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0E165507299A3C20001E5EED /* ChartView.swift */,
-				0E17EFAB299B6CCD0089BCD8 /* notificationView.swift */,
 				0E16550D299A5887001E5EED /* MainView.swift */,
-				9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */,
-				0E16550F299A5A82001E5EED /* HomeView.swift */,
-				0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */,
-				0E16550B299A3DF6001E5EED /* ChartDetailView.swift */,
+				0EE5818F299CC01D00EE3351 /* Home */,
+				0EE58190299CC02A00EE3351 /* Calendar */,
+				0EE58191299CC03100EE3351 /* More */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9AF730EB299CC53700AF2E53 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9AF730F4299E071D00AF2E53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9AF730F5299E074800AF2E53 /* Structs.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,16 +241,24 @@
 			files = (
 				0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */,
 				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
+				9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */,
 				0E1654FC299A285E001E5EED /* Persistence.swift in Sources */,
+				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0E1654FF299A285E001E5EED /* HANE24.xcdatamodeld in Sources */,
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
+				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
+				9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */,
+				9AF730F8299E2F5000AF2E53 /* CalendarView.swift in Sources */,
 				9A1A4BEE299ADE650076D650 /* AccTimeCardView.swift in Sources */,
+				9AF730F6299E074800AF2E53 /* Structs.swift in Sources */,
+				0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */,
 				0E16550A299A3D8A001E5EED /* ColorExtension.swift in Sources */,
 				0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */,
 				0E165508299A3C20001E5EED /* ChartView.swift in Sources */,
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 				0E17EFAC299B6CCD0089BCD8 /* notificationView.swift in Sources */,
+				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

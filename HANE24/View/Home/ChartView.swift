@@ -41,7 +41,7 @@ struct ChartView: View {
                         .font(.system(size: 14, weight: .semibold))
                     Spacer()
                 }
-                .padding(.leading, 20)
+                .padding(.leading, 30)
                 .padding(.bottom, 10)
                 ChartDetailView(id: item.id, time: item.data[selectedChart], period: item.period[selectedChart])
                     .frame(width: 290, height: 60)
