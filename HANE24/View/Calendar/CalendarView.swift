@@ -12,8 +12,9 @@ struct CalendarView: View {
     @State var selectedDate: Date = Date()
     
     var body: some View {
-        ZStack{
-            Color.LightDefaultBG
+        ZStack {
+            Color.defaultBG
+                .ignoresSafeArea()
             VStack(spacing: 16) {
                 CalendarGridView(selectedDate: selectedDate)
                 AccTimeCardForCalendarView()
