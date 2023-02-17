@@ -105,10 +105,11 @@ struct HomeView: View {
                             
                             TabView{
                                 ChartView(item: items[0])
+                                    .padding(.horizontal, 30)
                                 ChartView(item: items[1])
+                                    .padding(.horizontal, 30)
                             }
                             .tabViewStyle(.page)
-                            .padding(.horizontal, 30)
                             .frame(height: 289)
                             PopulationView()
                                 .padding(.horizontal, 30)
