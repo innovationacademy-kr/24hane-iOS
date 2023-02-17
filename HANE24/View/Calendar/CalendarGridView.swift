@@ -58,8 +58,6 @@ struct CalendarGridView: View {
                     ForEach((daysOfMonth(selectedDate)), id: \.self) { dayOfMonth in
                         if dayOfMonth > 0 {
                             Button {
-                                print("\(selectedDate.yearToInt).\(selectedDate.monthToInt).\(dayOfMonth)")
-                                print(Date().yyyyMMdd)
                                 let dateFormatter = DateFormatter()
                                dateFormatter.dateFormat = "yyyy.M.d"
                                if let date = dateFormatter.date(from: "\(selectedDate.yearToInt).\(selectedDate.monthToInt).\(dayOfMonth)") {

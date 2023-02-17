@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 /// text: String - 뷰 왼쪽에 나타날 문자열
 /// time: Int64 - 시간 (초 / sec)
 /// isColored: Bool - 뷰 색상 여부
@@ -24,7 +25,11 @@ struct AccTimeCardView: View {
                 .foregroundColor(isFold ? viewColor : .white)
             
             VStack(spacing: 5) {
-                Button { isFold.toggle() } label: {
+                Button {
+                    withAnimation {
+                        isFold.toggle()
+                    }
+                } label: {
                     HStack {
                         Text(text)
                         
@@ -45,10 +50,6 @@ struct AccTimeCardView: View {
                     .foregroundColor(isFold && isColored ? .white : .black)
                     .font(.system(size: 16, weight: .semibold))
                     .padding()
-//                    .onTapGesture {
-//                        isFold.toggle()
-//                    }
-                    .animation(nil, value: isFold)
                 }
                 
                 if !isFold {
