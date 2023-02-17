@@ -15,10 +15,10 @@ struct moreItem: Identifiable{
 }
 
 var listItems: [moreItem] = [
-    moreItem(id: UUID(), title: "지원금 지침 안내", url: "https://spot-tomato-468.notion.site/2022-42-SEOUL-bf0513c7197f4f71b4be968b8a2cd75a", image: "text.book.closed"),
-    moreItem(id: UUID(), title: "충입기록 문의", url: "https://docs.google.com/forms/d/e/1FAIpQLSc_-3n_YwQsR1ZNm5DEChDTABQtw884CuI5laekfDemMmjxow/viewform?usp=send_form", image: "bubble.left.and.bubble.right"),
-    moreItem(id: UUID(), title: "이용가이드", url: "https://www.notion.so", image: "info.circle"),
-    moreItem(id: UUID(), title: "앱 피드백", url: "https://docs.google.com/forms/d/1Lqs2cOwPdPa-9crMjhATesKpslDLC5XqJ92by_Qk-Qc", image: "person.wave.2")
+    moreItem(id: UUID(), title: "지원금 지침 안내", url: "https://spot-tomato-468.notion.site/2022-42-SEOUL-bf0513c7197f4f71b4be968b8a2cd75a", image: "book"),
+    moreItem(id: UUID(), title: "출입기록 문의", url: "https://docs.google.com/forms/d/e/1FAIpQLSc_-3n_YwQsR1ZNm5DEChDTABQtw884CuI5laekfDemMmjxow/viewform?usp=send_form", image: "chat"),
+    moreItem(id: UUID(), title: "이용가이드", url: "https://www.notion.so", image: "info"),
+    moreItem(id: UUID(), title: "앱 피드백", url: "https://docs.google.com/forms/d/1Lqs2cOwPdPa-9crMjhATesKpslDLC5XqJ92by_Qk-Qc", image: "user")
     
 ]
 
@@ -28,25 +28,27 @@ struct MoreView: View {
     var body: some View {
         NavigationView{
             ZStack(alignment: .topLeading){
-                Color.defaultBG
+                Color.LightDefaultBG
                     .ignoresSafeArea()
                 VStack(alignment: .leading, spacing: 36){
                     Text("더보기")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.top)
                     NavigationLink(destination: ReissuanceView()){
-                        Image(systemName: "creditcard")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.iconColor)
-                        Text("카드 재발급 신청")
-                            .foregroundColor(.textGrayMoreView)
-                            .font(.system(size: 16, weight: .semibold))
+                        HStack(spacing: 10){
+                            Image("card")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.iconColor)
+                            Text("카드 재발급 신청")
+                                .foregroundColor(.textGrayMoreView)
+                                .font(.system(size: 16, weight: .semibold))
+                        }
                     }
                     .navigationBarHidden(true)
                     ForEach(listItems){item in
-                        HStack{
-                            Image(systemName: item.image)
+                        HStack(spacing: 10){
+                            Image(item.image)
                                 .resizable()
                                 .frame(width: 24.0, height: 24.0)
                                 .foregroundColor(.iconColor)
@@ -62,8 +64,8 @@ struct MoreView: View {
                             }
                         }
                     }
-                    HStack{
-                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                    HStack(spacing: 10){
+                        Image("logout")
                             .resizable()
                             .frame(width: 24, height: 24)
                             .foregroundColor(.iconColor)

@@ -59,6 +59,7 @@ struct CalendarGridView: View {
                                     .isHidden(dayOfMonth > Date().dayToInt)
                                 
                                 Text("\(dayOfMonth)")
+                                    .font(.system(size: 14, weight: .regular))
                             }
                             .frame(width: 30, height: 30)
                         } else {

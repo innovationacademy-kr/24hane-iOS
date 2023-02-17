@@ -67,11 +67,11 @@ struct HomeView: View {
 //                   .resizable()
 //                   .edgesIgnoringSafeArea(.top)
 
-               Color.defaultBG
+               Color.LightDefaultBG
                    .ignoresSafeArea()
                VStack(alignment: .center, spacing: 20){
                     HStack(alignment: .center){
-                        Image(systemName: "person")
+                        Image("cabi")
                             .resizable()
                             .frame(width: 28, height: 28)
                             .padding(.trailing, 3)

@@ -76,7 +76,7 @@ struct AccTimeCardView: View {
             Circle()
                 .stroke(Color(UIColor.systemGray3).opacity(0.5), lineWidth: 8)
             Circle()
-                .trim(from:0, to: (Double(accTime) / Double(accTime)))
+                .trim(from:0, to: (Double(accTime) / Double(targetTime)))
                 .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 .rotationEffect(.degrees(270))
         }
