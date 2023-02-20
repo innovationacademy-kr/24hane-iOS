@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct ChartDetailView: View {
+    @Binding var selectedChart: Int
     var id: String
     var time: Double
     var period: String
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.chartDetailBG)
+            VStack(spacing: -3){
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.chartDetailBG)
+                    .frame(height: 60)
+                HStack{
+                    ForEach(0..<6){ idx in
+                            Image(systemName: "arrowtriangle.down.fill")
+                                .padding(.horizontal, 8)
+                                .foregroundColor(.chartDetailBG)
+                                .opacity(idx == selectedChart ? 1 : 0)
+                        }
+                }
+                
+            }
             VStack{
                 HStack{
                     Text(period)
@@ -42,6 +55,7 @@ struct ChartDetailView: View {
                         .font(.system(size: 12, weight: .semibold))
                     }
                 }
+                .padding(.bottom, 10)
             }
             .padding(.leading)
             .padding(.trailing)
@@ -51,6 +65,6 @@ struct ChartDetailView: View {
 
 struct ChartDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartDetailView(id: "월", time: 142, period: "1.2(월)-1.8(일)")
+        ChartDetailView(selectedChart: .constant(3), id: "월", time: 142, period: "1.2(월)-1.8(일)")
     }
 }

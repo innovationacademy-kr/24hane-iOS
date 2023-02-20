@@ -18,8 +18,10 @@ struct CalendarView: View {
                 .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
             VStack(spacing: 16) {
                 CalendarGridView(selectedDate: selectedDate)
+                    .padding(.horizontal, 5)
                 AccTimeCardForCalendarView()
-                TagLogView(logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
+                    .padding(.vertical, 10)
+                TagLogView(logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
                     .padding(.top, 10)
             }
             .padding(.horizontal, 30)

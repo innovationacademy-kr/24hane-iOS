@@ -19,6 +19,9 @@ struct CalendarGridView: View {
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
                 } label: {
                     Image(systemName: "chevron.left")
+                        .resizable()
+                        .frame(width: 8, height: 12)
+                        
                 }
                 
                 Spacer()
@@ -31,11 +34,13 @@ struct CalendarGridView: View {
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
                 } label: {
                     Image(systemName: "chevron.right")
+                        .resizable()
+                        .frame(width: 8, height: 12)
                 }
             }
             .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
             .font(.system(size: 20, weight: .semibold))
-            .padding()
+            .padding(10)
             
             // LazyGrid
             let week = ["일", "월", "화", "수", "목", "금", "토"]

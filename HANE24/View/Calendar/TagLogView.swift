@@ -52,6 +52,7 @@ struct TagLogView: View {
                 Text("기록이 없습니다.")
                     .foregroundColor(Color(hex: "#333333"))
                     .font(.system(size: 13, weight: .light))
+                    .padding(.vertical, 5)
             } else {
                 ScrollView {
                     ForEach(logList, id: \.self) { log in
