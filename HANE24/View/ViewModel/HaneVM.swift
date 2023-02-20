@@ -14,7 +14,7 @@ class Hane: ObservableObject {
     @Published var monthlyLogs: [String: [inOutLog]] = [:]
     @Published var dailyTotalTimesInAMonth: [String: Int] = [:]
     
-    let APIroot: String
+    var APIroot: String
     
 //    guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else {return}
 //    guard let apiRoot: String = infoDictionary["API_URL"] as? String else {return}
@@ -25,6 +25,15 @@ class Hane: ObservableObject {
         self.isSignedIn = isSignedIn
         self.monthlyLogs = monthlyLogs
         self.dailyTotalTimesInAMonth = dailyTotalTimesInAMonth
-        self.APIroot = APIroot
+        guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else {
+            self.APIroot = ""
+            return
+        }
+        guard let apiRoot: String = infoDictionary["API_URL"] as? String else {
+            self.APIroot = ""
+            return
+        }
+        self.APIroot = apiRoot
+//        self.APIroot = APIroot
     }
 }

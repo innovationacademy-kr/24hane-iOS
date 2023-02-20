@@ -12,13 +12,16 @@ import Foundation
 struct SignInWebView: UIViewRepresentable {
     @ObservedObject var hane: Hane
     
-    let url: URL {
+    var url: URL {
         let path = "/user/login/42?redirect=42"
-        return (URL(string: hane.APIroot + path))
+        /// 강제 unwrapping...?
+        let retURL = URL(string: "\($hane.APIroot) + \(path)")!
+        return retURL
+        
     }
     
     func makeCoordinator() -> WebViewCoordinator {
-        WebViewCoordinator(self, hane: Hane)
+        WebViewCoordinator(self, hane: hane)
     }
     
     func makeUIView(context: Context) -> WKWebView {
@@ -50,7 +53,7 @@ struct SignInWebView: UIViewRepresentable {
         
         }
         
-        func webView(_ webView: WKWebView, decidePolicyFor navigationActioin: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
+        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
             let urlToMatch =  "/user/login/callback/42"
             if let urlStr = navigationAction.request.url?.path, urlStr == urlToMatch {
                 WKWebsiteDataStore.default().httpCookieStore.getAllCookies{ cookies in
@@ -71,6 +74,6 @@ struct SignInWebView: UIViewRepresentable {
 
 struct SignInWebView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInWebView()
+        SignInWebView(hane: Hane.init(dailyAccumulationTime: 1, monthlyAccumulationTime: 1, isSignedIn: true, monthlyLogs: [:], dailyTotalTimesInAMonth: [:], APIroot: ""))
     }
 }
