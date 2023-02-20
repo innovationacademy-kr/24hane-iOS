@@ -98,7 +98,6 @@ struct HomeView: View {
                     ScrollView{
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             test.toggle()
-                            print("hi")
                         }
                         VStack(spacing: 22.5){
                             AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
