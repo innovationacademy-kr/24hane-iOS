@@ -8,9 +8,9 @@
 import Foundation
 
 struct inOutLog: Codable {
-    let inTimeStamp: Int64
-    let outTimeStamp: Int64
-    let durationSecond: Int64
+    let inTimeStamp: Int64?
+    let outTimeStamp: Int64?
+    let durationSecond: Int64?
 }
 
 struct perDay: Codable {
@@ -32,7 +32,7 @@ struct mainInfo: Codable {
     let gaepo: Int
     let seocho: Int
     let inoutState: String
-    let tafAt: String?
+    let tagAt: String?
 }
 
 struct accumulationTimes: Codable {
