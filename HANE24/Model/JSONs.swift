@@ -19,6 +19,12 @@ struct perDay: Codable {
     let inOutLogs: [inOutLog]
 }
 
+struct perMonth: Codable {
+    let login: String
+    let profileImage: String
+    let inOutLogs: [inOutLog]
+}
+
 struct mainInfo: Codable {
     let login: String
     let profileImage: String
@@ -30,6 +36,6 @@ struct mainInfo: Codable {
 }
 
 struct accumulationTimes: Codable {
-    let todayAccumationTime: Int64
-    let monthAccumationTime: Int64
+    let todayAccumulationTime: Int64
+    let monthAccumulationTime: Int64
 }
