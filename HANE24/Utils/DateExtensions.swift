@@ -53,6 +53,11 @@ extension Date {
         dateFormatter.dateFormat = "dd"
         return dateFormatter.string(from: self)
     }
+    func toString(_ format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
 }
 
 extension Date {
