@@ -55,10 +55,12 @@ struct PullToRefresh: View {
 
 struct HomeView: View {
     init() {
-          UIPageControl.appearance().currentPageIndicatorTintColor = .systemPurple
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
           UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
     }
     @State var test: Bool = true
+    @Environment(\.colorScheme) var colorScheme
+    
     
     var body: some View {
         NavigationView{
@@ -66,9 +68,8 @@ struct HomeView: View {
 //               Image("background")
 //                   .resizable()
 //                   .edgesIgnoringSafeArea(.top)
-
-               Color.LightDefaultBG
-                   .ignoresSafeArea()
+               Theme.BackgoundColor(forScheme: colorScheme)
+                   .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
                VStack(alignment: .center, spacing: 20){
                     HStack(alignment: .center){
                         Image("cabi")
@@ -77,8 +78,10 @@ struct HomeView: View {
                             .padding(.trailing, 3)
                         Text("hejang")
                             .font(.system(size: 20, weight: .semibold, design: .rounded))
-                        Text("님")
-                            .font(.system(size: 20, weight: .regular, design: .rounded))
+                        Circle()
+                            .foregroundColor(.green)
+                            .frame(width:8, height: 8)
+                            .padding(.bottom, 10)
                         Spacer()
                         NavigationLink(destination: notificationView()) {
                             Image(systemName: "bell")
@@ -89,7 +92,8 @@ struct HomeView: View {
                         .navigationBarHidden(true)
                         .frame(width: 24, height: 24)
                     }
-                    .frame(height: 50)
+                    .padding(.top, 20)
+                    .frame(height: 30)
                     .padding(.horizontal, 30)
                     ScrollView{
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
@@ -104,14 +108,18 @@ struct HomeView: View {
                             
                             TabView{
                                 ChartView(item: items[0])
+                                    .padding(.horizontal, 10)
                                 ChartView(item: items[1])
+                                    .padding(.horizontal, 10)
                             }
+                            .padding(.horizontal, 20)
                             .tabViewStyle(.page)
-                            .padding(.horizontal, 30)
                             .frame(height: 289)
                             PopulationView()
                                 .padding(.horizontal, 30)
                         }
+                        .padding(.bottom, 30)
+                        .padding(.top, 10)
                     } .coordinateSpace(name: "pullToRefresh")
                 }
             }

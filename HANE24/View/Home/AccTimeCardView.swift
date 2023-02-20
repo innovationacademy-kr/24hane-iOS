@@ -18,6 +18,11 @@ struct AccTimeCardView: View {
     @State var viewColor: Color = Color(.white)
     @State var isFold: Bool = true
     @State var targetTime: Int64 = 3600 * 8
+    @State var drawingStroke = false
+    
+    let animation = Animation
+        .easeOut(duration: 0.8)
+        .delay(0.1)
     
     var body: some View {
         ZStack {
@@ -28,11 +33,12 @@ struct AccTimeCardView: View {
                 Button {
                     withAnimation {
                         isFold.toggle()
+                        drawingStroke = false
                     }
                 } label: {
                     HStack {
                         Text(text)
-                        
+                            .font(.system(size: 17 , weight: .bold))
                         Spacer()
                         
                         HStack(alignment: .bottom, spacing: 0) {
@@ -78,13 +84,16 @@ struct AccTimeCardView: View {
                         ProgressCircle
                             .frame(width: 120, height: 120)
                             .padding(.bottom, 10)
+                            .animation(animation, value: drawingStroke)
+                            .onAppear{
+                                drawingStroke = true
+                            }
                     }
                 }
             }
             .padding()
         }
         .frame(height: isFold ? 80 : 260, alignment: .top)
-      //  .padding(.horizontal, 30)
     }
     
 //    let progress: Double = Double(accTime) / Double(targetTime)
@@ -95,10 +104,12 @@ struct AccTimeCardView: View {
                 .font(.system(size: 30, weight: .medium, design: .default))
                 .foregroundColor(.black)
             Circle()
-                .stroke(Color(UIColor.systemGray3).opacity(0.5), lineWidth: 8)
-            Circle()
-                .trim(from:0, to: (Double(accTime) / Double(targetTime)))
-                .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.1), .gradientWhtie.opacity(0.1), .gradientPurple.opacity(0.1), .gradientPurple.opacity(0.1),.gradientWhtie.opacity(0.1), .gradientBlue.opacity(0.1)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                .overlay{
+                    Circle()
+                        .trim(from:0, to: drawingStroke ? (Double(accTime) / Double(targetTime)) : 0)
+                        .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                }
                 .rotationEffect(.degrees(270))
         }
     }

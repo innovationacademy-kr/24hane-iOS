@@ -19,9 +19,12 @@ struct progressItem: Identifiable{
 
 struct ReissuanceView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         ZStack(alignment: .topLeading){
-            Color.LightDefaultBG.ignoresSafeArea()
+            Theme.BackgoundColor(forScheme: colorScheme)
+                .ignoresSafeArea()
                 .navigationBarBackButtonHidden(true)
                 .navigationBarHidden(true)
             
@@ -50,11 +53,11 @@ struct ReissuanceView: View {
                     Button {} label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(.chartDetailBG)
+                                .foregroundColor(colorScheme == .dark ? .white : .chartDetailBG)
                                 .frame(height: 45)
                             Text("자세히보기")
                                 .font(.system(size: 16, weight: .bold))
-                                .foregroundColor(.white)
+                                .foregroundColor(colorScheme == .dark ? .chartDetailBG : .white)
                         }
                     }
                     .padding(.bottom, 20)
@@ -152,6 +155,7 @@ struct ReissuanceView: View {
                 .padding()
                 
             }
+            .foregroundColor(.black)
             
         }
     }

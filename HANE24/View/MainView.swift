@@ -8,25 +8,28 @@
 import SwiftUI
 
 struct MainView: View {
+    @State var selection = 1
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        TabView{
+        TabView(selection: $selection){
             HomeView()
-                .tabItem{
-                    Image(systemName: "house.fill")
-                        .foregroundColor(.iconColor)
-                }
+                .tabItem({
+                    Image(selection == 1 ? "selectedHome" : "home").renderingMode(.template)
+                      //  .foregroundColor(.iconColor)
+                }) .tag(1)
             CalendarView()
-                .tabItem{
-                    Image(systemName: "calendar")
-                        .foregroundColor(.iconColor)
-                }
+                .tabItem({
+                    Image(selection == 2 ? "selectedCalendar" : "calendar").renderingMode(.template)
+                    //    .foregroundColor(.iconColor)
+                }) .tag(2)
             MoreView()
-                .tabItem{
-                    Image(systemName: "line.3.horizontal")
-                        .foregroundColor(.iconColor)
-                }
+                .tabItem({
+                    Image(selection == 3 ? "selectedBurger" : "hamburger").renderingMode(.template)
+                   //     .foregroundColor(.iconColor)
+                }) .tag(3)
         }
-        .accentColor(.black)
+       // .background(colorScheme == .dark ? Color.DarkDefaultBG  : Color.LightDefaultBG)
+        .accentColor(Theme.ToolBarIconColor(forScheme: colorScheme))
     }
 }
 

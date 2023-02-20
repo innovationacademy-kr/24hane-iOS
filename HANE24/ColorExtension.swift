@@ -11,7 +11,7 @@ import SwiftUI
 extension Color{
     static let textGray = Color(hex: "9B9797")
     static let chartDetailBG = Color(hex: "333333")
-    static let gradientBlue = Color(hex : "8EF2F3")
+    static let gradientBlue = Color(hex : "#9AC3F4")
     static let gradientPurple = Color (hex: "735BF2")
     static let LightDefaultBG = Color(hex: "F5F5F5")
     static let iconColor = Color(hex: "5B5B5B")

@@ -43,27 +43,18 @@ struct ChartView: View {
                 }
                 .padding(.leading, 30)
                 .padding(.bottom, 10)
-                ChartDetailView(id: item.id, time: item.data[selectedChart], period: item.period[selectedChart])
+                ChartDetailView(selectedChart: $selectedChart, id: item.id, time: item.data[selectedChart], period: item.period[selectedChart])
                     .frame(width: 290, height: 60)
-                    .padding(.bottom, -22)
+                    .padding(.bottom)
                 HStack(alignment: .bottom){
                     ForEach(0..<ratData.count, id: \.self){index in
                         Button{
                             selectedChart = index
                         } label: {
                             ZStack(alignment: .bottom){
-                                if selectedChart == index {
-                                    Rectangle()
-                                        .frame(width: 3, height: 125)
-                                        .foregroundColor(.chartDetailBG)
-                                        .padding(.bottom, 10)
-                                        .transition(AnyTransition.opacity.animation(.easeIn(duration: 0.6)))
-                                }
                                 RoundedRectangle(cornerRadius: 4)
-                                    .frame(width:25, height: 100 * ratData[index])
-                                    .padding(.trailing, 4)
-                                    .padding(.leading, 4)
-                                    .padding(.bottom, 8)
+                                    .frame(width:25, height: 87 * ratData[index])
+                                    .padding(.horizontal, 4)
                                     .foregroundStyle(
                                         LinearGradient(gradient: Gradient(colors: [.gradientBlue, .gradientPurple]), startPoint: .top, endPoint: .bottom)
                                     )
@@ -72,6 +63,15 @@ struct ChartView: View {
                         }
                     }
                 }
+                HStack{
+                    Text("최신순")
+                    Spacer()
+                    Text("오래된순")
+                }
+                .foregroundColor(Color(hex: "#9B9797"))
+                .font(.system(size: 14, weight: .semibold))
+                .padding(.horizontal, 60)
+                .padding(.bottom, 20)
             }
         }
         
