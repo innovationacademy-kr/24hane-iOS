@@ -18,7 +18,8 @@ struct ContentView: View {
 
     var body: some View {
 //        MainView()
-        SignInWebView(hane: Hane())
+       SignInWebView(hane: Hane())
+//        SignInView()
     }
 
     private func addItem() {
