@@ -60,7 +60,7 @@ struct SignInWebView: UIViewRepresentable {
                     for cookie in cookies {
                         if cookie.name == "accessToken"{
                             UserDefaults.standard.setValue(String(cookie.value), forKey: "Token")
-                            hane.status = .afterSignIn
+                            self.hane.status = .afterSignIn
                             break
                         }
                     }
