@@ -15,7 +15,7 @@ struct SignInWebView: UIViewRepresentable {
     var url: URL {
         let path = "/user/login/42?redirect=42"
         /// 강제 unwrapping...?
-        let retURL = URL(string: "\($hane.APIroot) + \(path)")!
+        let retURL = URL(string: "\($hane.APIroot)\(path)")!
         return retURL
         
     }

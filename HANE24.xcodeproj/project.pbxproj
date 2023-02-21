@@ -23,6 +23,7 @@
 		0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B32A829A3815B001D10BF /* SignInWebView.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
+		0EFAF5B829A492A500125948 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5B729A492A500125948 /* SignInView.swift */; };
 		0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
 		9A1A4BEE299ADE650076D650 /* AccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */; };
 		9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
@@ -54,6 +55,7 @@
 		0E3B32A829A3815B001D10BF /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
+		0EFAF5B729A492A500125948 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0EFDFD46299F5AF500A911F7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardView.swift; sourceTree = "<group>"; };
 		9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -65,7 +67,6 @@
 		9AF730FA299F53C700AF2E53 /* HaneVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaneVM.swift; sourceTree = "<group>"; };
 		9AF730FC299F602D00AF2E53 /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
 		9AF730FE29A37FE600AF2E53 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
-		9AF730FF29A3809B00AF2E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +162,7 @@
 			children = (
 				0E16550D299A5887001E5EED /* MainView.swift */,
 				0E3B32A829A3815B001D10BF /* SignInWebView.swift */,
+				0EFAF5B729A492A500125948 /* SignInView.swift */,
 				0EE5818F299CC01D00EE3351 /* Home */,
 				0EE58190299CC02A00EE3351 /* Calendar */,
 				0EE58191299CC03100EE3351 /* More */,
@@ -273,6 +275,7 @@
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0E1654FF299A285E001E5EED /* HANE24.xcdatamodeld in Sources */,
+				0EFAF5B829A492A500125948 /* SignInView.swift in Sources */,
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
 				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
 				9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */,
@@ -344,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -398,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
