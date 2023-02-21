@@ -15,9 +15,7 @@ struct SignInWebView: UIViewRepresentable {
     var url: URL {
         let path = "/user/login/42?redirect=42"
 //        /// 강제 unwrapping...?
-        let retURL = URL(string: "https://\(hane.APIroot)\(path)")!
-        print("hi")
-        print(retURL)
+        let retURL = URL(string: "\(hane.APIroot)\(path)")!
         return retURL
         
     }
@@ -47,13 +45,13 @@ struct SignInWebView: UIViewRepresentable {
             super.init()
         }
         
-//        func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-//
-//        }
-//
-//        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//
-//        }
+        func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+            hane.status = .webViewLoding
+        }
+        
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            hane.status = .webViewAppear
+        }
         
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
             let urlToMatch =  hane.APIroot + "/user/login/callback/42"
@@ -62,6 +60,7 @@ struct SignInWebView: UIViewRepresentable {
                     for cookie in cookies {
                         if cookie.name == "accessToken"{
                             UserDefaults.standard.setValue(String(cookie.value), forKey: "Token")
+                            hane.status = .afterSignIn
                             break
                         }
                     }
