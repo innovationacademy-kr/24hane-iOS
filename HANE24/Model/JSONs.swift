@@ -7,25 +7,25 @@
 
 import Foundation
 
-struct inOutLog: Codable {
+struct InOutLog: Codable {
     let inTimeStamp: Int64?
     let outTimeStamp: Int64?
     let durationSecond: Int64?
 }
 
-struct perDay: Codable {
+struct PerDay: Codable {
     let login: String
     let profileImage: String
-    let inOutLogs: [inOutLog]
+    let inOutLogs: [InOutLog]
 }
 
-struct perMonth: Codable {
+struct PerMonth: Codable {
     let login: String
     let profileImage: String
-    let inOutLogs: [inOutLog]
+    let inOutLogs: [InOutLog]
 }
 
-struct mainInfo: Codable {
+struct MainInfo: Codable {
     let login: String
     let profileImage: String
     let isAdmin: Bool
@@ -35,7 +35,7 @@ struct mainInfo: Codable {
     let tagAt: String?
 }
 
-struct accumulationTimes: Codable {
+struct AccumulationTimes: Codable {
     let todayAccumulationTime: Int64
     let monthAccumulationTime: Int64
 }
