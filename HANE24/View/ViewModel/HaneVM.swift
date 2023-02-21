@@ -12,27 +12,18 @@ class Hane: ObservableObject {
     @Published var monthlyAccumulationTime: Int = 0
     @Published var isSignedIn: Bool = false
     @Published var monthlyLogs: [String: [inOutLog]] = [:]
-    @Published var dailyTotalTimesInAMonth: [String: Int] = [:]
+    @Published var dailyTotalTimesInAMonth: [Int] = []
     
     var APIroot: String
     
-//    guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else {return}
-//    guard let apiRoot: String = infoDictionary["API_URL"] as? String else {return}
-//    APIroot = apiRoot
     init() {
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
         self.isSignedIn = false
         self.monthlyLogs = [:]
-        self.dailyTotalTimesInAMonth = [:]
-        guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else {
-            self.APIroot = ""
-            return
-        }
-        guard let apiRoot: String = infoDictionary["API_URL"] as? String else {
-            self.APIroot = ""
-            return
-        }
-        self.APIroot = apiRoot
+        self.dailyTotalTimesInAMonth = []
+
+        self.APIroot = Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong"
+        print("self.APIroot = \(self.APIroot)")
     }
 }
