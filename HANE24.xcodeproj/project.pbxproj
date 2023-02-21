@@ -33,6 +33,7 @@
 		9AF730F8299E2F5000AF2E53 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F7299E2F5000AF2E53 /* CalendarView.swift */; };
 		9AF730FB299F53C700AF2E53 /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FA299F53C700AF2E53 /* HaneVM.swift */; };
 		9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
+		9AF7310029A492BE00AF2E53 /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9AF730FE29A37FE600AF2E53 /* env.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +66,6 @@
 		9AF730FA299F53C700AF2E53 /* HaneVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaneVM.swift; sourceTree = "<group>"; };
 		9AF730FC299F602D00AF2E53 /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
 		9AF730FE29A37FE600AF2E53 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
-		9AF730FF29A3809B00AF2E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +254,7 @@
 			files = (
 				0E1654FA299A285E001E5EED /* Preview Assets.xcassets in Resources */,
 				0E1654F7299A285E001E5EED /* Assets.xcassets in Resources */,
+				9AF7310029A492BE00AF2E53 /* env.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +297,7 @@
 /* Begin XCBuildConfiguration section */
 		0E165500299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF730FE29A37FE600AF2E53 /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -356,6 +358,7 @@
 		};
 		0E165501299A285E001E5EED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF730FE29A37FE600AF2E53 /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -410,6 +413,7 @@
 		};
 		0E165503299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF730FE29A37FE600AF2E53 /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -441,6 +445,7 @@
 		};
 		0E165504299A285E001E5EED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF730FE29A37FE600AF2E53 /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
