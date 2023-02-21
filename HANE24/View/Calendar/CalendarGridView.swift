@@ -41,6 +41,8 @@ struct CalendarGridView: View {
             .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
             .font(.system(size: 20, weight: .semibold))
             .padding(10)
+            .padding(.top, 20)
+            .padding(.bottom, 8)
             
             // LazyGrid
             let week = ["일", "월", "화", "수", "목", "금", "토"]

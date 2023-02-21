@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="InOutLog" representedClassName="InOutLog" syncable="YES" codeGenerationType="class">
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Logs" representedClassName="Logs" syncable="YES" codeGenerationType="class">
         <attribute name="durationSecond" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="inTimeStamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="outTimeStamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="monthlyLog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MonthlyLogs" inverseName="inOutLog" inverseEntity="MonthlyLogs"/>
     </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-    </entity>
     <entity name="MonthlyLogs" representedClassName="MonthlyLogs" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="String"/>
-        <attribute name="inOutLogs" optional="YES" attributeType="Transformable" customClassName="[InOutLog]"/>
-        <relationship name="inOutLog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InOutLog" inverseName="monthlyLog" inverseEntity="InOutLog"/>
+        <attribute name="inOutLogs" optional="YES" attributeType="Transformable" customClassName="[Logs]"/>
+        <relationship name="inOutLog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Logs" inverseName="monthlyLog" inverseEntity="Logs"/>
     </entity>
 </model>

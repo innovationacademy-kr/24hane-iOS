@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import WebKit
 
 enum Status {
     case beforeSignIn
+    case loadWebView
     case webViewLoding
     case webViewAppear
     case afterSignIn
@@ -57,8 +59,14 @@ class Hane: ObservableObject {
             Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!)
         }
         
+
         // update Daily Total Accumulation Times
-//        self.monthlyLogs.map
+        self.monthlyLogs.map {
+            var dailyTotalTime = $0.value.reduce(0) {
+                $0 + ($1.durationSecond ?? 0)
+            }
+            self.dailyTotalTimesInAMonth[$0.key.dayToInt] = dailyTotalTime
+        }
     }
     
     func refresh(date: Date) async throws {
@@ -67,6 +75,7 @@ class Hane: ObservableObject {
         try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
     }
     
+    @MainActor
     func isLogin() async throws -> Bool {
         guard let url = URL(string: APIroot + "/user/login/islogin") else {
             fatalError("MissingURL")
@@ -81,7 +90,6 @@ class Hane: ObservableObject {
             "Authorization" : "Bearer \(String(describing: token))"
         ]
         let (_, response) = try await URLSession.shared.data(for: request)
-        
         if (response as? HTTPURLResponse)?.statusCode == 204 {
             return true
         } else {
@@ -129,4 +137,16 @@ class Hane: ObservableObject {
         
         self.perMonth = try await callJsonAsync(components.url!.absoluteString, type: PerMonth.self)
     }
+    
+    func SignOut() {
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), completionHandler: {
+                    (records) -> Void in
+                    for record in records{
+                        WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                    }
+                })
+        UserDefaults.standard.removeObject(forKey: "Token")
+        self.status = .beforeSignIn
+    }
 }
+

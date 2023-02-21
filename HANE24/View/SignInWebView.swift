@@ -10,7 +10,7 @@ import WebKit
 import Foundation
 
 struct SignInWebView: UIViewRepresentable {
-    @ObservedObject var hane: Hane
+    @EnvironmentObject var hane: Hane
     
     var url: URL {
         let path = "/user/login/42?redirect=42"
@@ -46,21 +46,25 @@ struct SignInWebView: UIViewRepresentable {
         }
         
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-            hane.status = .webViewLoding
+            print("load web view")
+           // hane.status = .webViewLoding
         }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            hane.status = .webViewAppear
+            print("finished load")
+            //hane.status = .webViewAppear
         }
         
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
-            let urlToMatch =  hane.APIroot + "/user/login/callback/42"
-            if let urlStr = navigationAction.request.url?.path, urlStr == urlToMatch {
-                WKWebsiteDataStore.default().httpCookieStore.getAllCookies{ cookies in
-                    for cookie in cookies {
+            let urlToMatch =  "/user/login/callback/42"
+            
+            if  let urlStr = navigationAction.request.url?.path, urlStr == urlToMatch {
+                print("before cookie")
+                WKWebsiteDataStore.default().httpCookieStore.getAllCookies{ (cookies) in
+                    for cookie in cookies{
                         if cookie.name == "accessToken"{
                             UserDefaults.standard.setValue(String(cookie.value), forKey: "Token")
-                            hane.status = .afterSignIn
+                            self.hane.status = .afterSignIn
                             break
                         }
                     }
@@ -75,6 +79,6 @@ struct SignInWebView: UIViewRepresentable {
 
 struct SignInWebView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInWebView(hane: Hane())
+        SignInWebView()
     }
 }

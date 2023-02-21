@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SignInView: View {
+    
+    @ObservedObject var hane : Hane
+    
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [.gradientPurple, .gradientBlue]), startPoint: .bottomLeading, endPoint: .topTrailing)
@@ -33,7 +36,9 @@ struct SignInView: View {
                 Text("입/퇴실 시 출입카드를 꼭 태깅해주세요.")
                     .font(.system(size: 12, weight: .regular))
                     .foregroundColor(.white)
-                Button{} label: {
+                Button{
+                    hane.status = .loadWebView
+                } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(Color.DarkDefaultBG)
@@ -51,6 +56,6 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        SignInView(hane: Hane())
     }
 }
