@@ -47,13 +47,13 @@ struct SignInWebView: UIViewRepresentable {
             super.init()
         }
         
-        func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-            
-        }
-        
-        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
-        }
+//        func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+//
+//        }
+//
+//        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//
+//        }
         
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
             let urlToMatch =  hane.APIroot + "/user/login/callback/42"
@@ -68,7 +68,7 @@ struct SignInWebView: UIViewRepresentable {
                 }
                 decisionHandler(.allow)
             } else {
-                decisionHandler(.cancel)
+                decisionHandler(.allow)
             }
         }
     }
