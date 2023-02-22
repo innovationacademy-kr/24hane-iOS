@@ -35,7 +35,7 @@ class Hane: ObservableObject {
         self.monthlyAccumulationTime = 0
         self.status = .beforeSignIn
         self.monthlyLogs = [:]
-        self.dailyTotalTimesInAMonth = []
+        self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
@@ -61,11 +61,12 @@ class Hane: ObservableObject {
         
 
         // update Daily Total Accumulation Times
-        self.monthlyLogs.map {
-            var dailyTotalTime = $0.value.reduce(0) {
-                $0 + ($1.durationSecond ?? 0)
+        for dailyLog in monthlyLogs {
+            var sum: Int64 = 0
+            for log in dailyLog.value {
+                sum += log.durationSecond ?? 0
             }
-            self.dailyTotalTimesInAMonth[$0.key.dayToInt] = dailyTotalTime
+            self.dailyTotalTimesInAMonth[dailyLog.key.dayToInt] = sum
         }
     }
     
