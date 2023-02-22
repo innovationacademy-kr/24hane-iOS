@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct HANE24App: App {
+    
+ //   @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    var hane = Hane()
+    
     var body: some Scene {
         WindowGroup {
-//            MainView()
             ContentView()
+                .environmentObject(hane)
         }
     }
 }

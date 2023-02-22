@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct moreItem: Identifiable{
     var id: UUID
@@ -25,6 +26,7 @@ var listItems: [moreItem] = [
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var hane: Hane
     
     var body: some View {
         NavigationView{
@@ -65,14 +67,18 @@ struct MoreView: View {
                             }
                         }
                     }
-                    HStack(spacing: 10){
-                        Image("logout")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.iconColor)
-                        Text("로그아웃")
-                            .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
-                            .font(.system(size: 16, weight: .semibold))
+                    Button {
+                        hane.SignOut()
+                    } label: {
+                        HStack(spacing: 10){
+                            Image("logout")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.iconColor)
+                            Text("로그아웃")
+                                .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
+                                .font(.system(size: 16, weight: .semibold))
+                        }
                     }
                 }
                 .padding(.horizontal, 30)
