@@ -46,11 +46,32 @@ class Hane: ObservableObject {
         print("self.APIroot = \(self.APIroot)")
     }
     
+    func refresh(date: Date) async throws {
+        try await callMainInfo()
+        try await callAccumulationTimes()
+        try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
+    }
+    
+    func SignOut() {
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), completionHandler: {
+                    (records) -> Void in
+                    for record in records{
+                        WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                    }
+                })
+        UserDefaults.standard.removeObject(forKey: "Token")
+        self.status = .beforeSignIn
+    }
+}
+
+// update Published
+extension Hane {
     func updateAccumulationTime() async throws {
         try await callAccumulationTimes()
         self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
         self.monthlyAccumulationTime = self.accumulationTimes.monthAccumulationTime
     }
+    
     func updateMonthlyLogs(date: Date) async throws {
         try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
         
@@ -69,13 +90,10 @@ class Hane: ObservableObject {
             self.dailyTotalTimesInAMonth[dailyLog.key.dayToInt] = sum
         }
     }
-    
-    func refresh(date: Date) async throws {
-        try await callMainInfo()
-        try await callAccumulationTimes()
-        try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
-    }
-    
+}
+
+// Call APIs
+extension Hane {
     @MainActor
     func isLogin() async throws -> Bool {
         guard let url = URL(string: APIroot + "/user/login/islogin") else {
@@ -138,16 +156,4 @@ class Hane: ObservableObject {
         
         self.perMonth = try await callJsonAsync(components.url!.absoluteString, type: PerMonth.self)
     }
-    
-    func SignOut() {
-        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), completionHandler: {
-                    (records) -> Void in
-                    for record in records{
-                        WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-                    }
-                })
-        UserDefaults.standard.removeObject(forKey: "Token")
-        self.status = .beforeSignIn
-    }
 }
-

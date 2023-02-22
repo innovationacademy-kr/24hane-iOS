@@ -10,7 +10,7 @@ import SwiftUI
 struct TagLogView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var selectedDate: Date = Date()
-    @State var logList: [Log?] = []
+    @State var logList: [Log] = []
     
     var body: some View {
         VStack(alignment:.center, spacing: 4) {
@@ -56,11 +56,11 @@ struct TagLogView: View {
             } else {
                 ScrollView {
                     ForEach(logList, id: \.self) { log in
-                        if let log = log {
+//                        if let log = log {
                             tagLog(log)
-                        } else {
-                            
-                        }
+//                        } else {
+//
+//                        }
                     }
                 }
             }
