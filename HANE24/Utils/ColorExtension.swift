@@ -32,7 +32,7 @@ extension Color{
 
 extension Color{
     
-    init(hex:String){
+    init(hex:String) {
         let scanner = Scanner(string:hex)
         _ = scanner.scanString("#")
         
