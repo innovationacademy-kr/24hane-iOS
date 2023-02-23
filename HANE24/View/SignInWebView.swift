@@ -11,6 +11,7 @@ import Foundation
 
 struct SignInWebView: UIViewRepresentable {
     @EnvironmentObject var hane: Hane
+    @Binding var viewStat: Stat
     
     var url: URL {
         let path = "/user/login/42?redirect=42"
@@ -21,7 +22,7 @@ struct SignInWebView: UIViewRepresentable {
     }
     
     func makeCoordinator() -> WebViewCoordinator {
-        WebViewCoordinator(self, hane: hane)
+        WebViewCoordinator(self, hane: hane, viewStat : $viewStat)
     }
     
     func makeUIView(context: Context) -> WKWebView {
@@ -38,10 +39,12 @@ struct SignInWebView: UIViewRepresentable {
     class WebViewCoordinator: NSObject, WKNavigationDelegate {
         var parent: SignInWebView
         var hane: Hane
+        var viewStat: Binding<Stat>
         
-        init(_ parent: SignInWebView, hane: Hane){
+        init(_ parent: SignInWebView, hane: Hane, viewStat: Binding<Stat>){
             self.parent = parent
             self.hane = hane
+            self.viewStat = viewStat
             super.init()
         }
         
@@ -52,7 +55,11 @@ struct SignInWebView: UIViewRepresentable {
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             print("finished load")
-            //hane.status = .webViewAppear
+            if self.viewStat.wrappedValue == .buttonTabbed {
+                self.viewStat.wrappedValue = .readyToSignIn
+            } else {
+                self.viewStat.wrappedValue = .viewAppeared
+            }
         }
         
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
@@ -64,7 +71,7 @@ struct SignInWebView: UIViewRepresentable {
                     for cookie in cookies{
                         if cookie.name == "accessToken"{
                             UserDefaults.standard.setValue(String(cookie.value), forKey: "Token")
-                            self.hane.status = .afterSignIn
+                            self.hane.isSignIn = true
                             break
                         }
                     }
@@ -79,6 +86,6 @@ struct SignInWebView: UIViewRepresentable {
 
 struct SignInWebView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInWebView()
+        SignInWebView(viewStat: .constant(.buttonNotTabbed))
     }
 }
