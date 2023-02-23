@@ -9,15 +9,15 @@ import SwiftUI
 
 struct PopulationView: View {
     var body: some View {
-        VStack(alignment: .center, spacing: 8){
+        VStack(alignment: .center, spacing: 8) {
             HStack{
                 Text("  실시간 현황")
                     .font(.system(size: 18, weight: .semibold))
                 
                 Spacer()
             }
-            HStack(spacing: 25){
-                ZStack(alignment: .center){
+            HStack(spacing: 25) {
+                ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .frame(width: 155, height: 80)

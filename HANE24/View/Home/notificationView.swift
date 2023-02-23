@@ -12,7 +12,7 @@ struct notificationView: View {
     var body: some View {
         ZStack{
             VStack() {
-                ZStack(alignment: .topLeading){
+                ZStack(alignment: .topLeading) {
                     Color.LightDefaultBG.ignoresSafeArea()
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)

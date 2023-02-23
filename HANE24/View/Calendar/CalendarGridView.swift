@@ -18,7 +18,7 @@ struct CalendarGridView: View {
             HStack {
                 Button {
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
-                    task{
+                    Task{
                         do{
                             try await hane.refresh(date: selectedDate)
                         } catch {
@@ -40,7 +40,7 @@ struct CalendarGridView: View {
                 
                 Button {
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
-                    task{
+                    Task{
                         do{
                             try await hane.refresh(date: selectedDate)
                         } catch {
@@ -94,14 +94,14 @@ struct CalendarGridView: View {
                                                          ? Color(hex: "#735BF2")
                                                          : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
                                                          ? (colorScheme == .light ? .white : .DarkDefaultBG)
-                                                         : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) //TODO -> colorLevelTable
+                                                         : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth]))
                                         .overlay {
                                             if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd && dayOfMonth != selectedDate.dayToInt {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(colorScheme == .light ? Color(hex: "#735BF2") : .white, lineWidth: 1)
                                             }
                                         }
-//                                        .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
+                                        .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
                                     
                                     Text("\(dayOfMonth)")
                                         .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd
