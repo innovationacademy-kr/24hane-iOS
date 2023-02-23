@@ -60,16 +60,20 @@ struct HomeView: View {
     }
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var hane: Hane
     
     
     var body: some View {
         NavigationView{
            ZStack{
-//               Image("background")
-//                   .resizable()
-//                   .edgesIgnoringSafeArea(.top)
-               Theme.BackgoundColor(forScheme: colorScheme)
-                   .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
+               if hane.inOutState {
+                   Image("background")
+                        .resizable()
+                        .edgesIgnoringSafeArea(.top)
+               } else {
+                   Theme.BackgoundColor(forScheme: colorScheme)
+                       .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
+               }
                VStack(alignment: .center, spacing: 20){
                     HStack(alignment: .center){
                         Image("cabi")
@@ -97,12 +101,19 @@ struct HomeView: View {
                     .padding(.horizontal, 30)
                     ScrollView{
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                            test.toggle()
+                            /// [FixMe]
+                            task{
+                                do{
+                                    try await hane.refresh(date: Date())
+                                } catch {
+                                    print("error")
+                                }
+                            }
                         }
                         VStack(spacing: 22.5){
-                            AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
+                            AccTimeCardView(text: "이용 시간", accTime: hane.dailyAccumulationTime)
                                 .padding(.horizontal, 30)
-                            AccTimeCardView(text: "월 누적 시간", accTime: 7777, isColored: true, viewColor: Color(hex: "#735BF2"))
+                            AccTimeCardView(text: "월 누적 시간", accTime: hane.monthlyAccumulationTime, isColored: true, viewColor: Color(hex: "#735BF2"))
                                 .padding(.horizontal, 30)
                             
                             TabView{
@@ -131,5 +142,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(Hane())
     }
 }

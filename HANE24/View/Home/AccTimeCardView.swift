@@ -13,7 +13,7 @@ import SwiftUI
 /// viewColor: Color - 뷰 내부 색상
 struct AccTimeCardView: View {
     @State var text: String
-    @State var accTime: Int64
+    var accTime: Int64
     @State var isColored: Bool = false
     @State var viewColor: Color = Color(.white)
     @State var isFold: Bool = true

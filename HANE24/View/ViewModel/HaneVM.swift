@@ -18,6 +18,7 @@ enum Status {
 }
 
 class Hane: ObservableObject {
+    @Published var inOutState: Bool
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
     @Published var status: Status = .beforeSignIn
@@ -33,6 +34,7 @@ class Hane: ObservableObject {
     var APIroot: String
     
     init() {
+        self.inOutState = false
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
         self.status = .beforeSignIn
@@ -42,17 +44,17 @@ class Hane: ObservableObject {
         
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
-        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, gaepo: 0, seocho: 0, inoutState: "", tagAt: nil)
-        self.accumulationTimes = AccumulationTimes(todayAccumulationTime: 0, monthAccumulationTime: 0)
+        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
+        self.accumulationTimes = AccumulationTimes(todayAccumationTime: 0, monthAccumationTime: 0)
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         print("self.APIroot = \(self.APIroot)")
     }
     
     func refresh(date: Date) async throws {
-        try await callMainInfo()
-        try await callAccumulationTimes()
-        try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
+        try await updateInOutState()
+        try await updateAccumulationTime()
+        try await updateMonthlyLogs(date: date)
     }
     
     func SignOut() {
@@ -69,12 +71,22 @@ class Hane: ObservableObject {
 
 // update Published
 extension Hane {
-    func updateAccumulationTime() async throws {
-        try await callAccumulationTimes()
-        self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
-        self.monthlyAccumulationTime = self.accumulationTimes.monthAccumulationTime
+    
+    @MainActor
+    func updateInOutState() async throws {
+        try await callMainInfo()
+        self.inOutState = mainInfo.inoutState == "In" ? true : false
     }
     
+    @MainActor
+    func updateAccumulationTime() async throws {
+        try await callAccumulationTimes()
+        self.dailyAccumulationTime = self.accumulationTimes.todayAccumationTime
+        self.monthlyAccumulationTime = self.accumulationTimes.monthAccumationTime
+        print("self.dailyAccumulationTime: \(self.dailyAccumulationTime)")
+    }
+    
+    @MainActor
     func updateMonthlyLogs(date: Date) async throws {
         try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
         
@@ -143,6 +155,7 @@ extension Hane {
 //    @MainActor
     func callAccumulationTimes() async throws {
         self.accumulationTimes = try await callJsonAsync(APIroot + "/v1/tag-log/accumulationTimes", type: AccumulationTimes.self)
+        print(self.accumulationTimes)
     }
     
 //    @MainActor

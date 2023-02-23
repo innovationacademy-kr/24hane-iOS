@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CalendarGridView: View {
-    @State var selectedDate: Date = Date()
+    @Binding var selectedDate: Date
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var hane: Hane
     
     var body: some View {
         VStack {
@@ -17,6 +18,13 @@ struct CalendarGridView: View {
             HStack {
                 Button {
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
+                    task{
+                        do{
+                            try await hane.refresh(date: selectedDate)
+                        } catch {
+                            print("error")
+                        }
+                    }
                 } label: {
                     Image(systemName: "chevron.left")
                         .resizable()
@@ -32,6 +40,13 @@ struct CalendarGridView: View {
                 
                 Button {
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
+                    task{
+                        do{
+                            try await hane.refresh(date: selectedDate)
+                        } catch {
+                            print("error")
+                        }
+                    }
                 } label: {
                     Image(systemName: "chevron.right")
                         .resizable()
@@ -78,8 +93,8 @@ struct CalendarGridView: View {
                                         .foregroundColor(dayOfMonth == selectedDate.dayToInt
                                                          ? Color(hex: "#735BF2")
                                                          : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
-                                                         ? .LightDefaultBG
-                                                         : Color(hex: "#B9ADF9")) //TODO -> colorLevelTable
+                                                         ? Color.white.opacity(100)
+                                                         : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) //TODO -> colorLevelTable
                                         .overlay {
                                             if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd && dayOfMonth != selectedDate.dayToInt {
                                                 RoundedRectangle(cornerRadius: 10)
@@ -134,10 +149,28 @@ struct CalendarGridView: View {
         }
         return days
     }
+    
+    func calculateLogColor(accumulationTime: Int64) -> Color {
+        switch accumulationTime{
+        case 0 :
+            return  Color.white.opacity(100)
+        case 1 ... 10800 :
+            return colorScheme == .light ? Color.LightcalendarColorLv1 : Color.DarkcalendarColorLv1
+        case 10801 ... 21600 :
+            return colorScheme == .light ? Color.LightcalendarColorLv2 : Color.DarkcalendarColorLv2
+        case 21601 ... 32400 :
+            return  colorScheme == .light ? Color.LightcalendarColorLv3 : Color.DarkcalendarColorLv3
+        default:
+            return colorScheme == .light ? Color.LightcalendarColorLv4 : Color.DarkcalendarColorLv4
+        }
+    }
+
 }
+
 
 struct CalendarGridView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarGridView()
+        CalendarGridView(selectedDate: .constant(Date()))
+            .environmentObject(Hane())
     }
 }
