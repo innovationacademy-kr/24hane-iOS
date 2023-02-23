@@ -10,7 +10,7 @@ import SwiftUI
 struct TagLogView: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var selectedDate: Date
-    var logList: [Log] = []
+    var logList: [Log]
     
     var body: some View {
         VStack(alignment:.center, spacing: 4) {
@@ -50,7 +50,7 @@ struct TagLogView: View {
             
             if logList.isEmpty {
                 Text("기록이 없습니다.")
-                    .foregroundColor(Color(hex: "#333333"))
+                    .foregroundColor(colorScheme == .light ? .chartDetailBG : .white)
                     .font(.system(size: 13, weight: .light))
                     .padding(.vertical, 5)
             } else {
@@ -99,6 +99,6 @@ struct TagLogView: View {
 
 struct TagLogView_Previews: PreviewProvider {
     static var previews: some View {
-        TagLogView(selectedDate: .constant(Date()), logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
+        TagLogView(selectedDate: .constant(Date()), logList: [])
     }
 }

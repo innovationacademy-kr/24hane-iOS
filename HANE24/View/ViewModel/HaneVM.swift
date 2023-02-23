@@ -71,7 +71,6 @@ class Hane: ObservableObject {
 
 // update Published
 extension Hane {
-    
     @MainActor
     func updateInOutState() async throws {
         try await callMainInfo()
@@ -83,7 +82,6 @@ extension Hane {
         try await callAccumulationTimes()
         self.dailyAccumulationTime = self.accumulationTimes.todayAccumationTime
         self.monthlyAccumulationTime = self.accumulationTimes.monthAccumationTime
-        print("self.dailyAccumulationTime: \(self.dailyAccumulationTime)")
     }
     
     @MainActor

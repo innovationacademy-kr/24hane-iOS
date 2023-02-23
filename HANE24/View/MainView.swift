@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var hane: Hane
     @State var selection = 1
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
@@ -34,11 +35,11 @@ struct MainView: View {
         }
        // .background(colorScheme == .dark ? Color.DarkDefaultBG  : Color.LightDefaultBG)
         .accentColor(Theme.ToolBarIconColor(forScheme: colorScheme))
-        .task{
-            do{
-               try await hane.refresh(date: Date())
+        .task {
+            do {
+                try await hane.refresh(date: Date())
             } catch {
-                print(error)
+                print("error on MainView \(error.localizedDescription)")
             }
         }
     }

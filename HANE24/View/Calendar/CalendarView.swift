@@ -63,6 +63,26 @@ struct CalendarView: View {
         }
         
     }
+    
+    func convert(_ from: [InOutLog]) -> [Log] {
+        guard !from.isEmpty else { return [] }
+        return from.map {
+            var inTime: String? = nil
+            var outTime: String? = nil
+            var logTime: String? = nil
+            if let intime = $0.inTimeStamp {
+                inTime = Date(milliseconds: intime).toString("HH:mm:ss")
+            }
+            if let outtime = $0.outTimeStamp {
+                outTime = Date(milliseconds: outtime).toString("HH:mm:ss")
+            }
+            if let logtime = $0.durationSecond {
+                logTime = Date(milliseconds: logtime).toString("HH:mm:ss")
+            }
+            return Log(inTime: inTime, outTime: outTime, logTime: logTime)
+        }
+        
+    }
 }
 
 func theDate(_ str: String) -> Date {
@@ -75,5 +95,6 @@ struct CalendarView_Previews: PreviewProvider {
     
     static var previews: some View {
         CalendarView(selectedDate: theDate("2023.03.31"))
+            .environmentObject(Hane())
     }
 }
