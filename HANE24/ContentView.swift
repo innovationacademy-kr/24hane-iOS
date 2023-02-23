@@ -18,20 +18,17 @@ struct ContentView: View {
             if !signInChecked {
                 LoadingView()
             } else {
-                if hane.status == .afterSignIn {
+                switch hane.isSignIn{
+                case false:
+                    SignInView()
+                case true:
                     MainView()
-                } else if hane.status == .beforeSignIn {
-                    SignInView(hane: hane)
-                } else if hane.status == .loadWebView {
-                    SignInWebView()
-                } else {
-                    LoadingView()
                 }
             }
         }
         .task{
             do{
-                try  hane.status = await hane.isLogin() ? .afterSignIn : .beforeSignIn
+                try  hane.isSignIn = await hane.isLogin() ? true : false
                 self.signInChecked = true
             } catch {
                 print("Invalid URL")

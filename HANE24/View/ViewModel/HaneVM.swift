@@ -20,6 +20,7 @@ class Hane: ObservableObject {
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
     @Published var status: Status = .beforeSignIn
+    @Published var isSignIn: Bool = false
     @Published var monthlyLogs: [Date: [InOutLog]] = [:]
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
     
@@ -34,6 +35,7 @@ class Hane: ObservableObject {
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
         self.status = .beforeSignIn
+        self.isSignIn = false
         self.monthlyLogs = [:]
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         
@@ -89,6 +91,17 @@ extension Hane {
             }
             self.dailyTotalTimesInAMonth[dailyLog.key.dayToInt] = sum
         }
+    }
+    
+    func SignOut() {
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), completionHandler: {
+                    (records) -> Void in
+                    for record in records{
+                        WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                    }
+                })
+        UserDefaults.standard.removeObject(forKey: "Token")
+        self.isSignIn = false
     }
 }
 
