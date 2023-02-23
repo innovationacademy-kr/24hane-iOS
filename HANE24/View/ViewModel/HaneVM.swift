@@ -42,17 +42,21 @@ class Hane: ObservableObject {
         
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
-        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, gaepo: 0, seocho: 0, inoutState: "", tagAt: nil)
-        self.accumulationTimes = AccumulationTimes(todayAccumulationTime: 0, monthAccumulationTime: 0)
+        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
+        self.accumulationTimes = AccumulationTimes(todayAccumationTime: 0, monthAccumationTime: 0)
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         print("self.APIroot = \(self.APIroot)")
     }
     
     func refresh(date: Date) async throws {
+        print(1)
         try await callMainInfo()
-        try await callAccumulationTimes()
-        try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
+        print(2)
+        try await updateAccumulationTime()
+        print(3)
+        try await updateMonthlyLogs(date: date)
+        print(4)
     }
     
     func SignOut() {
@@ -69,12 +73,16 @@ class Hane: ObservableObject {
 
 // update Published
 extension Hane {
+    @MainActor
     func updateAccumulationTime() async throws {
         try await callAccumulationTimes()
-        self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
-        self.monthlyAccumulationTime = self.accumulationTimes.monthAccumulationTime
+        self.dailyAccumulationTime = self.accumulationTimes.todayAccumationTime
+        self.monthlyAccumulationTime = self.accumulationTimes.monthAccumationTime
+        print("today: \(self.accumulationTimes.todayAccumationTime), month: \(self.accumulationTimes.monthAccumationTime)")
+        print("today: \(dailyAccumulationTime), month: \(monthlyAccumulationTime)")
     }
     
+    @MainActor
     func updateMonthlyLogs(date: Date) async throws {
         try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
         

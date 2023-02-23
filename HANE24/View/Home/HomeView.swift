@@ -54,6 +54,8 @@ struct PullToRefresh: View {
 
 
 struct HomeView: View {
+    @EnvironmentObject var hane: Hane
+    
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
           UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
@@ -100,9 +102,9 @@ struct HomeView: View {
                             test.toggle()
                         }
                         VStack(spacing: 22.5){
-                            AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
+                            AccTimeCardView(text: "이용 시간", accTime: hane.dailyAccumulationTime)
                                 .padding(.horizontal, 30)
-                            AccTimeCardView(text: "월 누적 시간", accTime: 7777, isColored: true, viewColor: Color(hex: "#735BF2"))
+                            AccTimeCardView(text: "월 누적 시간", accTime: hane.monthlyAccumulationTime, isColored: true, viewColor: Color(hex: "#735BF2"))
                                 .padding(.horizontal, 30)
                             
                             TabView{
@@ -131,5 +133,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(Hane())
     }
 }
