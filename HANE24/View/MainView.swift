@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @State var selection = 1
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var hane: Hane
     var body: some View {
         TabView(selection: $selection){
             HomeView()
@@ -18,6 +19,9 @@ struct MainView: View {
                       //  .foregroundColor(.iconColor)
                 }) .tag(1)
             CalendarView()
+                .onAppear{
+                    print("inoutState: \(hane.dailyAccumulationTime)")
+                }
                 .tabItem({
                     Image(selection == 2 ? "selectedCalendar" : "calendar").renderingMode(.template)
                     //    .foregroundColor(.iconColor)
@@ -30,11 +34,19 @@ struct MainView: View {
         }
        // .background(colorScheme == .dark ? Color.DarkDefaultBG  : Color.LightDefaultBG)
         .accentColor(Theme.ToolBarIconColor(forScheme: colorScheme))
+        .task{
+            do{
+               try await hane.refresh(date: Date())
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(Hane())
     }
 }

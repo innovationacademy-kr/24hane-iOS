@@ -27,6 +27,9 @@ import SwiftUI
 
 
 struct Theme {
+    
+    
+    
     static func BackgoundColor(forScheme scheme: ColorScheme) -> Color {
        let lightBG = Color(hex: "F5F5F5")
         let darkBG = Color(hex: "333333")

@@ -11,6 +11,7 @@ struct AccTimeCardForCalendarView: View {
    
     @Environment(\.colorScheme) var colorScheme
     
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)

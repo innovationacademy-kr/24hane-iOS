@@ -87,5 +87,6 @@ struct SignInWebView: UIViewRepresentable {
 struct SignInWebView_Previews: PreviewProvider {
     static var previews: some View {
         SignInWebView(viewStat: .constant(.buttonNotTabbed))
+            .environmentObject(Hane())
     }
 }
