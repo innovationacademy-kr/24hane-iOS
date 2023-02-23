@@ -93,15 +93,15 @@ struct CalendarGridView: View {
                                         .foregroundColor(dayOfMonth == selectedDate.dayToInt
                                                          ? Color(hex: "#735BF2")
                                                          : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
-                                                         ? Color.white.opacity(100)
+                                                         ? (colorScheme == .light ? .white : .DarkDefaultBG)
                                                          : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) //TODO -> colorLevelTable
                                         .overlay {
                                             if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd && dayOfMonth != selectedDate.dayToInt {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color(hex: "#735BF2"), lineWidth: 1)
+                                                    .stroke(colorScheme == .light ? Color(hex: "#735BF2") : .white, lineWidth: 1)
                                             }
                                         }
-                                        .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
+//                                        .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
                                     
                                     Text("\(dayOfMonth)")
                                         .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd
@@ -109,9 +109,9 @@ struct CalendarGridView: View {
                                                          : dayOfMonth == selectedDate.dayToInt
                                                          ? .white
                                                          : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
-                                                         ? Color(hex: "#735BF2")
-                                                         : Color(hex: "#333333"))
-                                        .font(.system(size: 14, weight: .regular))
+                                                         ? (colorScheme == .light ? Color(hex: "#735BF2") : .white)
+                                                         : (colorScheme == .light ? Color(hex: "#333333") : .white))
+                                        .font(.system(size: 14, weight: dayOfMonth == selectedDate.dayToInt ? .bold : .regular))
                                 }
                             }
                             .frame(width: 30, height: 30)
@@ -153,18 +153,17 @@ struct CalendarGridView: View {
     func calculateLogColor(accumulationTime: Int64) -> Color {
         switch accumulationTime{
         case 0 :
-            return  Color.white.opacity(100)
+            return colorScheme == .light ? .white : .DarkDefaultBG
         case 1 ... 10800 :
             return colorScheme == .light ? Color.LightcalendarColorLv1 : Color.DarkcalendarColorLv1
         case 10801 ... 21600 :
             return colorScheme == .light ? Color.LightcalendarColorLv2 : Color.DarkcalendarColorLv2
         case 21601 ... 32400 :
-            return  colorScheme == .light ? Color.LightcalendarColorLv3 : Color.DarkcalendarColorLv3
+            return colorScheme == .light ? Color.LightcalendarColorLv3 : Color.DarkcalendarColorLv3
         default:
             return colorScheme == .light ? Color.LightcalendarColorLv4 : Color.DarkcalendarColorLv4
         }
     }
-
 }
 
 
