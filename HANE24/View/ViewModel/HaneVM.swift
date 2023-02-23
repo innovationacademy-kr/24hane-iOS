@@ -7,6 +7,7 @@
 
 import Foundation
 import WebKit
+import CoreData
 
 enum Status {
     case beforeSignIn
@@ -21,7 +22,7 @@ class Hane: ObservableObject {
     @Published var monthlyAccumulationTime: Int64 = 0
     @Published var status: Status = .beforeSignIn
     @Published var isSignIn: Bool = false
-    @Published var monthlyLogs: [Date: [InOutLog]] = [:]
+    @Published var monthlyLogs: [String: [InOutLog]] = [:]
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
     
     var inOutLog: InOutLog
@@ -79,7 +80,7 @@ extension Hane {
         
         // update MonthlyLogs
         self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
-            Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!)
+            Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
         }
         
 
@@ -89,19 +90,8 @@ extension Hane {
             for log in dailyLog.value {
                 sum += log.durationSecond ?? 0
             }
-            self.dailyTotalTimesInAMonth[dailyLog.key.dayToInt] = sum
+            self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
         }
-    }
-    
-    func SignOut() {
-        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), completionHandler: {
-                    (records) -> Void in
-                    for record in records{
-                        WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-                    }
-                })
-        UserDefaults.standard.removeObject(forKey: "Token")
-        self.isSignIn = false
     }
 }
 
