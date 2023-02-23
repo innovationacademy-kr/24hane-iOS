@@ -22,7 +22,11 @@ struct LaunchScreen: View {
                         .frame(width: 20, height: 20)
                 }
                 
+                Text("Are")
+                Text("Not")
+                Text("Enough")
             }
+            .font(.system(size: 20, weight: .heavy, design: .monospaced))
         }
     }
 }

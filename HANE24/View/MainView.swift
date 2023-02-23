@@ -11,7 +11,7 @@ struct MainView: View {
     @EnvironmentObject var hane: Hane
     @State var selection = 1
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var hane: Hane
+    
     var body: some View {
         TabView(selection: $selection){
             HomeView()

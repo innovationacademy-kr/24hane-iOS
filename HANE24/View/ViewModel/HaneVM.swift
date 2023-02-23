@@ -73,6 +73,7 @@ class Hane: ObservableObject {
 extension Hane {
     @MainActor
     func updateInOutState() async throws {
+        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
         try await callMainInfo()
         self.inOutState = mainInfo.inoutState == "In" ? true : false
     }
@@ -93,7 +94,7 @@ extension Hane {
             Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
         }
         
-
+        self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         // update Daily Total Accumulation Times
         for dailyLog in monthlyLogs {
             var sum: Int64 = 0
