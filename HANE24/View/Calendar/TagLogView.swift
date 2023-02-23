@@ -17,11 +17,11 @@ struct TagLogView: View {
             HStack{
                 Text("\(selectedDate.monthToInt).\(selectedDate.dayToInt) 일요일")
 //                    .frame(width: 59, height: 24)
-                    .padding(.leading, 18)
+                    .padding(.leading, 5)
                 Spacer()
                 Text("\(7)시간 \(48)분")
 //                    .frame(width: 59, height: 24)
-                    .padding(.trailing, 8)
+                    .padding(.trailing, 5)
             }
             .font(.system(size: 14, weight: .medium, design: .default))
             .foregroundColor(Color.gray)

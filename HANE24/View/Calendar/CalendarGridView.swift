@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CalendarGridView: View {
-    @EnvironmentObject var hane: Hane
     @Binding var selectedDate: Date
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var hane: Hane
     
     var body: some View {
         VStack {
@@ -18,6 +18,13 @@ struct CalendarGridView: View {
             HStack {
                 Button {
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
+                    task{
+                        do{
+                            try await hane.refresh(date: selectedDate)
+                        } catch {
+                            print("error")
+                        }
+                    }
                 } label: {
                     Image(systemName: "chevron.left")
                         .resizable()
@@ -33,6 +40,13 @@ struct CalendarGridView: View {
                 
                 Button {
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
+                    task{
+                        do{
+                            try await hane.refresh(date: selectedDate)
+                        } catch {
+                            print("error")
+                        }
+                    }
                 } label: {
                     Image(systemName: "chevron.right")
                         .resizable()
@@ -137,7 +151,6 @@ struct CalendarGridView: View {
     }
     
     func calculateLogColor(accumulationTime: Int64) -> Color {
-         
         switch accumulationTime{
         case 0 :
             return colorScheme == .light ? .white : .DarkDefaultBG
@@ -152,6 +165,7 @@ struct CalendarGridView: View {
         }
     }
 }
+
 
 struct CalendarGridView_Previews: PreviewProvider {
     static var previews: some View {
