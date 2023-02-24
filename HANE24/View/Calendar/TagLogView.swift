@@ -58,6 +58,7 @@ struct TagLogView: View {
                         tagLog(log)
                     }
                 }
+                .frame(maxHeight: 230)
             }
             
             
