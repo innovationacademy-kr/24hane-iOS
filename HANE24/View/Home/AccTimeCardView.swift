@@ -19,6 +19,11 @@ struct AccTimeCardView: View {
     @State var isFold: Bool = true
     @State var targetTime: Int64 = 3600 * 8
     @State var drawingStroke = false
+    var options: Array<Double>
+    @State var select: Int
+    
+    let onSelect:(Int) -> Void
+    
     
     let animation = Animation
         .easeOut(duration: 0.8)
@@ -62,20 +67,25 @@ struct AccTimeCardView: View {
                     VStack {
                         HStack {
                             Text("목표 시간")
-                            
                             Spacer()
-                            
-                            HStack(alignment: .bottom, spacing: 0) {
-                                Text("\(accTime / 3600)")
+                            Menu{
+                                Picker(selection: $select) {
+                                    ForEach(0..<options.count, id: \.self){ times in
+                                        Text("\(Int(options[times])) 시간")
+                                    }
+                                } label: {}.onChange(of: select) { _ in
+                                    onSelect(select)
+                                }
+                            } label : {
+                                Text("\(Int(options[select]))")
                                     .font(.system(size: 20, weight: .semibold))
-                                Text("시간 ")
-                                Text("\(accTime % 3600 / 60)")
-                                    .font(.system(size: 20, weight: .semibold))
-                                Text("분")
+                                Text("시간")
+                                Image(systemName: "chevron.down")
+                                    .frame(width: 10, height: 10)
+                                    .foregroundColor(.gray)
                             }
                             
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(isFold ? viewColor : .white)
+                            
                         }
                         .foregroundColor(isFold && isColored ? .white : .black)
                         .font(.system(size: 16, weight: .semibold))
@@ -100,14 +110,14 @@ struct AccTimeCardView: View {
     var ProgressCircle: some View {
                                 
         ZStack{
-            Text("\(Int(Double(accTime) / Double(targetTime) * 100))%")
+            Text("\(Int(Double(accTime) / Double(options[select] * 3600) * 100))%")
                 .font(.system(size: 30, weight: .medium, design: .default))
                 .foregroundColor(.black)
             Circle()
                 .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.1), .gradientWhtie.opacity(0.1), .gradientPurple.opacity(0.1), .gradientPurple.opacity(0.1),.gradientWhtie.opacity(0.1), .gradientBlue.opacity(0.1)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 .overlay{
                     Circle()
-                        .trim(from:0, to: drawingStroke ? (Double(accTime) / Double(targetTime)) : 0)
+                        .trim(from:0, to: drawingStroke ? (Double(accTime) / Double(options[select] * 3600)) : 0)
                         .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 }
                 .rotationEffect(.degrees(270))
@@ -142,9 +152,9 @@ extension View {
     }
 }
 
-struct AccTimeCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
-        AccTimeCardView(text: "이용 시간", accTime: 77777, isColored: true, viewColor: Color(hex: "#735BF2"))
-    }
-}
+//struct AccTimeCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
+//        AccTimeCardView(text: "이용 시간", accTime: 77777, isColored: true, viewColor: Color(hex: "#735BF2"))
+//    }
+//}

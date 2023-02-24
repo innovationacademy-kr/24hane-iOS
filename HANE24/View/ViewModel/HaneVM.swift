@@ -75,7 +75,7 @@ extension Hane {
     func updateInOutState() async throws {
         self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
         try await callMainInfo()
-        self.inOutState = mainInfo.inoutState == "In" ? true : false
+        self.inOutState = mainInfo.inoutState == "IN" ? true : false
     }
     
     @MainActor

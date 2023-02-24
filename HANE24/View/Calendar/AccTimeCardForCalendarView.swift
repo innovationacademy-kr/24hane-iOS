@@ -10,7 +10,7 @@ import SwiftUI
 struct AccTimeCardForCalendarView: View {
    
     @Environment(\.colorScheme) var colorScheme
-    
+    var totalAccTime: Int64
     
     var body: some View {
         ZStack {
@@ -20,7 +20,7 @@ struct AccTimeCardForCalendarView: View {
                 .foregroundColor(Color(hex: "#333333"))
 //                .foregroundColor(colorScheme == .dark ? .white : .chartDetailBG)
             
-            Text("총 \(81)시간 \(41)분")
+            Text("총 \(totalAccTime / 3600 )시간 \(totalAccTime % 3600 / 60)분")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.white)
         }
@@ -30,6 +30,6 @@ struct AccTimeCardForCalendarView: View {
 
 struct AccTimeCardForCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        AccTimeCardForCalendarView()
+        AccTimeCardForCalendarView(totalAccTime: 123456789)
     }
 }

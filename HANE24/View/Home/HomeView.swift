@@ -19,6 +19,9 @@ var items: [chartItem] = [
     chartItem(id: "월", title: "최근 월간 그래프", period: ["2023.2","2023.1","2022.12","2022.11","2022.10", "2022.10"], data:  [132, 100, 121, 123, 139, 120])
 ]
 
+var dailyOptions: Array<Double> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+var monthlyOptions: Array<Double> = [80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300]
+
 struct PullToRefresh: View {
     var coordinateSpaceName: String
     var onRefresh: ()->Void
@@ -61,15 +64,19 @@ struct HomeView: View {
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
+    @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
+    @AppStorage("MonthlySelectionOption") private var monthlySelectionOption =  UserDefaults.standard.integer(forKey: "MonthlySelectionOption")
+    
     
     
     var body: some View {
         NavigationView{
            ZStack{
                if hane.inOutState {
-                   Image("background")
+                   Image("Background")
                         .resizable()
                         .edgesIgnoringSafeArea(.top)
+                        .opacity(0.7)
                } else {
                    Theme.BackgoundColor(forScheme: colorScheme)
                        .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
@@ -82,10 +89,12 @@ struct HomeView: View {
                             .padding(.trailing, 3)
                         Text("hejang")
                             .font(.system(size: 20, weight: .semibold, design: .rounded))
-                        Circle()
-                            .foregroundColor(.green)
-                            .frame(width:8, height: 8)
-                            .padding(.bottom, 10)
+                        if hane.inOutState {
+                            Circle()
+                                .foregroundColor(.green)
+                                .frame(width:8, height: 8)
+                                .padding(.bottom, 10)
+                        }
                         Spacer()
                         NavigationLink(destination: notificationView()) {
                             Image(systemName: "bell")
@@ -107,9 +116,15 @@ struct HomeView: View {
                             }
                         }
                         VStack(spacing: 22.5){
-                            AccTimeCardView(text: "이용 시간", accTime: hane.dailyAccumulationTime)
+                            AccTimeCardView(text: "이용 시간", accTime: hane.dailyAccumulationTime, options: dailyOptions, select: dailySelectionOption) { selection in
+                                print(selection)
+                                UserDefaults.standard.setValue(selection, forKey: "DailySelectionOption")
+                            }
                                 .padding(.horizontal, 30)
-                            AccTimeCardView(text: "월 누적 시간", accTime: hane.monthlyAccumulationTime, isColored: true, viewColor: Color(hex: "#735BF2"))
+                            AccTimeCardView(text: "월 누적 시간", accTime: hane.monthlyAccumulationTime, isColored: true, viewColor: Color(hex: "#735BF2"), options: monthlyOptions, select: monthlySelectionOption) {selection in
+                                print(selection)
+                                UserDefaults.standard.setValue(selection, forKey: "MonthlySelectionOption")
+                            }
                                 .padding(.horizontal, 30)
                             
                             TabView{

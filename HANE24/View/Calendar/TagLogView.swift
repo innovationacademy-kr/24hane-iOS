@@ -63,6 +63,7 @@ struct TagLogView: View {
 //                        }
                     }
                 }
+                .frame(maxHeight: 230)
             }
             
             
