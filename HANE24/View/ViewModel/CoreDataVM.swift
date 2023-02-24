@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 
-class MonthlyLogController: ObservableObject {
+class MonthlyLogController {
     static let shared: MonthlyLogController = MonthlyLogController()
     let container: NSPersistentContainer
     var totalLogs = [MonthlyLog]()
