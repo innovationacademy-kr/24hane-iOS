@@ -52,7 +52,8 @@ struct CalendarView: View {
             if let outtime = $0.outTimeStamp {
                 outTime = Date(milliseconds: outtime).toString("HH:mm:ss")
             }
-            if let logtime = $0.durationSecond {
+            if var logtime = $0.durationSecond {
+                logtime -= 3600 * 9
                 logTime = Date(milliseconds: logtime).toString("HH:mm:ss")
             }
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)

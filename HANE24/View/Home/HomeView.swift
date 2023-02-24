@@ -60,6 +60,7 @@ struct HomeView: View {
     }
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var hane: Hane
     
     
     var body: some View {

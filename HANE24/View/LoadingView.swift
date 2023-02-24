@@ -14,7 +14,7 @@ struct LoadingView: View {
 }
 
 struct LoadingAnimation: View {
-    @State var animationTrigger: Bool = true
+    @State private var animationTrigger: Bool = true
     
     var body: some View {
         HStack(spacing: 6) {

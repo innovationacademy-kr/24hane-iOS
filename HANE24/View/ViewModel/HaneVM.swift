@@ -18,6 +18,8 @@ class Hane: ObservableObject {
     @Published var monthlyLogs: [String: [InOutLog]] = [:]
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
     
+    @Published var loading: Bool = true
+    
     var inOutLog: InOutLog
     var perMonth: PerMonth
     var mainInfo: MainInfo
@@ -42,10 +44,13 @@ class Hane: ObservableObject {
         print("self.APIroot = \(self.APIroot)")
     }
     
+    @MainActor
     func refresh(date: Date) async throws {
+        self.loading = true
         try await updateInOutState()
         try await updateAccumulationTime()
         try await updateMonthlyLogs(date: date)
+        self.loading = false
     }
     
     func SignOut() {
