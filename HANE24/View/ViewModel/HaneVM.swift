@@ -12,9 +12,14 @@ import CoreData
 
 class Hane: ObservableObject {
     @Published var inOutState: Bool
+    @Published var profileImage: String
+    @Published var loginID: String
+    
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
+    
     @Published var isSignIn: Bool = false
+    
     @Published var monthlyLogs: [String: [InOutLog]] = [:]
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
     
@@ -29,8 +34,12 @@ class Hane: ObservableObject {
     
     init() {
         self.inOutState = false
+        self.profileImage = "cabi"
+        self.loginID = ""
+        
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
+        
         self.isSignIn = false
         self.monthlyLogs = [:]
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
@@ -45,7 +54,7 @@ class Hane: ObservableObject {
     }
     
     func refresh(date: Date) async throws {
-        try await updateInOutState()
+        try await updateMainInfo()
         try await updateAccumulationTime()
         try await updateMonthlyLogs(date: date)
     }
@@ -64,26 +73,34 @@ class Hane: ObservableObject {
 // update Published
 extension Hane {
     @MainActor
-    func updateInOutState() async throws {
+    func updateMainInfo() async throws {
         self.loading = true
-        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
+        
         try await callMainInfo()
+        
+        self.loginID = mainInfo.login
+        self.profileImage = mainInfo.profileImage
         self.inOutState = mainInfo.inoutState == "IN" ? true : false
+        
         self.loading = false
     }
     
     @MainActor
     func updateAccumulationTime() async throws {
         self.loading = true
+        
         try await callAccumulationTimes()
+        
         self.dailyAccumulationTime = self.accumulationTimes.todayAccumationTime
         self.monthlyAccumulationTime = self.accumulationTimes.monthAccumationTime
+        
         self.loading = false
     }
     
     @MainActor
     func updateMonthlyLogs(date: Date) async throws {
         self.loading = true
+        
         try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
         
         // update MonthlyLogs
