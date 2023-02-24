@@ -16,16 +16,13 @@ struct TagLogView: View {
         VStack(alignment:.center, spacing: 4) {
             HStack{
                 Text("\(selectedDate.monthToInt).\(selectedDate.dayToInt) 일요일")
-//                    .frame(width: 59, height: 24)
                     .padding(.leading, 5)
                 Spacer()
                 Text("\(7)시간 \(48)분")
-//                    .frame(width: 59, height: 24)
                     .padding(.trailing, 5)
             }
             .font(.system(size: 14, weight: .medium, design: .default))
             .foregroundColor(Color.gray)
-//            .padding(.horizontal, 10)
             
             
             Divider()
@@ -56,11 +53,7 @@ struct TagLogView: View {
             } else {
                 ScrollView {
                     ForEach(logList, id: \.self) { log in
-//                        if let log = log {
-                            tagLog(log)
-//                        } else {
-//
-//                        }
+                        tagLog(log)
                     }
                 }
                 .frame(maxHeight: 230)

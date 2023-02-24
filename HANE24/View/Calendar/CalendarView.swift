@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 /// selectedDate: Date = 선택 날짜
 struct CalendarView: View {
     @EnvironmentObject var hane: Hane
@@ -37,6 +35,7 @@ struct CalendarView: View {
                 }
                 .padding(.horizontal, 30)
             }
+            .coordinateSpace(name: "pullToRefresh")
         }
         .coordinateSpace(name: "pullToRefresh")
     }
@@ -58,7 +57,6 @@ struct CalendarView: View {
             }
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)
         }
-        
     }
 }
 

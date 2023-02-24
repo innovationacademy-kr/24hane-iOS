@@ -13,11 +13,10 @@ struct MainView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        TabView(selection: $selection){
+        TabView(selection: $selection) {
             HomeView()
                 .tabItem({
                     Image(selection == 1 ? "selectedHome" : "home").renderingMode(.template)
-                      //  .foregroundColor(.iconColor)
                 }) .tag(1)
             CalendarView()
                 .onAppear{
@@ -25,15 +24,12 @@ struct MainView: View {
                 }
                 .tabItem({
                     Image(selection == 2 ? "selectedCalendar" : "calendar").renderingMode(.template)
-                    //    .foregroundColor(.iconColor)
                 }) .tag(2)
             MoreView()
                 .tabItem({
                     Image(selection == 3 ? "selectedBurger" : "hamburger").renderingMode(.template)
-                   //     .foregroundColor(.iconColor)
                 }) .tag(3)
         }
-       // .background(colorScheme == .dark ? Color.DarkDefaultBG  : Color.LightDefaultBG)
         .accentColor(Theme.ToolBarIconColor(forScheme: colorScheme))
         .task {
             do {

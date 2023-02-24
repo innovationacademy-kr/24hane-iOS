@@ -22,13 +22,13 @@ struct ReissuanceView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        ZStack(alignment: .topLeading){
+        ZStack(alignment: .topLeading) {
             Theme.BackgoundColor(forScheme: colorScheme)
                 .ignoresSafeArea()
                 .navigationBarBackButtonHidden(true)
                 .navigationBarHidden(true)
             
-            VStack(){
+            VStack {
                 HStack{
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
@@ -44,7 +44,7 @@ struct ReissuanceView: View {
                         .padding(.trailing, 120)
                 }
                 .padding(.bottom, 15)
-                VStack(spacing: 15){
+                VStack(spacing: 15) {
                     HStack{
                         Text("재발급 신청 방법")
                             .font(.system(size: 20, weight: .bold))
@@ -91,8 +91,8 @@ struct ReissuanceView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
                 .frame(height: 300)
-            VStack(alignment: .leading){
-                HStack(spacing: 15){
+            VStack(alignment: .leading) {
+                HStack(spacing: 15) {
                     ZStack{
                         Circle()
                         //    .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round))
@@ -102,7 +102,7 @@ struct ReissuanceView: View {
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(Color(hex: "EAEAEA"))
                     }
-                    VStack(alignment: .leading, spacing: 5){
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("신청 후 업체에 입금해주세요.")
                             .font(.system(size: 16, weight: .bold))
                         Text("업체에서 입금 확인 후 제작이 진행됩니다.")
@@ -113,7 +113,7 @@ struct ReissuanceView: View {
                 Image(systemName: "chevron.down")
                     .foregroundColor(Color(hex: "D9D9D9"))
                     .padding(.horizontal, 30)
-                HStack(spacing: 15){
+                HStack(spacing: 15) {
                     ZStack{
                         Text("제작")
                             .font(.system(size: 14, weight: .semibold))
@@ -123,7 +123,7 @@ struct ReissuanceView: View {
                             .foregroundColor(Color(hex: "EAEAEA"))
                             .frame(width: 50, height: 50)
                     }
-                    VStack(alignment: .leading, spacing: 5){
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("제작 기간은 약 2주간 소요됩니다.")
                             .font(.system(size: 16, weight: .bold))
                         Text("출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.")
@@ -135,7 +135,7 @@ struct ReissuanceView: View {
                 Image(systemName: "chevron.down")
                     .foregroundColor(Color(hex: "D9D9D9"))
                     .padding(.horizontal, 30)
-                HStack(spacing: 15){
+                HStack(spacing: 15) {
                     ZStack{
                         Text("완료")
                             .font(.system(size: 14, weight: .semibold))
@@ -145,7 +145,7 @@ struct ReissuanceView: View {
                             .foregroundColor(Color(hex: "EAEAEA"))
                             .frame(width: 50, height: 50)
                     }
-                    VStack(alignment: .leading, spacing: 5){
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("카드를 수령해주세요.")
                             .font(.system(size: 16, weight: .bold))
                         Text("재발급 카드는 데스크에서 수령가능합니다.")

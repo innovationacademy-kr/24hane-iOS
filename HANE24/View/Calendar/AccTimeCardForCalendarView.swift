@@ -16,9 +16,7 @@ struct AccTimeCardForCalendarView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .overlay( colorScheme == .dark ? RoundedRectangle(cornerRadius: 10).stroke(.white, lineWidth: 2) : nil)
-               // .stroke(Color(.white).opacity(0.5), lineWidth: 2)
                 .foregroundColor(Color(hex: "#333333"))
-//                .foregroundColor(colorScheme == .dark ? .white : .chartDetailBG)
             
             Text("총 \(totalAccTime / 3600 )시간 \(totalAccTime % 3600 / 60)분")
                 .font(.system(size: 14, weight: .semibold))

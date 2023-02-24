@@ -14,12 +14,12 @@ struct ChartDetailView: View {
     var period: String
     var body: some View {
         ZStack{
-            VStack(spacing: -3){
+            VStack(spacing: -3) {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.chartDetailBG)
                     .frame(height: 60)
                 HStack{
-                    ForEach(0..<6){ idx in
+                    ForEach(0..<6) { idx in
                             Image(systemName: "arrowtriangle.down.fill")
                                 .padding(.horizontal, 8)
                                 .foregroundColor(.chartDetailBG)

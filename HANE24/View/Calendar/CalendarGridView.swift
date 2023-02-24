@@ -60,6 +60,7 @@ struct CalendarGridView: View {
             // LazyGrid
             let week = ["일", "월", "화", "수", "목", "금", "토"]
             let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
+            
             ZStack{
                 if isLoaded == false{
                     Theme.BackgoundColor(forScheme: colorScheme)

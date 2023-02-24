@@ -30,15 +30,15 @@ struct MoreView: View {
     
     var body: some View {
         NavigationView{
-            ZStack(alignment: .topLeading){
+            ZStack(alignment: .topLeading) {
                 Theme.BackgoundColor(forScheme: colorScheme)
                     .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
-                VStack(alignment: .leading, spacing: 36){
+                VStack(alignment: .leading, spacing: 36) {
                     Text("더보기")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.top)
-                    NavigationLink(destination: ReissuanceView()){
-                        HStack(spacing: 10){
+                    NavigationLink(destination: ReissuanceView()) {
+                        HStack(spacing: 10) {
                             Image("card")
                                 .resizable()
                                 .frame(width: 24, height: 24)
@@ -49,8 +49,8 @@ struct MoreView: View {
                         }
                     }
                     .navigationBarHidden(true)
-                    ForEach(listItems){item in
-                        HStack(spacing: 10){
+                    ForEach(listItems) { item in
+                        HStack(spacing: 10) {
                             Image(item.image)
                                 .resizable()
                                 .frame(width: 24.0, height: 24.0)
@@ -70,7 +70,7 @@ struct MoreView: View {
                     Button {
                         hane.SignOut()
                     } label: {
-                        HStack(spacing: 10){
+                        HStack(spacing: 10) {
                             Image("logout")
                                 .resizable()
                                 .frame(width: 24, height: 24)
