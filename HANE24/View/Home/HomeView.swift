@@ -114,12 +114,10 @@ struct HomeView: View {
                         }
                         VStack(spacing: 22.5){
                             AccTimeCardView(text: "이용 시간", accTime: hane.dailyAccumulationTime, options: dailyOptions, select: dailySelectionOption) { selection in
-                                print(selection)
                                 UserDefaults.standard.setValue(selection, forKey: "DailySelectionOption")
                             }
                                 .padding(.horizontal, 30)
                             AccTimeCardView(text: "월 누적 시간", accTime: hane.monthlyAccumulationTime, isColored: true, viewColor: Color(hex: "#735BF2"), options: monthlyOptions, select: monthlySelectionOption) {selection in
-                                print(selection)
                                 UserDefaults.standard.setValue(selection, forKey: "MonthlySelectionOption")
                             }
                                 .padding(.horizontal, 30)
