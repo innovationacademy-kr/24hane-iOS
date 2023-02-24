@@ -66,6 +66,7 @@ struct HomeView: View {
     @EnvironmentObject var hane: Hane
     @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
     @AppStorage("MonthlySelectionOption") private var monthlySelectionOption =  UserDefaults.standard.integer(forKey: "MonthlySelectionOption")
+
     var body: some View {
         NavigationView{
            ZStack{
