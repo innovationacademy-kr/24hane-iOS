@@ -11,11 +11,10 @@
 	</dict>
 	<key>UILaunchScreen</key>
 	<dict>
+		<key>UIImageName</key>
+		<string>LaunchScreen_light</string>
 		<key>UILaunchScreen</key>
-		<dict>
-			<key></key>
-			<string></string>
-		</dict>
+		<dict/>
 	</dict>
 </dict>
 </plist>
