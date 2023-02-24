@@ -62,21 +62,19 @@ struct CalendarGridView: View {
             let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
             
             ZStack{
-                if hane.loading == true {
-//                    Theme.BackgoundColor(forScheme: colorScheme)
-                    Theme.CalendarBackgoundColor(forScheme: colorScheme)
-                        .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
-                    LoadingAnimation()
-                }
+                LoadingAnimation()
+                    .isHidden(!hane.loading)
+                
                 VStack {
+                    // day of week
                     LazyVGrid(columns: cols, spacing: 12) {
-                        // day of week
                         ForEach(week, id: \.self) { dayOfWeek in
                             Text("\(dayOfWeek)")
                                 .foregroundColor(Color(hex: "#979797"))
                                 .font(.system(size: 13, weight: .light))
                         }
                     }
+                    
                     // days with color
                     // is future ? disabled
                     // is selected ? Circle with white font
@@ -102,26 +100,26 @@ struct CalendarGridView: View {
                                                              ? (colorScheme == .light ? .white : .DarkDefaultBG)
                                                              : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) //TODO -> colorLevelTable
                                             .overlay {
-                                                if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd && dayOfMonth != selectedDate.dayToInt {
+                                                if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd") && dayOfMonth != selectedDate.dayToInt {
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .stroke(colorScheme == .light ? Color(hex: "#735BF2") : .white, lineWidth: 1)
                                                 }
                                             }
-                                        //                                        .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
+                                            .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
                                         
                                         Text("\(dayOfMonth)")
                                             .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd")
                                                              ? Color(hex: "#979797")
                                                              : dayOfMonth == selectedDate.dayToInt
                                                              ? .white
-                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
+                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
                                                              ? (colorScheme == .light ? Color(hex: "#735BF2") : .white)
                                                              : (colorScheme == .light ? Color(hex: "#333333") : .white))
                                             .font(.system(size: 14, weight: dayOfMonth == selectedDate.dayToInt ? .bold : .regular))
                                     }
                                 }
                                 .frame(width: 30, height: 30)
-                                .disabled("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
+                                .disabled("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
                             } else {
                                 Text("")
                             }

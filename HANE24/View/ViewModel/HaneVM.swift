@@ -44,13 +44,10 @@ class Hane: ObservableObject {
         print("self.APIroot = \(self.APIroot)")
     }
     
-    @MainActor
     func refresh(date: Date) async throws {
-        self.loading = true
         try await updateInOutState()
         try await updateAccumulationTime()
         try await updateMonthlyLogs(date: date)
-        self.loading = false
     }
     
     func SignOut() {
@@ -68,20 +65,25 @@ class Hane: ObservableObject {
 extension Hane {
     @MainActor
     func updateInOutState() async throws {
+        self.loading = true
         self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
         try await callMainInfo()
         self.inOutState = mainInfo.inoutState == "In" ? true : false
+        self.loading = false
     }
     
     @MainActor
     func updateAccumulationTime() async throws {
+        self.loading = true
         try await callAccumulationTimes()
         self.dailyAccumulationTime = self.accumulationTimes.todayAccumationTime
         self.monthlyAccumulationTime = self.accumulationTimes.monthAccumationTime
+        self.loading = false
     }
     
     @MainActor
     func updateMonthlyLogs(date: Date) async throws {
+        self.loading = true
         try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
         
         // update MonthlyLogs
@@ -98,6 +100,7 @@ extension Hane {
             }
             self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
         }
+        self.loading = false
     }
 }
 
