@@ -102,6 +102,7 @@ struct HomeView: View {
                                 .foregroundColor(.green)
                                 .frame(width:8, height: 8)
                                 .padding(.bottom, 10)
+                                .padding(.leading, 0)
                         }
                         
                         Spacer()
