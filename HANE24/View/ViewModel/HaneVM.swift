@@ -25,6 +25,8 @@ class Hane: ObservableObject {
     
     @Published var loading: Bool = true
     
+    var monthlyLogController = MonthlyLogController.shared
+    
     var inOutLog: InOutLog
     var perMonth: PerMonth
     var mainInfo: MainInfo
@@ -101,6 +103,7 @@ extension Hane {
     func updateMonthlyLogs(date: Date) async throws {
         self.loading = true
         
+        
         try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
         
         // update MonthlyLogs
@@ -121,7 +124,7 @@ extension Hane {
     }
 }
 
-// Call APIs
+// Call APIs 
 extension Hane {
     @MainActor
     func isLogin() async throws -> Bool {
