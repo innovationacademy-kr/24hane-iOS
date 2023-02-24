@@ -30,6 +30,7 @@
 		0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5BD29A4D97800125948 /* LoadingView.swift */; };
 		0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
 		9A1A4BEE299ADE650076D650 /* AccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */; };
+		9A37714929A742C0006BBEF3 /* CoreDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37714829A742C0006BBEF3 /* CoreDataVM.swift */; };
 		9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
 		9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */; };
 		9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */; };
@@ -67,6 +68,7 @@
 		0EFAF5BD29A4D97800125948 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0EFDFD46299F5AF500A911F7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardView.swift; sourceTree = "<group>"; };
+		9A37714829A742C0006BBEF3 /* CoreDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataVM.swift; sourceTree = "<group>"; };
 		9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
+				9A37714829A742C0006BBEF3 /* CoreDataVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				0E4F6D0629A774A8009CF1D4 /* LaunchScreen.swift in Sources */,
 				0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */,
+				9A37714929A742C0006BBEF3 /* CoreDataVM.swift in Sources */,
 				0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */,
 				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
 				9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */,
