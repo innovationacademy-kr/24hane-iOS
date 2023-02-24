@@ -43,6 +43,7 @@ struct LoadingAnimation: View {
                 .foregroundColor(animationTrigger ? Color(hex: "#D9D9D9") : Color(hex: "#735BF2"))
                 .animation(changeColor.delay(0.8), value: animationTrigger)
         }
+        .frame( height: 24)
         .onAppear {
             animationTrigger.toggle()
         }

@@ -37,6 +37,7 @@ struct AccumulationTimes: Codable {
     let monthAccumationTime: Int64
 }
 
+
 // for CoreData
 public class InOutLogs: NSObject {
     var data: [InOutLog]
@@ -44,4 +45,9 @@ public class InOutLogs: NSObject {
     init(data: [InOutLog]) {
         self.data = data
     }
+}
+
+struct ClusterTmp: Codable {
+    let GaePo: Int64
+    let Seocho: Int64
 }

@@ -26,9 +26,12 @@ struct CalendarGridView: View {
                     }
                     
                 }, label: {
-                    Image(systemName: "chevron.left")
-                        .resizable()
-                        .frame(width: 8, height: 12)
+                    ZStack{
+                        Image(systemName: "chevron.left")
+                            .resizable()
+                            .frame(width: 8, height: 12)
+                    }
+                    .frame(width: 15, height: 15)
                     
                 })
                 
@@ -46,9 +49,12 @@ struct CalendarGridView: View {
 //                        isLoaded = true
                     }
                 }, label: {
-                    Image(systemName: "chevron.right")
-                        .resizable()
-                        .frame(width: 8, height: 12)
+                    ZStack{
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .frame(width: 8, height: 12)
+                    }
+                    .frame(width: 15, height: 15)
                 })
             }
             .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))

@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct notificationView: View {
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack{
             VStack() {
                 ZStack(alignment: .topLeading) {
-                    Color.LightDefaultBG.ignoresSafeArea()
+                    Theme.BackgoundColor(forScheme: colorScheme)
+                        .ignoresSafeArea()
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)
                     
@@ -38,6 +40,7 @@ struct notificationView: View {
                 }
             }
         }
+
     }
 }
 
