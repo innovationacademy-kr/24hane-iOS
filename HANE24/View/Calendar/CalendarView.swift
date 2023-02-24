@@ -27,7 +27,7 @@ struct CalendarView: View {
                 VStack(spacing: 16) {
                     CalendarGridView(selectedDate: $selectedDate)
                         .padding(.horizontal, 5)
-                    AccTimeCardForCalendarView()
+                    AccTimeCardForCalendarView(totalAccTime: hane.dailyTotalTimesInAMonth.reduce(0, +))
                         .padding(.vertical, 10)
                     TagLogView(selectedDate: $selectedDate, logList: convert(hane.monthlyLogs[selectedDate.toString("yyyy.MM.dd")] ?? []))
                         .padding(.top, 10)
