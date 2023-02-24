@@ -81,19 +81,31 @@ struct HomeView: View {
                }
                VStack(alignment: .center, spacing: 20) {
                     HStack(alignment: .center) {
-                        Image("cabi")
-                            .resizable()
-                            .frame(width: 28, height: 28)
-                            .padding(.trailing, 3)
-                        Text("hejang")
+                        AsyncImage(url: URL(string: hane.profileImage)) { image in
+                            image
+                                .resizable()
+                                .frame(width: 28, height: 28)
+                                .padding(.trailing, 3)
+                                .clipShape(Circle())
+                        } placeholder: {
+                            Image("cabi")
+                                .resizable()
+                                .frame(width: 28, height: 28)
+                                .padding(.trailing, 3)
+                        }
+                        
+                        Text(hane.loginID)
                             .font(.system(size: 20, weight: .semibold, design: .rounded))
+                        
                         if hane.inOutState {
                             Circle()
                                 .foregroundColor(.green)
                                 .frame(width:8, height: 8)
                                 .padding(.bottom, 10)
                         }
+                        
                         Spacer()
+                        
                         NavigationLink(destination: notificationView()) {
                             Image(systemName: "bell")
                                 .resizable()
@@ -106,6 +118,7 @@ struct HomeView: View {
                     .padding(.top, 20)
                     .frame(height: 30)
                     .padding(.horizontal, 30)
+                   
                     ScrollView{
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             /// [FixMe]
@@ -113,11 +126,13 @@ struct HomeView: View {
                                 try await hane.refresh(date: Date())
                             }
                         }
+                        
                         VStack(spacing: 22.5){
                             AccTimeCardView(text: "이용 시간", accTime: hane.dailyAccumulationTime, options: dailyOptions, select: dailySelectionOption) { selection in
                                 UserDefaults.standard.setValue(selection, forKey: "DailySelectionOption")
                             }
                                 .padding(.horizontal, 30)
+                            
                             AccTimeCardView(text: "월 누적 시간", accTime: hane.monthlyAccumulationTime, isColored: true, viewColor: Color(hex: "#735BF2"), options: monthlyOptions, select: monthlySelectionOption) {selection in
                                 UserDefaults.standard.setValue(selection, forKey: "MonthlySelectionOption")
                             }
@@ -132,6 +147,7 @@ struct HomeView: View {
                             .padding(.horizontal, 20)
                             .tabViewStyle(.page)
                             .frame(height: 289)
+                            
                             PopulationView()
                                 .padding(.horizontal, 30)
                         }
