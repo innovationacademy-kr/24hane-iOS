@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             if !signInChecked {
-                LoadingView()
+                LaunchScreen()
             } else {
                 switch hane.isSignIn{
                 case false:

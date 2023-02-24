@@ -36,3 +36,8 @@ struct AccumulationTimes: Codable {
     let todayAccumationTime: Int64
     let monthAccumationTime: Int64
 }
+
+struct ClusterTmp: Codable {
+    let GaePo: Int64
+    let Seocho: Int64
+}
