@@ -54,8 +54,6 @@ struct PullToRefresh: View {
 
 
 struct HomeView: View {
-    @EnvironmentObject var hane: Hane
-    
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
           UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
@@ -103,12 +101,8 @@ struct HomeView: View {
                     ScrollView{
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             /// [FixMe]
-                            Task {
-                                do{
-                                    try await hane.refresh(date: Date())
-                                } catch {
-                                    print("error")
-                                }
+                            Task{
+                                try await hane.refresh(date: Date())
                             }
                         }
                         VStack(spacing: 22.5) {

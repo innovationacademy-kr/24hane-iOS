@@ -17,17 +17,13 @@ struct CalendarView: View {
         ZStack {
             Theme.CalendarBackgoundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
-            ScrollView {
+            ScrollView{
                 PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                    Task {
-                        do{
-                            try await hane.refresh(date: Date())
-                        } catch {
-                            print("error")
-                        }
+                    ///[FixMe]
+                    Task{
+                        try await hane.refresh(date: Date())
                     }
                 }
-            
                 VStack(spacing: 16) {
                     CalendarGridView(selectedDate: $selectedDate)
                         .padding(.horizontal, 5)
@@ -41,6 +37,7 @@ struct CalendarView: View {
             }
             .coordinateSpace(name: "pullToRefresh")
         }
+        .coordinateSpace(name: "pullToRefresh")
     }
     
     func convert(_ from: [InOutLog]) -> [Log] {

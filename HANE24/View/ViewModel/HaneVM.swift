@@ -63,6 +63,7 @@ class Hane: ObservableObject {
 extension Hane {
     @MainActor
     func updateInOutState() async throws {
+        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
         try await callMainInfo()
         self.inOutState = mainInfo.inoutState == "In" ? true : false
     }
