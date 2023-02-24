@@ -38,11 +38,6 @@ extension Date {
         dateFormatter.dateFormat = "s"
         return dateFormatter.string(from: self)
     }
-    var yyyyMMdd: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        return dateFormatter.string(from: self)
-    }
     var MM: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM"

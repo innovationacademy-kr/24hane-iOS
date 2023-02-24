@@ -11,18 +11,18 @@ struct CalendarGridView: View {
     @Binding var selectedDate: Date
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    @State var isLoaded = true
+//    @State var isLoaded = true
     
     var body: some View {
         VStack {
             // 상단 문자열
             HStack {
                 Button(action: {
-                    isLoaded = false
+//                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
                     Task{
                         try await hane.refresh(date: selectedDate)
-                        isLoaded = true
+//                        isLoaded = true
                     }
                     
                 }, label: {
@@ -39,11 +39,11 @@ struct CalendarGridView: View {
                 Spacer()
                 
                 Button(action: {
-                    isLoaded = false
+//                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
                     Task{
                         try await hane.refresh(date: selectedDate)
-                        isLoaded = true
+//                        isLoaded = true
                     }
                 }, label: {
                     Image(systemName: "chevron.right")
@@ -62,24 +62,25 @@ struct CalendarGridView: View {
             let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
             
             ZStack{
-                if isLoaded == false{
-                    Theme.BackgoundColor(forScheme: colorScheme)
-                    ProgressView()
-                }
+                LoadingAnimation()
+                    .isHidden(!hane.loading)
+                
                 VStack {
+                    // day of week
                     LazyVGrid(columns: cols, spacing: 12) {
-                        // day of week
                         ForEach(week, id: \.self) { dayOfWeek in
                             Text("\(dayOfWeek)")
                                 .foregroundColor(Color(hex: "#979797"))
                                 .font(.system(size: 13, weight: .light))
                         }
-                        
-                        // days with color
-                        // is future ? disabled
-                        // is selected ? Circle with white font
-                        // is today ? border only
-                        // default
+                    }
+                    
+                    // days with color
+                    // is future ? disabled
+                    // is selected ? Circle with white font
+                    // is today ? border only
+                    // default
+                    LazyVGrid(columns: cols, spacing: 12) {
                         ForEach((daysOfMonth(selectedDate)), id: \.self) { dayOfMonth in
                             if dayOfMonth > 0 {
                                 Button {
@@ -95,35 +96,36 @@ struct CalendarGridView: View {
                                         RoundedRectangle(cornerRadius: dayOfMonth == selectedDate.dayToInt ? 20 : 10)
                                             .foregroundColor(dayOfMonth == selectedDate.dayToInt
                                                              ? Color(hex: "#735BF2")
-                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
+                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
                                                              ? (colorScheme == .light ? .white : .DarkDefaultBG)
                                                              : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) //TODO -> colorLevelTable
                                             .overlay {
-                                                if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd && dayOfMonth != selectedDate.dayToInt {
+                                                if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd") && dayOfMonth != selectedDate.dayToInt {
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .stroke(colorScheme == .light ? Color(hex: "#735BF2") : .white, lineWidth: 1)
                                                 }
                                             }
-                                        //                                        .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
+                                            .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
                                         
                                         Text("\(dayOfMonth)")
-                                            .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd
+                                            .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd")
                                                              ? Color(hex: "#979797")
                                                              : dayOfMonth == selectedDate.dayToInt
                                                              ? .white
-                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().yyyyMMdd
+                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
                                                              ? (colorScheme == .light ? Color(hex: "#735BF2") : .white)
                                                              : (colorScheme == .light ? Color(hex: "#333333") : .white))
                                             .font(.system(size: 14, weight: dayOfMonth == selectedDate.dayToInt ? .bold : .regular))
                                     }
                                 }
                                 .frame(width: 30, height: 30)
-                                .disabled("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().yyyyMMdd)
+                                .disabled("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
                             } else {
                                 Text("")
                             }
                         }
                     }
+                    .isHidden(hane.loading)
                 }
             }
         }
@@ -173,7 +175,7 @@ struct CalendarGridView: View {
 
 struct CalendarGridView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarGridView(selectedDate: .constant(Date()), isLoaded: false)
+        CalendarGridView(selectedDate: .constant(Date()))
             .environmentObject(Hane())
     }
 }
