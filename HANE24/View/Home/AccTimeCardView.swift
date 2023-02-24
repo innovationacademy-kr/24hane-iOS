@@ -96,7 +96,6 @@ struct AccTimeCardView: View {
         .frame(height: isFold ? 80 : 260, alignment: .top)
     }
     
-//    let progress: Double = Double(accTime) / Double(targetTime)
     var ProgressCircle: some View {
                                 
         ZStack{

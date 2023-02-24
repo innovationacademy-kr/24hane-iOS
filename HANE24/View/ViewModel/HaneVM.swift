@@ -9,19 +9,11 @@ import Foundation
 import WebKit
 import CoreData
 
-enum Status {
-    case beforeSignIn
-    case loadWebView
-    case webViewLoding
-    case webViewAppear
-    case afterSignIn
-}
 
 class Hane: ObservableObject {
     @Published var inOutState: Bool
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
-    @Published var status: Status = .beforeSignIn
     @Published var isSignIn: Bool = false
     @Published var monthlyLogs: [String: [InOutLog]] = [:]
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
@@ -37,7 +29,6 @@ class Hane: ObservableObject {
         self.inOutState = false
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
-        self.status = .beforeSignIn
         self.isSignIn = false
         self.monthlyLogs = [:]
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
@@ -65,7 +56,6 @@ class Hane: ObservableObject {
                     }
                 })
         UserDefaults.standard.removeObject(forKey: "Token")
-        self.status = .beforeSignIn
     }
 }
 
@@ -114,7 +104,6 @@ extension Hane {
             fatalError("MissingURL")
         }
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
-            self.status = .beforeSignIn
             return false
         }
         var request = URLRequest(url: url)
@@ -151,18 +140,15 @@ extension Hane {
         return decodedData
     }
     
-//    @MainActor
     func callAccumulationTimes() async throws {
         self.accumulationTimes = try await callJsonAsync(APIroot + "/v1/tag-log/accumulationTimes", type: AccumulationTimes.self)
         print(self.accumulationTimes)
     }
     
-//    @MainActor
     func callMainInfo() async throws {
         self.mainInfo = try await callJsonAsync(APIroot + "/v1/tag-log/maininfo", type: MainInfo.self)
     }
     
-//    @MainActor
     func callPerMonth(year: Int, month: Int) async throws {
         var components = URLComponents(string: APIroot + "/v1/tag-log/permonth")!
         let year = URLQueryItem(name: "year", value: "\(year)")

@@ -32,7 +32,7 @@ struct PullToRefresh: View {
                     .onAppear{
                         needRefresh = true
                     }
-            } else if (geo.frame(in: .named(coordinateSpaceName)).midY < 10){
+            } else if (geo.frame(in: .named(coordinateSpaceName)).midY < 10) {
                 Spacer()
                     .onAppear{
                         if needRefresh {
@@ -60,7 +60,6 @@ struct HomeView: View {
     }
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var hane: Hane
     
     
     var body: some View {
@@ -74,8 +73,8 @@ struct HomeView: View {
                    Theme.BackgoundColor(forScheme: colorScheme)
                        .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
                }
-               VStack(alignment: .center, spacing: 20){
-                    HStack(alignment: .center){
+               VStack(alignment: .center, spacing: 20) {
+                    HStack(alignment: .center) {
                         Image("cabi")
                             .resizable()
                             .frame(width: 28, height: 28)
@@ -106,7 +105,7 @@ struct HomeView: View {
                                 try await hane.refresh(date: Date())
                             }
                         }
-                        VStack(spacing: 22.5){
+                        VStack(spacing: 22.5) {
                             AccTimeCardView(text: "이용 시간", accTime: hane.dailyAccumulationTime)
                                 .padding(.horizontal, 30)
                             AccTimeCardView(text: "월 누적 시간", accTime: hane.monthlyAccumulationTime, isColored: true, viewColor: Color(hex: "#735BF2"))

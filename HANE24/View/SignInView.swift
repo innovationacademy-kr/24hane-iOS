@@ -26,12 +26,12 @@ struct SignInView: View {
                 ZStack{
                     LinearGradient(gradient: Gradient(colors: [.gradientPurple, .gradientBlue]), startPoint: .bottomLeading, endPoint: .topTrailing)
                         .ignoresSafeArea()
-                    VStack(alignment: .center){
-                        ZStack(alignment: .bottomLeading){
+                    VStack(alignment: .center) {
+                        ZStack(alignment: .bottomLeading) {
                             Rectangle()
                                 .fill( LinearGradient(gradient: Gradient(colors: [.gradientPurple, .gradientBlue]), startPoint: .bottomLeading, endPoint: .topTrailing))
                                 .frame(width: 150, height: 150)
-                            VStack(alignment: .leading){
+                            VStack(alignment: .leading) {
                                 Text("24")
                                     .font(.system(size: 35, weight: .semibold))
                                 Text("HANE")
