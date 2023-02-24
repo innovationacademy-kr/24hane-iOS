@@ -62,9 +62,7 @@ struct SignInView: View {
                                         .foregroundColor(.white)
                                 }
                                 else {
-                                    /// [FixMe] ProgressView -> Progress[Dot] with Gradient => passthroughSubject??
-                                    ProgressView()
-                                        .foregroundColor(.white)
+                                    LoadingAnimation()
                                 }
                             }
                         }

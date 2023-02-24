@@ -25,6 +25,8 @@ class Hane: ObservableObject {
     
     @Published var loading: Bool = true
     
+    var 
+    
     var inOutLog: InOutLog
     var perMonth: PerMonth
     var mainInfo: MainInfo
@@ -100,6 +102,7 @@ extension Hane {
     @MainActor
     func updateMonthlyLogs(date: Date) async throws {
         self.loading = true
+        
         
         try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
         

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 
-class MonthlyLogsController: ObservableObject {
+class MonthlyLogsController {
     static let shared: MonthlyLogsController = MonthlyLogsController()
     let container: NSPersistentContainer
     @Published var totalLogs = [MonthlyLogs]()
@@ -23,8 +23,9 @@ class MonthlyLogsController: ObservableObject {
         }
     }
     
-    func fetchLogs() {
+    func fetchLogs(date: String) {
         let request = NSFetchRequest<MonthlyLogs>(entityName: "MonthlyLogs")
+        request.predicate = NSPredicate(format: "%K = %@", date)
         do {
             totalLogs = try container.viewContext.fetch(request)
         } catch {
