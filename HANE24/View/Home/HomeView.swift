@@ -158,6 +158,7 @@ struct HomeView: View {
                 }
             }
         }
+    
         .navigationTitle("알림")
 
     }
