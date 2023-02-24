@@ -13,20 +13,19 @@ struct LaunchScreen: View {
         ZStack{
             Theme.BackgoundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
-            VStack{
+            VStack(alignment: .leading, spacing: 2){
                 Text("24")
                 HStack{
                     Text("Hours")
                     Circle()
                         .foregroundColor(.green)
-                        .frame(width: 20, height: 20)
+                        .frame(width: 5, height: 5)
                 }
-                
                 Text("Are")
                 Text("Not")
                 Text("Enough")
             }
-            .font(.system(size: 20, weight: .heavy, design: .monospaced))
+            .font(.system(size: 20, weight: .heavy))
         }
     }
 }
