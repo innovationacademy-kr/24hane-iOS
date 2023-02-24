@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Logs" representedClassName="Logs" syncable="YES" codeGenerationType="class">
-        <attribute name="durationSecond" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="inTimeStamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="outTimeStamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="monthlyLogs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MonthlyLogs" inverseName="inOutLog" inverseEntity="MonthlyLogs"/>
-    </entity>
-    <entity name="MonthlyLogs" representedClassName="MonthlyLogs" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MonthlyLog" representedClassName="MonthlyLog" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="String"/>
-        <attribute name="inOutLogs" optional="YES" attributeType="Transformable" customClassName="[Logs]"/>
-        <relationship name="inOutLog" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Logs" inverseName="monthlyLogs" inverseEntity="Logs"/>
+        <attribute name="inOutLogs" optional="YES" attributeType="Transformable" customClassName="InOutLogs"/>
+        <attribute name="needUpdate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
 </model>
