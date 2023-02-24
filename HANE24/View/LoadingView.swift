@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct LoadingView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
-       Text("Loading...")
+        ZStack {
+            Theme.CalendarBackgoundColor(forScheme: colorScheme)
+                .edgesIgnoringSafeArea(.all)
+            if colorScheme == .light {
+                Image("LaunchScreen_light")
+                    .ignoresSafeArea(.all)
+            } else {
+                Image("LaunchScreen_dark")
+                    .ignoresSafeArea(.all)
+            }
+        }
     }
 }
 
@@ -45,7 +57,7 @@ struct LoadingAnimation: View {
 
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
-//        LoadingView()
-        LoadingAnimation()
+        LoadingView()
+//        LoadingAnimation()
     }
 }
