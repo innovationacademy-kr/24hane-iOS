@@ -28,14 +28,11 @@ struct PerMonth: Codable {
 struct MainInfo: Codable {
     let login: String
     let profileImage: String
-    let isAdmin: Bool
-    let gaepo: Int
-    let seocho: Int
     let inoutState: String
     let tagAt: String?
 }
 
 struct AccumulationTimes: Codable {
-    let todayAccumulationTime: Int64
-    let monthAccumulationTime: Int64
+    let todayAccumationTime: Int64
+    let monthAccumationTime: Int64
 }
