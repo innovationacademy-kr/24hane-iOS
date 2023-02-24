@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct TagLogView: View {
+    @EnvironmentObject var hane: Hane
     @Environment(\.colorScheme) var colorScheme
-    @State var selectedDate: Date = Date()
-    @State var logList: [Log] = []
+    @Binding var selectedDate: Date
+    var logList: [Log]
     
     var body: some View {
+        let dailyTotalTime = hane.dailyTotalTimesInAMonth[selectedDate.dayToInt]
         VStack(alignment:.center, spacing: 4) {
             HStack{
                 Text("\(selectedDate.monthToInt).\(selectedDate.dayToInt) 일요일")
-//                    .frame(width: 59, height: 24)
-                    .padding(.leading, 18)
+                    .padding(.leading, 5)
                 Spacer()
-                Text("\(7)시간 \(48)분")
-//                    .frame(width: 59, height: 24)
-                    .padding(.trailing, 8)
+                Text("\(dailyTotalTime / 3600)시간 \((dailyTotalTime % 3600) / 60)분")
+                    .padding(.trailing, 5)
             }
             .font(.system(size: 14, weight: .medium, design: .default))
             .foregroundColor(Color.gray)
-//            .padding(.horizontal, 10)
             
             
             Divider()
@@ -50,19 +49,16 @@ struct TagLogView: View {
             
             if logList.isEmpty {
                 Text("기록이 없습니다.")
-                    .foregroundColor(Color(hex: "#333333"))
+                    .foregroundColor(colorScheme == .light ? .chartDetailBG : .white)
                     .font(.system(size: 13, weight: .light))
                     .padding(.vertical, 5)
             } else {
                 ScrollView {
                     ForEach(logList, id: \.self) { log in
-//                        if let log = log {
-                            tagLog(log)
-//                        } else {
-//
-//                        }
+                        tagLog(log)
                     }
                 }
+                .frame(maxHeight: 230)
             }
             
             
@@ -99,6 +95,7 @@ struct TagLogView: View {
 
 struct TagLogView_Previews: PreviewProvider {
     static var previews: some View {
-        TagLogView(logList: [Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: "누락"), Log(inTime: "123", outTime: "456", logTime: "789"), Log(inTime: "123", outTime: nil, logTime: nil)])
+        TagLogView(selectedDate: .constant(Date()), logList: [])
+            .environmentObject(Hane())
     }
 }

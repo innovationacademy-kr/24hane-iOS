@@ -10,16 +10,15 @@ import SwiftUI
 struct AccTimeCardForCalendarView: View {
    
     @Environment(\.colorScheme) var colorScheme
+    var totalAccTime: Int64
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .overlay( colorScheme == .dark ? RoundedRectangle(cornerRadius: 10).stroke(.white, lineWidth: 2) : nil)
-               // .stroke(Color(.white).opacity(0.5), lineWidth: 2)
                 .foregroundColor(Color(hex: "#333333"))
-//                .foregroundColor(colorScheme == .dark ? .white : .chartDetailBG)
             
-            Text("총 \(81)시간 \(41)분")
+            Text("총 \(totalAccTime / 3600 )시간 \(totalAccTime % 3600 / 60)분")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.white)
         }
@@ -29,6 +28,6 @@ struct AccTimeCardForCalendarView: View {
 
 struct AccTimeCardForCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        AccTimeCardForCalendarView()
+        AccTimeCardForCalendarView(totalAccTime: 123456789)
     }
 }

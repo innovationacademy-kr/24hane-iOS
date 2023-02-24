@@ -15,7 +15,6 @@ struct SignInWebView: UIViewRepresentable {
     
     var url: URL {
         let path = "/user/login/42?redirect=42"
-//        /// 강제 unwrapping...?
         let retURL = URL(string: "\(hane.APIroot)\(path)")!
         return retURL
         
@@ -33,7 +32,7 @@ struct SignInWebView: UIViewRepresentable {
         return wkWebView
     }
     
-    func updateUIView(_ webView: WKWebView, context: Context){
+    func updateUIView(_ webView: WKWebView, context: Context) {
     }
     
     class WebViewCoordinator: NSObject, WKNavigationDelegate {
@@ -41,7 +40,7 @@ struct SignInWebView: UIViewRepresentable {
         var hane: Hane
         var viewStat: Binding<Stat>
         
-        init(_ parent: SignInWebView, hane: Hane, viewStat: Binding<Stat>){
+        init(_ parent: SignInWebView, hane: Hane, viewStat: Binding<Stat>) {
             self.parent = parent
             self.hane = hane
             self.viewStat = viewStat
@@ -50,7 +49,6 @@ struct SignInWebView: UIViewRepresentable {
         
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
             print("load web view")
-           // hane.status = .webViewLoding
         }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -62,7 +60,7 @@ struct SignInWebView: UIViewRepresentable {
             }
         }
         
-        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
+        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
             let urlToMatch =  "/user/login/callback/42"
             
             if  let urlStr = navigationAction.request.url?.path, urlStr == urlToMatch {
@@ -87,5 +85,6 @@ struct SignInWebView: UIViewRepresentable {
 struct SignInWebView_Previews: PreviewProvider {
     static var previews: some View {
         SignInWebView(viewStat: .constant(.buttonNotTabbed))
+            .environmentObject(Hane())
     }
 }

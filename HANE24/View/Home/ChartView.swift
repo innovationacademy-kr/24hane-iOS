@@ -31,7 +31,7 @@ struct ChartView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
-            VStack(alignment: .center){
+            VStack(alignment: .center) {
                 HStack{
                     Text("\(item.title)")
                         .foregroundColor(.black)
@@ -46,12 +46,12 @@ struct ChartView: View {
                 ChartDetailView(selectedChart: $selectedChart, id: item.id, time: item.data[selectedChart], period: item.period[selectedChart])
                     .frame(width: 290, height: 60)
                     .padding(.bottom)
-                HStack(alignment: .bottom){
-                    ForEach(0..<ratData.count, id: \.self){index in
+                HStack(alignment: .bottom) {
+                    ForEach(0..<ratData.count, id: \.self) { index in
                         Button{
                             selectedChart = index
                         } label: {
-                            ZStack(alignment: .bottom){
+                            ZStack(alignment: .bottom) {
                                 RoundedRectangle(cornerRadius: 4)
                                     .frame(width:25, height: 87 * ratData[index])
                                     .padding(.horizontal, 4)
