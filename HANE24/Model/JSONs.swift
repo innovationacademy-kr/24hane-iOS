@@ -36,3 +36,12 @@ struct AccumulationTimes: Codable {
     let todayAccumationTime: Int64
     let monthAccumationTime: Int64
 }
+
+// for CoreData
+public class InOutLogs: NSObject {
+    var data: [InOutLog]
+    
+    init(data: [InOutLog]) {
+        self.data = data
+    }
+}

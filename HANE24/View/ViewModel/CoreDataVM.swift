@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 import CoreData
 
-class MonthlyLogsController: ObservableObject {
-    static let shared: MonthlyLogsController = MonthlyLogsController()
+class MonthlyLogController: ObservableObject {
+    static let shared: MonthlyLogController = MonthlyLogController()
     let container: NSPersistentContainer
-    @Published var totalLogs = [MonthlyLogs]()
+    var totalLogs = [MonthlyLog]()
     
     init() {
         container = NSPersistentContainer(name: "HANE24")
@@ -24,7 +24,7 @@ class MonthlyLogsController: ObservableObject {
     }
     
     func fetchLogs() {
-        let request = NSFetchRequest<MonthlyLogs>(entityName: "MonthlyLogs")
+        let request = NSFetchRequest<MonthlyLog>(entityName: "MonthlyLog")
         do {
             totalLogs = try container.viewContext.fetch(request)
         } catch {
@@ -32,11 +32,21 @@ class MonthlyLogsController: ObservableObject {
         }
     }
     
-    func addLogs(date: String, inOutLogs: [Logs]) {
-        let monthlyLog = MonthlyLogs(context: container.viewContext)
+    func addLogs(date: String, inOutLogs: [InOutLog]) {
+        let monthlyLog = MonthlyLog(context: container.viewContext)
+        let data = InOutLogs(data: inOutLogs)
         
+        monthlyLog.needUpdate = true
         monthlyLog.date = date
-        monthlyLog.inOutLogs = inOutLogs
+        monthlyLog.inOutLogs = data
+        saveData()
+    }
+    
+    func updateLogs(entity: MonthlyLog, needUpdate: Bool = true, inOutLogs: [InOutLog]) {
+        let data = InOutLogs(data: inOutLogs)
+        
+        entity.needUpdate = needUpdate
+        entity.inOutLogs = data
         saveData()
     }
     
