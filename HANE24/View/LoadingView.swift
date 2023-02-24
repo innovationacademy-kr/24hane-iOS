@@ -13,8 +13,39 @@ struct LoadingView: View {
     }
 }
 
+struct LoadingAnimation: View {
+    @State var animationTrigger: Bool = true
+    
+    var body: some View {
+        HStack(spacing: 6) {
+            Circle()
+                .frame(width: 6, height: 6)
+                .foregroundColor(animationTrigger ? Color(hex: "#D9D9D9") : Color(hex: "#735BF2"))
+                .animation(changeColor, value: animationTrigger)
+            Circle()
+                .frame(width: 6, height: 6)
+                .foregroundColor(animationTrigger ? Color(hex: "#D9D9D9") : Color(hex: "#735BF2"))
+                .animation(changeColor.delay(0.4), value: animationTrigger)
+            Circle()
+                .frame(width: 6, height: 6)
+                .foregroundColor(animationTrigger ? Color(hex: "#D9D9D9") : Color(hex: "#735BF2"))
+                .animation(changeColor.delay(0.8), value: animationTrigger)
+        }
+        .onAppear {
+            animationTrigger.toggle()
+        }
+    }
+    
+    var changeColor: Animation {
+        Animation
+            .easeInOut(duration: 1.2)
+            .repeatForever()
+    }
+}
+
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView()
+//        LoadingView()
+        LoadingAnimation()
     }
 }
