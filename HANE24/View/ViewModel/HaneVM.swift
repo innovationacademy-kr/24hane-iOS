@@ -102,15 +102,45 @@ extension Hane {
     @MainActor
     func updateMonthlyLogs(date: Date) async throws {
         self.loading = true
+
+        self.monthlyLogController.fetchLogs()
+
         
-        
-        try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
-        
-        // update MonthlyLogs
-        self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
-            Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
+        if let filteredLog = monthlyLogController.totalLogs.first(where:{$0.date == date.toString("YYYY.MM")}) {
+            self.monthlyLogs = Dictionary(grouping: filteredLog.inOutLogs!.data) {
+                Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
+            }
+            self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
+            // update Daily Total Accumulation Times
+            for dailyLog in monthlyLogs {
+                var sum: Int64 = 0
+                for log in dailyLog.value {
+                    sum += log.durationSecond ?? 0
+                }
+                self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
+            }
+            self.loading = false
+            if date.monthToInt == Date().monthToInt {
+                try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
+                monthlyLogController.addLogs(date: date.toString("YYYY.MM"), inOutLogs: self.perMonth.inOutLogs)
+                self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
+                    Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
+                }
+            }
+        } else {
+            try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
+            monthlyLogController.addLogs(date: date.toString("YYYY.MM"), inOutLogs: self.perMonth.inOutLogs)
+            self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
+                Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
+            }
+
         }
         
+        
+        // update MonthlyLogs
+//        self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
+//            Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
+//        }
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         // update Daily Total Accumulation Times
         for dailyLog in monthlyLogs {
@@ -124,7 +154,7 @@ extension Hane {
     }
 }
 
-// Call APIs 
+// Call APIs
 extension Hane {
     @MainActor
     func isLogin() async throws -> Bool {
