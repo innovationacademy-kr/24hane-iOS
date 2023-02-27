@@ -13,7 +13,6 @@ struct CalendarGridView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
 //    @State var isLoaded = true
-    @State var pickedDate: Date = Date()
 
     var body: some View {
         VStack {

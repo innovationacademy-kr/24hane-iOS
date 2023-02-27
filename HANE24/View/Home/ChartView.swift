@@ -12,7 +12,7 @@ func getRatio(data: Array<Double>) -> Array<Double> {
     var retArray: Array<Double> = []
     let max: Double = data.max()!
     for i in 0..<6 {
-        var ratio: Double = (data[i] / max)
+        let ratio: Double = (data[i] / max)
         retArray.append(ratio)
     }
     return retArray
