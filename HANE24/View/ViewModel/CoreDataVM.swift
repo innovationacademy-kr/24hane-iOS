@@ -26,10 +26,11 @@ class MonthlyLogController {
     }
 
     func fetchLogs() {
-        let request = NSFetchRequest<MonthlyLog>(entityName: "MonthlyLogs")
+        let request = NSFetchRequest<MonthlyLog>(entityName: "MonthlyLog")
         do {
             totalLogs = try container.viewContext.fetch(request)
         } catch {
+            print(error)
             print("Unresolved error \(error.localizedDescription)")
         }
     }
