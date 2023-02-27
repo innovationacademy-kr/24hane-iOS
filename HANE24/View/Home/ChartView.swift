@@ -54,7 +54,7 @@ struct ChartView: View {
                         } label: {
                             ZStack(alignment: .bottom) {
                                 RoundedRectangle(cornerRadius: 4)
-                                    .frame(width:25, height: 87 * ratData[index])
+                                    .frame(width:25, height: ratData[index] == 0 ? 6 : 87 * ratData[index])
                                     .padding(.horizontal, 4)
                                     .foregroundStyle(
                                         LinearGradient(gradient: Gradient(colors: [.gradientBlue, .gradientPurple]), startPoint: .top, endPoint: .bottom)
@@ -81,6 +81,6 @@ struct ChartView: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)"], data:  [42, 20, 41, 33, 59, 50]))
+        ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)"], data:  [42, 20, 41, 33, 0, 50]))
     }
 }

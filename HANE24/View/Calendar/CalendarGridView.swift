@@ -12,6 +12,7 @@ struct CalendarGridView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
 //    @State var isLoaded = true
+    @State var pickedDate: Date = Date()
     
     var body: some View {
         VStack {
@@ -34,10 +35,12 @@ struct CalendarGridView: View {
                     .frame(width: 15, height: 15)
                     
                 })
+                .disabled(hane.loading)
                 
                 Spacer()
                 
                 Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
+                    .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
                 
                 Spacer()
                 
@@ -56,8 +59,8 @@ struct CalendarGridView: View {
                     }
                     .frame(width: 15, height: 15)
                 })
+                .disabled(hane.loading)
             }
-            .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
             .font(.system(size: 20, weight: .semibold))
             .padding(10)
             .padding(.top, 20)
