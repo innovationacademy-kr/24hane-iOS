@@ -39,21 +39,8 @@ struct CalendarGridView: View {
                 
                 Spacer()
                 
-                Menu{
-                    Button {
-                        DatePicker("Please enter a date", selection: $pickedDate)
-//                                    .datePickerStyle(WheelDatePickerStyle())
-                    } label: {
-//                        Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-//                            .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
-                    }
-//                    DatePicker("Please enter a date", selection: $pickedDate)
-//                                .datePickerStyle(WheelDatePickerStyle())
-                    
-                } label : {
-                    Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-                        .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
-                }
+                Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
+                    .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
                 
                 Spacer()
                 
