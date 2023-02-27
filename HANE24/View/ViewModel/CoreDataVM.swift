@@ -35,6 +35,10 @@ class MonthlyLogController {
         }
     }
     
+    /// Add Monthly InOutLogs to CoreData
+    /// - Parameters:
+    ///   - date: format: "yyyy.MM"
+    ///   - inOutLogs: just a Month
     func addLogs(date: String, inOutLogs: [InOutLog]) {
         let monthlyLog = MonthlyLog(context: container.viewContext)
         let data = InOutLogs(data: inOutLogs)
@@ -45,6 +49,12 @@ class MonthlyLogController {
         saveData()
     }
     
+    
+    /// Update MonthlyLog's Data in CoreData
+    /// - Parameters:
+    ///   - entity: MonthlyLog Object
+    ///   - needUpdate: need update after this API call?
+    ///   - inOutLogs: Data from API
     func updateLogs(entity: MonthlyLog, needUpdate: Bool = true, inOutLogs: [InOutLog]) {
         let data = InOutLogs(data: inOutLogs)
         
