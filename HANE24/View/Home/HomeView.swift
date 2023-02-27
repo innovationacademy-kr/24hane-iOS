@@ -108,7 +108,7 @@ struct HomeView: View {
                         Spacer()
                         
                         NavigationLink(destination: notificationView()) {
-                            Image(systemName: "bell")
+                            Image("notification")
                                 .resizable()
                                 .frame(width: 24, height: 24)
                                 .foregroundColor(test ? .iconColor : .red)

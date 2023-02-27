@@ -12,7 +12,7 @@ func getRatio(data: Array<Double>) -> Array<Double> {
     var retArray: Array<Double> = []
     let max: Double = data.max()!
     for i in 0..<6 {
-        let ratio: Double = (data[i] / max)
+        var ratio: Double = (data[i] / max)
         retArray.append(ratio)
     }
     return retArray
@@ -36,7 +36,7 @@ struct ChartView: View {
                     Text("\(item.title)")
                         .foregroundColor(.black)
                         .font(.system(size: 14, weight: .semibold))
-                    Text("(6주)")
+                    Text("(6\(item.id))")
                         .foregroundColor(.textGray)
                         .font(.system(size: 14, weight: .semibold))
                     Spacer()

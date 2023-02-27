@@ -69,6 +69,8 @@ class Hane: ObservableObject {
                     }
                 })
         UserDefaults.standard.removeObject(forKey: "Token")
+        self.monthlyLogController.resetLogs()
+        self.isSignIn = false
     }
 }
 

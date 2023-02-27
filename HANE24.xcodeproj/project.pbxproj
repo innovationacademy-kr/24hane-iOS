@@ -22,6 +22,7 @@
 		0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B32A829A3815B001D10BF /* SignInWebView.swift */; };
 		0E4F6D0629A774A8009CF1D4 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4F6D0529A774A8009CF1D4 /* LaunchScreen.swift */; };
 		0E51FE1B29A9D958008A01B6 /* HANE24.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654FD299A285E001E5EED /* HANE24.xcdatamodeld */; };
+		0E6B608F29AC850D009D8BC4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
 		0EFAF5B829A492A500125948 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5B729A492A500125948 /* SignInView.swift */; };
@@ -59,6 +60,7 @@
 		0E3B32A729A37D3C001D10BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0E3B32A829A3815B001D10BF /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
 		0E4F6D0529A774A8009CF1D4 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		0EFAF5B729A492A500125948 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
+				0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */,
 				9A37714829A742C0006BBEF3 /* CoreDataVM.swift */,
 			);
 			path = ViewModel;
@@ -292,6 +295,7 @@
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */,
 				0EFAF5B829A492A500125948 /* SignInView.swift in Sources */,
+				0E6B608F29AC850D009D8BC4 /* NetworkManager.swift in Sources */,
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
 				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
 				9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */,
