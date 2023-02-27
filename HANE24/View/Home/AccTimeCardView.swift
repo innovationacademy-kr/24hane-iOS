@@ -93,8 +93,8 @@ struct AccTimeCardView: View {
                                 Image(systemName: "chevron.down")
                                     .frame(width: 10, height: 10)
                                     .foregroundColor(.gray)
-                            }
-                            
+                                    .hidden()
+                            }                            
                             
                         }
                         .foregroundColor(isFold && isColored ? .white : .black)
@@ -119,6 +119,7 @@ struct AccTimeCardView: View {
     var ProgressCircle: some View {
                                 
         ZStack{
+
             Text("\(Int(Double(accTime) / Double(options[select] * 3600) * 100))%")
                 .font(.system(size: 32, weight: .medium, design: .default))
                 .foregroundColor(.black)

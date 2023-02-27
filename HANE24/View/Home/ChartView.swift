@@ -36,7 +36,7 @@ struct ChartView: View {
                     Text("\(item.title)")
                         .foregroundColor(.black)
                         .font(.system(size: 14, weight: .semibold))
-                    Text("(6주)")
+                    Text("(6\(item.id))")
                         .foregroundColor(.textGray)
                         .font(.system(size: 14, weight: .semibold))
                     Spacer()
