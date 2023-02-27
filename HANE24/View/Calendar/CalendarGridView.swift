@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CalendarGridView: View {
+    @State var picker = false
     @Binding var selectedDate: Date
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
@@ -37,7 +38,20 @@ struct CalendarGridView: View {
                 
                 Spacer()
                 
-                Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
+                Button{
+                    picker.toggle()
+                    }
+                    label : {
+                    if picker{
+                    DatePicker("asdf", selection: $selectedDate)
+                        .datePickerStyle(WheelDatePickerStyle())
+                    } else {
+                        Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
+                            .font(.system(size: 20, weight: .semibold))
+                    }
+
+                }
+               // Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
                 
                 Spacer()
                 

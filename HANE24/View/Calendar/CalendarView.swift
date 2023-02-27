@@ -22,7 +22,7 @@ struct CalendarView: View {
                 PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                     ///[FixMe]
                     Task{
-                        try await hane.refresh(date: Date())
+                        try await hane.updateMonthlyLogs(date: selectedDate)
                     }
                 }
                 VStack(spacing: 16) {

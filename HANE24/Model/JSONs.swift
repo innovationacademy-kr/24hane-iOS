@@ -39,7 +39,7 @@ struct AccumulationTimes: Codable {
 
 
 // for CoreData
-public class InOutLogs: NSObject {
+public class InOutLogs: NSSecureUnarchiveFromDataTransformer {
     var data: [InOutLog]
     
     init(data: [InOutLog]) {

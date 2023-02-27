@@ -30,7 +30,6 @@ class MonthlyLogController {
         do {
             totalLogs = try container.viewContext.fetch(request)
         } catch {
-            print(error)
             print("Unresolved error \(error.localizedDescription)")
         }
     }
@@ -61,6 +60,19 @@ class MonthlyLogController {
         entity.needUpdate = needUpdate
         entity.inOutLogs = data
         saveData()
+    }
+    
+    func resetLogs() {
+        let storeContainer = container.persistentStoreCoordinator
+        
+        for store in storeContainer.persistentStores {
+            do {
+                try storeContainer.destroyPersistentStore(at: store.url!, ofType: store.type, options: nil)
+            } catch {
+                print(error)
+            }
+        }
+    
     }
     
     func deleteLogs(indexSet: IndexSet) {
