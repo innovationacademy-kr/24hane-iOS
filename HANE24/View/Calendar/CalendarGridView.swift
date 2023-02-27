@@ -21,7 +21,7 @@ struct CalendarGridView: View {
 //                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
                     Task{
-                        try await hane.refresh(date: selectedDate)
+                        try await hane.updateMonthlyLogs(date: selectedDate)
 //                        isLoaded = true
                     }
                     
@@ -45,7 +45,7 @@ struct CalendarGridView: View {
 //                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
                     Task{
-                        try await hane.refresh(date: selectedDate)
+                        try await hane.updateMonthlyLogs(date: selectedDate)
 //                        isLoaded = true
                     }
                 }, label: {

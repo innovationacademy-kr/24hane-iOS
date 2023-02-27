@@ -25,12 +25,12 @@ class MonthlyLogController {
         }
     }
 
-    func fetchLogs(date: String) {
-        let request = NSFetchRequest<MonthlyLogs>(entityName: "MonthlyLogs")
-        request.predicate = NSPredicate(format: "%K = %@", date)
+    func fetchLogs() {
+        let request = NSFetchRequest<MonthlyLog>(entityName: "MonthlyLog")
         do {
             totalLogs = try container.viewContext.fetch(request)
         } catch {
+            print(error)
             print("Unresolved error \(error.localizedDescription)")
         }
     }
