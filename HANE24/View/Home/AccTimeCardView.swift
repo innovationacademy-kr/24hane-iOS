@@ -121,7 +121,7 @@ struct AccTimeCardView: View {
         ZStack{
 
             Text("\(Int(Double(accTime) / Double(options[select] * 3600) * 100))%")
-                .font(.system(size: 30, weight: .medium, design: .default))
+                .font(.system(size: 32, weight: .medium, design: .default))
                 .foregroundColor(.black)
             Circle()
                 .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.1), .gradientWhtie.opacity(0.1), .gradientPurple.opacity(0.1), .gradientPurple.opacity(0.1),.gradientWhtie.opacity(0.1), .gradientBlue.opacity(0.1)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))

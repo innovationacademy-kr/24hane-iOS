@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "home_office.PNG",
+      "filename" : "loading_d.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "home_office 1.PNG",
+      "filename" : "loading_d2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "home_office 2.PNG",
+      "filename" : "loading_d3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

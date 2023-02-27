@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "notification-1.svg",
+      "filename" : "loading.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "loading_2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "loading_3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
