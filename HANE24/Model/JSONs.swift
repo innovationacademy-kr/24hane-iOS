@@ -30,11 +30,17 @@ struct MainInfo: Codable {
     let profileImage: String
     let inoutState: String
     let tagAt: String?
+    let gaepo: String
+    let seocho: String
 }
 
 struct AccumulationTimes: Codable {
     let todayAccumationTime: Int64
     let monthAccumationTime: Int64
+}
+
+struct ReissueState: Codable {
+    let state: String
 }
 
 
@@ -51,3 +57,5 @@ struct ClusterTmp: Codable {
     let GaePo: Int64
     let Seocho: Int64
 }
+
+

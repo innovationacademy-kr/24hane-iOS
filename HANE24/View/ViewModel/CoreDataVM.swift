@@ -63,15 +63,15 @@ class MonthlyLogController {
     }
     
     func resetLogs() {
-        let storeContainer = container.persistentStoreCoordinator
-        
-        for store in storeContainer.persistentStores {
-            do {
-                try storeContainer.destroyPersistentStore(at: store.url!, ofType: store.type, options: nil)
-            } catch {
-                print(error)
-            }
-        }
+//        let storeContainer = container.persistentStoreCoordinator
+//
+//        for store in storeContainer.persistentStores {
+//            do {
+//                try storeContainer.destroyPersistentStore(at: store.url!, ofType: store.type, options: nil)
+//            } catch {
+//                print(error)
+//            }
+//        }
     
     }
     
