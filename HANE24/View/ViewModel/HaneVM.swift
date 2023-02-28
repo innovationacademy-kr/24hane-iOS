@@ -111,51 +111,65 @@ extension Hane {
         
         self.loading = false
     }
-    
+    /**
+     fetch
+     if isLogExist
+        if needUpdate
+            apicall
+            coredata.update
+        else
+            -
+     else
+        apicall
+        coredata.add
+     */
     @MainActor
     func updateMonthlyLogs(date: Date) async throws {
-        self.loading = true
-
+        // update MonthlyLogs
         self.monthlyLogController.fetchLogs()
 
-        
-        if let filteredLog = monthlyLogController.totalLogs.first(where:{$0.date == date.toString("YYYY.MM")}) {
-            self.monthlyLogs = Dictionary(grouping: filteredLog.inOutLogs!.data) {
-                Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
-            }
-            self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
-            // update Daily Total Accumulation Times
-            for dailyLog in monthlyLogs {
-                var sum: Int64 = 0
-                for log in dailyLog.value {
-                    sum += log.durationSecond ?? 0
+        if let filteredLog = monthlyLogController.totalLogs.first(where:{$0.date == date.toString("yyyy.MM")}) {
+            if filteredLog.needUpdate {
+                self.monthlyLogs = Dictionary(grouping: filteredLog.inOutLogs!.data) {
+                    Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
                 }
-                self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
-            }
-            self.loading = false
-            if date.monthToInt == Date().monthToInt {
+                
+                // update Daily Total Accumulation Times (CalendarView)
+                self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
+                for dailyLog in monthlyLogs {
+                    var sum: Int64 = 0
+                    for log in dailyLog.value {
+                        sum += log.durationSecond ?? 0
+                    }
+                    self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
+                }
+                
                 try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
-                monthlyLogController.addLogs(date: date.toString("YYYY.MM"), inOutLogs: self.perMonth.inOutLogs)
+                
+                monthlyLogController.updateLogs(entity: filteredLog, inOutLogs: self.perMonth.inOutLogs, needUpdate: date.toString("yyyy.MM") >= Date().toString("yyyy.MM"))
+                
                 self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
+                    Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
+                }
+            } else {
+                self.monthlyLogs = Dictionary(grouping: filteredLog.inOutLogs!.data) {
                     Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
                 }
             }
         } else {
+            self.loading = true
             try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
-            monthlyLogController.addLogs(date: date.toString("YYYY.MM"), inOutLogs: self.perMonth.inOutLogs)
+            self.loading = false
+            
+            monthlyLogController.addLogs(date: date.toString("yyyy.MM"), inOutLogs: self.perMonth.inOutLogs, needUpdate: date.toString("yyyy.MM") >= Date().toString("yyyy.MM"))
+            
             self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
                 Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
             }
-
         }
-        
-        
-        // update MonthlyLogs
-//        self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
-//            Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
-//        }
+                
+        // update Daily Total Accumulation Times (CalendarView)
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
-        // update Daily Total Accumulation Times
         for dailyLog in monthlyLogs {
             var sum: Int64 = 0
             for log in dailyLog.value {
@@ -163,7 +177,6 @@ extension Hane {
             }
             self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
         }
-        self.loading = false
     }
 }
 
