@@ -34,7 +34,7 @@ struct ChartDetailView: View {
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
                     Spacer()
-                    Text("총 \(time, specifier: "%.0f")시간")
+                    Text("총 \((time / 3600), specifier: "%.0f")시간")
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
 
@@ -46,11 +46,11 @@ struct ChartDetailView: View {
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
                     if id == "주" {
-                        Text("\(time / 7, specifier: "%.1f")시간")
+                        Text("\((time / 3600) / 7, specifier: "%.1f")시간")
                             .foregroundColor(.white)
                             .font(.system(size: 12, weight: .semibold))
                     } else {
-                        Text("\(time / 7, specifier: "%.1f")시간")
+                        Text("\((time / 3600) / 7, specifier: "%.1f")시간")
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
                     }
