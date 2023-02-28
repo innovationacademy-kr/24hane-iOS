@@ -14,7 +14,6 @@ struct chartItem: Identifiable {
     var data: Array<Double>
 }
 
-<<<<<<< HEAD
 func getWeeklyPeriod() -> [String]{
     var weeklyPeriod:[String] = []
     var date = Date()
