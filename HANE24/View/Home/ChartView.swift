@@ -54,7 +54,7 @@ struct ChartView: View {
                         } label: {
                             ZStack(alignment: .bottom) {
                                 RoundedRectangle(cornerRadius: 4)
-                                    .frame(width:25, height: ratData[index] == 0 ? 6 : 87 * ratData[index])
+                                    .frame(width:25, height: 6 + 81 * ratData[index])
                                     .padding(.horizontal, 4)
                                     .foregroundStyle(
                                         LinearGradient(gradient: Gradient(colors: [.gradientBlue, .gradientPurple]), startPoint: .top, endPoint: .bottom)
