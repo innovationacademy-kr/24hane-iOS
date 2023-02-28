@@ -13,7 +13,7 @@ struct CalendarGridView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
 //    @State var isLoaded = true
-    
+
     var body: some View {
         VStack {
             // 상단 문자열
@@ -25,7 +25,7 @@ struct CalendarGridView: View {
                         try await hane.updateMonthlyLogs(date: selectedDate)
 //                        isLoaded = true
                     }
-                    
+
                 }, label: {
                     ZStack{
                         Image(systemName: "chevron.left")
@@ -33,28 +33,17 @@ struct CalendarGridView: View {
                             .frame(width: 8, height: 12)
                     }
                     .frame(width: 15, height: 15)
-                    
-                })
-                
-                Spacer()
-                
-                Button{
-                    picker.toggle()
-                    }
-                    label : {
-                    if picker{
-                    DatePicker("asdf", selection: $selectedDate)
-                        .datePickerStyle(WheelDatePickerStyle())
-                    } else {
-                        Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-                            .font(.system(size: 20, weight: .semibold))
-                    }
 
-                }
-               // Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-                
+                })
+                .disabled(hane.loading)
+
                 Spacer()
-                
+
+                Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
+                    .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
+
+                Spacer()
+
                 Button(action: {
 //                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
@@ -70,21 +59,21 @@ struct CalendarGridView: View {
                     }
                     .frame(width: 15, height: 15)
                 })
+                .disabled(hane.loading)
             }
-            .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
             .font(.system(size: 20, weight: .semibold))
             .padding(10)
             .padding(.top, 20)
             .padding(.bottom, 8)
-            
+
             // LazyGrid
             let week = ["일", "월", "화", "수", "목", "금", "토"]
             let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
-            
+
             ZStack{
                 LoadingAnimation()
                     .isHidden(!hane.loading)
-                
+
                 VStack {
                     // day of week
                     LazyVGrid(columns: cols, spacing: 12) {
@@ -94,7 +83,7 @@ struct CalendarGridView: View {
                                 .font(.system(size: 13, weight: .light))
                         }
                     }
-                    
+
                     // days with color
                     // is future ? disabled
                     // is selected ? Circle with white font
@@ -126,7 +115,7 @@ struct CalendarGridView: View {
                                                 }
                                             }
                                             .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
-                                        
+
                                         Text("\(dayOfMonth)")
                                             .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd")
                                                              ? Color(hex: "#979797")
@@ -150,7 +139,7 @@ struct CalendarGridView: View {
             }
         }
     }
-    
+
     /// 오늘 날짜 받아서 달력에 들어갈 날짜를 [Int]로 뽑는 func
     /// 1일 이전 빈칸은 0일
     func daysOfMonth(_ today: Date) -> [Int] {
@@ -166,7 +155,7 @@ struct CalendarGridView: View {
             return endOfMonth
         }
         var days: [Int] = Array()
-        
+
         for i in 1..<firstDay.weekdayToInt {
             days.append(-i)
         }
@@ -175,7 +164,7 @@ struct CalendarGridView: View {
         }
         return days
     }
-    
+
     func calculateLogColor(accumulationTime: Int64) -> Color {
         switch accumulationTime{
         case 0 :
