@@ -159,6 +159,20 @@ struct ReissuanceView: View {
             
         }
     }
+    var receiveAlert: some View {
+        ZStack{
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(.white)
+            VStack{
+                Text("저는 카드를 ")
+            }
+        }
+    }
+    var submitAlert: some View {
+        ZStack{
+            
+        }
+    }
 }
 
 struct ReissuanceView_Previews: PreviewProvider {

@@ -9,6 +9,10 @@ import Foundation
 import WebKit
 import CoreData
 
+enum MyError: Error {
+    case runtimeError(String)
+}
+
 
 class Hane: ObservableObject {
     @Published var inOutState: Bool
@@ -24,6 +28,9 @@ class Hane: ObservableObject {
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
     
     @Published var loading: Bool = true
+    
+    @Published var recent6Weeks: [Double] = [123456, 123456, 12344, 123, 1235, 123409]
+    @Published var recent6Months: [Double] = [1234560, 1234560, 123440, 1230, 12350, 123409]
     
     var monthlyLogController = MonthlyLogController.shared
     
@@ -46,6 +53,9 @@ class Hane: ObservableObject {
         self.monthlyLogs = [:]
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         
+        self.recent6Weeks = [123456, 123456, 12344, 123, 1235, 123409]
+        self.recent6Months = [1234560, 1234560, 123440, 1230, 12350, 123409]
+        
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
         self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
@@ -59,6 +69,7 @@ class Hane: ObservableObject {
         try await updateMainInfo()
         try await updateAccumulationTime()
         try await updateMonthlyLogs(date: date)
+        print(self.mainInfo)
     }
     
     func SignOut() {
@@ -194,7 +205,9 @@ extension Hane {
         ]
         let (data, response) = try await URLSession.shared.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            fatalError("Access Denied")
+            fatalError("error")
+//            self.isSignIn = false
+//            throw MyError.runtimeError("asdf")
         }
         let decodedData =  try JSONDecoder().decode(type.self, from: data)
         return decodedData
