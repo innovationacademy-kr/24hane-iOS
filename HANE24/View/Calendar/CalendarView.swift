@@ -41,6 +41,33 @@ struct CalendarView: View {
         .coordinateSpace(name: "pullToRefresh")
     }
     
+    func convertTmp(_ from: [InOutLog]) -> [Log] {
+        guard !from.isEmpty else { return [] }
+        return from.map {
+            var inTime: String? = nil
+            var outTime: String? = nil
+            var logTime: String? = nil
+            if let intime = $0.inTimeStamp {
+                inTime = Date(milliseconds: intime).toString("HH:mm:ss")
+            } else {
+                inTime = "-"
+            }
+            if let outtime = $0.outTimeStamp {
+                outTime = Date(milliseconds: outtime).toString("HH:mm:ss")
+            } else {
+                outTime = "-"
+            }
+            if var logtime = $0.durationSecond {
+                logtime -= 3600 * 9
+                logTime = Date(milliseconds: logtime).toString("HH:mm:ss")
+            } else {
+                logTime = "누락"
+            }
+            return Log(inTime: inTime, outTime: outTime, logTime: logTime)
+            
+        }
+    }
+    
     func convert(_ from: [InOutLog]) -> [Log] {
         guard !from.isEmpty else { return [] }
         return from.map {

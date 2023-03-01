@@ -64,7 +64,6 @@ struct SignInWebView: UIViewRepresentable {
             let urlToMatch =  "/user/login/callback/42"
             
             if  let urlStr = navigationAction.request.url?.path, urlStr == urlToMatch {
-                print("before cookie")
                 WKWebsiteDataStore.default().httpCookieStore.getAllCookies{ (cookies) in
                     for cookie in cookies{
                         if cookie.name == "accessToken"{

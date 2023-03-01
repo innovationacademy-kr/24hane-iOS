@@ -56,6 +56,7 @@ struct TagLogView: View {
                 ScrollView {
                     ForEach(logList, id: \.self) { log in
                         tagLog(log)
+                        
                     }
                 }
                 .frame(maxHeight: 230)
@@ -72,7 +73,7 @@ struct TagLogView: View {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(colorScheme == .dark ? Color(hex: "555555") : Color(hex: "#EAEAEA"))
                 .frame(height: 24)
-                .isHidden((log.logTime ?? "-") != "누락")
+                .isHidden((log.logTime != nil))
             
             HStack {
                 Text(log.inTime ?? "-")
@@ -85,10 +86,11 @@ struct TagLogView: View {
                 
                 Spacer()
                 
-                Text(log.logTime ?? "-")
+                Text(log.logTime ?? "누락")
                     .frame(width: 65, height: 24)
             }
             .font(.system(size: 14, weight: .regular))
+            .foregroundColor(Theme.BackgoundColor(forScheme: colorScheme))
         }
     }
 }
