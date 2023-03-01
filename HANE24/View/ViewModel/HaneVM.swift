@@ -287,7 +287,7 @@ extension Hane {
     }
     
     func callPerMonth(year: Int, month: Int) async throws {
-        var components = URLComponents(string: "https://api-dev.24hoursarenotenough.42seoul.kr/v1/tag-log/alltagpermonth")!
+        var components = URLComponents(string: APIroot + "/v1/tag-log/alltagpermonth")!
         let year = URLQueryItem(name: "year", value: "\(year)")
         let month = URLQueryItem(name: "month", value: "\(month)")
         components.queryItems = [year, month]

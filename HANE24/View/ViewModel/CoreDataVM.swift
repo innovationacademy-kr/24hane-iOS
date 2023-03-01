@@ -63,15 +63,12 @@ class MonthlyLogController {
     }
     
     func resetLogs() {
-//        let storeContainer = container.persistentStoreCoordinator
-//
-//        for store in storeContainer.persistentStores {
-//            do {
-//                try storeContainer.destroyPersistentStore(at: store.url!, ofType: store.type, options: nil)
-//            } catch {
-//                print(error)
-//            }
-//        }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MonthlyLog")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        totalLogs.forEach {
+            container.viewContext.delete($0)
+        }
     
     }
     
