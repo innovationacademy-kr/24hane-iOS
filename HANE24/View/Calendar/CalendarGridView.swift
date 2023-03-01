@@ -12,18 +12,15 @@ struct CalendarGridView: View {
     @Binding var selectedDate: Date
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-//    @State var isLoaded = true
 
     var body: some View {
         VStack {
             // 상단 문자열
             HStack {
                 Button(action: {
-//                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
                     Task{
                         try await hane.updateMonthlyLogs(date: selectedDate)
-//                        isLoaded = true
                     }
 
                 }, label: {
@@ -41,15 +38,16 @@ struct CalendarGridView: View {
 
                 Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
                     .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
+                    .onTapGesture {
+                        picker.toggle()
+                    }
 
                 Spacer()
 
                 Button(action: {
-//                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
                     Task{
                         try await hane.updateMonthlyLogs(date: selectedDate)
-//                        isLoaded = true
                     }
                 }, label: {
                     ZStack{
@@ -135,6 +133,16 @@ struct CalendarGridView: View {
                         }
                     }
                     .isHidden(hane.loading)
+                }
+                if picker {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.white)
+
+                        DatePicker("Date", selection: $selectedDate, displayedComponents: [.date])
+                            .datePickerStyle(WheelDatePickerStyle())
+                    }
+                    .frame(maxWidth: 100)
                 }
             }
         }
