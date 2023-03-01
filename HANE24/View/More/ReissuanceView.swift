@@ -8,18 +8,41 @@
 import SwiftUI
 
 struct progressItem: Identifiable{
-    var id: UUID
+    var id: String
     var title: String
     var statement: String
-    
+    var isProcessing: Bool
 }
 
+//
+//var processItems: [progressItem] = [
+//    progressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: false),
+//    progressItem(id: "제작", title: "제작 기간은 약 2주간 소요됩니다", statement: "출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: false),
+//    progressItem(id: "완료", title: "카드를 수령해주세요", statement: "재발급 카드는 데스크에서 수령 가능합니다", isProcessing: false)
+//]
+
+struct alertItem: Identifiable{
+    var id: String
+    var title1: String
+    var title2: String
+    var statement: String
+    var buttonTitle: String
+}
+
+var items: [alertItem] = [
+    alertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"),
+    alertItem(id: "수령", title1: "저는 카드를 받았음을", title2: "확인했습니다.", statement: "실물 카드를 받은 후 눌러주세요.", buttonTitle: "네, 확인했습니다")
+    
+]
 
 
 
 struct ReissuanceView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.openURL) private var openURL
+    @EnvironmentObject var hane: Hane
+    @State var showAlert = false
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -66,117 +89,52 @@ struct ReissuanceView: View {
                             .font(.system(size: 20, weight: .bold))
                         Spacer()
                     }
-                    /// ProgressView 따로 빼기...
-                    CardProgress
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.white)
+                            .frame(height: 300)
+                        VStack(alignment: .leading){
+                            CardProgressView(item: progressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: (hane.reissueState == .beforeReissue)))
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(Color(hex: "D9D9D9"))
+                                .padding(.horizontal, 30)
+                            CardProgressView(item:  progressItem(id: "제작", title: "제작 기간은 약 2주간 소요됩니다", statement: "출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: (hane.reissueState == .inProgress)))
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(Color(hex: "D9D9D9"))
+                                .padding(.horizontal, 30)
+                            CardProgressView(item: progressItem(id: "완료", title: "카드를 수령해주세요", statement: "재발급 카드는 데스크에서 수령 가능합니다", isProcessing: (hane.reissueState == .pickUpRequested)))
+                        }
+                    }
                     Spacer()
-                    Button {} label: {
+                    Button (action :{
+                        showAlert.toggle()
+                    },
+                    label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(.gradientPurple)
+                                .foregroundColor((hane.reissueState == .beforeReissue) ? .gradientPurple : .iconColor)
                                 .frame(height: 45)
                             Text("카드 신청하기")
                                 .font(.system(size: 16, weight: .bold))
                                 .foregroundColor(.white)
                         }
-                    }
+                    })
+                    .disabled(hane.reissueState != .beforeReissue)
                 }
                 .padding(.horizontal, 30)
                 .padding(.bottom, 30)
             }
-        }
-    }
-    
-    var CardProgress: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(.white)
-                .frame(height: 300)
-            VStack(alignment: .leading) {
-                HStack(spacing: 15) {
-                    ZStack{
-                        Circle()
-                        //    .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                            .foregroundColor(.gradientPurple)
-                            .frame(width: 50, height: 50)
-                        Text("신청")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(Color(hex: "EAEAEA"))
-                    }
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("신청 후 업체에 입금해주세요.")
-                            .font(.system(size: 16, weight: .bold))
-                        Text("업체에서 입금 확인 후 제작이 진행됩니다.")
-                            .font(.system(size: 14, weight: .regular))
-                    }
-                }
-                .padding()
-                Image(systemName: "chevron.down")
-                    .foregroundColor(Color(hex: "D9D9D9"))
-                    .padding(.horizontal, 30)
-                HStack(spacing: 15) {
-                    ZStack{
-                        Text("제작")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(.iconColor)
-                        Circle()
-                            .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                            .foregroundColor(Color(hex: "EAEAEA"))
-                            .frame(width: 50, height: 50)
-                    }
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("제작 기간은 약 2주간 소요됩니다.")
-                            .font(.system(size: 16, weight: .bold))
-                        Text("출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.")
-                            .font(.system(size: 14, weight: .regular))
-                    }
-                        
-                }
-                .padding()
-                Image(systemName: "chevron.down")
-                    .foregroundColor(Color(hex: "D9D9D9"))
-                    .padding(.horizontal, 30)
-                HStack(spacing: 15) {
-                    ZStack{
-                        Text("완료")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(.iconColor)
-                        Circle()
-                            .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                            .foregroundColor(Color(hex: "EAEAEA"))
-                            .frame(width: 50, height: 50)
-                    }
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("카드를 수령해주세요.")
-                            .font(.system(size: 16, weight: .bold))
-                        Text("재발급 카드는 데스크에서 수령가능합니다.")
-                            .font(.system(size: 14, weight: .regular))
-                    }
-                }
-                .padding()
-                
-            }
-            .foregroundColor(.black)
-            
-        }
-    }
-    var receiveAlert: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(.white)
-            VStack{
-                Text("저는 카드를 ")
+            if showAlert {
+                AlertView(showAlert: $showAlert, item: (hane.reissueState == .beforeReissue) ? items[0] : items[1])
             }
         }
     }
-    var submitAlert: some View {
-        ZStack{
-            
-        }
-    }
+
 }
 
 struct ReissuanceView_Previews: PreviewProvider {
     static var previews: some View {
         ReissuanceView()
+            .environmentObject(Hane())
     }
 }
