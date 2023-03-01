@@ -18,6 +18,7 @@ func getWeeklyPeriod() -> [String]{
     var weeklyPeriod:[String] = []
     var date = Date()
     let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ko_KR")
     formatter.dateFormat = "M.dd(EEE)"
     for _ in 0..<6 {
         date = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: date)!

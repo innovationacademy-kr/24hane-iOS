@@ -27,9 +27,12 @@ struct PopulationView: View {
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.trailing, 20)
                             .foregroundColor(.black)
-                        Text("\(hane.mainInfo.gaepo)명")
-                            .font(.system(size: 16, weight: .semibold))
+                        Text("\(hane.mainInfo.gaepo)")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(.black)
                             .padding(.leading, 20)
+                        Text("명")
+                            .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.black)
                     }
                 }
@@ -42,10 +45,14 @@ struct PopulationView: View {
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.trailing, 20)
                             .foregroundColor(.black)
-                        Text("\(hane.mainInfo.seocho)명")
-                            .font(.system(size: 16, weight: .semibold))
-                            .padding(.leading, 20)
+                        Text("\(hane.mainInfo.seocho)")
+                            .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.black)
+                            .padding(.leading, 20)
+                        Text("명")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.black)
+
                     }
                 }
             }
