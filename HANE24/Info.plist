@@ -12,7 +12,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>LaunchScreen_light</string>
+		<string>LaunchScreen</string>
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
