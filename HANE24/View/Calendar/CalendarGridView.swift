@@ -23,6 +23,8 @@ struct CalendarGridView: View {
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
                     Task{
                         try await hane.updateMonthlyLogs(date: selectedDate)
+                        print("selectedDAte\(selectedDate)")
+                        print("permonth! : \(hane.perMonth)")
 //                        isLoaded = true
                     }
 

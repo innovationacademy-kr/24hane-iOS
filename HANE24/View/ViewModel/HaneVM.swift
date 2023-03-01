@@ -10,7 +10,14 @@ import WebKit
 import CoreData
 
 enum MyError: Error {
-    case runtimeError(String)
+    case tokenExpired(String)
+}
+
+enum cardState {
+    case beforeReissue
+    case inProgress
+    case pickUpRequested
+    case pickedUp
 }
 
 
@@ -32,12 +39,15 @@ class Hane: ObservableObject {
     @Published var recent6Weeks: [Double] = [123456, 123456, 12344, 123, 1235, 123409]
     @Published var recent6Months: [Double] = [1234560, 1234560, 123440, 1230, 12350, 123409]
     
+    @Published var reissueState: cardState = .beforeReissue
+    
     var monthlyLogController = MonthlyLogController.shared
     
     var inOutLog: InOutLog
     var perMonth: PerMonth
     var mainInfo: MainInfo
     var accumulationTimes: AccumulationTimes
+    var cardReissueState: ReissueState
     
     var APIroot: String
     
@@ -58,18 +68,23 @@ class Hane: ObservableObject {
         
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
-        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil)
+        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil, gaepo: "", seocho: "")
         self.accumulationTimes = AccumulationTimes(todayAccumationTime: 0, monthAccumationTime: 0)
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
+        self.reissueState = .beforeReissue
+        self.cardReissueState = ReissueState(state: "in_progress")
         print("self.APIroot = \(self.APIroot)")
     }
     
     func refresh(date: Date) async throws {
-        try await updateMainInfo()
-        try await updateAccumulationTime()
-        try await updateMonthlyLogs(date: date)
-        print(self.mainInfo)
+        do {
+            try await updateMainInfo()
+            try await updateAccumulationTime()
+            try await updateMonthlyLogs(date: date)
+        } catch {
+            self.isSignIn = false
+        }
     }
     
     func SignOut() {
@@ -87,6 +102,24 @@ class Hane: ObservableObject {
 
 // update Published
 extension Hane {
+    
+    @MainActor
+    func updateReissueState() async throws {
+        do {
+            try await callReissue()
+        } catch {
+            self.reissueState = .beforeReissue
+        }
+        switch cardReissueState.state {
+        case "in_progress":
+            self.reissueState = .inProgress
+        case "pick_up_requested":
+            self.reissueState = .pickUpRequested
+        default:
+            self.reissueState = .pickedUp
+        }
+    }
+    
     @MainActor
     func updateMainInfo() async throws {
         self.loading = true
@@ -218,12 +251,30 @@ extension Hane {
         ]
         let (data, response) = try await URLSession.shared.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            fatalError("error")
-//            self.isSignIn = false
-//            throw MyError.runtimeError("asdf")
+            throw MyError.tokenExpired("get new token!")
         }
         let decodedData =  try JSONDecoder().decode(type.self, from: data)
         return decodedData
+    }
+    
+    func postJsonAsync() async throws {
+        let urlString = APIroot + "/v1/reissue/request"
+        guard let url = URL(string: urlString) else {
+            fatalError("missingURL")
+        }
+        guard let token = UserDefaults.standard.string(forKey: "Token") else {
+            fatalError("UnValid Token")
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = [
+            "Authorization" : "Bearer \(String(describing: token) )"
+        ]
+        
+        let (_ , response) = try await URLSession.shared.data(for: request)
+        guard (response as? HTTPURLResponse)?.statusCode == 201 else {
+            throw MyError.tokenExpired("get new token!")
+        }
     }
     
     func callAccumulationTimes() async throws {
@@ -236,11 +287,15 @@ extension Hane {
     }
     
     func callPerMonth(year: Int, month: Int) async throws {
-        var components = URLComponents(string: APIroot + "/v1/tag-log/permonth")!
+        var components = URLComponents(string: APIroot + "/v1/tag-log/alltagpermonth")!
         let year = URLQueryItem(name: "year", value: "\(year)")
         let month = URLQueryItem(name: "month", value: "\(month)")
         components.queryItems = [year, month]
         
         self.perMonth = try await callJsonAsync(components.url!.absoluteString, type: PerMonth.self)
+    }
+    
+    func callReissue() async throws {
+        self.cardReissueState = try await callJsonAsync(APIroot + "/v1/reissue", type: ReissueState.self)
     }
 }

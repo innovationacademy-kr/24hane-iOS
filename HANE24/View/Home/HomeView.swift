@@ -161,7 +161,7 @@ struct HomeView: View {
                                 UserDefaults.standard.setValue(selection, forKey: "MonthlySelectionOption")
                             }
                                 .padding(.horizontal, 30)
-                            
+
                             TabView{
                                 ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.recent6Weeks))
                                     .padding(.horizontal, 10)
