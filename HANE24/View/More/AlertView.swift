@@ -76,6 +76,9 @@ struct AlertView: View {
     
     var receiveButton: some View {
         Button{
+            Task{
+                try await hane.patchJsonAsync()
+            }
             hane.reissueState = .beforeReissue
             showAlert.toggle()
         } label: {

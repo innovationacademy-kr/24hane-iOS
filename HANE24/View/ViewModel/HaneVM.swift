@@ -82,6 +82,7 @@ class Hane: ObservableObject {
             try await updateMainInfo()
             try await updateAccumulationTime()
             try await updateMonthlyLogs(date: date)
+            try await updateReissueState()
         } catch {
             self.isSignIn = false
         }
@@ -267,6 +268,26 @@ extension Hane {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.allHTTPHeaderFields = [
+            "Authorization" : "Bearer \(String(describing: token) )"
+        ]
+        
+        let (_ , response) = try await URLSession.shared.data(for: request)
+        guard (response as? HTTPURLResponse)?.statusCode == 201 else {
+            throw MyError.tokenExpired("get new token!")
+        }
+    }
+    
+    func patchJsonAsync() async throws {
+        let urlString = APIroot + "/v1/reissue/finish"
+        guard let url = URL(string: urlString) else {
+            fatalError("missingURL")
+        }
+        guard let token = UserDefaults.standard.string(forKey: "Token") else {
+            fatalError("UnValid Token")
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
         request.allHTTPHeaderFields = [
             "Authorization" : "Bearer \(String(describing: token) )"
         ]
