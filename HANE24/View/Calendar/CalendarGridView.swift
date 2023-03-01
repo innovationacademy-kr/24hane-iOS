@@ -12,20 +12,21 @@ struct CalendarGridView: View {
     @Binding var selectedDate: Date
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-//    @State var isLoaded = true
+    
+    var dateRange: ClosedRange<Date> {
+        let min = theDate("2022.08.01")
+        let max = Date()
+        return min...max
+      }
 
     var body: some View {
         VStack {
             // 상단 문자열
             HStack {
                 Button(action: {
-//                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
                     Task{
                         try await hane.updateMonthlyLogs(date: selectedDate)
-                        print("selectedDAte\(selectedDate)")
-                        print("permonth! : \(hane.perMonth)")
-//                        isLoaded = true
                     }
 
                 }, label: {
@@ -37,21 +38,22 @@ struct CalendarGridView: View {
                     .frame(width: 15, height: 15)
 
                 })
-                .disabled(hane.loading)
+                .disabled(selectedDate.toString("yyyy.MM") <= "2022.08" || hane.loading)
 
                 Spacer()
 
                 Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
                     .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
+                    .onTapGesture {
+                        picker.toggle()
+                    }
 
                 Spacer()
 
                 Button(action: {
-//                    isLoaded = false
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
                     Task{
                         try await hane.updateMonthlyLogs(date: selectedDate)
-//                        isLoaded = true
                     }
                 }, label: {
                     ZStack{
@@ -61,7 +63,7 @@ struct CalendarGridView: View {
                     }
                     .frame(width: 15, height: 15)
                 })
-                .disabled(hane.loading)
+                .disabled(selectedDate.toString("yyyy.MM") >= Date().toString("yyyy.MM") || hane.loading)
             }
             .font(.system(size: 20, weight: .semibold))
             .padding(10)
@@ -137,6 +139,22 @@ struct CalendarGridView: View {
                         }
                     }
                     .isHidden(hane.loading)
+                }
+                
+                // DatePicker
+                if picker {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(colorScheme == .light ? .white : Color(hex: "#333333"))
+
+                        DatePicker(
+                            "Date",
+                            selection: $selectedDate,
+                            in: dateRange,
+                            displayedComponents: [.date])
+                            .datePickerStyle(WheelDatePickerStyle())
+                    }
+                    .frame(maxWidth: 100)
                 }
             }
         }
