@@ -64,10 +64,13 @@ struct CalendarView: View {
     }
 }
 
-func theDate(_ str: String) -> Date {
+/// String to Date
+/// - Parameter format: yyyy.MM.dd
+/// - Returns: date(yyyy.MM.dd)
+func theDate(_ format: String) -> Date {
     let tmp = DateFormatter()
     tmp.dateFormat = "yyyy.MM.dd"
-    return tmp.date(from: str)!
+    return tmp.date(from: format)!
 }
 
 struct CalendarView_Previews: PreviewProvider {
