@@ -73,7 +73,10 @@ struct ReissuanceView: View {
                             .font(.system(size: 20, weight: .bold))
                         Spacer()
                     }
-                    Button {} label: {
+                    Button {
+                        if let url = URL(string: "https://www.notion.so") {
+                            openURL(url)}
+                        } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(colorScheme == .dark ? .white : .chartDetailBG)
@@ -106,20 +109,11 @@ struct ReissuanceView: View {
                         }
                     }
                     Spacer()
-                    Button (action :{
-                        showAlert.toggle()
-                    },
-                    label: {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor((hane.reissueState == .beforeReissue) ? .gradientPurple : .iconColor)
-                                .frame(height: 45)
-                            Text("카드 신청하기")
-                                .font(.system(size: 16, weight: .bold))
-                                .foregroundColor(.white)
-                        }
-                    })
-                    .disabled(hane.reissueState != .beforeReissue)
+                    if hane.reissueState != .pickUpRequested {
+                        reissueButton
+                    } else {
+                        receiveButton
+                    }
                 }
                 .padding(.horizontal, 30)
                 .padding(.bottom, 30)
@@ -128,6 +122,39 @@ struct ReissuanceView: View {
                 AlertView(showAlert: $showAlert, item: (hane.reissueState == .beforeReissue) ? items[0] : items[1])
             }
         }
+    }
+    
+    var reissueButton: some View {
+        Button (action :{
+            showAlert.toggle()
+        },
+        label: {
+            ZStack{
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor((hane.reissueState == .beforeReissue) ? .gradientPurple : .iconColor)
+                    .frame(height: 45)
+                Text("카드 신청하기")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.white)
+            }
+        })
+        .disabled(hane.reissueState != .beforeReissue)
+    }
+    
+    var receiveButton: some View {
+        Button (action :{
+            showAlert.toggle()
+        },
+        label: {
+            ZStack{
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor((hane.reissueState == .beforeReissue) ? .gradientPurple : .iconColor)
+                    .frame(height: 45)
+                Text("데스크 카드 수령 완료")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.white)
+            }
+        })
     }
 
 }
