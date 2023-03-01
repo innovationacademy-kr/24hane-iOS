@@ -8,7 +8,7 @@
 import Foundation
 
 struct Log: Hashable {
-    let inTime: String?
-    let outTime: String?
-    let logTime: String?
+    var inTime: String?
+    var outTime: String?
+    var logTime: String?
 }

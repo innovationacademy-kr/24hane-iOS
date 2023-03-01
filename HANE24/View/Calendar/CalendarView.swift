@@ -43,10 +43,10 @@ struct CalendarView: View {
     
     func convert(_ from: [InOutLog]) -> [Log] {
         guard !from.isEmpty else { return [] }
-        return from.map {
+        var logArray = from.map {
             var inTime: String? = nil
             var outTime: String? = nil
-            var logTime: String? = nil
+            var logTime: String? = "누락"
             if let intime = $0.inTimeStamp {
                 inTime = Date(milliseconds: intime).toString("HH:mm:ss")
             }
@@ -59,13 +59,18 @@ struct CalendarView: View {
             }
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)
         }
+        logArray[0].logTime = (logArray[0].logTime == "누락" && selectedDate == Date()) ? "-" : logArray[0].logTime
+        return logArray.reversed()
     }
 }
 
-func theDate(_ str: String) -> Date {
+/// String to Date
+/// - Parameter format: yyyy.MM.dd
+/// - Returns: date(yyyy.MM.dd)
+func theDate(_ format: String) -> Date {
     let tmp = DateFormatter()
     tmp.dateFormat = "yyyy.MM.dd"
-    return tmp.date(from: str)!
+    return tmp.date(from: format)!
 }
 
 struct CalendarView_Previews: PreviewProvider {
