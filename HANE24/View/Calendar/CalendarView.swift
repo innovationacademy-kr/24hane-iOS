@@ -47,14 +47,15 @@ struct CalendarView: View {
             var inTime: String? = nil
             var outTime: String? = nil
             var logTime: String? = "누락"
-            if let intime = $0.inTimeStamp {
+            if var intime = $0.inTimeStamp {
+                intime += 9 * 3600
                 inTime = Date(milliseconds: intime).toString("HH:mm:ss")
             }
-            if let outtime = $0.outTimeStamp {
+            if var outtime = $0.outTimeStamp {
+                outtime += 9 * 3600
                 outTime = Date(milliseconds: outtime).toString("HH:mm:ss")
             }
             if var logtime = $0.durationSecond {
-                logtime -= 3600 * 9
                 logTime = Date(milliseconds: logtime).toString("HH:mm:ss")
             }
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)
