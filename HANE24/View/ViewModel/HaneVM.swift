@@ -14,10 +14,11 @@ enum MyError: Error {
 }
 
 enum cardState {
-    case beforeReissue
+    case none
+    case apply
     case inProgress
     case pickUpRequested
-    case pickedUp
+    case done
 }
 
 
@@ -39,7 +40,7 @@ class Hane: ObservableObject {
     
     @Published var loading: Bool = true
     
-    @Published var reissueState: cardState = .beforeReissue
+    @Published var reissueState: cardState = .none
     
     var monthlyLogController = MonthlyLogController.shared
     
@@ -72,7 +73,7 @@ class Hane: ObservableObject {
         self.accumulationTimes = AccumulationTimes(todayAccumulationTime: 0, monthAccumulationTime: 0, sixWeekAccumulationTime: Array(repeating: 0, count: 6), sixMonthAccumulationTime: Array(repeating: 0, count: 6))
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
-        self.reissueState = .beforeReissue
+        self.reissueState = .none
         self.cardReissueState = ReissueState(state: "in_progress")
         print("self.APIroot = \(self.APIroot)")
     }
@@ -110,16 +111,21 @@ extension Hane {
         do {
             try await callReissue()
         } catch {
-            self.reissueState = .beforeReissue
+            self.reissueState = .none
         }
         switch cardReissueState.state {
+        case "none":
+            self.reissueState = .none
+        case "apply":
+            self.reissueState = .apply
         case "in_progress":
             self.reissueState = .inProgress
         case "pick_up_requested":
             self.reissueState = .pickUpRequested
         default:
-            self.reissueState = .pickedUp
+            self.reissueState = .done
         }
+        print("state: \(self.cardReissueState)")
     }
     
     @MainActor

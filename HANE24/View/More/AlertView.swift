@@ -59,8 +59,9 @@ struct AlertView: View {
         Button{
             Task {
                try await hane.postJsonAsync()
+                try await hane.updateReissueState()
             }
-            hane.reissueState = .inProgress
+      //      hane.reissueState = .apply
             showAlert.toggle()
         } label: {
             ZStack{
@@ -78,8 +79,9 @@ struct AlertView: View {
         Button{
             Task{
                 try await hane.patchJsonAsync()
+                try await hane.updateReissueState()
             }
-            hane.reissueState = .beforeReissue
+            hane.reissueState = .none
             showAlert.toggle()
         } label: {
             ZStack{
