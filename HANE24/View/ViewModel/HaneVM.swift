@@ -54,7 +54,7 @@ class Hane: ObservableObject {
     
     init() {
         self.inOutState = false
-        self.profileImage = "cabi"
+        self.profileImage = ""
         self.loginID = ""
         self.clusterPopulation = ClusterPopulation(gaepo: 0, seocho: 0)
         

@@ -98,13 +98,21 @@ struct HomeView: View {
                }
                VStack(alignment: .center, spacing: 20) {
                     HStack(alignment: .center) {
-                        AsyncImage(url: URL(string: hane.profileImage)) { image in
-                            image
-                                .resizable()
-                                .frame(width: 28, height: 28)
-                                .padding(.trailing, 3)
-                                .clipShape(Circle())
-                        } placeholder: {
+                        if hane.profileImage != "" {
+                            AsyncImage(url: URL(string: hane.profileImage)) { image in
+                                image
+                                    .resizable()
+                                    .frame(width: 28, height: 28)
+                                    .padding(.trailing, 3)
+                                    .clipShape(Circle())
+                            } placeholder: {
+                                Image(systemName: "person.circle")
+                                    .resizable()
+                                    .frame(width: 28, height: 28)
+                                    .padding(.trailing, 3)
+                                    .foregroundColor(.iconColor)
+                            }
+                        } else {
                             Image(systemName: "person.circle")
                                 .resizable()
                                 .frame(width: 28, height: 28)
