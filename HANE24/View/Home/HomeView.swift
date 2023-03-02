@@ -21,11 +21,11 @@ func getWeeklyPeriod() -> [String]{
     formatter.locale = Locale(identifier: "ko_KR")
     formatter.dateFormat = "M.dd(EEE)"
     for _ in 0..<6 {
-        date = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: date)!
         let startDay = formatter.string(from: date.startOfWeek!)
         let endDay = formatter.string(from: date.endOfWeek!)
         let period = startDay + "-" + endDay
         weeklyPeriod.append(period)
+        date = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: date)!
     }
     return weeklyPeriod
 }
@@ -36,9 +36,9 @@ func getMonthlyPeriod() -> [String] {
     let formatter = DateFormatter()
     formatter.dateFormat = "YYYY.M"
     for _ in 0..<6 {
-        date = Calendar.current.date(byAdding: .month, value: -1, to: date)!
         let period = formatter.string(from: date)
         monthlyPeriod.append(period)
+        date = Calendar.current.date(byAdding: .month, value: -1, to: date)!
     }
     return monthlyPeriod
 }
@@ -164,9 +164,9 @@ struct HomeView: View {
                                 .padding(.horizontal, 30)
 
                             TabView{
-                                ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.recent6Weeks))
+                                ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
                                     .padding(.horizontal, 10)
-                                ChartView(item: chartItem(id: "월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.recent6Months))
+                                ChartView(item: chartItem(id: "월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
                                     .padding(.horizontal, 10)
                             }
                             .padding(.horizontal, 20)

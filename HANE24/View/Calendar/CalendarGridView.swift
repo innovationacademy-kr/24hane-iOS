@@ -46,6 +46,11 @@ struct CalendarGridView: View {
                     .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
                     .onTapGesture {
                         picker.toggle()
+                        if !picker {
+                            Task {
+                                try await hane.updateMonthlyLogs(date: selectedDate)
+                            }
+                        }
                     }
 
                 Spacer()
@@ -67,7 +72,6 @@ struct CalendarGridView: View {
             }
             .font(.system(size: 20, weight: .semibold))
             .padding(10)
-            .padding(.top, 20)
             .padding(.bottom, 8)
 
             // LazyGrid
