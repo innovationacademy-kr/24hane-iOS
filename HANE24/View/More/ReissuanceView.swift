@@ -138,7 +138,7 @@ struct ReissuanceView: View {
                     .foregroundColor(.white)
             }
         })
-        .disabled(hane.reissueState != .beforeReissue)
+          .disabled(hane.reissueState != .beforeReissue)
     }
     
     var receiveButton: some View {

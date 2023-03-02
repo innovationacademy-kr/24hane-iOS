@@ -67,7 +67,6 @@ struct CalendarGridView: View {
             }
             .font(.system(size: 20, weight: .semibold))
             .padding(10)
-            .padding(.top, 20)
             .padding(.bottom, 8)
 
             // LazyGrid

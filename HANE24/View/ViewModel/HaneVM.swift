@@ -119,6 +119,7 @@ extension Hane {
         default:
             self.reissueState = .pickedUp
         }
+        print("state: \(self.cardReissueState)")
     }
     
     @MainActor
