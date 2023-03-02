@@ -25,7 +25,7 @@ struct MoreView: View {
         NavigationView{
             ZStack(alignment: .topLeading) {
                 Theme.BackgoundColor(forScheme: colorScheme)
-                    .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
+                    .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing: 36) {
                     Text("더보기")
                         .font(.system(size: 20, weight: .bold))
@@ -73,6 +73,12 @@ struct MoreView: View {
                                 .font(.system(size: 16, weight: .semibold))
                         }
                     }
+                    VStack(alignment: .center){
+                        Divider()
+                        Text("🅒 2023. 24HANE. all rights reserved.")
+                            .font(.system(size: 10, weight: .regular))
+                            .foregroundColor(Color(hex: "9B9797"))
+                    }
                 }
                 .padding(.horizontal, 30)
             }
@@ -84,5 +90,6 @@ struct MoreView: View {
 struct MoreView_Previews: PreviewProvider {
     static var previews: some View {
         MoreView()
+            .environmentObject(Hane())
     }
 }

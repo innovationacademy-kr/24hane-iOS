@@ -25,8 +25,10 @@ struct CardProgressView: View {
             }
             VStack(alignment: .leading, spacing: 5) {
                 Text(item.title)
+                    .foregroundColor(.black)
                     .font(.system(size: 16, weight: .bold))
                 Text(item.statement)
+                    .foregroundColor(.black)
                     .font(.system(size: 14, weight: .regular))
             }
         }
