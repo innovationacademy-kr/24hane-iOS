@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-struct chartItem: Identifiable {
-    var id: String
-    var title: String
-    var period: Array<String>
-    var data: Array<Double>
-}
-
 func getWeeklyPeriod() -> [String]{
     var weeklyPeriod:[String] = []
     var date = Date()
@@ -112,10 +105,11 @@ struct HomeView: View {
                                 .padding(.trailing, 3)
                                 .clipShape(Circle())
                         } placeholder: {
-                            Image("cabi")
+                            Image(systemName: "person.circle")
                                 .resizable()
                                 .frame(width: 28, height: 28)
                                 .padding(.trailing, 3)
+                                .foregroundColor(.iconColor)
                         }
                         
                         Text(hane.loginID)
@@ -164,9 +158,9 @@ struct HomeView: View {
                                 .padding(.horizontal, 30)
 
                             TabView{
-                                ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
+                                ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
                                     .padding(.horizontal, 10)
-                                ChartView(item: chartItem(id: "월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
+                                ChartView(item: ChartItem(id: "월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
                                     .padding(.horizontal, 10)
                             }
                             .padding(.horizontal, 20)

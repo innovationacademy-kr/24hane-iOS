@@ -26,6 +26,7 @@ class Hane: ObservableObject {
     @Published var inOutState: Bool
     @Published var profileImage: String
     @Published var loginID: String
+    @Published var clusterPopulation: ClusterPopulation
     
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
@@ -55,6 +56,7 @@ class Hane: ObservableObject {
         self.inOutState = false
         self.profileImage = "cabi"
         self.loginID = ""
+        self.clusterPopulation = ClusterPopulation(gaepo: 0, seocho: 0)
         
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
@@ -67,8 +69,7 @@ class Hane: ObservableObject {
         
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
-//        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil, gaepo: "", seocho: "")
-        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, inoutState: "", tagAt: nil)
+        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, inoutState: "", tagAt: nil, gaepo: 0, seocho: 0)
         self.accumulationTimes = AccumulationTimes(todayAccumulationTime: 0, monthAccumulationTime: 0, sixWeekAccumulationTime: Array(repeating: 0, count: 6), sixMonthAccumulationTime: Array(repeating: 0, count: 6))
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
@@ -136,6 +137,8 @@ extension Hane {
         self.loginID = mainInfo.login
         self.profileImage = mainInfo.profileImage
         self.inOutState = mainInfo.inoutState == "IN" ? true : false
+        self.clusterPopulation.gaepo = mainInfo.gaepo
+        self.clusterPopulation.seocho = mainInfo.seocho
         
         self.loading = false
     }

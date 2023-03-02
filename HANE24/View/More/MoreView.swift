@@ -8,18 +8,11 @@
 import SwiftUI
 import WebKit
 
-struct moreItem: Identifiable{
-    var id: UUID
-    var title: String
-    var url: String
-    var image: String
-}
-
-var listItems: [moreItem] = [
-    moreItem(id: UUID(), title: "지원금 지침 안내", url: "https://spot-tomato-468.notion.site/2022-42-SEOUL-bf0513c7197f4f71b4be968b8a2cd75a", image: "book"),
-    moreItem(id: UUID(), title: "출입기록 문의", url: "https://docs.google.com/forms/d/e/1FAIpQLSc_-3n_YwQsR1ZNm5DEChDTABQtw884CuI5laekfDemMmjxow/viewform?usp=send_form", image: "chat"),
-    moreItem(id: UUID(), title: "이용가이드", url: "https://www.notion.so", image: "info"),
-    moreItem(id: UUID(), title: "앱 피드백", url: "https://docs.google.com/forms/d/1Lqs2cOwPdPa-9crMjhATesKpslDLC5XqJ92by_Qk-Qc", image: "user")
+var listItems: [MoreItem] = [
+    MoreItem(id: UUID(), title: "지원금 지침 안내", url: "https://spot-tomato-468.notion.site/2022-42-SEOUL-bf0513c7197f4f71b4be968b8a2cd75a", image: "book"),
+    MoreItem(id: UUID(), title: "출입기록 문의", url: "https://docs.google.com/forms/d/e/1FAIpQLSc_-3n_YwQsR1ZNm5DEChDTABQtw884CuI5laekfDemMmjxow/viewform?usp=send_form", image: "chat"),
+    MoreItem(id: UUID(), title: "이용가이드", url: "https://www.notion.so", image: "info"),
+    MoreItem(id: UUID(), title: "앱 피드백", url: "https://docs.google.com/forms/d/1Lqs2cOwPdPa-9crMjhATesKpslDLC5XqJ92by_Qk-Qc", image: "user")
     
 ]
 
