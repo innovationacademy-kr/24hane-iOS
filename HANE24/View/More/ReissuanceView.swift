@@ -97,7 +97,7 @@ struct ReissuanceView: View {
                             .foregroundColor(.white)
                             .frame(height: 300)
                         VStack(alignment: .leading){
-                            CardProgressView(item: progressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: (hane.reissueState == .beforeReissue)))
+                            CardProgressView(item: progressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: (hane.reissueState == .apply)))
                             Image(systemName: "chevron.down")
                                 .foregroundColor(Color(hex: "D9D9D9"))
                                 .padding(.horizontal, 30)
@@ -119,7 +119,7 @@ struct ReissuanceView: View {
                 .padding(.bottom, 30)
             }
             if showAlert {
-                AlertView(showAlert: $showAlert, item: (hane.reissueState == .beforeReissue) ? items[0] : items[1])
+                AlertView(showAlert: $showAlert, item: (hane.reissueState == .pickUpRequested) ? items[1] : items[0])
             }
         }
     }
@@ -131,14 +131,14 @@ struct ReissuanceView: View {
         label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor((hane.reissueState == .beforeReissue) ? .gradientPurple : .iconColor)
+                    .foregroundColor((hane.reissueState == .none || hane.reissueState == .done) ? .gradientPurple : .textGrayMoreView)
                     .frame(height: 45)
                 Text("카드 신청하기")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
             }
         })
-          .disabled(hane.reissueState != .beforeReissue)
+        .disabled((hane.reissueState != .none && hane.reissueState != .done))
     }
     
     var receiveButton: some View {
@@ -148,7 +148,7 @@ struct ReissuanceView: View {
         label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor((hane.reissueState == .beforeReissue) ? .gradientPurple : .iconColor)
+                    .foregroundColor((hane.reissueState == .pickUpRequested) ? .gradientPurple : .iconColor)
                     .frame(height: 45)
                 Text("데스크 카드 수령 완료")
                     .font(.system(size: 16, weight: .bold))
