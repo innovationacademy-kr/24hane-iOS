@@ -75,7 +75,6 @@ class Hane: ObservableObject {
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .none
         self.cardReissueState = ReissueState(state: "in_progress")
-        print("self.APIroot = \(self.APIroot)")
     }
     
     @MainActor
@@ -125,7 +124,6 @@ extension Hane {
         default:
             self.reissueState = .done
         }
-        print("state: \(self.cardReissueState)")
     }
     
     @MainActor
@@ -311,7 +309,6 @@ extension Hane {
     
     func callAccumulationTimes() async throws {
         self.accumulationTimes = try await callJsonAsync(APIroot + "/v1/tag-log/accumulationTimes", type: AccumulationTimes.self)
-        print(self.accumulationTimes)
     }
     
     func callMainInfo() async throws {
