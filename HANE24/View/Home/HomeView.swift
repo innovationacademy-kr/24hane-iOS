@@ -160,7 +160,7 @@ struct HomeView: View {
                             TabView{
                                 ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
                                     .padding(.horizontal, 10)
-                                ChartView(item: ChartItem(id: "월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
+                                ChartView(item: ChartItem(id: "개월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
                                     .padding(.horizontal, 10)
                             }
                             .padding(.horizontal, 20)
