@@ -20,7 +20,7 @@ func getRatio(data: Array<Double>) -> Array<Double> {
 
 struct ChartView: View {
     @State var selectedChart = 0
-    var item: chartItem
+    var item: ChartItem
     var ratData: Array<Double> {
         get{
             return getRatio(data: item.data)
@@ -81,6 +81,6 @@ struct ChartView: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)", "2.6(월)-2.12(일)"], data:  [1234, 5678, 9012, 3456, 7890, 1234]))
+        ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)", "2.6(월)-2.12(일)"], data:  [1234, 5678, 9012, 3456, 7890, 1234]))
     }
 }
