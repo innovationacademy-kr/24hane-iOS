@@ -14,10 +14,11 @@ enum MyError: Error {
 }
 
 enum cardState {
-    case beforeReissue
+    case none
+    case apply
     case inProgress
     case pickUpRequested
-    case pickedUp
+    case done
 }
 
 
@@ -25,6 +26,7 @@ class Hane: ObservableObject {
     @Published var inOutState: Bool
     @Published var profileImage: String
     @Published var loginID: String
+    @Published var clusterPopulation: ClusterPopulation
     
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
@@ -38,7 +40,7 @@ class Hane: ObservableObject {
     
     @Published var loading: Bool = true
     
-    @Published var reissueState: cardState = .beforeReissue
+    @Published var reissueState: cardState = .none
     
     var monthlyLogController = MonthlyLogController.shared
     
@@ -54,6 +56,7 @@ class Hane: ObservableObject {
         self.inOutState = false
         self.profileImage = "cabi"
         self.loginID = ""
+        self.clusterPopulation = ClusterPopulation(gaepo: 0, seocho: 0)
         
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
@@ -66,12 +69,11 @@ class Hane: ObservableObject {
         
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
-//        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil, gaepo: "", seocho: "")
-        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, inoutState: "", tagAt: nil)
+        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, inoutState: "", tagAt: nil, gaepo: 0, seocho: 0)
         self.accumulationTimes = AccumulationTimes(todayAccumulationTime: 0, monthAccumulationTime: 0, sixWeekAccumulationTime: Array(repeating: 0, count: 6), sixMonthAccumulationTime: Array(repeating: 0, count: 6))
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
-        self.reissueState = .beforeReissue
+        self.reissueState = .none
         self.cardReissueState = ReissueState(state: "in_progress")
         print("self.APIroot = \(self.APIroot)")
     }
@@ -109,16 +111,21 @@ extension Hane {
         do {
             try await callReissue()
         } catch {
-            self.reissueState = .beforeReissue
+            self.reissueState = .none
         }
         switch cardReissueState.state {
+        case "none":
+            self.reissueState = .none
+        case "apply":
+            self.reissueState = .apply
         case "in_progress":
             self.reissueState = .inProgress
         case "pick_up_requested":
             self.reissueState = .pickUpRequested
         default:
-            self.reissueState = .pickedUp
+            self.reissueState = .done
         }
+        print("state: \(self.cardReissueState)")
     }
     
     @MainActor
@@ -130,6 +137,8 @@ extension Hane {
         self.loginID = mainInfo.login
         self.profileImage = mainInfo.profileImage
         self.inOutState = mainInfo.inoutState == "IN" ? true : false
+        self.clusterPopulation.gaepo = mainInfo.gaepo
+        self.clusterPopulation.seocho = mainInfo.seocho
         
         self.loading = false
     }

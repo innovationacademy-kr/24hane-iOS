@@ -31,8 +31,8 @@ struct MainInfo: Codable {
     let isAdmin: Bool
     let inoutState: String
     let tagAt: String?
-//    let gaepo: String
-//    let seocho: String
+    let gaepo: Int
+    let seocho: Int
 }
 
 struct AccumulationTimes: Codable {
@@ -55,10 +55,3 @@ public class InOutLogs: NSSecureUnarchiveFromDataTransformer {
         self.data = data
     }
 }
-
-struct ClusterTmp: Codable {
-    let GaePo: Int64
-    let Seocho: Int64
-}
-
-

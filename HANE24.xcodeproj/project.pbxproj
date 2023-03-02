@@ -201,6 +201,7 @@
 			children = (
 				9AF730F5299E074800AF2E53 /* Structs.swift */,
 				9AF730FC299F602D00AF2E53 /* JSONs.swift */,
+				9A37714829A742C0006BBEF3 /* CoreDataVM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,7 +211,6 @@
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */,
-				9A37714829A742C0006BBEF3 /* CoreDataVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
