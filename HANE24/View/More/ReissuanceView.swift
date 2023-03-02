@@ -57,7 +57,7 @@ struct ReissuanceView: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Image(systemName: "chevron.left")
-                            .foregroundColor(.black)
+                            .foregroundColor(Theme.ToolBarIconColor(forScheme: colorScheme))
                             .imageScale(.large)
                             .padding()
                     })
@@ -83,7 +83,7 @@ struct ReissuanceView: View {
                                 .frame(height: 45)
                             Text("자세히보기")
                                 .font(.system(size: 16, weight: .bold))
-                                .foregroundColor(colorScheme == .dark ? .chartDetailBG : .white)
+                                .foregroundColor(colorScheme == .dark ? .chartDetailBG : .LightDefaultBG)
                         }
                     }
                     .padding(.bottom, 20)
