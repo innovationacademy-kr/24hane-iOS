@@ -46,6 +46,11 @@ struct CalendarGridView: View {
                     .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
                     .onTapGesture {
                         picker.toggle()
+                        if !picker {
+                            Task {
+                                try await hane.updateMonthlyLogs(date: selectedDate)
+                            }
+                        }
                     }
 
                 Spacer()

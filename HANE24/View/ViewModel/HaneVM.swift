@@ -28,6 +28,8 @@ class Hane: ObservableObject {
     
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
+    @Published var sixWeekAccumulationTime: [Double] = Array(repeating: 0, count: 6)
+    @Published var sixMonthAccumulationTime: [Double] = Array(repeating: 0, count: 6)
     
     @Published var isSignIn: Bool = false
     
@@ -35,9 +37,6 @@ class Hane: ObservableObject {
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
     
     @Published var loading: Bool = true
-    
-    @Published var recent6Weeks: [Double] = [123456, 123456, 12344, 123, 1235, 123409]
-    @Published var recent6Months: [Double] = [1234560, 1234560, 123440, 1230, 12350, 123409]
     
     @Published var reissueState: cardState = .beforeReissue
     
@@ -58,18 +57,18 @@ class Hane: ObservableObject {
         
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
+        self.sixWeekAccumulationTime = Array(repeating: 0, count: 6)
+        self.sixMonthAccumulationTime = Array(repeating: 0, count: 6)
         
         self.isSignIn = false
         self.monthlyLogs = [:]
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         
-        self.recent6Weeks = [123456, 123456, 12344, 123, 1235, 123409]
-        self.recent6Months = [1234560, 1234560, 123440, 1230, 12350, 123409]
-        
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
-        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil, gaepo: "", seocho: "")
-        self.accumulationTimes = AccumulationTimes(todayAccumationTime: 0, monthAccumationTime: 0)
+//        self.mainInfo = MainInfo(login: "", profileImage: "", inoutState: "", tagAt: nil, gaepo: "", seocho: "")
+        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, inoutState: "", tagAt: nil)
+        self.accumulationTimes = AccumulationTimes(todayAccumulationTime: 0, monthAccumulationTime: 0, sixWeekAccumulationTime: Array(repeating: 0, count: 6), sixMonthAccumulationTime: Array(repeating: 0, count: 6))
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .beforeReissue
@@ -77,6 +76,7 @@ class Hane: ObservableObject {
         print("self.APIroot = \(self.APIroot)")
     }
     
+    @MainActor
     func refresh(date: Date) async throws {
         do {
             try await updateMainInfo()
@@ -141,8 +141,10 @@ extension Hane {
         
         try await callAccumulationTimes()
         
-        self.dailyAccumulationTime = self.accumulationTimes.todayAccumationTime
-        self.monthlyAccumulationTime = self.accumulationTimes.monthAccumationTime
+        self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
+        self.monthlyAccumulationTime = self.accumulationTimes.todayAccumulationTime
+        self.sixWeekAccumulationTime = self.accumulationTimes.sixWeekAccumulationTime
+        self.sixMonthAccumulationTime = self.accumulationTimes.sixMonthAccumulationTime
         
         self.loading = false
     }
@@ -309,7 +311,7 @@ extension Hane {
     }
     
     func callPerMonth(year: Int, month: Int) async throws {
-        var components = URLComponents(string: APIroot + "/v1/tag-log/alltagpermonth")!
+        var components = URLComponents(string: APIroot + "/v1/tag-log/getAllTagPerMonth")!
         let year = URLQueryItem(name: "year", value: "\(year)")
         let month = URLQueryItem(name: "month", value: "\(month)")
         components.queryItems = [year, month]
