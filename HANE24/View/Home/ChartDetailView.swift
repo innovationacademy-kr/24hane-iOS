@@ -34,7 +34,7 @@ struct ChartDetailView: View {
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
                     Spacer()
-                    Text("총 \((time / 3600), specifier: "%.0f")시간")
+                    Text("총 \((time / 3600), specifier: "%.1f")시간")
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
 
@@ -65,6 +65,6 @@ struct ChartDetailView: View {
 
 struct ChartDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartDetailView(selectedChart: .constant(3), id: "월", time: 142, period: "1.2(월)-1.8(일)")
+        ChartDetailView(selectedChart: .constant(3), id: "월", time: 1800, period: "1.2(월)-1.8(일)")
     }
 }
