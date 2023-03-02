@@ -10,7 +10,7 @@ import Charts
 
 func getRatio(data: Array<Double>) -> Array<Double> {
     var retArray: Array<Double> = []
-    let max: Double = data.max()!
+    let max: Double = data.max() != 0 ? data.max()! : 1
     for i in 0..<6 {
         let ratio: Double = (data[i] / max)
         retArray.append(ratio)
@@ -81,6 +81,6 @@ struct ChartView: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)"], data:  [42, 20, 41, 33, 0, 50]))
+        ChartView(item: chartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)", "2.6(월)-2.12(일)"], data:  [1234, 5678, 9012, 3456, 7890, 1234]))
     }
 }
