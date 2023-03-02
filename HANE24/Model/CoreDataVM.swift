@@ -63,8 +63,8 @@ class MonthlyLogController {
     }
     
     func resetLogs() {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MonthlyLog")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MonthlyLog")
+//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         totalLogs.forEach {
             container.viewContext.delete($0)

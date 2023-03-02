@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+func  numOfDays(selection: Int) -> Double{
+    let date =  Calendar.current.date(byAdding: .month, value: -selection, to: Date())!
+    return Double(date.nubmerOfDays)
+}
+
 struct ChartDetailView: View {
     @Binding var selectedChart: Int
     var id: String
@@ -50,7 +55,7 @@ struct ChartDetailView: View {
                             .foregroundColor(.white)
                             .font(.system(size: 12, weight: .semibold))
                     } else {
-                        Text("\((time / 3600) / 7, specifier: "%.1f")시간")
+                        Text("\((time / 3600) / (numOfDays(selection: selectedChart)), specifier: "%.1f")시간")
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
                     }
