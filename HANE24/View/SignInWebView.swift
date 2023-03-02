@@ -48,11 +48,9 @@ struct SignInWebView: UIViewRepresentable {
         }
         
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-            print("load web view")
         }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            print("finished load")
             if self.viewStat.wrappedValue == .buttonTabbed {
                 self.viewStat.wrappedValue = .readyToSignIn
             } else {

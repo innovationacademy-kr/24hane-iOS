@@ -26,8 +26,10 @@ struct AlertView: View {
             VStack{
                 Text(item.title1)
                     .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.black)
                 Text(item.title2)
                     .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.black)
                 Text(item.statement)
                     .font(.system(size: 13, weight: .bold))
                     .foregroundColor(.gradientPurple)
@@ -61,7 +63,6 @@ struct AlertView: View {
                try await hane.postJsonAsync()
                 try await hane.updateReissueState()
             }
-      //      hane.reissueState = .apply
             showAlert.toggle()
         } label: {
             ZStack{
@@ -81,7 +82,6 @@ struct AlertView: View {
                 try await hane.patchJsonAsync()
                 try await hane.updateReissueState()
             }
-            hane.reissueState = .none
             showAlert.toggle()
         } label: {
             ZStack{

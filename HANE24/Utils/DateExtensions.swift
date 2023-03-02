@@ -92,7 +92,7 @@ extension Date {
         Int64((self.timeIntervalSince1970 * 1000.0).rounded())
     }
     init(milliseconds: Int64) {
-        self = Date(timeIntervalSince1970: TimeInterval(milliseconds))
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds - 9 * 3600))
     }
 }
 
@@ -108,4 +108,21 @@ extension Date {
            return gregorian.date(byAdding: .day, value: 7, to: startDay)
        }
 
+}
+
+extension Date{
+    var nubmerOfDays: Int {
+        let calendar = Calendar.current
+        let myDateComponents = DateComponents(year: self.yearToInt, month: self.monthToInt)
+        
+        let startOfMonth = calendar.date(from: myDateComponents)
+        
+        let nextMonth = calendar.date(byAdding: .month, value:+1, to: startOfMonth!)
+        
+        let endOfMonth = calendar.date(byAdding: .day, value: -1,  to: nextMonth!)
+        
+        let comp2 = calendar.dateComponents([.day, .weekday, .weekOfMonth], from: endOfMonth!)
+        
+        return comp2.day!
+    }
 }
