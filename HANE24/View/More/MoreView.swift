@@ -42,6 +42,11 @@ struct MoreView: View {
                         }
                     }
                     .navigationBarHidden(true)
+                    .simultaneousGesture(TapGesture().onEnded{
+                        Task{
+                            try await hane.updateReissueState()
+                        }
+                    })
                     ForEach(listItems) { item in
                         HStack(spacing: 10) {
                             Image(item.image)

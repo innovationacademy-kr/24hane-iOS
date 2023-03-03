@@ -23,7 +23,7 @@ enum cardState {
 
 
 class Hane: ObservableObject {
-    @Published var inOutState: Bool
+    @Published var isInCluster: Bool
     @Published var profileImage: String
     @Published var loginID: String
     @Published var clusterPopulation: ClusterPopulation
@@ -53,8 +53,8 @@ class Hane: ObservableObject {
     var APIroot: String
     
     init() {
-        self.inOutState = false
-        self.profileImage = "cabi"
+        self.isInCluster = false
+        self.profileImage = ""
         self.loginID = ""
         self.clusterPopulation = ClusterPopulation(gaepo: 0, seocho: 0)
         
@@ -83,7 +83,6 @@ class Hane: ObservableObject {
             try await updateMainInfo()
             try await updateAccumulationTime()
             try await updateMonthlyLogs(date: date)
-            try await updateReissueState()
         } catch {
             self.isSignIn = false
         }
@@ -134,7 +133,7 @@ extension Hane {
         
         self.loginID = mainInfo.login
         self.profileImage = mainInfo.profileImage
-        self.inOutState = mainInfo.inoutState == "IN" ? true : false
+        self.isInCluster = mainInfo.inoutState == "IN" ? true : false
         self.clusterPopulation.gaepo = mainInfo.gaepo
         self.clusterPopulation.seocho = mainInfo.seocho
         
@@ -210,7 +209,6 @@ extension Hane {
                 Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
             }
         }
-                
         // update Daily Total Accumulation Times (CalendarView)
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         for dailyLog in monthlyLogs {
