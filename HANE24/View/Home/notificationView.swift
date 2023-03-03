@@ -38,7 +38,7 @@ struct notificationView: View {
                                 .padding()
                                 .isHidden(true)
                         }
-                        Text("알림 내역이 비어있습니다.💌 ")
+                        Text("알림 내역이 비어있습니다. 💌")
                             .padding()
                         Divider()
                     }

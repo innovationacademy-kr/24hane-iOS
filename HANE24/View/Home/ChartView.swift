@@ -54,6 +54,11 @@ struct ChartView: View {
                         }, label:{
                             ZStack(alignment: .bottom) {
                                 RoundedRectangle(cornerRadius: 4)
+                                    .frame(width:25, height: 87)
+                                    .padding(.horizontal, 4)
+                                    .hidden()
+                                
+                                RoundedRectangle(cornerRadius: 4)
                                     .frame(width:25, height: 6 + 81 * ratData[index])
                                     .padding(.horizontal, 4)
                                     .foregroundStyle(
