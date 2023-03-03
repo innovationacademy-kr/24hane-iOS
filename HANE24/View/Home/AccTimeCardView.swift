@@ -120,22 +120,22 @@ struct AccTimeCardView: View {
     var ProgressCircle: some View {
                                 
         ZStack{
-            HStack(alignment: .bottom, spacing: 0) {
+            HStack(spacing: 0) {
                 Text("\(Int(Double(accTime) / Double(options[select] * 3600) * 100))")
                     .font(.system(size: 32, weight: .medium, design: .default))
                     .foregroundColor(.black)
                 Text("%")
-                    .font(.system(size: 20, weight: .medium, design: .default))
+                    .font(.system(size: 14, weight: .medium, design: .default))
                     .foregroundColor(.black)
+                    .padding(.top, 10)
             }
             Circle()
                 .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.1), .gradientWhtie.opacity(0.1), .gradientPurple.opacity(0.1), .gradientPurple.opacity(0.1),.gradientWhtie.opacity(0.1), .gradientBlue.opacity(0.1)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 .overlay{
                     Circle()
-                        .trim(from:0, to: drawingStroke ? (Double(accTime) / Double(options[select] * 3600)) : 0)
-                        .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                        .trim(from:0, to: drawingStroke ? (Double(12345) / Double(options[select] * 3600)) : 0)
+                        .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .degrees(-30), endAngle: .degrees(330)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 }
-                .rotationEffect(.degrees(270))
         }
     }
 }
