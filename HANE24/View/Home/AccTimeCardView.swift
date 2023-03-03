@@ -46,7 +46,7 @@ struct AccTimeCardView: View {
                 } label: {
                     HStack {
                         Text(text)
-                            .font(.system(size: 17 , weight: .bold))
+                            .font(.system(size: 16 , weight: .bold))
                         Spacer()
                         ZStack{
                             if hane.loading {
@@ -77,6 +77,7 @@ struct AccTimeCardView: View {
                     VStack {
                         HStack {
                             Text("목표 시간")
+                                .font(.system(size: 16, weight: .bold))
                             Spacer()
                             Menu{
                                 Picker(selection: $select) {
@@ -119,10 +120,14 @@ struct AccTimeCardView: View {
     var ProgressCircle: some View {
                                 
         ZStack{
-
-            Text("\(Int(Double(accTime) / Double(options[select] * 3600) * 100))%")
-                .font(.system(size: 32, weight: .medium, design: .default))
-                .foregroundColor(.black)
+            HStack(alignment: .bottom, spacing: 0) {
+                Text("\(Int(Double(accTime) / Double(options[select] * 3600) * 100))")
+                    .font(.system(size: 32, weight: .medium, design: .default))
+                    .foregroundColor(.black)
+                Text("%")
+                    .font(.system(size: 20, weight: .medium, design: .default))
+                    .foregroundColor(.black)
+            }
             Circle()
                 .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.1), .gradientWhtie.opacity(0.1), .gradientPurple.opacity(0.1), .gradientPurple.opacity(0.1),.gradientWhtie.opacity(0.1), .gradientBlue.opacity(0.1)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 .overlay{
