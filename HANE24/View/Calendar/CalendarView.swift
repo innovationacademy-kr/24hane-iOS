@@ -74,15 +74,14 @@ struct CalendarView: View {
             var inTime: String? = nil
             var outTime: String? = nil
             var logTime: String? = "누락"
-            if var intime = $0.inTimeStamp {
-                intime += 9 * 3600
+            if let intime = $0.inTimeStamp {
                 inTime = Date(milliseconds: intime).toString("HH:mm:ss")
             }
-            if var outtime = $0.outTimeStamp {
-                outtime += 9 * 3600
+            if let outtime = $0.outTimeStamp {
                 outTime = Date(milliseconds: outtime).toString("HH:mm:ss")
             }
             if var logtime = $0.durationSecond {
+                logtime -= 9 * 3600
                 logTime = Date(milliseconds: logtime).toString("HH:mm:ss")
             }
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)
