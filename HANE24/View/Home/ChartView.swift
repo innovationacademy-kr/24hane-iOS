@@ -70,7 +70,7 @@ struct ChartView: View {
                     Text("오래된순")
                 }
                 .foregroundColor(Color(hex: "#9B9797"))
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: 12, weight: .semibold))
                 .padding(.horizontal, 50)
                 .padding(.bottom, 20)
             }
