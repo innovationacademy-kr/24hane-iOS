@@ -49,9 +49,9 @@ struct ChartView: View {
                     .padding(.bottom)
                 HStack(alignment: .bottom) {
                     ForEach(0..<ratData.count, id: \.self) { index in
-                        Button{
+                        Button(action:{
                             selectedChart = index
-                        } label: {
+                        }, label:{
                             ZStack(alignment: .bottom) {
                                 RoundedRectangle(cornerRadius: 4)
                                     .frame(width:25, height: 6 + 81 * ratData[index])
@@ -61,7 +61,8 @@ struct ChartView: View {
                                     )
                             }
                                 
-                        }
+                        })
+                        .buttonStyle(CustomButtonStyle())
                     }
                 }
                 HStack{
@@ -76,6 +77,14 @@ struct ChartView: View {
             }
         }
         
+    }
+}
+
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 1.3 : 1)
+            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }
 }
 

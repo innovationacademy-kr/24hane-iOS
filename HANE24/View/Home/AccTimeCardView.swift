@@ -132,10 +132,9 @@ struct AccTimeCardView: View {
                 .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.1), .gradientWhtie.opacity(0.1), .gradientPurple.opacity(0.1), .gradientPurple.opacity(0.1),.gradientWhtie.opacity(0.1), .gradientBlue.opacity(0.1)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 .overlay{
                     Circle()
-                        .trim(from:0, to: drawingStroke ? (Double(accTime) / Double(options[select] * 3600)) : 0)
-                        .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                        .trim(from:0, to: drawingStroke ? (Double(12345) / Double(options[select] * 3600)) : 0)
+                        .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .degrees(-30), endAngle: .degrees(330)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 }
-                .rotationEffect(.degrees(90))
         }
     }
 }
