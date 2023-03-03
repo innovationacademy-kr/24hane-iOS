@@ -28,7 +28,7 @@ struct MoreView: View {
             ZStack(alignment: .topLeading) {
                 Theme.BackgoundColor(forScheme: colorScheme)
                     .edgesIgnoringSafeArea(.all)
-                VStack(alignment: .leading, spacing: 28) {
+                VStack(alignment: .leading, spacing: 30) {
                     Text("더보기")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.top)
