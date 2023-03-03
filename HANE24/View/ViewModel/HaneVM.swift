@@ -83,7 +83,6 @@ class Hane: ObservableObject {
             try await updateMainInfo()
             try await updateAccumulationTime()
             try await updateMonthlyLogs(date: date)
-            try await updateReissueState()
         } catch {
             self.isSignIn = false
         }
@@ -210,7 +209,6 @@ extension Hane {
                 Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
             }
         }
-                
         // update Daily Total Accumulation Times (CalendarView)
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         for dailyLog in monthlyLogs {
@@ -262,9 +260,11 @@ extension Hane {
         ]
         let (data, response) = try await URLSession.shared.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            print("hihi")
             throw MyError.tokenExpired("get new token!")
         }
         let decodedData =  try JSONDecoder().decode(type.self, from: data)
+        print("decoded: \(decodedData)")
         return decodedData
     }
     
@@ -304,6 +304,7 @@ extension Hane {
         
         let (_ , response) = try await URLSession.shared.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 201 else {
+            print("patch error!!`\(response)")
             throw MyError.tokenExpired("get new token!")
         }
     }

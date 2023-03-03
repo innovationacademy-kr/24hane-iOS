@@ -19,9 +19,6 @@ struct MainView: View {
                     Image(selection == 1 ? "selectedHome" : "home").renderingMode(.template)
                 }) .tag(1)
             CalendarView()
-                .onAppear{
-                    print("inoutState: \(hane.dailyAccumulationTime)")
-                }
                 .tabItem({
                     Image(selection == 2 ? "selectedCalendar" : "calendar").renderingMode(.template)
                 }) .tag(2)
