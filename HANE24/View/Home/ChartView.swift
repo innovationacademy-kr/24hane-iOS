@@ -71,7 +71,7 @@ struct ChartView: View {
                 }
                 .foregroundColor(Color(hex: "#9B9797"))
                 .font(.system(size: 14, weight: .semibold))
-                .padding(.horizontal, 60)
+                .padding(.horizontal, 50)
                 .padding(.bottom, 20)
             }
         }

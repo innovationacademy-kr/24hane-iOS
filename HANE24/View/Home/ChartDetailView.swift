@@ -30,10 +30,10 @@ struct ChartDetailView: View {
                                     .frame(width: 25)
                                     .hidden()
                                 Image(systemName: "arrowtriangle.down.fill")
-                                    .padding(.horizontal, 8)
                                     .foregroundColor(.chartDetailBG)
                                     .opacity(idx == selectedChart ? 1 : 0)
                             }
+                            .padding(.horizontal, 4)
                         }
                 }
                 

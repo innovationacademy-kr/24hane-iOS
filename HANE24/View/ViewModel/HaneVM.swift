@@ -83,7 +83,6 @@ class Hane: ObservableObject {
             try await updateMainInfo()
             try await updateAccumulationTime()
             try await updateMonthlyLogs(date: date)
-            try await updateReissueState()
         } catch {
             self.isSignIn = false
         }
@@ -210,7 +209,6 @@ extension Hane {
                 Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
             }
         }
-                
         // update Daily Total Accumulation Times (CalendarView)
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         for dailyLog in monthlyLogs {

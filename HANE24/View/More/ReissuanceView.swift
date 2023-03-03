@@ -14,12 +14,6 @@ struct progressItem: Identifiable{
     var isProcessing: Bool
 }
 
-//
-//var processItems: [progressItem] = [
-//    progressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: false),
-//    progressItem(id: "제작", title: "제작 기간은 약 2주간 소요됩니다", statement: "출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: false),
-//    progressItem(id: "완료", title: "카드를 수령해주세요", statement: "재발급 카드는 데스크에서 수령 가능합니다", isProcessing: false)
-//]
 
 struct alertItem: Identifiable{
     var id: String
