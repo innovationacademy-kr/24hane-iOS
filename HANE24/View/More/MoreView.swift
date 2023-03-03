@@ -9,10 +9,10 @@ import SwiftUI
 import WebKit
 
 var listItems: [MoreItem] = [
-    MoreItem(id: UUID(), title: "지원금 지침 안내", url: "https://spot-tomato-468.notion.site/2022-42-SEOUL-bf0513c7197f4f71b4be968b8a2cd75a", image: "book"),
-    MoreItem(id: UUID(), title: "출입기록 문의", url: "https://docs.google.com/forms/d/e/1FAIpQLSc_-3n_YwQsR1ZNm5DEChDTABQtw884CuI5laekfDemMmjxow/viewform?usp=send_form", image: "chat"),
-    MoreItem(id: UUID(), title: "이용가이드", url: "https://www.notion.so", image: "info"),
-    MoreItem(id: UUID(), title: "앱 피드백", url: "https://docs.google.com/forms/d/1Lqs2cOwPdPa-9crMjhATesKpslDLC5XqJ92by_Qk-Qc", image: "user"),
+    MoreItem(id: UUID(), title: "지원금 지침 안내", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/money_guidelines", image: "book"),
+    MoreItem(id: UUID(), title: "출입기록 문의", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/question", image: "chat"),
+    MoreItem(id: UUID(), title: "이용가이드", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/usage", image: "info"),
+    MoreItem(id: UUID(), title: "앱 피드백", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/feedback", image: "user"),
     MoreItem(id: UUID(), title: "이용약관", url: "https://profile.intra.42.fr/legal/terms", image: "union")
 
     
