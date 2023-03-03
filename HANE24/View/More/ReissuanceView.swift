@@ -61,10 +61,15 @@ struct ReissuanceView: View {
                             .imageScale(.large)
                             .padding()
                     })
+                    Spacer()
                     Text("카드 재발급 신청")
                         .font(.system(size: 20, weight: .bold))
-                        .padding(.leading, 70)
-                        .padding(.trailing, 120)
+                    Spacer()
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Theme.ToolBarIconColor(forScheme: colorScheme))
+                        .imageScale(.large)
+                        .padding()
+                        .isHidden(true)
                 }
                 .padding(.bottom, 15)
                 VStack(spacing: 15) {
