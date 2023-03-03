@@ -26,7 +26,7 @@ struct ChartDetailView: View {
                 HStack{
                     ForEach(0..<6) { idx in
                             Image(systemName: "arrowtriangle.down.fill")
-                                .padding(.horizontal, 8)
+                            .padding(.horizontal, 4)
                                 .foregroundColor(.chartDetailBG)
                                 .opacity(idx == selectedChart ? 1 : 0)
                         }
