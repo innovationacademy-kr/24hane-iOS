@@ -16,7 +16,7 @@ func getWeeklyPeriod() -> [String]{
     for _ in 0..<6 {
         let startDay = formatter.string(from: date.startOfWeek!)
         let endDay = formatter.string(from: date.endOfWeek!)
-        let period = startDay + "-" + endDay
+        let period = startDay + " - " + endDay
         weeklyPeriod.append(period)
         date = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: date)!
     }
