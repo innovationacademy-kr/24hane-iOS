@@ -267,7 +267,7 @@ extension Hane {
     }
     
     func postJsonAsync() async throws {
-        let urlString = APIroot + "/v1/reissue/request"
+        let urlString = APIroot + "/v2/reissue/request"
         guard let url = URL(string: urlString) else {
             fatalError("missingURL")
         }
@@ -287,7 +287,7 @@ extension Hane {
     }
     
     func patchJsonAsync() async throws {
-        let urlString = APIroot + "/v1/reissue/finish"
+        let urlString = APIroot + "/v2/reissue/finish"
         guard let url = URL(string: urlString) else {
             fatalError("missingURL")
         }
@@ -307,15 +307,15 @@ extension Hane {
     }
     
     func callAccumulationTimes() async throws {
-        self.accumulationTimes = try await callJsonAsync(APIroot + "/v1/tag-log/accumulationTimes", type: AccumulationTimes.self)
+        self.accumulationTimes = try await callJsonAsync(APIroot + "/v2/tag-log/accumulationTimes", type: AccumulationTimes.self)
     }
     
     func callMainInfo() async throws {
-        self.mainInfo = try await callJsonAsync(APIroot + "/v1/tag-log/maininfo", type: MainInfo.self)
+        self.mainInfo = try await callJsonAsync(APIroot + "/v2/tag-log/maininfo", type: MainInfo.self)
     }
     
     func callPerMonth(year: Int, month: Int) async throws {
-        var components = URLComponents(string: APIroot + "/v1/tag-log/getAllTagPerMonth")!
+        var components = URLComponents(string: APIroot + "/v2/tag-log/getAllTagPerMonth")!
         let year = URLQueryItem(name: "year", value: "\(year)")
         let month = URLQueryItem(name: "month", value: "\(month)")
         components.queryItems = [year, month]
@@ -324,6 +324,6 @@ extension Hane {
     }
     
     func callReissue() async throws {
-        self.cardReissueState = try await callJsonAsync(APIroot + "/v1/reissue", type: ReissueState.self)
+        self.cardReissueState = try await callJsonAsync(APIroot + "/v2/reissue", type: ReissueState.self)
     }
 }
