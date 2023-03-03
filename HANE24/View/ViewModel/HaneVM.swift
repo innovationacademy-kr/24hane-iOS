@@ -260,11 +260,9 @@ extension Hane {
         ]
         let (data, response) = try await URLSession.shared.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            print("hihi")
             throw MyError.tokenExpired("get new token!")
         }
         let decodedData =  try JSONDecoder().decode(type.self, from: data)
-        print("decoded: \(decodedData)")
         return decodedData
     }
     
@@ -304,7 +302,6 @@ extension Hane {
         
         let (_ , response) = try await URLSession.shared.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 201 else {
-            print("patch error!!`\(response)")
             throw MyError.tokenExpired("get new token!")
         }
     }
