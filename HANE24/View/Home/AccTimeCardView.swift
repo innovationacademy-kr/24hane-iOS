@@ -130,7 +130,7 @@ struct AccTimeCardView: View {
                         .trim(from:0, to: drawingStroke ? (Double(accTime) / Double(options[select] * 3600)) : 0)
                         .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 }
-                .rotationEffect(.degrees(270))
+                .rotationEffect(.degrees(90))
         }
     }
 }

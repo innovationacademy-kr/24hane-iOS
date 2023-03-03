@@ -35,7 +35,7 @@ struct ChartView: View {
                 HStack{
                     Text("\(item.title)")
                         .foregroundColor(.black)
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.system(size: 14, weight: .bold))
                     Text("(6\(item.id))")
                         .foregroundColor(.textGray)
                         .font(.system(size: 14, weight: .semibold))
