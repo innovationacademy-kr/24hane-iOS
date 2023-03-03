@@ -87,7 +87,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView{
            ZStack{
-               if hane.inOutState {
+               if hane.isInCluster {
                    Image("Background")
                         .resizable()
                         .edgesIgnoringSafeArea(.top)
@@ -122,8 +122,9 @@ struct HomeView: View {
                         
                         Text(hane.loginID)
                             .font(.system(size: 20, weight: .semibold, design: .rounded))
+                            .foregroundColor(!hane.isInCluster && colorScheme == .light ? .black : .white)
                         
-                        if hane.inOutState {
+                        if hane.isInCluster {
                             Circle()
                                 .foregroundColor(.green)
                                 .frame(width:8, height: 8)
