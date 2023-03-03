@@ -23,7 +23,7 @@ enum cardState {
 
 
 class Hane: ObservableObject {
-    @Published var inOutState: Bool
+    @Published var isInCluster: Bool
     @Published var profileImage: String
     @Published var loginID: String
     @Published var clusterPopulation: ClusterPopulation
@@ -53,8 +53,8 @@ class Hane: ObservableObject {
     var APIroot: String
     
     init() {
-        self.inOutState = false
-        self.profileImage = "cabi"
+        self.isInCluster = false
+        self.profileImage = ""
         self.loginID = ""
         self.clusterPopulation = ClusterPopulation(gaepo: 0, seocho: 0)
         
@@ -134,7 +134,7 @@ extension Hane {
         
         self.loginID = mainInfo.login
         self.profileImage = mainInfo.profileImage
-        self.inOutState = mainInfo.inoutState == "IN" ? true : false
+        self.isInCluster = mainInfo.inoutState == "IN" ? true : false
         self.clusterPopulation.gaepo = mainInfo.gaepo
         self.clusterPopulation.seocho = mainInfo.seocho
         
