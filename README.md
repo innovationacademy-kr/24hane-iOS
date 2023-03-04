@@ -43,6 +43,11 @@
     <td><img src="https://velog.velcdn.com/images/qnm83/post/92952fa1-24b5-4c85-b4a1-bd5d0ef015db/image.png" width="15px" alt="_icon"/> CoreData</td>
     <td>API 호출을 최소화 하기 위해 변하지 않는 로그데이터를 저장해 둘 캐시 역할</td>
   </tr>
+  <tr>
+    <td rowspan="5" align="center">Architecture</td>
+    <td>✨ MVVM</td>
+    <td>24HANE.ver1 개발 당시 뚜렷한 형식이 없는 소스코드로 인해 코드 수정, 리팩토링에 예상비용이 굉장히 컸던 이유로 v2 에서 새로운 디자인에 맞춰 새로운 아키텍쳐를 적용해 보고자 선택</td>
+  </tr>
 </table>
 
 </div>
@@ -52,9 +57,10 @@
 
 <div align="center">
 
-
-| [🐇 장희주 (hejang)](https://github.com/ittzggd) | [🍎 황윤기 (yuhwang)](https://github.com/YunKi-H) |
-| ----------------------------------------- | ---------------------------------------- |
+| 멤버 | 역할 |
+| ----------------------------------------- | ----------------------------------------- |
+| [🐇 장희주 (hejang)](https://github.com/ittzggd) | 기획, 개발, 디자인 |
+| [🍎 황윤기 (yuhwang)](https://github.com/YunKi-H) | 개발 |
 
 <!-- |  <a href="https://github.com/innovationacademy-kr"><img src="https://img.shields.io/badge/42Seoul-000000?style=flat-square&logo=42&logoColor=white" /></a> |
 | ----------------------------------------- | -->
