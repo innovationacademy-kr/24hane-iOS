@@ -13,7 +13,7 @@ var listItems: [MoreItem] = [
     MoreItem(id: UUID(), title: "출입기록 문의", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/question", image: "chat"),
     MoreItem(id: UUID(), title: "이용가이드", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/usage", image: "info"),
     MoreItem(id: UUID(), title: "앱 피드백", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/feedback", image: "user"),
-    MoreItem(id: UUID(), title: "이용약관", url: "https://profile.intra.42.fr/legal/terms", image: "union")
+    MoreItem(id: UUID(), title: "이용약관", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/terms", image: "union")
 
     
 ]
