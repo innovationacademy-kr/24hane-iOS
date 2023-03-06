@@ -88,7 +88,7 @@ struct ChartView: View {
 struct CustomButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(configuration.isPressed ? 1.3 : 1)
+            .scaleEffect(x: configuration.isPressed ? 1.1 : 1, y: configuration.isPressed ? 1.2 : 1, anchor: .bottom)
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }
 }

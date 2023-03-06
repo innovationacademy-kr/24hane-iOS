@@ -40,7 +40,7 @@ struct AlertView: View {
                     receiveButton
                 }
                 Button {
-                    showAlert.toggle()
+                    showAlert = false
                 } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
@@ -60,10 +60,12 @@ struct AlertView: View {
     var submitButton: some View {
         Button{
             Task {
-               try await hane.postJsonAsync()
-                try await hane.updateReissueState()
+                do {
+                    try await hane.postJsonAsync()
+                    hane.reissueState = .apply
+                }
             }
-            showAlert.toggle()
+            showAlert = false
         } label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
@@ -79,10 +81,14 @@ struct AlertView: View {
     var receiveButton: some View {
         Button{
             Task{
-                try await hane.patchJsonAsync()
-                try await hane.updateReissueState()
+                do {
+                    try await hane.patchJsonAsync()
+                    hane.reissueState = .done
+                } catch {
+                    hane.reissueState = .pickUpRequested
+                }
             }
-            showAlert.toggle()
+            showAlert = false
         } label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
