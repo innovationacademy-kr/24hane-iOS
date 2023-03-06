@@ -275,7 +275,6 @@ extension Hane {
         guard (response as? HTTPURLResponse)?.statusCode == 201 else {
             throw MyError.tokenExpired("get new token!")
         }
-        print("post response : \(response)")
     }
     
     func patchJsonAsync() async throws {
