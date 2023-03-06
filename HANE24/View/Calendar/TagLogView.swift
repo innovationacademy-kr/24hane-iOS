@@ -56,6 +56,7 @@ struct TagLogView: View {
                 ScrollView {
                     ForEach(logList, id: \.self) { log in
                         tagLog(log)
+                        
                     }
                 }
                 .frame(maxHeight: 230)
