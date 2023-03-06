@@ -73,7 +73,7 @@ struct ReissuanceView: View {
                         Spacer()
                     }
                     Button {
-                        if let url = URL(string: "https://www.notion.so") {
+                        if let url = URL(string: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/reissuance_guidelines") {
                             openURL(url)}
                         } label: {
                         ZStack{
