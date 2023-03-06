@@ -22,7 +22,7 @@ struct PopulationView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .frame(width: 155, height: 80)
-                    HStack(alignment: .bottom) {
+                    HStack(alignment: .bottom, spacing: 0) {
                         Text("개포")
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.trailing, 20)
@@ -40,7 +40,7 @@ struct PopulationView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .frame(width: 155, height: 80)
-                    HStack(alignment: .bottom) {
+                    HStack(alignment: .bottom, spacing: 0) {
                         Text("서초")
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.trailing, 20)
