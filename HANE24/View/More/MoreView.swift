@@ -32,6 +32,7 @@ struct MoreView: View {
                     Text("더보기")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.top)
+                        .padding(.leading, 30)
                     NavigationLink(destination: ReissuanceView()) {
                         HStack(spacing: 10) {
                             Image("card")
@@ -43,6 +44,7 @@ struct MoreView: View {
                                 .font(.system(size: 16, weight: .semibold))
                         }
                     }
+                    .padding(.horizontal, 40)
                     .navigationBarHidden(true)
                     .simultaneousGesture(TapGesture().onEnded{
                         Task{
@@ -66,6 +68,7 @@ struct MoreView: View {
                                     .font(.system(size: 16, weight: .semibold))
                             }
                         }
+                        .padding(.horizontal, 40)
                     }
                     Button {
                         hane.SignOut()
@@ -80,15 +83,16 @@ struct MoreView: View {
                                 .font(.system(size: 16, weight: .semibold))
                         }
                     }
+                    .padding(.horizontal, 40)
                     VStack(alignment: .center){
                         Divider()
-                            .padding(-10)
+                            .padding(.top, -10)
                         Text("🅒 2023. 24HANE. all rights reserved.")
                             .font(.system(size: 10, weight: .regular))
                             .foregroundColor(Color(hex: "9B9797"))
                     }
+                    .padding(.horizontal, 40)
                 }
-                .padding(.horizontal, 30)
             }
         }
         

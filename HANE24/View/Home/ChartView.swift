@@ -32,7 +32,7 @@ struct ChartView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
             VStack(alignment: .center) {
-                HStack{
+                HStack(spacing: 2){
                     Text("\(item.title)")
                         .foregroundColor(.black)
                         .font(.system(size: 14, weight: .bold))
@@ -56,7 +56,7 @@ struct ChartView: View {
                                 RoundedRectangle(cornerRadius: 4)
                                     .frame(width:25, height: 87)
                                     .padding(.horizontal, 4)
-                                    .hidden()
+                                    .foregroundColor(.white)
                                 
                                 RoundedRectangle(cornerRadius: 4)
                                     .frame(width:25, height: 6 + 81 * ratData[index])
