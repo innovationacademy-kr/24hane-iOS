@@ -74,7 +74,7 @@ class Hane: ObservableObject {
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .none
-        self.cardReissueState = ReissueState(state: "in_progress")
+        self.cardReissueState = ReissueState(state: "none")
     }
     
     @MainActor
@@ -110,13 +110,14 @@ extension Hane {
             try await callReissue()
         } catch {
             self.reissueState = .none
+            return
         }
         switch cardReissueState.state {
         case "none":
             self.reissueState = .none
         case "apply":
             self.reissueState = .apply
-        case "in_progress":
+        case "in_progress":gi
             self.reissueState = .inProgress
         case "pick_up_requested":
             self.reissueState = .pickUpRequested
@@ -147,7 +148,7 @@ extension Hane {
         try await callAccumulationTimes()
         
         self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
-        self.monthlyAccumulationTime = self.accumulationTimes.todayAccumulationTime
+        self.monthlyAccumulationTime = self.accumulationTimes.monthAccumulationTime
         self.sixWeekAccumulationTime = self.accumulationTimes.sixWeekAccumulationTime
         self.sixMonthAccumulationTime = self.accumulationTimes.sixMonthAccumulationTime
         
@@ -169,23 +170,14 @@ extension Hane {
     func updateMonthlyLogs(date: Date) async throws {
         // update MonthlyLogs
         self.monthlyLogController.fetchLogs()
+        self.loading = true
 
         if let filteredLog = monthlyLogController.totalLogs.first(where:{$0.date == date.toString("yyyy.MM")}) {
             if filteredLog.needUpdate {
                 self.monthlyLogs = Dictionary(grouping: filteredLog.inOutLogs!.data) {
                     Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
                 }
-                
-                // update Daily Total Accumulation Times (CalendarView)
-                self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
-                for dailyLog in monthlyLogs {
-                    var sum: Int64 = 0
-                    for log in dailyLog.value {
-                        sum += log.durationSecond ?? 0
-                    }
-                    self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
-                }
-                
+
                 try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
                 
                 monthlyLogController.updateLogs(entity: filteredLog, inOutLogs: self.perMonth.inOutLogs, needUpdate: date.toString("yyyy.MM") >= Date().toString("yyyy.MM"))
@@ -199,9 +191,7 @@ extension Hane {
                 }
             }
         } else {
-            self.loading = true
             try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
-            self.loading = false
             
             monthlyLogController.addLogs(date: date.toString("yyyy.MM"), inOutLogs: self.perMonth.inOutLogs, needUpdate: date.toString("yyyy.MM") >= Date().toString("yyyy.MM"))
             
@@ -218,7 +208,8 @@ extension Hane {
             }
             self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
         }
-
+        
+        self.loading = false
     }
 }
 
@@ -314,6 +305,7 @@ extension Hane {
     
     func callMainInfo() async throws {
         self.mainInfo = try await callJsonAsync(APIroot + "/v2/tag-log/maininfo", type: MainInfo.self)
+        print("mainInfo~~~ \(self.mainInfo)")
     }
     
     func callPerMonth(year: Int, month: Int) async throws {
