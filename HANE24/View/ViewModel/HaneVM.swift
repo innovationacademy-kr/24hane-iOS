@@ -74,7 +74,7 @@ class Hane: ObservableObject {
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .none
-        self.cardReissueState = ReissueState(state: "in_progress")
+        self.cardReissueState = ReissueState(state: "none")
     }
     
     @MainActor
@@ -110,13 +110,14 @@ extension Hane {
             try await callReissue()
         } catch {
             self.reissueState = .none
+            return
         }
         switch cardReissueState.state {
         case "none":
             self.reissueState = .none
         case "apply":
             self.reissueState = .apply
-        case "in_progress":
+        case "in_progress":gi
             self.reissueState = .inProgress
         case "pick_up_requested":
             self.reissueState = .pickUpRequested
