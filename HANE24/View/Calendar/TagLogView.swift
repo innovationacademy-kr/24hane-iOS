@@ -24,7 +24,7 @@ struct TagLogView: View {
                     .padding(.trailing, 5)
             }
             .font(.system(size: 14, weight: .medium, design: .default))
-            .foregroundColor(Color.gray)
+            .foregroundColor(colorScheme == .light ? Color.gray : Color(hex: "EAEAEA"))
             
             
             Divider()
@@ -70,7 +70,7 @@ struct TagLogView: View {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(colorScheme == .dark ? Color(hex: "555555") : Color(hex: "#EAEAEA"))
                 .frame(height: 24)
-                .isHidden((log.logTime != nil))
+                .isHidden((log.logTime != "누락"))
             
             HStack {
                 Text(log.inTime ?? "-")
@@ -87,7 +87,7 @@ struct TagLogView: View {
                     .frame(width: 65, height: 24)
             }
             .font(.system(size: 14, weight: .regular))
-            .foregroundColor(Theme.BackgoundColor(forScheme: colorScheme))
+            .foregroundColor(colorScheme == .light ? .chartDetailBG : .white)
         }
     }
 }
