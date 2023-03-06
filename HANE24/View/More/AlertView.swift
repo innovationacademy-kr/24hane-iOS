@@ -60,8 +60,10 @@ struct AlertView: View {
     var submitButton: some View {
         Button{
             Task {
-               try await hane.postJsonAsync()
-                try await hane.updateReissueState()
+                do {
+                    try await hane.postJsonAsync()
+                    hane.reissueState = .apply
+                }
             }
             showAlert = false
         } label: {
@@ -81,10 +83,10 @@ struct AlertView: View {
             Task{
                 do {
                     try await hane.patchJsonAsync()
+                    hane.reissueState = .done
                 } catch {
                     hane.reissueState = .pickUpRequested
                 }
-                try await hane.updateReissueState()
             }
             showAlert = false
         } label: {
