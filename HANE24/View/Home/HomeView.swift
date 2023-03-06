@@ -36,8 +36,8 @@ func getMonthlyPeriod() -> [String] {
     return monthlyPeriod
 }
 
-var dailyOptions: Array<Double> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
-var monthlyOptions: Array<Double> = [80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300]
+var dailyOptions: Array<Double> = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+var monthlyOptions: Array<Double> = [80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420]
 
 struct PullToRefresh: View {
     var coordinateSpaceName: String

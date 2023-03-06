@@ -32,6 +32,7 @@ var items: [alertItem] = [
 
 
 struct ReissuanceView: View {
+    @GestureState private var dragOffset = CGSize.zero
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) private var openURL
@@ -121,6 +122,11 @@ struct ReissuanceView: View {
                 AlertView(showAlert: $showAlert, item: (hane.reissueState == .pickUpRequested) ? items[1] : items[0])
             }
         }
+        .gesture(DragGesture().updating($dragOffset) { (value, state, transaction) in
+            if (value.startLocation.x < 30 && value.translation.width > 100) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        })
     }
     
     var reissueButton: some View {
