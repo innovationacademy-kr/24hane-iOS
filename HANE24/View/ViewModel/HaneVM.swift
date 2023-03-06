@@ -117,7 +117,7 @@ extension Hane {
             self.reissueState = .none
         case "apply":
             self.reissueState = .apply
-        case "in_progress":gi
+        case "in_progress":
             self.reissueState = .inProgress
         case "pick_up_requested":
             self.reissueState = .pickUpRequested
