@@ -147,6 +147,7 @@ struct HomeView: View {
                     .padding(.top, 20)
                     .frame(height: 30)
                     .padding(.horizontal, 30)
+                    .hidden()
                    
                     ScrollView{
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {

@@ -56,7 +56,7 @@ struct ChartView: View {
                                 RoundedRectangle(cornerRadius: 4)
                                     .frame(width:25, height: 87)
                                     .padding(.horizontal, 4)
-                                    .hidden()
+                                    .foregroundColor(.white)
                                 
                                 RoundedRectangle(cornerRadius: 4)
                                     .frame(width:25, height: 6 + 81 * ratData[index])

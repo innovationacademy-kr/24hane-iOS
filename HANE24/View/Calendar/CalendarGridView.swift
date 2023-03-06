@@ -43,7 +43,7 @@ struct CalendarGridView: View {
                 Spacer()
 
                 Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-                    .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#5B5B5B"))
+                    .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#333333"))
                     .onTapGesture {
                         picker.toggle()
                         if !picker {
