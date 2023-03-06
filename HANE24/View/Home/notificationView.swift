@@ -10,6 +10,7 @@ import SwiftUI
 struct notificationView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
+    @GestureState private var dragOffset = CGSize.zero
     var body: some View {
         ZStack{
             VStack() {
@@ -45,7 +46,11 @@ struct notificationView: View {
                 }
             }
         }
-
+        .gesture(DragGesture().updating($dragOffset) { (value, state, transaction) in
+            if (value.startLocation.x < 30 && value.translation.width > 100) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        })
     }
 }
 
