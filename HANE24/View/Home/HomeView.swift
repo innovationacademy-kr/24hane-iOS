@@ -140,6 +140,7 @@ struct HomeView: View {
                                 .frame(width: 24, height: 24)
                                 .foregroundColor(test ? .iconColor : .red)
                         }
+                        .hidden()
                         .navigationBarHidden(true)
                         .frame(width: 24, height: 24)
                     }
