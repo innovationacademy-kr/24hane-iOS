@@ -22,6 +22,7 @@ struct MainView: View {
                 .tabItem({
                     Image(selection == 2 ? "selectedCalendar" : "calendar").renderingMode(.template)
                 }) .tag(2)
+
             MoreView()
                 .tabItem({
                     Image(selection == 3 ? "selectedBurger" : "hamburger").renderingMode(.template)

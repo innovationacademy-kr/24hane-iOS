@@ -314,6 +314,7 @@ extension Hane {
     
     func callMainInfo() async throws {
         self.mainInfo = try await callJsonAsync(APIroot + "/v2/tag-log/maininfo", type: MainInfo.self)
+        print("mainInfo~~~ \(self.mainInfo)")
     }
     
     func callPerMonth(year: Int, month: Int) async throws {
