@@ -282,8 +282,10 @@ extension Hane {
         
         let (_ , response) = try await URLSession.shared.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 201 else {
+            print("post response : \(response)")
             throw MyError.tokenExpired("get new token!")
         }
+        print("post response : \(response)")
     }
     
     func patchJsonAsync() async throws {
@@ -301,7 +303,7 @@ extension Hane {
         ]
         
         let (_ , response) = try await URLSession.shared.data(for: request)
-        guard (response as? HTTPURLResponse)?.statusCode == 201 else {
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
             throw MyError.tokenExpired("get new token!")
         }
     }

@@ -125,7 +125,7 @@ struct ReissuanceView: View {
     
     var reissueButton: some View {
         Button (action :{
-            showAlert.toggle()
+            showAlert = true
         },
         label: {
             ZStack{
@@ -142,7 +142,7 @@ struct ReissuanceView: View {
     
     var receiveButton: some View {
         Button (action :{
-            showAlert.toggle()
+            showAlert = true
         },
         label: {
             ZStack{
