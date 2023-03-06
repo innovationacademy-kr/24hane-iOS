@@ -27,20 +27,10 @@ struct SignInView: View {
                     LinearGradient(gradient: Gradient(colors: [.gradientPurple, .gradientBlue]), startPoint: .bottomLeading, endPoint: .topTrailing)
                         .ignoresSafeArea()
                     VStack(alignment: .center) {
-                        ZStack(alignment: .bottomLeading) {
-                            Rectangle()
-                                .fill( LinearGradient(gradient: Gradient(colors: [.gradientPurple, .gradientBlue]), startPoint: .bottomLeading, endPoint: .topTrailing))
-                                .frame(width: 150, height: 150)
-                            VStack(alignment: .leading) {
-                                Text("24")
-                                    .font(.system(size: 35, weight: .semibold))
-                                Text("HANE")
-                                    .font(.system(size: 35, weight: .heavy))
-                            }
-                            .padding(10)
-                            .foregroundColor(.white)
-                        }
-                        .padding(.bottom, 70)
+                        Image("Logo")
+                            .resizable()
+                            .frame(width: 140, height: 140)
+                            .padding(.bottom, 70)
                         Text("입실과 퇴실의 짝이 일치하는 경우에만 출입 누적시간이 반영됩니다.")
                             .foregroundColor(.white)
                             .font(.system(size: 12, weight: .regular))
