@@ -120,7 +120,7 @@ struct HomeView: View {
                                 .foregroundColor(.iconColor)
                         }
                         
-                        Text(hane.loginID)
+                        Text("cadet")
                             .font(.system(size: 20, weight: .semibold, design: .rounded))
                             .foregroundColor(!hane.isInCluster && colorScheme == .light ? .black : .white)
                         
