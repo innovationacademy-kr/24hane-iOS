@@ -13,6 +13,7 @@ struct ContentView: View {
     @EnvironmentObject var hane: Hane
     @ObservedObject var networkManager = NetworkManager()
     @State var signInChecked = false
+    @AppStorage("isFirstLogin") var isFirstLogin: Bool = true
 
     var body: some View {
         ZStack{
@@ -28,6 +29,7 @@ struct ContentView: View {
             }
         }
         .task{
+            @AppStorage("isFirstLogin") var isFirstLogin: Bool = false
             do{
                 try  hane.isSignIn = await hane.isLogin() ? true : false
                 self.signInChecked = true
