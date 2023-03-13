@@ -13,6 +13,7 @@ struct ContentView: View {
     @EnvironmentObject var hane: Hane
     @ObservedObject var networkManager = NetworkManager()
     @State var signInChecked = false
+    let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirst")
 
     var body: some View {
         ZStack{
@@ -28,6 +29,11 @@ struct ContentView: View {
             }
         }
         .task{
+            if isFirstLogin == false {
+                UserDefaults.standard.setValue(0, forKey: "DailySelectionOption")
+                UserDefaults.standard.setValue(0, forKey: "MonthlySelectionOption")
+                UserDefaults.standard.set(true, forKey: "isFirst")
+            }
             do{
                 try  hane.isSignIn = await hane.isLogin() ? true : false
                 self.signInChecked = true
