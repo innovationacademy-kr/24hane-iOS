@@ -81,8 +81,8 @@ struct HomeView: View {
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    @AppStorage("DailySelectionOption") private var dailySelectionOption = UserDefaults.standard.bool(forKey: "isFirstLogin") ? 0 : UserDefaults.standard.integer(forKey: "DailySelectionOption")
-    @AppStorage("MonthlySelectionOption") private var monthlySelectionOption = UserDefaults.standard.bool(forKey: "isFirstLogin") ? 0 : UserDefaults.standard.integer(forKey: "MonthlySelectionOption")
+    @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
+    @AppStorage("MonthlySelectionOption") private var monthlySelectionOption =  UserDefaults.standard.integer(forKey: "MonthlySelectionOption")
 
     var body: some View {
         NavigationView{
