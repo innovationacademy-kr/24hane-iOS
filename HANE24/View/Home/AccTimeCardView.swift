@@ -198,13 +198,6 @@ extension View {
     }
 }
 
-//  struct AccTimeCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
-//        AccTimeCardView(text: "이용 시간", accTime: 77777, isColored: true, viewColor: Color(hex: "#735BF2"))
-//    }
-//  }
-
 #Preview {
     AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120, options: [1.0, 2.0, 3.0], select: 0) { _ in
     }
