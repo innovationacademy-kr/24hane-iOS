@@ -12,7 +12,7 @@ struct ErrorView: View {
     
     var body: some View {
         ZStack{
-            Theme.BackgoundColor(forScheme: colorScheme)
+            Theme.backgroundColor(forScheme: colorScheme)
                 .ignoresSafeArea(.all)
             VStack{
                 Image(systemName: "exclamationmark.triangle")

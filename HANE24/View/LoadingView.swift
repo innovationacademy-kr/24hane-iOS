@@ -12,7 +12,7 @@ struct LoadingView: View {
     
     var body: some View {
         ZStack {
-            Theme.CalendarBackgoundColor(forScheme: colorScheme)
+            Theme.calendarBackgroundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(.all)
 //            if colorScheme == .light {
                 Image("LaunchScreen")

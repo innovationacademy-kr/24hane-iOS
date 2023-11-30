@@ -15,7 +15,7 @@ struct notificationView: View {
         ZStack{
             VStack() {
                 ZStack(alignment: .topLeading) {
-                    Theme.BackgoundColor(forScheme: colorScheme)
+                    Theme.backgroundColor(forScheme: colorScheme)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)
@@ -26,7 +26,7 @@ struct notificationView: View {
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
                                 Image(systemName: "chevron.left")
-                                    .foregroundColor(Theme.ToolBarIconColor(forScheme: colorScheme))
+                                    .foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
                                     .imageScale(.large)
                                     .padding()
                             })

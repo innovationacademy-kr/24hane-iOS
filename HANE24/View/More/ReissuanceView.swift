@@ -37,7 +37,7 @@ struct ReissuanceView: View {
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Theme.BackgoundColor(forScheme: colorScheme)
+            Theme.backgroundColor(forScheme: colorScheme)
                 .ignoresSafeArea()
                 .navigationBarBackButtonHidden(true)
                 .navigationBarHidden(true)
@@ -48,7 +48,7 @@ struct ReissuanceView: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Image(systemName: "chevron.left")
-                            .foregroundColor(Theme.ToolBarIconColor(forScheme: colorScheme))
+                            .foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
                             .imageScale(.large)
                             .padding()
                     })
@@ -57,7 +57,7 @@ struct ReissuanceView: View {
                         .font(.system(size: 20, weight: .bold))
                     Spacer()
                     Image(systemName: "chevron.left")
-                        .foregroundColor(Theme.ToolBarIconColor(forScheme: colorScheme))
+                        .foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
                         .imageScale(.large)
                         .padding()
                         .isHidden(true)

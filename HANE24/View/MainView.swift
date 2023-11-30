@@ -28,7 +28,7 @@ struct MainView: View {
                     Image(selection == 3 ? "selectedBurger" : "hamburger").renderingMode(.template)
                 }) .tag(3)
         }
-        .accentColor(Theme.ToolBarIconColor(forScheme: colorScheme))
+        .accentColor(Theme.toolBarIconColor(forScheme: colorScheme))
         .task {
             do {
                 try await hane.refresh(date: Date())

@@ -93,7 +93,7 @@ struct HomeView: View {
                         .edgesIgnoringSafeArea(.top)
                         .opacity(0.7)
                } else {
-                   Theme.BackgoundColor(forScheme: colorScheme)
+                   Theme.backgroundColor(forScheme: colorScheme)
                        .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
                }
                VStack(alignment: .center, spacing: 20) {

@@ -26,7 +26,7 @@ struct MoreView: View {
     var body: some View {
         NavigationView{
             ZStack(alignment: .topLeading) {
-                Theme.BackgoundColor(forScheme: colorScheme)
+                Theme.backgroundColor(forScheme: colorScheme)
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing: 30) {
                     Text("더보기")
@@ -40,7 +40,7 @@ struct MoreView: View {
                                 .frame(width: 24, height: 24)
                                 .foregroundColor(.iconColor)
                             Text("카드 재발급 신청")
-                                .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
+                                .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
                                 .font(.system(size: 16, weight: .semibold))
                         }
                     }
@@ -64,7 +64,7 @@ struct MoreView: View {
                                 }
                             } label: {
                                 Text(item.title)
-                                    .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
+                                    .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
                                     .font(.system(size: 16, weight: .semibold))
                             }
                         }
@@ -79,7 +79,7 @@ struct MoreView: View {
                                 .frame(width: 24, height: 24)
                                 .foregroundColor(.iconColor)
                             Text("로그아웃")
-                                .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
+                                .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
                                 .font(.system(size: 16, weight: .semibold))
                         }
                     }

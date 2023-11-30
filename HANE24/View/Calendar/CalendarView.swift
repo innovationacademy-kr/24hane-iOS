@@ -16,7 +16,7 @@ struct CalendarView: View {
     
     var body: some View {
         ZStack {
-            Theme.CalendarBackgoundColor(forScheme: colorScheme)
+            Theme.calendarBackgroundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
             ScrollView{
                 PullToRefresh(coordinateSpaceName: "pullToRefresh") {
