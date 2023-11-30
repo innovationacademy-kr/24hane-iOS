@@ -8,8 +8,8 @@
 import SwiftUI
 import Charts
 
-func getRatio(data: Array<Double>) -> Array<Double> {
-    var retArray: Array<Double> = []
+func getRatio(data: [Double]) -> [Double] {
+    var retArray: [Double] = []
     let max: Double = data.max() != 0 ? data.max()! : 1
     for i in 0..<6 {
         let ratio: Double = (data[i] / max)
@@ -21,18 +21,16 @@ func getRatio(data: Array<Double>) -> Array<Double> {
 struct ChartView: View {
     @State var selectedChart = 0
     var item: ChartItem
-    var ratData: Array<Double> {
-        get{
-            return getRatio(data: item.data)
-        }
+    var ratData: [Double] {
+        return getRatio(data: item.data)
     }
 
     var body: some View {
-        ZStack{
+        ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
             VStack(alignment: .center) {
-                HStack(spacing: 2){
+                HStack(spacing: 2) {
                     Text("\(item.title)")
                         .foregroundColor(.black)
                         .font(.system(size: 14, weight: .bold))
@@ -49,28 +47,27 @@ struct ChartView: View {
                     .padding(.bottom)
                 HStack(alignment: .bottom) {
                     ForEach(0..<ratData.count, id: \.self) { index in
-                        Button(action:{
+                        Button {
                             selectedChart = index
-                        }, label:{
+                        } label: {
                             ZStack(alignment: .bottom) {
                                 RoundedRectangle(cornerRadius: 4)
-                                    .frame(width:25, height: 87)
+                                    .frame(width: 25, height: 87)
                                     .padding(.horizontal, 4)
                                     .foregroundColor(.white)
-                                
+
                                 RoundedRectangle(cornerRadius: 4)
-                                    .frame(width:25, height: 6 + 81 * ratData[index])
+                                    .frame(width: 25, height: 6 + 81 * ratData[index])
                                     .padding(.horizontal, 4)
                                     .foregroundStyle(
                                         LinearGradient(gradient: Gradient(colors: [.gradientBlue, .gradientPurple]), startPoint: .top, endPoint: .bottom)
                                     )
                             }
-                                
-                        })
+                        }
                         .buttonStyle(CustomButtonStyle())
                     }
                 }
-                HStack{
+                HStack {
                     Text("최신순")
                     Spacer()
                     Text("오래된순")
@@ -81,7 +78,7 @@ struct ChartView: View {
                 .padding(.bottom, 20)
             }
         }
-        
+
     }
 }
 
@@ -93,8 +90,11 @@ struct CustomButtonStyle: ButtonStyle {
     }
 }
 
-struct ChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: ["1.2(월)-1.8(일)","1.9(월)-1.15(일)","1.16(월)-1.22(일)","1.23(월)-1.29(일)","1.30(월)-2.5(일)", "2.6(월)-2.12(일)"], data:  [1234, 5678, 9012, 3456, 7890, 1234]))
-    }
+#Preview {
+    ChartView(item: ChartItem(
+        id: "주",
+        title: "최근 주간 그래프",
+        period: ["1.2(월)-1.8(일)", "1.9(월)-1.15(일)", "1.16(월)-1.22(일)", "1.23(월)-1.29(일)", "1.30(월)-2.5(일)", "2.6(월)-2.12(일)"],
+        data: [1234, 5678, 9012, 3456, 7890, 1234]
+    ))
 }

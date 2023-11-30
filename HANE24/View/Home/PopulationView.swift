@@ -11,10 +11,10 @@ struct PopulationView: View {
     @EnvironmentObject var hane: Hane
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            HStack{
+            HStack {
                 Text("  실시간 현황")
                     .font(.system(size: 18, weight: .semibold))
-                
+
                 Spacer()
             }
             HStack(spacing: 25) {
@@ -36,7 +36,7 @@ struct PopulationView: View {
                             .foregroundColor(.black)
                     }
                 }
-                ZStack{
+                ZStack {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .frame(width: 155, height: 80)
@@ -60,9 +60,7 @@ struct PopulationView: View {
     }
 }
 
-struct PopulationView_Previews: PreviewProvider {
-    static var previews: some View {
-        PopulationView()
-            .environmentObject(Hane())
-    }
+#Preview {
+    PopulationView()
+        .environmentObject(Hane())
 }

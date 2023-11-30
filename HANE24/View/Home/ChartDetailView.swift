@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-func  numOfDays(selection: Int) -> Double{
+func  numOfDays(selection: Int) -> Double {
     let date =  Calendar.current.date(byAdding: .month, value: -selection, to: Date())!
     return Double(date.nubmerOfDays)
 }
@@ -18,12 +18,12 @@ struct ChartDetailView: View {
     var time: Double
     var period: String
     var body: some View {
-        ZStack{
+        ZStack {
             VStack(spacing: -3) {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.chartDetailBG)
                     .frame(height: 60)
-                HStack{
+                HStack {
                     ForEach(0..<6) { idx in
                             ZStack {
                                 Rectangle()
@@ -36,10 +36,10 @@ struct ChartDetailView: View {
                             .padding(.horizontal, 4)
                         }
                 }
-                
+
             }
-            VStack{
-                HStack{
+            VStack {
+                HStack {
                     Text(period)
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
@@ -50,7 +50,7 @@ struct ChartDetailView: View {
 
                 }
                 .padding(.bottom, 2)
-                HStack{
+                HStack {
                     Spacer()
                     Text("일 평균")
                         .foregroundColor(.white)
@@ -73,8 +73,6 @@ struct ChartDetailView: View {
     }
 }
 
-struct ChartDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChartDetailView(selectedChart: .constant(3), id: "월", time: 1800, period: "1.2(월)-1.8(일)")
-    }
+#Preview {
+    ChartDetailView(selectedChart: .constant(3), id: "월", time: 1800, period: "1.2(월)-1.8(일)")
 }
