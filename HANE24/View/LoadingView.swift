@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoadingView: View {
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
         ZStack {
             Theme.calendarBackgroundColor(forScheme: colorScheme)
@@ -27,7 +27,7 @@ struct LoadingView: View {
 
 struct LoadingAnimation: View {
     @State private var animationTrigger: Bool = true
-    
+
     var body: some View {
         HStack(spacing: 6) {
             Circle()
@@ -48,7 +48,7 @@ struct LoadingAnimation: View {
             animationTrigger.toggle()
         }
     }
-    
+
     var changeColor: Animation {
         Animation
             .easeInOut(duration: 1.2)
@@ -56,9 +56,6 @@ struct LoadingAnimation: View {
     }
 }
 
-struct LoadingView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoadingView()
-//        LoadingAnimation()
-    }
+#Preview {
+    LoadingView()
 }
