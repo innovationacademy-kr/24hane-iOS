@@ -12,7 +12,7 @@ import SwiftUI
 struct AlertView: View {
     @Binding var showAlert: Bool
     @EnvironmentObject var hane: Hane
-    var item: alertItem
+    var item: AlertItem
     var body: some View {
         ZStack{
             GeometryReader { _ in
@@ -104,7 +104,7 @@ struct AlertView: View {
 
 struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertView(showAlert: .constant(true), item:  alertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"))
+        AlertView(showAlert: .constant(true), item:  AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"))
             .environmentObject(Hane())
     }
 }
