@@ -10,7 +10,7 @@ import SwiftUI
 struct LaunchScreen: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        ZStack(alignment: .center){
+        ZStack(alignment: .center) {
             Theme.BackgoundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(.all)
             Image(colorScheme == .light ? "LaunchScreen_light" : "LaunchScreen_dark")
@@ -19,8 +19,6 @@ struct LaunchScreen: View {
     }
 }
 
-struct LaunchScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchScreen()
-    }
+#Preview {
+    LaunchScreen()
 }
