@@ -12,32 +12,30 @@ struct CalendarGridView: View {
     @Binding var selectedDate: Date
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    
+
     var dateRange: ClosedRange<Date> {
         let min = theDate("2022.08.01")
         let max = Date()
         return min...max
-      }
+    }
 
     var body: some View {
         VStack {
             // 상단 문자열
             HStack {
-                Button(action: {
+                Button {
                     selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
-                    Task{
+                    Task {
                         try await hane.updateMonthlyLogs(date: selectedDate)
                     }
-
-                }, label: {
-                    ZStack{
+                } label: {
+                    ZStack {
                         Image(systemName: "chevron.left")
                             .resizable()
                             .frame(width: 8, height: 12)
                     }
                     .frame(width: 15, height: 15)
-
-                })
+                }
                 .disabled(selectedDate.toString("yyyy.MM") <= "2022.08" || hane.loading)
 
                 Spacer()
@@ -57,11 +55,11 @@ struct CalendarGridView: View {
 
                 Button(action: {
                     selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
-                    Task{
+                    Task {
                         try await hane.updateMonthlyLogs(date: selectedDate)
                     }
                 }, label: {
-                    ZStack{
+                    ZStack {
                         Image(systemName: "chevron.right")
                             .resizable()
                             .frame(width: 8, height: 12)
@@ -78,7 +76,7 @@ struct CalendarGridView: View {
             let week = ["일", "월", "화", "수", "목", "금", "토"]
             let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
 
-            ZStack{
+            ZStack {
                 LoadingAnimation()
                     .isHidden(!hane.loading)
 
@@ -115,9 +113,10 @@ struct CalendarGridView: View {
                                                              ? Color(hex: "#735BF2")
                                                              : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
                                                              ? (colorScheme == .light ? .white : .DarkDefaultBG)
-                                                             : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) //TODO -> colorLevelTable
+                                                             : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) // TODO -> colorLevelTable
                                             .overlay {
-                                                if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd") && dayOfMonth != selectedDate.dayToInt {
+                                                if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
+                                                    && dayOfMonth != selectedDate.dayToInt {
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .stroke(colorScheme == .light ? Color(hex: "#735BF2") : .white, lineWidth: 1)
                                                 }
@@ -144,7 +143,7 @@ struct CalendarGridView: View {
                     }
                     .isHidden(hane.loading)
                 }
-                
+
                 // DatePicker
                 if picker {
                     ZStack {
@@ -156,7 +155,7 @@ struct CalendarGridView: View {
                             selection: $selectedDate,
                             in: dateRange,
                             displayedComponents: [.date])
-                            .datePickerStyle(WheelDatePickerStyle())
+                        .datePickerStyle(WheelDatePickerStyle())
                     }
                     .frame(maxWidth: 100)
                 }
@@ -190,14 +189,14 @@ struct CalendarGridView: View {
     }
 
     func calculateLogColor(accumulationTime: Int64) -> Color {
-        switch accumulationTime{
-        case 0 :
+        switch accumulationTime {
+        case 0:
             return colorScheme == .light ? .white : .DarkDefaultBG
-        case 1 ... 10800 :
+        case 1 ... 10800:
             return colorScheme == .light ? Color.LightcalendarColorLv1 : Color.DarkcalendarColorLv1
-        case 10801 ... 21600 :
+        case 10801 ... 21600:
             return colorScheme == .light ? Color.LightcalendarColorLv2 : Color.DarkcalendarColorLv2
-        case 21601 ... 32400 :
+        case 21601 ... 32400:
             return colorScheme == .light ? Color.LightcalendarColorLv3 : Color.DarkcalendarColorLv3
         default:
             return colorScheme == .light ? Color.LightcalendarColorLv4 : Color.DarkcalendarColorLv4
@@ -205,10 +204,7 @@ struct CalendarGridView: View {
     }
 }
 
-
-struct CalendarGridView_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarGridView(selectedDate: .constant(Date()))
-            .environmentObject(Hane())
-    }
+#Preview {
+    CalendarGridView(selectedDate: .constant(Date()))
+        .environmentObject(Hane())
 }
