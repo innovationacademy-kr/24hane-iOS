@@ -12,9 +12,9 @@ import SwiftUI
 /// isColored: Bool - 뷰 색상 여부
 /// viewColor: Color - 뷰 내부 색상
 struct AccTimeCardView: View {
-    
+
     @EnvironmentObject var hane: Hane
-    
+
     @State var text: String
     var accTime: Int64
     @State var isColored: Bool = false
@@ -22,21 +22,20 @@ struct AccTimeCardView: View {
     @State var isFold: Bool = true
     @State var targetTime: Int64 = 3600 * 8
     @State var drawingStroke = false
-    var options: Array<Double>
+    var options: [Double]
     @State var select: Int
-    
-    let onSelect:(Int) -> Void
-    
-    
+
+    let onSelect: (Int) -> Void
+
     let animation = Animation
         .easeOut(duration: 0.8)
         .delay(0.1)
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(isFold ? viewColor : .white)
-            
+
             VStack(spacing: 5) {
                 Button {
                     withAnimation {
@@ -46,9 +45,9 @@ struct AccTimeCardView: View {
                 } label: {
                     HStack {
                         Text(text)
-                            .font(.system(size: 16 , weight: .bold))
+                            .font(.system(size: 16, weight: .bold))
                         Spacer()
-                        ZStack{
+                        ZStack {
                             if hane.loading {
                                 LoadingAnimation()
                                     .padding(.trailing, 10)
@@ -63,7 +62,7 @@ struct AccTimeCardView: View {
                                 }
                             }
                         }
-                        
+
                         Image(systemName: "chevron.right")
                             .rotationEffect(isFold ? Angle(degrees: 0) : Angle(degrees: 90))
                             .isHidden(hane.loading)
@@ -72,22 +71,22 @@ struct AccTimeCardView: View {
                     .font(.system(size: 16, weight: .semibold))
                     .padding()
                 }
-                
+
                 if !isFold {
                     VStack {
                         HStack {
                             Text("목표 시간")
                                 .font(.system(size: 16, weight: .bold))
                             Spacer()
-                            Menu{
+                            Menu {
                                 Picker(selection: $select) {
-                                    ForEach(0..<options.count, id: \.self){ times in
+                                    ForEach(0..<options.count, id: \.self) { times in
                                         Text("\(Int(options[times])) 시간")
                                     }
                                 } label: {}.onChange(of: select) { _ in
                                     onSelect(select)
                                 }
-                            } label : {
+                            } label: {
                                 Text("\(Int(options[select]))")
                                     .font(.system(size: 20, weight: .semibold))
                                 Text("시간")
@@ -95,18 +94,18 @@ struct AccTimeCardView: View {
                                     .frame(width: 10, height: 10)
                                     .foregroundColor(.gray)
                                     .hidden()
-                            }                            
-                            
+                            }
+
                         }
                         .foregroundColor(isFold && isColored ? .white : .black)
                         .font(.system(size: 16, weight: .semibold))
                         .padding(.horizontal)
-                        
-                        ProgressCircle
+
+                        progressCircle
                             .frame(width: 120, height: 120)
                             .padding(.bottom, 10)
                             .animation(animation, value: drawingStroke)
-                            .onAppear{
+                            .onAppear {
                                 drawingStroke = true
                             }
                     }
@@ -116,10 +115,10 @@ struct AccTimeCardView: View {
         }
         .frame(height: isFold ? 80 : 260, alignment: .top)
     }
-    
-    var ProgressCircle: some View {
-                                
-        ZStack{
+
+    var progressCircle: some View {
+
+        ZStack {
             HStack(spacing: 0) {
                 Text("\(Int(Double(accTime) / Double(options[select] * 3600) * 100))")
                     .font(.system(size: 32, weight: .medium, design: .default))
@@ -130,11 +129,42 @@ struct AccTimeCardView: View {
                     .padding(.top, 10)
             }
             Circle()
-                .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.1), .gradientWhtie.opacity(0.1), .gradientPurple.opacity(0.1), .gradientPurple.opacity(0.1),.gradientWhtie.opacity(0.1), .gradientBlue.opacity(0.1)]), center: .center, startAngle: .zero, endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
-                .overlay{
+                .stroke(
+                    AngularGradient(
+                        gradient: Gradient(
+                            colors: [
+                                .gradientBlue.opacity(0.1),
+                                .gradientWhtie.opacity(0.1),
+                                .gradientPurple.opacity(0.1),
+                                .gradientPurple.opacity(0.1),
+                                .gradientWhtie.opacity(0.1),
+                                .gradientBlue.opacity(0.1)
+                            ]
+                        ),
+                        center: .center,
+                        startAngle: .zero,
+                        endAngle: .degrees(360)
+                    ),
+                    style: StrokeStyle(lineWidth: 8, lineCap: .round)
+                )
+                .overlay {
                     Circle()
-                        .trim(from:0, to: drawingStroke ? (Double(accTime) / Double(options[select] * 3600)) : 0)
-                        .stroke( AngularGradient(gradient: Gradient(colors: [ .gradientBlue.opacity(0.35), .gradientWhtie, .gradientPurple, .gradientPurple ,.gradientWhtie, .gradientBlue.opacity(0.35)]), center: .center, startAngle: .degrees(0), endAngle: .degrees(360)), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                        .trim(from: 0, to: drawingStroke ? (Double(accTime) / Double(options[select] * 3600)) : 0)
+                        .stroke(
+                            AngularGradient(
+                                gradient: Gradient(colors: [
+                                    .gradientBlue.opacity(0.35),
+                                    .gradientWhtie,
+                                    .gradientPurple,
+                                    .gradientPurple,
+                                    .gradientWhtie,
+                                    .gradientBlue.opacity(0.35)
+                                ]),
+                                center: .center,
+                                startAngle: .degrees(0),
+                                endAngle: .degrees(360)
+                            ),
+                            style: StrokeStyle(lineWidth: 8, lineCap: .round))
                         .rotationEffect(.degrees(270))
                 }
         }
@@ -168,9 +198,15 @@ extension View {
     }
 }
 
-//struct AccTimeCardView_Previews: PreviewProvider {
+//  struct AccTimeCardView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120)
 //        AccTimeCardView(text: "이용 시간", accTime: 77777, isColored: true, viewColor: Color(hex: "#735BF2"))
 //    }
-//}
+//  }
+
+#Preview {
+    AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120, options: [1.0, 2.0, 3.0], select: 0) { _ in
+    }
+    .environmentObject(Hane())
+}

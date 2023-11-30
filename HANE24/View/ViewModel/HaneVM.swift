@@ -21,7 +21,6 @@ enum CardState {
     case done
 }
 
-
 class Hane: ObservableObject {
     @Published var isInCluster: Bool
     @Published var profileImage: String
