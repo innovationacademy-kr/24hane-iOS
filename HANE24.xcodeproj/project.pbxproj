@@ -527,7 +527,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				PODS_ROOT = /Users/katherinejang/P/ios/24HANE_ver2/Pods;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -564,7 +563,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				PODS_ROOT = /Users/katherinejang/P/ios/24HANE_ver2/Pods;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
