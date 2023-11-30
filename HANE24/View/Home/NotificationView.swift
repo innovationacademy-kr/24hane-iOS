@@ -1,5 +1,5 @@
 //
-//  notificationView.swift
+//  NotificationView.swift
 //  HANE24
 //
 //  Created by Katherine JANG on 2/14/23.
@@ -7,29 +7,30 @@
 
 import SwiftUI
 
-struct notificationView: View {
+struct NotificationView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
     @GestureState private var dragOffset = CGSize.zero
+
     var body: some View {
-        ZStack{
-            VStack() {
+        ZStack {
+            VStack {
                 ZStack(alignment: .topLeading) {
                     Theme.backgroundColor(forScheme: colorScheme)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)
-                    
-                    VStack{
-                        HStack{
-                            Button(action: {
+
+                    VStack {
+                        HStack {
+                            Button {
                                 presentationMode.wrappedValue.dismiss()
-                            }, label: {
+                            } label: {
                                 Image(systemName: "chevron.left")
                                     .foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
                                     .imageScale(.large)
                                     .padding()
-                            })
+                            }
                             Spacer()
                             Text("알림")
                                 .font(.system(size: 20, weight: .bold))
@@ -46,16 +47,20 @@ struct notificationView: View {
                 }
             }
         }
-        .gesture(DragGesture().updating($dragOffset) { (value, state, transaction) in
-            if (value.startLocation.x < 30 && value.translation.width > 100) {
+        .gesture(DragGesture().updating($dragOffset) { (value, _, _) in
+            if value.startLocation.x < 30 && value.translation.width > 100 {
                 self.presentationMode.wrappedValue.dismiss()
             }
         })
     }
 }
 
-struct notificationView_Previews: PreviewProvider {
-    static var previews: some View {
-        notificationView()
-    }
+//  struct NotificationView_Previews: PreviewProvider {
+//     static var previews: some View {
+//            NotificationView()
+//     }
+//  }
+
+#Preview {
+    NotificationView()
 }

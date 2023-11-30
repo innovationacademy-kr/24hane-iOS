@@ -134,7 +134,7 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: notificationView()) {
+                        NavigationLink(destination: NotificationView()) {
                             Image("notification")
                                 .resizable()
                                 .frame(width: 24, height: 24)
