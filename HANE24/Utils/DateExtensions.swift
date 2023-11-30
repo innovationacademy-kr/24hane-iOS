@@ -110,19 +110,19 @@ extension Date {
 
 }
 
-extension Date{
+extension Date {
     var nubmerOfDays: Int {
         let calendar = Calendar.current
         let myDateComponents = DateComponents(year: self.yearToInt, month: self.monthToInt)
-        
+
         let startOfMonth = calendar.date(from: myDateComponents)
-        
-        let nextMonth = calendar.date(byAdding: .month, value:+1, to: startOfMonth!)
-        
-        let endOfMonth = calendar.date(byAdding: .day, value: -1,  to: nextMonth!)
-        
+
+        let nextMonth = calendar.date(byAdding: .month, value: +1, to: startOfMonth!)
+
+        let endOfMonth = calendar.date(byAdding: .day, value: -1, to: nextMonth!)
+
         let comp2 = calendar.dateComponents([.day, .weekday, .weekOfMonth], from: endOfMonth!)
-        
+
         return comp2.day!
     }
 }
