@@ -71,7 +71,7 @@ struct MoreView: View {
                         .padding(.horizontal, 40)
                     }
                     Button {
-                        hane.SignOut()
+                        hane.signOut()
                     } label: {
                         HStack(spacing: 10) {
                             Image("logout")
