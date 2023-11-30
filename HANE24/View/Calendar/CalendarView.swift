@@ -12,16 +12,15 @@ struct CalendarView: View {
     @EnvironmentObject var hane: Hane
     @State var selectedDate: Date = Date()
     @Environment(\.colorScheme) var colorScheme
-    
-    
+
     var body: some View {
         ZStack {
             Theme.calendarBackgroundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
-            ScrollView{
+            ScrollView {
                 PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                    ///[FixMe]
-                    Task{
+                    /// [FixMe]
+                    Task {
                         try await hane.refresh(date: selectedDate)
                     }
                 }
@@ -40,13 +39,13 @@ struct CalendarView: View {
         }
         .coordinateSpace(name: "pullToRefresh")
     }
-    
+
     func convertTmp(_ from: [InOutLog]) -> [Log] {
         guard !from.isEmpty else { return [] }
         return from.map {
-            var inTime: String? = nil
-            var outTime: String? = nil
-            var logTime: String? = nil
+            var inTime: String?
+            var outTime: String?
+            var logTime: String?
             if let intime = $0.inTimeStamp {
                 inTime = Date(milliseconds: intime).toString("HH:mm:ss")
             } else {
@@ -64,15 +63,14 @@ struct CalendarView: View {
                 logTime = "누락"
             }
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)
-            
         }
     }
-    
+
     func convert(_ from: [InOutLog]) -> [Log] {
         guard !from.isEmpty else { return [] }
         var logArray = from.map {
-            var inTime: String? = nil
-            var outTime: String? = nil
+            var inTime: String?
+            var outTime: String?
             var logTime: String? = "누락"
             if let intime = $0.inTimeStamp {
                 inTime = Date(milliseconds: intime).toString("HH:mm:ss")
@@ -87,7 +85,7 @@ struct CalendarView: View {
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)
         }
         logArray[0].logTime = (logArray[0].logTime == "누락" && selectedDate.toString("yyyy.MM.dd") == Date().toString("yyyy.MM.dd")) ? "-" : logArray[0].logTime
-        
+
         return logArray.reversed()
     }
 }
@@ -101,10 +99,7 @@ func theDate(_ format: String) -> Date {
     return tmp.date(from: format)!
 }
 
-struct CalendarView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        CalendarView(selectedDate: theDate("2023.03.31"))
-            .environmentObject(Hane())
-    }
+#Preview {
+    CalendarView(selectedDate: theDate("2023.03.31"))
+        .environmentObject(Hane())
 }
