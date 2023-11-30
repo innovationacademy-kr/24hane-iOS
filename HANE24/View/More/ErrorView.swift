@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ErrorView: View {
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
-        ZStack{
+        ZStack {
             Theme.backgroundColor(forScheme: colorScheme)
                 .ignoresSafeArea(.all)
-            VStack{
+            VStack {
                 Image(systemName: "exclamationmark.triangle")
                     .resizable()
                     .frame(width: 100, height: 100)
@@ -33,8 +33,6 @@ struct ErrorView: View {
     }
 }
 
-struct ErrorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ErrorView()
-    }
+#Preview {
+    ErrorView()
 }

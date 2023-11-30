@@ -14,17 +14,15 @@ var listItems: [MoreItem] = [
     MoreItem(id: UUID(), title: "이용가이드", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/usage", image: "info"),
     MoreItem(id: UUID(), title: "앱 피드백", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/feedback", image: "user"),
     MoreItem(id: UUID(), title: "이용약관", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/terms", image: "union")
-
-    
 ]
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    
+
     var body: some View {
-        NavigationView{
+        NavigationView {
             ZStack(alignment: .topLeading) {
                 Theme.backgroundColor(forScheme: colorScheme)
                     .edgesIgnoringSafeArea(.all)
@@ -46,8 +44,8 @@ struct MoreView: View {
                     }
                     .padding(.horizontal, 40)
                     .navigationBarHidden(true)
-                    .simultaneousGesture(TapGesture().onEnded{
-                        Task{
+                    .simultaneousGesture(TapGesture().onEnded {
+                        Task {
                             try await hane.updateReissueState()
                         }
                     })
@@ -84,7 +82,7 @@ struct MoreView: View {
                         }
                     }
                     .padding(.horizontal, 40)
-                    VStack(alignment: .center){
+                    VStack(alignment: .center) {
                         Divider()
                             .padding(.top, -10)
                         Text("🅒 2023. 24HANE. all rights reserved.")
@@ -95,13 +93,11 @@ struct MoreView: View {
                 }
             }
         }
-        
+
     }
 }
 
-struct MoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        MoreView()
-            .environmentObject(Hane())
-    }
+#Preview {
+    MoreView()
+        .environmentObject(Hane())
 }

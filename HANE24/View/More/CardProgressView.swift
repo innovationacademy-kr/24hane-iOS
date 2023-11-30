@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CardProgressView: View {
     var item: ProgressItem
-    
+
     var body: some View {
 
         HStack(spacing: 15) {
-            ZStack{
+            ZStack {
                 Circle()
                     .stroke(lineWidth: 4)
                     .overlay( item.isProcessing ? Circle() : nil)
@@ -37,8 +37,6 @@ struct CardProgressView: View {
 
 }
 
-struct CardProgressView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardProgressView(item:  ProgressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: true))
-    }
+#Preview {
+    CardProgressView(item: ProgressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: true))
 }
