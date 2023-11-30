@@ -46,11 +46,10 @@ struct ReissueState: Codable {
     let state: String
 }
 
-
 // for CoreData
 public class InOutLogs: NSSecureUnarchiveFromDataTransformer {
     var data: [InOutLog]
-    
+
     init(data: [InOutLog]) {
         self.data = data
     }
