@@ -18,8 +18,8 @@ struct Log: Hashable {
 struct ChartItem: Identifiable {
     var id: String
     var title: String
-    var period: Array<String>
-    var data: Array<Double>
+    var period: [String]
+    var data: [Double]
 }
 
 /// PopulationView
