@@ -41,7 +41,7 @@ struct CalendarGridView: View {
                 Spacer()
 
                 Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-                    .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#333333"))
+                    .foregroundColor(.fontDefault)
                     .onTapGesture {
                         picker.toggle()
                         if !picker {
@@ -77,15 +77,15 @@ struct CalendarGridView: View {
             let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
 
             ZStack {
-                LoadingAnimation()
-                    .isHidden(!hane.loading)
+//                LoadingAnimation()
+//                    .isHidden(!hane.loading)
 
                 VStack {
                     // day of week
                     LazyVGrid(columns: cols, spacing: 12) {
                         ForEach(week, id: \.self) { dayOfWeek in
                             Text("\(dayOfWeek)")
-                                .foregroundColor(Color(hex: "#979797"))
+                                .foregroundColor(.fontDisabled)
                                 .font(.system(size: 13, weight: .light))
                         }
                     }
@@ -110,27 +110,27 @@ struct CalendarGridView: View {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: dayOfMonth == selectedDate.dayToInt ? 20 : 10)
                                             .foregroundColor(dayOfMonth == selectedDate.dayToInt
-                                                             ? Color(hex: "#735BF2")
+                                                             ? .dateSelected
                                                              : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
-                                                             ? (colorScheme == .light ? .white : .DarkDefaultBG)
-                                                             : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) // TODO -> colorLevelTable
+                                                             ? .backgroundCalendar
+                                                             : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth]))
                                             .overlay {
                                                 if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
                                                     && dayOfMonth != selectedDate.dayToInt {
                                                     RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(colorScheme == .light ? Color(hex: "#735BF2") : .white, lineWidth: 1)
+                                                        .stroke(Color.dateToday, lineWidth: 1)
                                                 }
                                             }
                                             .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
 
                                         Text("\(dayOfMonth)")
                                             .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd")
-                                                             ? Color(hex: "#979797")
+                                                             ? .fontDisabled
                                                              : dayOfMonth == selectedDate.dayToInt
-                                                             ? .white
+                                                             ? .fontWhite
                                                              : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
-                                                             ? (colorScheme == .light ? Color(hex: "#735BF2") : .white)
-                                                             : (colorScheme == .light ? Color(hex: "#333333") : .white))
+                                                             ? .dateToday
+                                                             : .fontDefault)
                                             .font(.system(size: 14, weight: dayOfMonth == selectedDate.dayToInt ? .bold : .regular))
                                     }
                                 }
@@ -141,14 +141,14 @@ struct CalendarGridView: View {
                             }
                         }
                     }
-                    .isHidden(hane.loading)
+//                    .isHidden(hane.loading)
                 }
 
                 // DatePicker
                 if picker {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(colorScheme == .light ? .white : Color(hex: "#333333"))
+                            .foregroundColor(.backgroundCalendar)
 
                         DatePicker(
                             "Date",
@@ -191,15 +191,15 @@ struct CalendarGridView: View {
     func calculateLogColor(accumulationTime: Int64) -> Color {
         switch accumulationTime {
         case 0:
-            return colorScheme == .light ? .white : .DarkDefaultBG
+            return .backgroundCalendar
         case 1 ... 10800:
-            return colorScheme == .light ? Color.LightcalendarColorLv1 : Color.DarkcalendarColorLv1
+            return .dateBackgroundLevel1
         case 10801 ... 21600:
-            return colorScheme == .light ? Color.LightcalendarColorLv2 : Color.DarkcalendarColorLv2
+            return .dateBackgroundLevel2
         case 21601 ... 32400:
-            return colorScheme == .light ? Color.LightcalendarColorLv3 : Color.DarkcalendarColorLv3
+            return .dateBackgroundLevel3
         default:
-            return colorScheme == .light ? Color.LightcalendarColorLv4 : Color.DarkcalendarColorLv4
+            return .dateBackgroundLevel4
         }
     }
 }
