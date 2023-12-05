@@ -28,6 +28,21 @@ extension Color {
     static let DarkcalendarColorLv4 = Color(hex: "735BF2").opacity(0.9)
 
     static let DarkDefaultBG = Color(hex: "333333")
+    // V3
+    static let backgroundDefault = Color("backgroundDefault")
+    static let backgroundCalendar = Color("backgroundCalendar")
+
+    static let fontDefault = Color("fontDefault")
+    static let fontGray = Color("fontGray")
+    static let fontWhite = Color("fontWhite")
+    static let fontDisabled = Color("fontDisabled")
+
+    static let dateBackgroundLevel1 = Color("dateBackgroundLevel1")
+    static let dateBackgroundLevel2 = Color("dateBackgroundLevel2")
+    static let dateBackgroundLevel3 = Color("dateBackgroundLevel3")
+    static let dateBackgroundLevel4 = Color("dateBackgroundLevel4")
+    static let dateSelected = Color("dateSelected")
+    static let dateToday = Color("dateToday")
 }
 
 extension Color {
