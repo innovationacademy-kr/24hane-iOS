@@ -9,7 +9,7 @@ import SwiftUI
 
 func  numOfDays(selection: Int) -> Double {
     let date =  Calendar.current.date(byAdding: .month, value: -selection, to: Date())!
-    return Double(date.nubmerOfDays)
+    return Double(date.numberOfDays)
 }
 
 struct ChartDetailView: View {
