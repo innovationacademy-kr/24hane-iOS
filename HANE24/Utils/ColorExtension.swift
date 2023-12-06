@@ -17,15 +17,6 @@ extension Color {
     static let iconColor = Color(hex: "5B5B5B")
     static let textGrayMoreView = Color(hex: "707070")
     static let gradientWhtie = Color(hex: "A3D1EC")
-    static let LightcalendarColorLv1 = Color(hex: "9AC3F4").opacity(0.4)
-    static let LightcalendarColorLv2 = Color(hex: "90A7F4").opacity(0.5)
-    static let LightcalendarColorLv3 = Color(hex: "807DF3").opacity(0.7)
-    static let LightcalendarColorLv4 = Color(hex: "735BF2").opacity(0.9)
-
-    static let DarkcalendarColorLv1 = Color(hex: "735BF2").opacity(0.2)
-    static let DarkcalendarColorLv2 = Color(hex: "735BF2").opacity(0.4)
-    static let DarkcalendarColorLv3 = Color(hex: "735BF2").opacity(0.7)
-    static let DarkcalendarColorLv4 = Color(hex: "735BF2").opacity(0.9)
 
     static let DarkDefaultBG = Color(hex: "333333")
     // V3

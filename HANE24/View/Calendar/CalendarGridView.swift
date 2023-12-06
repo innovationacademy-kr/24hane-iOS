@@ -14,9 +14,38 @@ struct CalendarGridView: View {
     @EnvironmentObject var hane: Hane
 
     var dateRange: ClosedRange<Date> {
-        let min = theDate("2022.08.01")
+        let min = Date(2022, 8, 1)
         let max = Date()
         return min...max
+    }
+
+    /// SelectedDate 받아서 달력에 들어갈 날짜를 [Date?]로 계산해줌
+    /// 1일 이전 빈칸은 nil
+    /// 각 날짜 0시 정각
+    var daysOfMonth: [Date?] {
+        var firstDay: Date {
+            let cal = Calendar.current
+            let dateComponents = DateComponents(year: selectedDate.yearToInt, month: selectedDate.monthToInt)
+            return cal.date(from: dateComponents) ?? Date()
+        }
+        var lastDay: Date {
+            let cal = Calendar.current
+            let nextMonth = cal.date(byAdding: .month, value: 1, to: firstDay) ?? selectedDate
+            let endOfMonth = cal.date(byAdding: .day, value: -1, to: nextMonth) ?? selectedDate
+            return endOfMonth
+        }
+        var days: [Date?] = []
+
+        for _ in 1..<firstDay.weekdayToInt {
+            days.append(nil)
+        }
+
+        var day = firstDay
+        while day <= lastDay {
+            days.append(day)
+            day = Calendar.current.date(byAdding: .day, value: 1, to: day) ?? lastDay
+        }
+        return days
     }
 
     var body: some View {
@@ -73,17 +102,17 @@ struct CalendarGridView: View {
             .padding(.bottom, 8)
 
             // LazyGrid
-            let week = ["일", "월", "화", "수", "목", "금", "토"]
+            let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
             let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
 
             ZStack {
-//                LoadingAnimation()
-//                    .isHidden(!hane.loading)
+                LoadingAnimation()
+                    .isHidden(!hane.loading)
 
                 VStack {
                     // day of week
                     LazyVGrid(columns: cols, spacing: 12) {
-                        ForEach(week, id: \.self) { dayOfWeek in
+                        ForEach(weekdays, id: \.self) { dayOfWeek in
                             Text("\(dayOfWeek)")
                                 .foregroundColor(.fontDisabled)
                                 .font(.system(size: 13, weight: .light))
@@ -96,52 +125,46 @@ struct CalendarGridView: View {
                     // is today ? border only
                     // default
                     LazyVGrid(columns: cols, spacing: 12) {
-                        ForEach((daysOfMonth(selectedDate)), id: \.self) { dayOfMonth in
-                            if dayOfMonth > 0 {
+                        ForEach(daysOfMonth.indices, id: \.self) { d in
+                            if let day = daysOfMonth[d] {
                                 Button {
-                                    let dateFormatter = DateFormatter()
-                                    dateFormatter.dateFormat = "yyyy.M.d"
-                                    if let date = dateFormatter.date(from: "\(selectedDate.yearToInt).\(selectedDate.monthToInt).\(dayOfMonth)") {
-                                        selectedDate = date
-                                    } else {
-                                        selectedDate = Date()
-                                    }
+                                    selectedDate = day
                                 } label: {
                                     ZStack {
-                                        RoundedRectangle(cornerRadius: dayOfMonth == selectedDate.dayToInt ? 20 : 10)
-                                            .foregroundColor(dayOfMonth == selectedDate.dayToInt
+                                        RoundedRectangle(cornerRadius: day.isSameDate(with: selectedDate) ? 20 : 10)
+                                            .foregroundColor(day.isSameDate(with: selectedDate)
                                                              ? .dateSelected
-                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
+                                                             : day.isSameDate(with: Date.now)
                                                              ? .backgroundCalendar
-                                                             : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth]))
+                                                             : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[day.dayToInt]))
                                             .overlay {
-                                                if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
-                                                    && dayOfMonth != selectedDate.dayToInt {
+                                                if day.isSameDate(with: Date())
+                                                    && !day.isSameDate(with: selectedDate) {
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .stroke(Color.dateToday, lineWidth: 1)
                                                 }
                                             }
-                                            .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
+                                            .isHidden(day > Date.now)
 
-                                        Text("\(dayOfMonth)")
-                                            .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd")
+                                        Text("\(day.dayToInt)")
+                                            .foregroundColor(day > Date.now
                                                              ? .fontDisabled
-                                                             : dayOfMonth == selectedDate.dayToInt
+                                                             : day.isSameDate(with: selectedDate)
                                                              ? .fontWhite
-                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
+                                                             : day.isSameDate(with: Date.now)
                                                              ? .dateToday
                                                              : .fontDefault)
-                                            .font(.system(size: 14, weight: dayOfMonth == selectedDate.dayToInt ? .bold : .regular))
+                                            .font(.system(size: 14, weight: day.isSameDate(with: selectedDate) ? .bold : .regular))
                                     }
                                 }
                                 .frame(width: 30, height: 30)
-                                .disabled("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
+                                .disabled(day > Date.now)
                             } else {
                                 Text("")
                             }
                         }
                     }
-//                    .isHidden(hane.loading)
+                    .isHidden(hane.loading)
                 }
 
                 // DatePicker
@@ -161,31 +184,6 @@ struct CalendarGridView: View {
                 }
             }
         }
-    }
-
-    /// 오늘 날짜 받아서 달력에 들어갈 날짜를 [Int]로 뽑는 func
-    /// 1일 이전 빈칸은 0일
-    func daysOfMonth(_ today: Date) -> [Int] {
-        var firstDay: Date {
-            let cal = Calendar.current
-            let dateComponents = DateComponents(year: today.yearToInt, month: today.monthToInt)
-            return cal.date(from: dateComponents) ?? Date()
-        }
-        var lastDay: Date {
-            let cal = Calendar.current
-            let nextMonth = cal.date(byAdding: .month, value: 1, to: firstDay) ?? today
-            let endOfMonth = cal.date(byAdding: .day, value: -1, to: nextMonth) ?? today
-            return endOfMonth
-        }
-        var days: [Int] = Array()
-
-        for i in 1..<firstDay.weekdayToInt {
-            days.append(-i)
-        }
-        for i in 1...lastDay.dayToInt {
-            days.append(i)
-        }
-        return days
     }
 
     func calculateLogColor(accumulationTime: Int64) -> Color {

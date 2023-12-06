@@ -90,16 +90,7 @@ struct CalendarView: View {
     }
 }
 
-/// String to Date
-/// - Parameter format: yyyy.MM.dd
-/// - Returns: date(yyyy.MM.dd)
-func theDate(_ format: String) -> Date {
-    let tmp = DateFormatter()
-    tmp.dateFormat = "yyyy.MM.dd"
-    return tmp.date(from: format)!
-}
-
 #Preview {
-    CalendarView(selectedDate: theDate("2023.03.31"))
+    CalendarView(selectedDate: Date(2023, 12, 5))
         .environmentObject(Hane())
 }

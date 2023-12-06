@@ -111,7 +111,7 @@ extension Date {
 }
 
 extension Date {
-    var nubmerOfDays: Int {
+    var numberOfDays: Int {
         let calendar = Calendar.current
         let myDateComponents = DateComponents(year: self.yearToInt, month: self.monthToInt)
 
@@ -124,5 +124,19 @@ extension Date {
         let comp2 = calendar.dateComponents([.day, .weekday, .weekOfMonth], from: endOfMonth!)
 
         return comp2.day!
+    }
+}
+
+extension Date {
+    init(_ year: Int, _ month: Int, _ day: Int) {
+        let tmp = DateFormatter()
+        tmp.dateFormat = "y.M.d"
+        self = tmp.date(from: "\(year).\(month).\(day)")!
+    }
+}
+
+extension Date {
+    func isSameDate(with day: Date) -> Bool {
+        Calendar.current.isDate(self, equalTo: day, toGranularity: .day)
     }
 }
