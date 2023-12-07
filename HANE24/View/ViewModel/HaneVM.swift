@@ -41,8 +41,6 @@ class Hane: ObservableObject {
 
     @Published var reissueState: CardState = .none
 
-    var monthlyLogController = MonthlyLogController.shared
-
     var inOutLog: InOutLog
     var perMonth: PerMonth
     var mainInfo: MainInfo
@@ -101,7 +99,6 @@ class Hane: ObservableObject {
                 }
             })
         UserDefaults.standard.removeObject(forKey: "Token")
-        self.monthlyLogController.resetLogs()
         self.isSignIn = false
     }
 }
@@ -174,44 +171,14 @@ extension Hane {
     @MainActor
     func updateMonthlyLogs(date: Date) async throws {
         // update MonthlyLogs
-        self.monthlyLogController.fetchLogs()
         self.loading = true
 
-        if let filteredLog = monthlyLogController.totalLogs.first(where: {$0.date == date.toString("yyyy.MM")}) {
-            if filteredLog.needUpdate {
-                self.monthlyLogs = Dictionary(grouping: filteredLog.inOutLogs!.data) {
-                    Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
-                }
+        try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
 
-                try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
-
-                monthlyLogController.updateLogs(
-                    entity: filteredLog,
-                    inOutLogs: self.perMonth.inOutLogs,
-                    needUpdate: date.toString("yyyy.MM") >= Date().toString("yyyy.MM")
-                )
-
-                self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
-                    Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
-                }
-            } else {
-                self.monthlyLogs = Dictionary(grouping: filteredLog.inOutLogs!.data) {
-                    Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
-                }
-            }
-        } else {
-            try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
-
-            monthlyLogController.addLogs(
-                date: date.toString("yyyy.MM"),
-                inOutLogs: self.perMonth.inOutLogs,
-                needUpdate: date.toString("yyyy.MM") >= Date().toString("yyyy.MM")
-            )
-
-            self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
-                Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
-            }
+        self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
+            Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
         }
+
         // update Daily Total Accumulation Times (CalendarView)
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
         for dailyLog in monthlyLogs {
