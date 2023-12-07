@@ -11,7 +11,6 @@
 		0E1654F5299A285B001E5EED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F4299A285B001E5EED /* ContentView.swift */; };
 		0E1654F7299A285E001E5EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1654F6299A285E001E5EED /* Assets.xcassets */; };
 		0E1654FA299A285E001E5EED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1654F9299A285E001E5EED /* Preview Assets.xcassets */; };
-		0E1654FC299A285E001E5EED /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654FB299A285E001E5EED /* Persistence.swift */; };
 		0E165508299A3C20001E5EED /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E165507299A3C20001E5EED /* ChartView.swift */; };
 		0E16550A299A3D8A001E5EED /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E165509299A3D8A001E5EED /* ColorExtension.swift */; };
 		0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550B299A3DF6001E5EED /* ChartDetailView.swift */; };
@@ -20,7 +19,6 @@
 		0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */; };
 		0E17EFAC299B6CCD0089BCD8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFAB299B6CCD0089BCD8 /* NotificationView.swift */; };
 		0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B32A829A3815B001D10BF /* SignInWebView.swift */; };
-		0E51FE1B29A9D958008A01B6 /* HANE24.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654FD299A285E001E5EED /* HANE24.xcdatamodeld */; };
 		0E6B608F29AC850D009D8BC4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */; };
 		0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBBF14D29B08D580076AAB9 /* ErrorView.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
@@ -32,7 +30,6 @@
 		0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
 		3604975B97A4119088C1C3D3 /* Pods_24HANE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9D5EBD040CA1B419BF545D /* Pods_24HANE.framework */; };
 		9A1A4BEE299ADE650076D650 /* AccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */; };
-		9A37714929A742C0006BBEF3 /* CoreDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37714829A742C0006BBEF3 /* CoreDataVM.swift */; };
 		9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
 		9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */; };
 		9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */; };
@@ -49,8 +46,6 @@
 		0E1654F4299A285B001E5EED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E1654F6299A285E001E5EED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E1654F9299A285E001E5EED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0E1654FB299A285E001E5EED /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		0E1654FE299A285E001E5EED /* HANE24.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HANE24.xcdatamodel; sourceTree = "<group>"; };
 		0E165507299A3C20001E5EED /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		0E165509299A3D8A001E5EED /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		0E16550B299A3DF6001E5EED /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
@@ -72,7 +67,6 @@
 		0EFDFD46299F5AF500A911F7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		5F9D5EBD040CA1B419BF545D /* Pods_24HANE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_24HANE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1A4BED299ADE650076D650 /* AccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardView.swift; sourceTree = "<group>"; };
-		9A37714829A742C0006BBEF3 /* CoreDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataVM.swift; sourceTree = "<group>"; };
 		9AF0C045D5FEBE82760C04A3 /* Pods-24HANE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.debug.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
@@ -125,8 +119,6 @@
 				9AF730F4299E071D00AF2E53 /* Model */,
 				9A1A4BEC299ADDDD0076D650 /* View */,
 				0E1654F6299A285E001E5EED /* Assets.xcassets */,
-				0E1654FB299A285E001E5EED /* Persistence.swift */,
-				0E1654FD299A285E001E5EED /* HANE24.xcdatamodeld */,
 				0E1654F8299A285E001E5EED /* Preview Content */,
 				0E7F32F22B185E2F0048290A /* env.xcconfig */,
 			);
@@ -207,7 +199,6 @@
 			children = (
 				9AF730F5299E074800AF2E53 /* Structs.swift */,
 				9AF730FC299F602D00AF2E53 /* JSONs.swift */,
-				9A37714829A742C0006BBEF3 /* CoreDataVM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,13 +344,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */,
-				9A37714929A742C0006BBEF3 /* CoreDataVM.swift in Sources */,
 				0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */,
 				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
 				0EEB0E2629AE303100FEB700 /* AlertView.swift in Sources */,
 				9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */,
 				9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */,
-				0E1654FC299A285E001E5EED /* Persistence.swift in Sources */,
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */,
@@ -381,7 +370,6 @@
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 				0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */,
 				0E17EFAC299B6CCD0089BCD8 /* NotificationView.swift in Sources */,
-				0E51FE1B29A9D958008A01B6 /* HANE24.xcdatamodeld in Sources */,
 				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,19 +587,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0E1654FD299A285E001E5EED /* HANE24.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0E1654FE299A285E001E5EED /* HANE24.xcdatamodel */,
-			);
-			currentVersion = 0E1654FE299A285E001E5EED /* HANE24.xcdatamodel */;
-			path = HANE24.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0E1654E7299A285B001E5EED /* Project object */;
 }
