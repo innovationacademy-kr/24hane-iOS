@@ -23,36 +23,17 @@ struct PopulationView: View {
                         .foregroundColor(.white)
                         .frame(width: 155, height: 80)
                     HStack(alignment: .bottom, spacing: 0) {
-                        Text("개포")
+                        Text("서울")
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.trailing, 20)
                             .foregroundColor(.black)
-                        Text("\(hane.clusterPopulation.gaepo)")
+                        Text("\(hane.clusterPopulation)")
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(.black)
                             .padding(.leading, 20)
                         Text("명")
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.black)
-                    }
-                }
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .frame(width: 155, height: 80)
-                    HStack(alignment: .bottom, spacing: 0) {
-                        Text("서초")
-                            .font(.system(size: 16, weight: .semibold))
-                            .padding(.trailing, 20)
-                            .foregroundColor(.black)
-                        Text("\(hane.clusterPopulation.seocho)")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.black)
-                            .padding(.leading, 20)
-                        Text("명")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(.black)
-
                     }
                 }
             }
