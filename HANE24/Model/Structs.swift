@@ -29,3 +29,9 @@ struct MoreItem: Identifiable {
     var url: String
     var image: String
 }
+
+/// HomeView Modal
+struct Notice {
+    var title: String
+    var content: String
+}

@@ -28,6 +28,10 @@ class Hane: ObservableObject {
     @Published var loginID: String
     @Published var clusterPopulation: Int
 
+    /// 안내메세지
+    @Published var fundInfoNotice: Notice
+    @Published var tagLatencyNotice: Notice
+
     /// 누적시간데이터
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
@@ -68,6 +72,9 @@ class Hane: ObservableObject {
         self.profileImage = ""
         self.loginID = ""
         self.clusterPopulation = 0
+        
+        self.fundInfoNotice = Notice(title: "", content: "")
+        self.tagLatencyNotice = Notice(title: "", content: "")
 
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [], totalAccumulationTime: 0, acceptedAccumulationTime: 0)
@@ -156,6 +163,15 @@ extension Hane {
         self.profileImage = mainInfo.profileImage
         self.isInCluster = mainInfo.inoutState == "IN" ? true : false
         self.clusterPopulation = mainInfo.gaepo
+        
+        self.fundInfoNotice = Notice(
+            title: mainInfo.infoMessages.fundInfoNotice.title,
+            content: mainInfo.infoMessages.fundInfoNotice.content
+        )
+        self.tagLatencyNotice = Notice(
+            title: mainInfo.infoMessages.tagLatencyNotice.title,
+            content: mainInfo.infoMessages.tagLatencyNotice.content
+        )
 
         self.loading = false
     }
