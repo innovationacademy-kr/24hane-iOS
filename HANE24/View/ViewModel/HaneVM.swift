@@ -33,7 +33,7 @@ class Hane: ObservableObject {
     @Published var monthlyAccumulationTime: Int64 = 0
     @Published var sixWeekAccumulationTime: [Double] = Array(repeating: 0, count: 6)
     @Published var sixMonthAccumulationTime: [Double] = Array(repeating: 0, count: 6)
-    
+
     /// 누적인정시간
     /// For HomeView
     @Published var thisMonthAcceptedAccumulationTime: Int64 = 0
