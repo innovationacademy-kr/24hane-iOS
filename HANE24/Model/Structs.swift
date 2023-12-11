@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/// For Views
 /// TagLogView
 struct Log: Hashable {
     var inTime: String?
@@ -25,7 +25,6 @@ struct ChartItem: Identifiable {
 /// PopulationView
 struct ClusterPopulation {
     var gaepo: Int
-    var seocho: Int
 }
 
 /// MoreView

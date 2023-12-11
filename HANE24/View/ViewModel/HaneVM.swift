@@ -53,7 +53,7 @@ class Hane: ObservableObject {
         self.isInCluster = false
         self.profileImage = ""
         self.loginID = ""
-        self.clusterPopulation = ClusterPopulation(gaepo: 0, seocho: 0)
+        self.clusterPopulation = ClusterPopulation(gaepo: 0)
 
         self.dailyAccumulationTime = 0
         self.monthlyAccumulationTime = 0
@@ -65,13 +65,26 @@ class Hane: ObservableObject {
         self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
 
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
-        self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
-        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, inoutState: "", tagAt: nil, gaepo: 0, seocho: 0)
+        self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [], totalAccumulationTime: 0, acceptedAccumulationTime: 0)
+        self.mainInfo = MainInfo(
+            login: "",
+            profileImage: "",
+            isAdmin: false,
+            inoutState: "",
+            tagAt: nil,
+            gaepo: 0,
+            infoMessages:
+                InfoMessages(
+                    fundInfoNotice: InfoMessage(title: "", content: ""),
+                    tagLatencyNotice: InfoMessage(title: "", content: "")
+                )
+        )
         self.accumulationTimes = AccumulationTimes(
             todayAccumulationTime: 0,
             monthAccumulationTime: 0,
             sixWeekAccumulationTime: Array(repeating: 0, count: 6),
-            sixMonthAccumulationTime: Array(repeating: 0, count: 6)
+            sixMonthAccumulationTime: Array(repeating: 0, count: 6),
+            monthlyAcceptedAccumulationTime: 0
         )
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
@@ -138,7 +151,6 @@ extension Hane {
         self.profileImage = mainInfo.profileImage
         self.isInCluster = mainInfo.inoutState == "IN" ? true : false
         self.clusterPopulation.gaepo = mainInfo.gaepo
-        self.clusterPopulation.seocho = mainInfo.seocho
 
         self.loading = false
     }
@@ -161,12 +173,10 @@ extension Hane {
      if isLogExist
         if needUpdate
             apicall
-            coredata.update
         else
             -
      else
         apicall
-        coredata.add
      */
     @MainActor
     func updateMonthlyLogs(date: Date) async throws {
@@ -278,15 +288,15 @@ extension Hane {
     }
 
     func callAccumulationTimes() async throws {
-        self.accumulationTimes = try await callJsonAsync(APIroot + "/v2/tag-log/accumulationTimes", type: AccumulationTimes.self)
+        self.accumulationTimes = try await callJsonAsync(APIroot + "/v3/tag-log/accumulationTimes", type: AccumulationTimes.self)
     }
 
     func callMainInfo() async throws {
-        self.mainInfo = try await callJsonAsync(APIroot + "/v2/tag-log/maininfo", type: MainInfo.self)
+        self.mainInfo = try await callJsonAsync(APIroot + "/v3/tag-log/maininfo", type: MainInfo.self)
     }
 
     func callPerMonth(year: Int, month: Int) async throws {
-        var components = URLComponents(string: APIroot + "/v2/tag-log/getAllTagPerMonth")!
+        var components = URLComponents(string: APIroot + "/v3/tag-log/getAllTagPerMonth")!
         let year = URLQueryItem(name: "year", value: "\(year)")
         let month = URLQueryItem(name: "month", value: "\(month)")
         components.queryItems = [year, month]
