@@ -22,25 +22,39 @@ enum CardState {
 }
 
 class Hane: ObservableObject {
+    /// 기본정보
     @Published var isInCluster: Bool
     @Published var profileImage: String
     @Published var loginID: String
-    @Published var clusterPopulation: ClusterPopulation
+    @Published var clusterPopulation: Int
 
+    /// 누적시간데이터
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
     @Published var sixWeekAccumulationTime: [Double] = Array(repeating: 0, count: 6)
     @Published var sixMonthAccumulationTime: [Double] = Array(repeating: 0, count: 6)
+    
+    /// 누적인정시간
+    /// For HomeView
+    @Published var thisMonthAcceptedAccumulationTime: Int64 = 0
+    /// For CalendarView
+    @Published var monthlyTotalAccumulationTime: Int64 = 0
+    @Published var monthlyAcceptedAccumulationTime: Int64 = 0
 
+    /// 현재 로그인(인증) 여부
     @Published var isSignIn: Bool = false
 
+    /// 선택한 달의 태깅데이터 / 일자별 합산시간
     @Published var monthlyLogs: [String: [InOutLog]] = [:]
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
 
+    /// 로딩화면여부
     @Published var loading: Bool = true
 
+    /// 카드 재발급 상태
     @Published var reissueState: CardState = .none
 
+    /// Model
     var inOutLog: InOutLog
     var perMonth: PerMonth
     var mainInfo: MainInfo
@@ -53,16 +67,7 @@ class Hane: ObservableObject {
         self.isInCluster = false
         self.profileImage = ""
         self.loginID = ""
-        self.clusterPopulation = ClusterPopulation(gaepo: 0)
-
-        self.dailyAccumulationTime = 0
-        self.monthlyAccumulationTime = 0
-        self.sixWeekAccumulationTime = Array(repeating: 0, count: 6)
-        self.sixMonthAccumulationTime = Array(repeating: 0, count: 6)
-
-        self.isSignIn = false
-        self.monthlyLogs = [:]
-        self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
+        self.clusterPopulation = 0
 
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [], totalAccumulationTime: 0, acceptedAccumulationTime: 0)
@@ -150,7 +155,7 @@ extension Hane {
         self.loginID = mainInfo.login
         self.profileImage = mainInfo.profileImage
         self.isInCluster = mainInfo.inoutState == "IN" ? true : false
-        self.clusterPopulation.gaepo = mainInfo.gaepo
+        self.clusterPopulation = mainInfo.gaepo
 
         self.loading = false
     }
@@ -165,6 +170,7 @@ extension Hane {
         self.monthlyAccumulationTime = self.accumulationTimes.monthAccumulationTime
         self.sixWeekAccumulationTime = self.accumulationTimes.sixWeekAccumulationTime
         self.sixMonthAccumulationTime = self.accumulationTimes.sixMonthAccumulationTime
+        self.thisMonthAcceptedAccumulationTime = self.accumulationTimes.monthlyAcceptedAccumulationTime
 
         self.loading = false
     }
@@ -198,6 +204,9 @@ extension Hane {
             }
             self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
         }
+        
+        self.monthlyTotalAccumulationTime = self.perMonth.totalAccumulationTime
+        self.monthlyAcceptedAccumulationTime = self.perMonth.acceptedAccumulationTime
 
         self.loading = false
     }

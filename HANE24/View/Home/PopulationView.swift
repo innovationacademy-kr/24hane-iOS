@@ -27,7 +27,7 @@ struct PopulationView: View {
                             .font(.system(size: 16, weight: .semibold))
                             .padding(.trailing, 20)
                             .foregroundColor(.black)
-                        Text("\(hane.clusterPopulation.gaepo)")
+                        Text("\(hane.clusterPopulation)")
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(.black)
                             .padding(.leading, 20)

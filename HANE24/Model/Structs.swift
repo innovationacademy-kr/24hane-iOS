@@ -22,11 +22,6 @@ struct ChartItem: Identifiable {
     var data: [Double]
 }
 
-/// PopulationView
-struct ClusterPopulation {
-    var gaepo: Int
-}
-
 /// MoreView
 struct MoreItem: Identifiable {
     var id: UUID
