@@ -72,7 +72,7 @@ class Hane: ObservableObject {
         self.profileImage = ""
         self.loginID = ""
         self.clusterPopulation = 0
-        
+
         self.fundInfoNotice = Notice(title: "", content: "")
         self.tagLatencyNotice = Notice(title: "", content: "")
 
@@ -163,7 +163,7 @@ extension Hane {
         self.profileImage = mainInfo.profileImage
         self.isInCluster = mainInfo.inoutState == "IN" ? true : false
         self.clusterPopulation = mainInfo.gaepo
-        
+
         self.fundInfoNotice = Notice(
             title: mainInfo.infoMessages.fundInfoNotice.title,
             content: mainInfo.infoMessages.fundInfoNotice.content
@@ -220,7 +220,7 @@ extension Hane {
             }
             self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
         }
-        
+
         self.monthlyTotalAccumulationTime = self.perMonth.totalAccumulationTime
         self.monthlyAcceptedAccumulationTime = self.perMonth.acceptedAccumulationTime
 
