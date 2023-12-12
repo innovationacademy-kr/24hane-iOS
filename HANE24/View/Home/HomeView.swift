@@ -36,9 +36,6 @@ func getMonthlyPeriod() -> [String] {
     return monthlyPeriod
 }
 
-var dailyOptions: [Double] = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
-var monthlyOptions: [Double] = [80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420]
-
 struct PullToRefresh: View {
     var coordinateSpaceName: String
     var onRefresh: () -> Void
@@ -80,8 +77,6 @@ struct HomeView: View {
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
-    @AppStorage("MonthlySelectionOption") private var monthlySelectionOption =  UserDefaults.standard.integer(forKey: "MonthlySelectionOption")
 
     var body: some View {
         NavigationView {
@@ -156,27 +151,20 @@ struct HomeView: View {
                         }
 
                         VStack(spacing: 22.5) {
-                            AccTimeCardView(
-                                text: "이용 시간",
-                                accTime: hane.dailyAccumulationTime,
-                                options: dailyOptions,
-                                select: dailySelectionOption
-                            ) { selection in
-                                UserDefaults.standard.setValue(selection, forKey: "DailySelectionOption")
-                            }
+                            AccTimeCardView()
                                 .padding(.horizontal, 30)
 
-                            AccTimeCardView(
-                                text: "월 누적 시간",
-                                accTime: hane.monthlyAccumulationTime,
-                                isColored: true,
-                                viewColor: Color(hex: "#735BF2"),
-                                options: monthlyOptions,
-                                select: monthlySelectionOption
-                            ) { selection in
-                                UserDefaults.standard.setValue(selection, forKey: "MonthlySelectionOption")
-                            }
-                                .padding(.horizontal, 30)
+//                            AccTimeCardView(
+//                                text: "월 누적 시간",
+//                                accTime: hane.monthlyAccumulationTime,
+//                                isColored: true,
+//                                viewColor: Color(hex: "#735BF2"),
+//                                options: monthlyOptions,
+//                                select: monthlySelectionOption
+//                            ) { selection in
+//                                UserDefaults.standard.setValue(selection, forKey: "MonthlySelectionOption")
+//                            }
+//                                .padding(.horizontal, 30)
 
                             TabView {
                                 ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))

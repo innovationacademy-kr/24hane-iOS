@@ -7,34 +7,24 @@
 
 import SwiftUI
 
-/// text: String - 뷰 왼쪽에 나타날 문자열
-/// time: Int64 - 시간 (초 / sec)
-/// isColored: Bool - 뷰 색상 여부
+/// accTime: Int64 - 시간 (초 / sec)
 /// viewColor: Color - 뷰 내부 색상
 struct AccTimeCardView: View {
-
     @EnvironmentObject var hane: Hane
+    
+    @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
 
-    @State var text: String
-    var accTime: Int64
-    @State var isColored: Bool = false
-    @State var viewColor: Color = Color(.white)
     @State var isFold: Bool = true
-    @State var targetTime: Int64 = 3600 * 8
     @State var drawingStroke = false
-    var options: [Double]
-    @State var select: Int
 
-    let onSelect: (Int) -> Void
+    let options: [Double] = (4...24).map { Double($0) }
 
-    let animation = Animation
-        .easeOut(duration: 0.8)
-        .delay(0.1)
+    let animation = Animation.easeOut(duration: 0.8).delay(0.1)
 
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(isFold ? viewColor : .white)
+                .foregroundColor(.white)
 
             VStack(spacing: 5) {
                 Button {
@@ -43,8 +33,11 @@ struct AccTimeCardView: View {
                         drawingStroke = false
                     }
                 } label: {
-                    HStack {
-                        Text(text)
+                    HStack(spacing: 2) {
+                        Image(systemName: "exclamationmark.circle")
+                            .font(.system(size: 16))
+                            .foregroundStyle(Color(hex: "#9B9797"))
+                        Text("이용 시간")
                             .font(.system(size: 16, weight: .bold))
                         Spacer()
                         ZStack {
@@ -53,10 +46,10 @@ struct AccTimeCardView: View {
                                     .padding(.trailing, 10)
                             } else {
                                 HStack(alignment: .bottom, spacing: 0) {
-                                    Text("\(accTime / 3600)")
+                                    Text("\(hane.dailyAccumulationTime / 3600)")
                                         .font(.system(size: 20, weight: .semibold))
                                     Text("시간 ")
-                                    Text("\(accTime % 3600 / 60)")
+                                    Text("\(hane.dailyAccumulationTime % 3600 / 60)")
                                         .font(.system(size: 20, weight: .semibold))
                                     Text("분")
                                 }
@@ -67,7 +60,7 @@ struct AccTimeCardView: View {
                             .rotationEffect(isFold ? Angle(degrees: 0) : Angle(degrees: 90))
                             .isHidden(hane.loading)
                     }
-                    .foregroundColor(isFold && isColored ? .white : .black)
+                    .foregroundColor(.black)
                     .font(.system(size: 16, weight: .semibold))
                     .padding()
                 }
@@ -77,17 +70,19 @@ struct AccTimeCardView: View {
                         HStack {
                             Text("목표 시간")
                                 .font(.system(size: 16, weight: .bold))
+
                             Spacer()
+
                             Menu {
-                                Picker(selection: $select) {
+                                Picker(selection: $dailySelectionOption) {
                                     ForEach(0..<options.count, id: \.self) { times in
                                         Text("\(Int(options[times])) 시간")
                                     }
-                                } label: {}.onChange(of: select) { _ in
-                                    onSelect(select)
+                                } label: {}.onChange(of: dailySelectionOption) { selection in
+                                    UserDefaults.standard.setValue(selection, forKey: "DailySelectionOption")
                                 }
                             } label: {
-                                Text("\(Int(options[select]))")
+                                Text("\(Int(options[dailySelectionOption]))")
                                     .font(.system(size: 20, weight: .semibold))
                                 Text("시간")
                                 Image(systemName: "chevron.down")
@@ -97,7 +92,7 @@ struct AccTimeCardView: View {
                             }
 
                         }
-                        .foregroundColor(isFold && isColored ? .white : .black)
+                        .foregroundColor(.black)
                         .font(.system(size: 16, weight: .semibold))
                         .padding(.horizontal)
 
@@ -113,14 +108,14 @@ struct AccTimeCardView: View {
             }
             .padding()
         }
-        .frame(height: isFold ? 80 : 260, alignment: .top)
+        .frame(maxHeight: isFold ? 80 : 260, alignment: .top)
     }
 
     var progressCircle: some View {
 
         ZStack {
             HStack(spacing: 0) {
-                Text("\(Int(Double(accTime) / Double(options[select] * 3600) * 100))")
+                Text("\(Int(Double(hane.dailyAccumulationTime) / Double(options[dailySelectionOption] * 3600) * 100))")
                     .font(.system(size: 32, weight: .medium, design: .default))
                     .foregroundColor(.black)
                 Text("%")
@@ -149,7 +144,7 @@ struct AccTimeCardView: View {
                 )
                 .overlay {
                     Circle()
-                        .trim(from: 0, to: drawingStroke ? (Double(accTime) / Double(options[select] * 3600)) : 0)
+                        .trim(from: 0, to: drawingStroke ? (Double(hane.dailyAccumulationTime) / Double(options[dailySelectionOption] * 3600)) : 0)
                         .stroke(
                             AngularGradient(
                                 gradient: Gradient(colors: [
@@ -199,7 +194,9 @@ extension View {
 }
 
 #Preview {
-    AccTimeCardView(text: "이용 시간", accTime: 3600 * 4 + 120, options: [1.0, 2.0, 3.0], select: 0) { _ in
-    }
-    .environmentObject(Hane())
+    var hane = Hane()
+    hane.dailyAccumulationTime = 12280
+    hane.loading = false
+    return AccTimeCardView()
+        .environmentObject(hane)
 }
