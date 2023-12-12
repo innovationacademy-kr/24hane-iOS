@@ -27,6 +27,7 @@ struct TodayAccTimeCardView: View {
                 .foregroundColor(.white)
 
             VStack(spacing: 0) {
+                /// First Line
                 HStack(alignment: .center, spacing: 0) {
                     Button {
                         isNoticed = true
@@ -80,6 +81,7 @@ struct TodayAccTimeCardView: View {
                 .padding(.trailing, 14)
 
                 if !isFold {
+                    /// Second Line
                     HStack(alignment: .center, spacing: 0) {
                         Text("목표 시간")
                             .font(.system(size: 16, weight: .bold))
@@ -113,7 +115,7 @@ struct TodayAccTimeCardView: View {
                     }
                     .padding(.leading, 10)
                     .padding(.trailing, 14)
-
+                    /// Progress Circle
                     progressCircle
                         .frame(width: 112, height: 112)
                         .padding(.top, 11)

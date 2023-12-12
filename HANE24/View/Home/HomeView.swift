@@ -156,9 +156,10 @@ struct HomeView: View {
                         VStack(spacing: 22.5) {
                             TodayAccTimeCardView(isNoticed: $isNoticedFundInfo)
                                 .padding(.horizontal, 30)
-                            
+
                             ThisMonthAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
-                            
+                                .padding(.horizontal, 30)
+
                             TabView {
                                 ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
                                     .padding(.horizontal, 10)
