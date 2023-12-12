@@ -30,7 +30,9 @@ struct TodayAccTimeCardView: View {
                 /// First Line
                 HStack(alignment: .center, spacing: 0) {
                     Button {
-                        isNoticed = true
+                        if !hane.loading {
+                            isNoticed = true
+                        }
                     } label: {
                         HStack(spacing: 2) {
                             Image(systemName: "exclamationmark.circle")
@@ -213,7 +215,7 @@ extension View {
 }
 
 #Preview {
-    var hane = Hane()
+    let hane = Hane()
     hane.dailyAccumulationTime = 12280
     hane.loading = false
     return TodayAccTimeCardView(isNoticed: .constant(false))

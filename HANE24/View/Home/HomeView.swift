@@ -70,16 +70,19 @@ struct PullToRefresh: View {
 }
 
 struct HomeView: View {
-    init() {
+    init(fundInfo: Binding<Bool>, tagLatencyInfo: Binding<Bool>) {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
-          UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+        
+        self._isNoticedFundInfo = fundInfo
+        self._isNoticedTagLatencyInfo = tagLatencyInfo
     }
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
 
-    @State var isNoticedFundInfo: Bool = false
-    @State var isNoticedTagLatencyInfo: Bool = false
+    @Binding var isNoticedFundInfo: Bool
+    @Binding var isNoticedTagLatencyInfo: Bool
 
     var body: some View {
         NavigationView {
@@ -130,16 +133,6 @@ struct HomeView: View {
                         }
 
                         Spacer()
-
-                        NavigationLink(destination: NotificationView()) {
-                            Image("notification")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(test ? .iconColor : .red)
-                        }
-                        .hidden()
-                        .navigationBarHidden(true)
-                        .frame(width: 24, height: 24)
                     }
                     .padding(.top, 20)
                     .frame(height: 30)
@@ -185,6 +178,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(fundInfo: .constant(false), tagLatencyInfo: .constant(false))
         .environmentObject(Hane())
 }

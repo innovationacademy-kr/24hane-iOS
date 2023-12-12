@@ -65,7 +65,9 @@ struct ThisMonthAccTimeCardView: View {
                     /// Second Line
                     HStack(spacing: 0) {
                         Button {
-                            isNoticed = true
+                            if !hane.loading {
+                                isNoticed = true
+                            }
                         } label: {
                             HStack(spacing: 2) {
                                 Image(systemName: "exclamationmark.circle")
@@ -117,7 +119,7 @@ struct ThisMonthAccTimeCardView: View {
 }
 
 #Preview {
-    var hane = Hane()
+    let hane = Hane()
     hane.loading = false
     hane.monthlyAccumulationTime = 34567
     hane.thisMonthAcceptedAccumulationTime = 12345
