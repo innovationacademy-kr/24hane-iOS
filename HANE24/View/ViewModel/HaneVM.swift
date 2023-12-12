@@ -22,25 +22,43 @@ enum CardState {
 }
 
 class Hane: ObservableObject {
+    /// 기본정보
     @Published var isInCluster: Bool
     @Published var profileImage: String
     @Published var loginID: String
-    @Published var clusterPopulation: ClusterPopulation
+    @Published var clusterPopulation: Int
 
+    /// 안내메세지
+    @Published var fundInfoNotice: Notice
+    @Published var tagLatencyNotice: Notice
+
+    /// 누적시간데이터
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var monthlyAccumulationTime: Int64 = 0
     @Published var sixWeekAccumulationTime: [Double] = Array(repeating: 0, count: 6)
     @Published var sixMonthAccumulationTime: [Double] = Array(repeating: 0, count: 6)
 
+    /// 누적인정시간
+    /// For HomeView
+    @Published var thisMonthAcceptedAccumulationTime: Int64 = 0
+    /// For CalendarView
+    @Published var monthlyTotalAccumulationTime: Int64 = 0
+    @Published var monthlyAcceptedAccumulationTime: Int64 = 0
+
+    /// 현재 로그인(인증) 여부
     @Published var isSignIn: Bool = false
 
+    /// 선택한 달의 태깅데이터 / 일자별 합산시간
     @Published var monthlyLogs: [String: [InOutLog]] = [:]
     @Published var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
 
+    /// 로딩화면여부
     @Published var loading: Bool = true
 
+    /// 카드 재발급 상태
     @Published var reissueState: CardState = .none
 
+    /// Model
     var inOutLog: InOutLog
     var perMonth: PerMonth
     var mainInfo: MainInfo
@@ -53,25 +71,32 @@ class Hane: ObservableObject {
         self.isInCluster = false
         self.profileImage = ""
         self.loginID = ""
-        self.clusterPopulation = ClusterPopulation(gaepo: 0, seocho: 0)
+        self.clusterPopulation = 0
 
-        self.dailyAccumulationTime = 0
-        self.monthlyAccumulationTime = 0
-        self.sixWeekAccumulationTime = Array(repeating: 0, count: 6)
-        self.sixMonthAccumulationTime = Array(repeating: 0, count: 6)
-
-        self.isSignIn = false
-        self.monthlyLogs = [:]
-        self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
+        self.fundInfoNotice = Notice(title: "", content: "")
+        self.tagLatencyNotice = Notice(title: "", content: "")
 
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
-        self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [])
-        self.mainInfo = MainInfo(login: "", profileImage: "", isAdmin: false, inoutState: "", tagAt: nil, gaepo: 0, seocho: 0)
+        self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [], totalAccumulationTime: 0, acceptedAccumulationTime: 0)
+        self.mainInfo = MainInfo(
+            login: "",
+            profileImage: "",
+            isAdmin: false,
+            inoutState: "",
+            tagAt: nil,
+            gaepo: 0,
+            infoMessages:
+                InfoMessages(
+                    fundInfoNotice: InfoMessage(title: "", content: ""),
+                    tagLatencyNotice: InfoMessage(title: "", content: "")
+                )
+        )
         self.accumulationTimes = AccumulationTimes(
             todayAccumulationTime: 0,
             monthAccumulationTime: 0,
             sixWeekAccumulationTime: Array(repeating: 0, count: 6),
-            sixMonthAccumulationTime: Array(repeating: 0, count: 6)
+            sixMonthAccumulationTime: Array(repeating: 0, count: 6),
+            monthlyAcceptedAccumulationTime: 0
         )
 
         self.APIroot = (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
@@ -137,8 +162,16 @@ extension Hane {
         self.loginID = mainInfo.login
         self.profileImage = mainInfo.profileImage
         self.isInCluster = mainInfo.inoutState == "IN" ? true : false
-        self.clusterPopulation.gaepo = mainInfo.gaepo
-        self.clusterPopulation.seocho = mainInfo.seocho
+        self.clusterPopulation = mainInfo.gaepo
+
+        self.fundInfoNotice = Notice(
+            title: mainInfo.infoMessages.fundInfoNotice.title,
+            content: mainInfo.infoMessages.fundInfoNotice.content
+        )
+        self.tagLatencyNotice = Notice(
+            title: mainInfo.infoMessages.tagLatencyNotice.title,
+            content: mainInfo.infoMessages.tagLatencyNotice.content
+        )
 
         self.loading = false
     }
@@ -153,6 +186,7 @@ extension Hane {
         self.monthlyAccumulationTime = self.accumulationTimes.monthAccumulationTime
         self.sixWeekAccumulationTime = self.accumulationTimes.sixWeekAccumulationTime
         self.sixMonthAccumulationTime = self.accumulationTimes.sixMonthAccumulationTime
+        self.thisMonthAcceptedAccumulationTime = self.accumulationTimes.monthlyAcceptedAccumulationTime
 
         self.loading = false
     }
@@ -161,12 +195,10 @@ extension Hane {
      if isLogExist
         if needUpdate
             apicall
-            coredata.update
         else
             -
      else
         apicall
-        coredata.add
      */
     @MainActor
     func updateMonthlyLogs(date: Date) async throws {
@@ -188,6 +220,9 @@ extension Hane {
             }
             self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
         }
+
+        self.monthlyTotalAccumulationTime = self.perMonth.totalAccumulationTime
+        self.monthlyAcceptedAccumulationTime = self.perMonth.acceptedAccumulationTime
 
         self.loading = false
     }
@@ -278,15 +313,15 @@ extension Hane {
     }
 
     func callAccumulationTimes() async throws {
-        self.accumulationTimes = try await callJsonAsync(APIroot + "/v2/tag-log/accumulationTimes", type: AccumulationTimes.self)
+        self.accumulationTimes = try await callJsonAsync(APIroot + "/v3/tag-log/accumulationTimes", type: AccumulationTimes.self)
     }
 
     func callMainInfo() async throws {
-        self.mainInfo = try await callJsonAsync(APIroot + "/v2/tag-log/maininfo", type: MainInfo.self)
+        self.mainInfo = try await callJsonAsync(APIroot + "/v3/tag-log/maininfo", type: MainInfo.self)
     }
 
     func callPerMonth(year: Int, month: Int) async throws {
-        var components = URLComponents(string: APIroot + "/v2/tag-log/getAllTagPerMonth")!
+        var components = URLComponents(string: APIroot + "/v3/tag-log/getAllTagPerMonth")!
         let year = URLQueryItem(name: "year", value: "\(year)")
         let month = URLQueryItem(name: "month", value: "\(month)")
         components.queryItems = [year, month]

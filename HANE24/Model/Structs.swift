@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/// For Views
 /// TagLogView
 struct Log: Hashable {
     var inTime: String?
@@ -22,16 +22,16 @@ struct ChartItem: Identifiable {
     var data: [Double]
 }
 
-/// PopulationView
-struct ClusterPopulation {
-    var gaepo: Int
-    var seocho: Int
-}
-
 /// MoreView
 struct MoreItem: Identifiable {
     var id: UUID
     var title: String
     var url: String
     var image: String
+}
+
+/// HomeView Modal
+struct Notice {
+    var title: String
+    var content: String
 }

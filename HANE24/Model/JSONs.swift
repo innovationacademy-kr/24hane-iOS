@@ -6,23 +6,30 @@
 //
 
 import Foundation
-
+/// For API calls
 struct InOutLog: Codable {
     let inTimeStamp: Int64?
     let outTimeStamp: Int64?
     let durationSecond: Int64?
 }
 
-struct PerDay: Codable {
-    let login: String
-    let profileImage: String
-    let inOutLogs: [InOutLog]
-}
-
 struct PerMonth: Codable {
     let login: String
     let profileImage: String
     let inOutLogs: [InOutLog]
+    /// v3
+    let totalAccumulationTime: Int64
+    let acceptedAccumulationTime: Int64
+}
+
+struct InfoMessage: Codable {
+    let title: String
+    let content: String
+}
+
+struct InfoMessages: Codable {
+    let fundInfoNotice: InfoMessage
+    let tagLatencyNotice: InfoMessage
 }
 
 struct MainInfo: Codable {
@@ -32,7 +39,8 @@ struct MainInfo: Codable {
     let inoutState: String
     let tagAt: String?
     let gaepo: Int
-    let seocho: Int
+    /// v3
+    let infoMessages: InfoMessages
 }
 
 struct AccumulationTimes: Codable {
@@ -40,17 +48,10 @@ struct AccumulationTimes: Codable {
     let monthAccumulationTime: Int64
     let sixWeekAccumulationTime: [Double]
     let sixMonthAccumulationTime: [Double]
+    /// v3
+    let monthlyAcceptedAccumulationTime: Int64
 }
 
 struct ReissueState: Codable {
     let state: String
-}
-
-// for CoreData
-public class InOutLogs: NSSecureUnarchiveFromDataTransformer {
-    var data: [InOutLog]
-
-    init(data: [InOutLog]) {
-        self.data = data
-    }
 }
