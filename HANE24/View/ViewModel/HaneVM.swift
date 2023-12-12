@@ -74,7 +74,7 @@ class Hane: ObservableObject {
             sixMonthAccumulationTime: Array(repeating: 0, count: 6)
         )
 
-        self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
+        self.APIroot = (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .none
         self.cardReissueState = ReissueState(state: "none")
     }
