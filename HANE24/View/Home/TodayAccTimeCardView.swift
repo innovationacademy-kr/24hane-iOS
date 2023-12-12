@@ -1,5 +1,5 @@
 //
-//  AccTimeCardView.swift
+//  TodayAccTimeCardView.swift
 //  HANE24
 //
 //  Created by Yunki on 2023/02/14.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-/// accTime: Int64 - 시간 (초 / sec)
-/// viewColor: Color - 뷰 내부 색상
-struct AccTimeCardView: View {
+struct TodayAccTimeCardView: View {
     @EnvironmentObject var hane: Hane
-    
+
     @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
 
     @State var isFold: Bool = true
     @State var drawingStroke = false
+
+    @Binding var isNoticed: Bool
 
     let options: [Double] = (4...24).map { Double($0) }
 
@@ -26,89 +26,106 @@ struct AccTimeCardView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
 
-            VStack(spacing: 5) {
-                Button {
-                    withAnimation {
-                        isFold.toggle()
-                        drawingStroke = false
+            VStack(spacing: 0) {
+                HStack(alignment: .center, spacing: 0) {
+                    Button {
+                        isNoticed = true
+                    } label: {
+                        HStack(spacing: 2) {
+                            Image(systemName: "exclamationmark.circle")
+                                .foregroundStyle(Color(hex: "#9B9797"))
+                                .frame(width: 16, height: 16)
+                            Text("이용 시간")
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundColor(.black)
+                        }
+                        .padding(10)
                     }
-                } label: {
-                    HStack(spacing: 2) {
-                        Image(systemName: "exclamationmark.circle")
-                            .font(.system(size: 16))
-                            .foregroundStyle(Color(hex: "#9B9797"))
-                        Text("이용 시간")
-                            .font(.system(size: 16, weight: .bold))
-                        Spacer()
-                        ZStack {
+
+                    Button {
+                        withAnimation {
+                            isFold.toggle()
+                            drawingStroke = false
+                        }
+                    } label: {
+                        HStack(spacing: 10) {
+                            Spacer()
+
                             if hane.loading {
                                 LoadingAnimation()
-                                    .padding(.trailing, 10)
                             } else {
                                 HStack(alignment: .bottom, spacing: 0) {
                                     Text("\(hane.dailyAccumulationTime / 3600)")
-                                        .font(.system(size: 20, weight: .semibold))
+                                        .font(.system(size: 20, weight: .bold))
                                     Text("시간 ")
+                                        .font(.system(size: 16, weight: .bold))
                                     Text("\(hane.dailyAccumulationTime % 3600 / 60)")
-                                        .font(.system(size: 20, weight: .semibold))
+                                        .font(.system(size: 20, weight: .bold))
                                     Text("분")
+                                        .font(.system(size: 16, weight: .bold))
                                 }
                             }
-                        }
 
-                        Image(systemName: "chevron.right")
-                            .rotationEffect(isFold ? Angle(degrees: 0) : Angle(degrees: 90))
-                            .isHidden(hane.loading)
-                    }
-                    .foregroundColor(.black)
-                    .font(.system(size: 16, weight: .semibold))
-                    .padding()
-                }
-
-                if !isFold {
-                    VStack {
-                        HStack {
-                            Text("목표 시간")
+                            Image(systemName: "chevron.right")
                                 .font(.system(size: 16, weight: .bold))
-
-                            Spacer()
-
-                            Menu {
-                                Picker(selection: $dailySelectionOption) {
-                                    ForEach(0..<options.count, id: \.self) { times in
-                                        Text("\(Int(options[times])) 시간")
-                                    }
-                                } label: {}.onChange(of: dailySelectionOption) { selection in
-                                    UserDefaults.standard.setValue(selection, forKey: "DailySelectionOption")
-                                }
-                            } label: {
-                                Text("\(Int(options[dailySelectionOption]))")
-                                    .font(.system(size: 20, weight: .semibold))
-                                Text("시간")
-                                Image(systemName: "chevron.down")
-                                    .frame(width: 10, height: 10)
-                                    .foregroundColor(.gray)
-                                    .hidden()
-                            }
-
+                                .foregroundStyle(Color(hex: "#9B9797"))
+                                .rotationEffect(isFold ? Angle(degrees: 0) : Angle(degrees: 90))
+                                .frame(width: 24, height: 24)
+                                .isHidden(hane.loading)
                         }
                         .foregroundColor(.black)
-                        .font(.system(size: 16, weight: .semibold))
-                        .padding(.horizontal)
-
-                        progressCircle
-                            .frame(width: 120, height: 120)
-                            .padding(.bottom, 10)
-                            .animation(animation, value: drawingStroke)
-                            .onAppear {
-                                drawingStroke = true
-                            }
                     }
                 }
+                .padding(.leading, 10)
+                .padding(.trailing, 14)
+
+                if !isFold {
+                    HStack(alignment: .center, spacing: 0) {
+                        Text("목표 시간")
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundColor(.black)
+                            .padding(10)
+                            .padding(.leading, 18)
+
+                        Spacer()
+
+                        Menu {
+                            Picker(selection: $dailySelectionOption) {
+                                ForEach(0..<options.count, id: \.self) { times in
+                                    Text("\(Int(options[times])) 시간")
+                                }
+                            } label: {}.onChange(of: dailySelectionOption) { selection in
+                                UserDefaults.standard.setValue(selection, forKey: "DailySelectionOption")
+                            }
+                        } label: {
+                            HStack(spacing: 0) {
+                                Text("\(Int(options[dailySelectionOption]))")
+                                    .font(.system(size: 20, weight: .bold))
+                                Text("시간")
+                                    .font(.system(size: 16, weight: .bold))
+                                    .padding(.trailing, 10)
+                                Image(systemName: "chevron.down")
+                                    .frame(width: 24, height: 24)
+                                    .hidden()
+                            }
+                            .foregroundStyle(.black)
+                        }
+                    }
+                    .padding(.leading, 10)
+                    .padding(.trailing, 14)
+
+                    progressCircle
+                        .frame(width: 112, height: 112)
+                        .padding(.top, 11)
+                        .padding(.bottom, 18)
+                        .animation(animation, value: drawingStroke)
+                        .onAppear {
+                            drawingStroke = true
+                        }
+                }
             }
-            .padding()
         }
-        .frame(maxHeight: isFold ? 80 : 260, alignment: .top)
+        .frame(height: isFold ? 80 : 260, alignment: .top)
     }
 
     var progressCircle: some View {
@@ -197,6 +214,6 @@ extension View {
     var hane = Hane()
     hane.dailyAccumulationTime = 12280
     hane.loading = false
-    return AccTimeCardView()
+    return TodayAccTimeCardView(isNoticed: .constant(false))
         .environmentObject(hane)
 }

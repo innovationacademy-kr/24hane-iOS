@@ -78,6 +78,9 @@ struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
 
+    @State var isNoticedFundInfo: Bool = false
+    @State var isNoticedTagLatencyInfo: Bool = false
+
     var body: some View {
         NavigationView {
            ZStack {
@@ -151,21 +154,11 @@ struct HomeView: View {
                         }
 
                         VStack(spacing: 22.5) {
-                            AccTimeCardView()
+                            TodayAccTimeCardView(isNoticed: $isNoticedFundInfo)
                                 .padding(.horizontal, 30)
-
-//                            AccTimeCardView(
-//                                text: "월 누적 시간",
-//                                accTime: hane.monthlyAccumulationTime,
-//                                isColored: true,
-//                                viewColor: Color(hex: "#735BF2"),
-//                                options: monthlyOptions,
-//                                select: monthlySelectionOption
-//                            ) { selection in
-//                                UserDefaults.standard.setValue(selection, forKey: "MonthlySelectionOption")
-//                            }
-//                                .padding(.horizontal, 30)
-
+                            
+                            ThisMonthAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
+                            
                             TabView {
                                 ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
                                     .padding(.horizontal, 10)
