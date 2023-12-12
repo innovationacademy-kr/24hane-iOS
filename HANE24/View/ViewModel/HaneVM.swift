@@ -99,7 +99,7 @@ class Hane: ObservableObject {
             monthlyAcceptedAccumulationTime: 0
         )
 
-        self.APIroot = (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
+        self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .none
         self.cardReissueState = ReissueState(state: "none")
     }
@@ -235,6 +235,7 @@ extension Hane {
         guard let url = URL(string: APIroot + "/user/login/islogin") else {
             fatalError("MissingURL")
         }
+        print(url)
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
             return false
         }
