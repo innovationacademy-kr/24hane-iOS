@@ -29,8 +29,8 @@ struct AccTimeCardForCalendarView: View {
     var totalTime: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .overlay( colorScheme == .dark ? RoundedRectangle(cornerRadius: 10).stroke(.white, lineWidth: 2) : nil)
                 .foregroundColor(Color(hex: "#333333"))
+                .overlay( colorScheme == .dark ? RoundedRectangle(cornerRadius: 10).stroke(.white, lineWidth: 2) : nil)
 
             Text("총 \(totalAccTime / 3600 )시간 \(totalAccTime % 3600 / 60)분")
                 .font(.system(size: 14, weight: .semibold))
@@ -42,16 +42,16 @@ struct AccTimeCardForCalendarView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(Color(hex: "#735BF2"))
-                .overlay( colorScheme == .dark ? RoundedRectangle(cornerRadius: 10).stroke(.white, lineWidth: 2) : nil)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(hex: "#735BF2"), lineWidth: 3)
-                    .shadow(color: Color(hex: "#333333"), radius: 4, x: 2, y: 5)
+                    .shadow(color: Color(hex: "#333333"), radius: 4, x: 1, y: 4)
                     .clipShape(
                        RoundedRectangle(cornerRadius: 15)
                    )
                 )
-            Text("인정 시간 \(totalAccTime / 3600 )시간 \(totalAccTime % 3600 / 60)분")
+                .overlay( colorScheme == .dark ? RoundedRectangle(cornerRadius: 10).stroke(.white, lineWidth: 2) : nil)
+            Text("인정 시간 \(validAccTime / 3600 )시간 \(validAccTime % 3600 / 60)분")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.white)
         }
@@ -59,5 +59,5 @@ struct AccTimeCardForCalendarView: View {
 }
 
 #Preview {
-    AccTimeCardForCalendarView(totalAccTime: 123456789, validAccTime: 12345678)
+    AccTimeCardForCalendarView(totalAccTime: 1234567, validAccTime: 1234567)
 }
