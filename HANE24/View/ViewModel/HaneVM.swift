@@ -7,7 +7,6 @@
 
 import Foundation
 import WebKit
-import CoreData
 
 enum MyError: Error {
     case tokenExpired(String)
@@ -67,6 +66,8 @@ class Hane: ObservableObject {
 
     var APIroot: String
 
+    var timer: Timer?
+
     init() {
         self.isInCluster = false
         self.profileImage = ""
@@ -102,6 +103,12 @@ class Hane: ObservableObject {
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .none
         self.cardReissueState = ReissueState(state: "none")
+
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            guard self.isInCluster else { return }
+            self.dailyAccumulationTime += 1
+        }
     }
 
     @MainActor
