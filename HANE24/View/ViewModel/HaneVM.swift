@@ -106,7 +106,7 @@ class Hane: ObservableObject {
 
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-            guard self.isInCluster == true else { return }
+            guard self.isInCluster else { return }
             self.dailyAccumulationTime += 1
         }
     }
