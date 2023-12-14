@@ -59,6 +59,7 @@ struct ThisMonthAccTimeCardView: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 14)
                     .padding(.vertical, 10)
+                    .animation(nil, value: isFold)
                 }
 
                 if !isFold {

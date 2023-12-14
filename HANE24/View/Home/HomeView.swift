@@ -73,7 +73,7 @@ struct HomeView: View {
     init(fundInfo: Binding<Bool>, tagLatencyInfo: Binding<Bool>) {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-        
+
         self._isNoticedFundInfo = fundInfo
         self._isNoticedTagLatencyInfo = tagLatencyInfo
     }
