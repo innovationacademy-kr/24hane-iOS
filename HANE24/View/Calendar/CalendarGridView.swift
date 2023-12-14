@@ -190,11 +190,11 @@ struct CalendarGridView: View {
         switch accumulationTime {
         case 0:
             return .backgroundCalendar
-        case 1 ... 10800:
+        case 1 ... 14400:
             return .dateBackgroundLevel1
-        case 10801 ... 21600:
+        case 14400 ... 28800:
             return .dateBackgroundLevel2
-        case 21601 ... 32400:
+        case 28800 ... 43200:
             return .dateBackgroundLevel3
         default:
             return .dateBackgroundLevel4

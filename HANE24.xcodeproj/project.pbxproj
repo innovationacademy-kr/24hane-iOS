@@ -56,7 +56,7 @@
 		0E3B32A729A37D3C001D10BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0E3B32A829A3815B001D10BF /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
 		0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		0E7F32F22B185E2F0048290A /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		0E85DCE12B26C1B600928B5B /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		0EBBF14D29B08D580076AAB9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				9A1A4BEC299ADDDD0076D650 /* View */,
 				0E1654F6299A285E001E5EED /* Assets.xcassets */,
 				0E1654F8299A285E001E5EED /* Preview Content */,
-				0E7F32F22B185E2F0048290A /* env.xcconfig */,
+				0E85DCE12B26C1B600928B5B /* env.xcconfig */,
 			);
 			path = HANE24;
 			sourceTree = "<group>";
@@ -383,7 +383,7 @@
 /* Begin XCBuildConfiguration section */
 		0E165500299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E7F32F22B185E2F0048290A /* env.xcconfig */;
+			baseConfigurationReference = 0E85DCE12B26C1B600928B5B /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -444,7 +444,7 @@
 		};
 		0E165501299A285E001E5EED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E7F32F22B185E2F0048290A /* env.xcconfig */;
+			baseConfigurationReference = 0E85DCE12B26C1B600928B5B /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -507,7 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HANE24/Preview Content\"";
-				DEVELOPMENT_TEAM = UV2PAA368V;
+				DEVELOPMENT_TEAM = LT7Z66ZBAP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HANE24/Info.plist;
@@ -543,7 +543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HANE24/Preview Content\"";
-				DEVELOPMENT_TEAM = UV2PAA368V;
+				DEVELOPMENT_TEAM = LT7Z66ZBAP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HANE24/Info.plist;

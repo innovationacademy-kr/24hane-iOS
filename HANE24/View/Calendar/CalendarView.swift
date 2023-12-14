@@ -27,9 +27,11 @@ struct CalendarView: View {
                 VStack(spacing: 16) {
                     CalendarGridView(selectedDate: $selectedDate)
                         .padding(.horizontal, 5)
-                    AccTimeCardForCalendarView(totalAccTime: hane.dailyTotalTimesInAMonth.reduce(0, +))
+                    AccTimeCardForCalendarView(totalAccTime: hane.monthlyTotalAccumulationTime,
+                                               validAccTime: hane.monthlyAcceptedAccumulationTime )
                         .padding(.vertical, 10)
-                    TagLogView(selectedDate: $selectedDate, logList: convert(hane.monthlyLogs[selectedDate.toString("yyyy.MM.dd")] ?? []))
+                    TagLogView(selectedDate: $selectedDate,
+                               logList: convert(hane.monthlyLogs[selectedDate.toString("yyyy.MM.dd")] ?? []))
                         .padding(.top, 10)
                     Spacer()
                 }
@@ -38,32 +40,6 @@ struct CalendarView: View {
             .coordinateSpace(name: "pullToRefresh")
         }
         .coordinateSpace(name: "pullToRefresh")
-    }
-
-    func convertTmp(_ from: [InOutLog]) -> [Log] {
-        guard !from.isEmpty else { return [] }
-        return from.map {
-            var inTime: String?
-            var outTime: String?
-            var logTime: String?
-            if let intime = $0.inTimeStamp {
-                inTime = Date(milliseconds: intime).toString("HH:mm:ss")
-            } else {
-                inTime = "-"
-            }
-            if let outtime = $0.outTimeStamp {
-                outTime = Date(milliseconds: outtime).toString("HH:mm:ss")
-            } else {
-                outTime = "-"
-            }
-            if var logtime = $0.durationSecond {
-                logtime -= 3600 * 9
-                logTime = Date(milliseconds: logtime).toString("HH:mm:ss")
-            } else {
-                logTime = "누락"
-            }
-            return Log(inTime: inTime, outTime: outTime, logTime: logTime)
-        }
     }
 
     func convert(_ from: [InOutLog]) -> [Log] {
