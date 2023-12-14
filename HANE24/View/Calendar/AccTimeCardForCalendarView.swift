@@ -23,7 +23,7 @@ struct AccTimeCardForCalendarView: View {
                 totalTime
             }
         })
-        .frame(height: 45)
+        .frame(width: 200, height: 45)
     }
 
     var totalTime: some View {
@@ -31,6 +31,7 @@ struct AccTimeCardForCalendarView: View {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(Color(hex: "#333333"))
                 .overlay( colorScheme == .dark ? RoundedRectangle(cornerRadius: 10).stroke(.white, lineWidth: 2) : nil)
+                .shadow(color: Color(hex: "#333333"), radius: 4, x: 3, y: 3)
 
             Text("총 \(totalAccTime / 3600 )시간 \(totalAccTime % 3600 / 60)분")
                 .font(.system(size: 14, weight: .semibold))

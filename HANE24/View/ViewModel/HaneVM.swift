@@ -235,7 +235,6 @@ extension Hane {
         guard let url = URL(string: APIroot + "/user/login/islogin") else {
             fatalError("MissingURL")
         }
-        print(url)
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
             return false
         }
