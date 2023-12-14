@@ -23,7 +23,7 @@ struct AccTimeCardForCalendarView: View {
                 totalTime
             }
         })
-        .frame(width: 200, height: 45)
+        .frame(height: 45)
     }
 
     var totalTime: some View {
