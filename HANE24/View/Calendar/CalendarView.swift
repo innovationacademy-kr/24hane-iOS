@@ -9,9 +9,18 @@ import SwiftUI
 
 /// selectedDate: Date = 선택 날짜
 struct CalendarView: View {
-    @EnvironmentObject var hane: Hane
-    @State var selectedDate: Date = Date()
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var hane: Hane
+    @State var selectedDate: Date = Date() {
+        didSet {
+            if oldValue.monthToInt != selectedDate.monthToInt
+                || oldValue.yearToInt != selectedDate.yearToInt {
+                Task {
+                   try await hane.updateMonthlyLogs(date: selectedDate)
+                }
+            }
+        }
+    }
 
     var body: some View {
         ZStack {
