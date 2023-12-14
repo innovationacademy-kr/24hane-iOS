@@ -11,16 +11,7 @@ import SwiftUI
 struct CalendarView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    @State var selectedDate: Date = Date() {
-        didSet {
-            if oldValue.monthToInt != selectedDate.monthToInt
-                || oldValue.yearToInt != selectedDate.yearToInt {
-                Task {
-                   try await hane.updateMonthlyLogs(date: selectedDate)
-                }
-            }
-        }
-    }
+    @State var selectedDate: Date = Date()
 
     var body: some View {
         ZStack {
@@ -34,7 +25,7 @@ struct CalendarView: View {
                     }
                 }
                 VStack(spacing: 16) {
-                    CalendarGridView(selectedDate: $selectedDate)
+                    CalendarBodyView(selectedDate: $selectedDate)
                         .padding(.horizontal, 5)
                     AccTimeCardForCalendarView(totalAccTime: hane.monthlyTotalAccumulationTime,
                                                validAccTime: hane.monthlyAcceptedAccumulationTime )
