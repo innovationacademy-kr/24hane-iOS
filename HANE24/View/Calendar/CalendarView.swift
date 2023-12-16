@@ -25,14 +25,14 @@ struct CalendarView: View {
                     }
                 }
                 VStack(spacing: 16) {
-                    CalendarBodyView(selectedDate: $selectedDate)
+                    CalendarBodyView(datePickerSelection: selectedDate, selectedDate: $selectedDate)
                         .padding(.horizontal, 5)
                     AccTimeCardForCalendarView(totalAccTime: hane.monthlyTotalAccumulationTime,
                                                validAccTime: hane.monthlyAcceptedAccumulationTime )
-                        .padding(.vertical, 10)
+                    .padding(.vertical, 10)
                     TagLogView(selectedDate: $selectedDate,
                                logList: convert(hane.monthlyLogs[selectedDate.toString("yyyy.MM.dd")] ?? []))
-                        .padding(.top, 10)
+                    .padding(.top, 10)
                     Spacer()
                 }
                 .padding(.horizontal, 30)
@@ -40,6 +40,13 @@ struct CalendarView: View {
             .coordinateSpace(name: "pullToRefresh")
         }
         .coordinateSpace(name: "pullToRefresh")
+        .onChange(of: selectedDate) {[oldDate = selectedDate]  newDate in
+            if oldDate.monthToInt != newDate.monthToInt || oldDate.yearToInt != newDate.yearToInt {
+                Task{
+                    try await hane.updateMonthlyLogs(date: newDate)
+                }
+            }
+        }
     }
 
     func convert(_ from: [InOutLog]) -> [Log] {

@@ -18,14 +18,9 @@ struct CalendarHeaderView: View {
                 .disabled(selectedDate.toString("yyyy.MM") <= "2022.08" || hane.loading)
             Spacer()
             Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-                .foregroundColor(.fontDefault)
+                .foregroundColor(picker ? .gradientPurple : .fontDefault )
                 .onTapGesture {
                     picker.toggle()
-                    if !picker {
-                        Task {
-                            try await hane.updateMonthlyLogs(date: selectedDate)
-                        }
-                    }
                 }
             Spacer()
             changeMonthButton(isForward: true)
@@ -33,13 +28,10 @@ struct CalendarHeaderView: View {
         }
         .font(.system(size: 20, weight: .semibold))
     }
-    
+
     @ViewBuilder func changeMonthButton(isForward: Bool) -> some View {
         Button {
             selectedDate = Calendar.current.date(byAdding: .month, value: isForward ? 1 : -1, to: selectedDate)!
-            Task {
-                try await hane.updateMonthlyLogs(date: selectedDate)
-            }
         } label: {
             ZStack {
                 Image(systemName: isForward ? "chevron.right" : "chevron.left")

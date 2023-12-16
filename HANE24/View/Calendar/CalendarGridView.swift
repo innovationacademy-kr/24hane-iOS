@@ -11,15 +11,9 @@ struct CalendarGridView: View {
     @Binding var picker: Bool
     @Binding var selectedDate: Date
     @EnvironmentObject var hane: Hane
-    
+
     let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
     let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
-
-    var dateRange: ClosedRange<Date> {
-        let min = Date(2022, 8, 1)
-        let max = Date()
-        return min...max
-    }
 
     var body: some View {
         ZStack {
@@ -34,7 +28,7 @@ struct CalendarGridView: View {
                             .font(.system(size: 13, weight: .light))
                     }
                 }
-                
+
                 // days with color
                 // is future ? disabled
                 // is selected ? Circle with white font
@@ -57,7 +51,7 @@ struct CalendarGridView: View {
                                             }
                                         }
                                         .isHidden(day > Date.now)
-                                    
+
                                     Text("\(day.dayToInt)")
                                         .foregroundColor(getTextColor(day))
                                         .font(.system(size: 14, weight: day.isSameDate(with: selectedDate) ? .bold : .regular))
@@ -72,25 +66,9 @@ struct CalendarGridView: View {
                 }
                 .isHidden(hane.loading)
             }
-            
-            // DatePicker
-            if picker {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.backgroundCalendar)
-                    
-                    DatePicker(
-                        "Date",
-                        selection: $selectedDate,
-                        in: dateRange,
-                        displayedComponents: [.date])
-                    .datePickerStyle(WheelDatePickerStyle())
-                }
-                .frame(maxWidth: 100)
-            }
         }
     }
-    
+
     func getGridColor(_ day: Date) -> Color {
         switch day {
         case day where day.isSameDate(with: selectedDate):
@@ -101,7 +79,7 @@ struct CalendarGridView: View {
             return calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[day.dayToInt])
         }
     }
-    
+
     func getTextColor(_ day: Date) -> Color {
         switch day {
         case day where day > Date.now :
@@ -114,7 +92,7 @@ struct CalendarGridView: View {
             return .fontDefault
         }
     }
-    
+
     func calculateLogColor(accumulationTime: Int64) -> Color {
         switch accumulationTime {
         case 0:
@@ -131,7 +109,6 @@ struct CalendarGridView: View {
     }
 
 }
-
 
 
 #Preview {

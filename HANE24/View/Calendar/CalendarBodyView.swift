@@ -9,18 +9,47 @@ import SwiftUI
 
 struct CalendarBodyView: View {
     @State var picker = false
+    @State var datePickerSelection: Date
     @Binding var selectedDate: Date
     
-    
+    var dateRange: ClosedRange<Date> {
+        let min = Date(2022, 8, 1)
+        let max = Date()
+        return min...max
+    }
+
     var body: some View {
-        CalendarHeaderView(picker: $picker, selectedDate: $selectedDate)
-            .padding(10)
-            .padding(.bottom, 8)
-        CalendarGridView(picker: $picker, selectedDate: $selectedDate)
+        VStack {
+            CalendarHeaderView(picker: $picker, selectedDate: $selectedDate)
+                .padding(10)
+                .padding(.bottom, 8)
+            ZStack {
+                if !picker {
+                    CalendarGridView(picker: $picker, selectedDate: $selectedDate)
+                } else {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.backgroundCalendar)
+
+                        DatePicker(
+                            "Date",
+                            selection: $datePickerSelection,
+                            in: dateRange,
+                            displayedComponents: [.date])
+                        .datePickerStyle(WheelDatePickerStyle())
+                    }
+                    .frame(maxWidth: 100)
+                }
+            }
+        }
+        .onChange(of: picker) {pickerState in
+            if !pickerState {
+                selectedDate = datePickerSelection
+            }
+        }
     }
 }
 
-
 #Preview {
-    CalendarBodyView(selectedDate: .constant(Date()))
+    CalendarBodyView(datePickerSelection: Date(), selectedDate: .constant(Date()))
 }
