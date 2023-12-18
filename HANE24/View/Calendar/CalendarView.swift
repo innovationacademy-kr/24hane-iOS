@@ -11,7 +11,6 @@ import SwiftUI
 struct CalendarView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    @State var selectedDate: Date = Date()
 
     var body: some View {
         ZStack {
@@ -19,19 +18,17 @@ struct CalendarView: View {
                 .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
             ScrollView {
                 PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                    /// [FixMe]
                     Task {
-                        try await hane.refresh(date: selectedDate)
+                        try await hane.refresh()
                     }
                 }
                 VStack(spacing: 16) {
-                    CalendarBodyView(datePickerSelection: selectedDate, selectedDate: $selectedDate)
+                    CalendarBodyView(datePickerSelection: hane.selectedDate)
                         .padding(.horizontal, 5)
                     AccTimeCardForCalendarView(totalAccTime: hane.monthlyTotalAccumulationTime,
                                                validAccTime: hane.monthlyAcceptedAccumulationTime )
                     .padding(.vertical, 10)
-                    TagLogView(selectedDate: $selectedDate,
-                               logList: convert(hane.monthlyLogs[selectedDate.toString("yyyy.MM.dd")] ?? []))
+                    TagLogView(logList: convert(hane.monthlyLogs[hane.selectedDate.toString("yyyy.MM.dd")] ?? []))
                     .padding(.top, 10)
                     Spacer()
                 }
@@ -40,9 +37,9 @@ struct CalendarView: View {
             .coordinateSpace(name: "pullToRefresh")
         }
         .coordinateSpace(name: "pullToRefresh")
-        .onChange(of: selectedDate) {[oldDate = selectedDate]  newDate in
+        .onChange(of: hane.selectedDate) {[oldDate = hane.selectedDate]  newDate in
             if oldDate.monthToInt != newDate.monthToInt || oldDate.yearToInt != newDate.yearToInt {
-                Task{
+                Task {
                     try await hane.updateMonthlyLogs(date: newDate)
                 }
             }
@@ -67,13 +64,13 @@ struct CalendarView: View {
             }
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)
         }
-        logArray[0].logTime = (logArray[0].logTime == "누락" && selectedDate.toString("yyyy.MM.dd") == Date().toString("yyyy.MM.dd")) ? "-" : logArray[0].logTime
+        logArray[0].logTime = (logArray[0].logTime == "누락" && hane.selectedDate.toString("yyyy.MM.dd") == Date().toString("yyyy.MM.dd")) ? "-" : logArray[0].logTime
 
         return logArray.reversed()
     }
 }
 
 #Preview {
-    CalendarView(selectedDate: Date(2023, 12, 5))
+    CalendarView()
         .environmentObject(Hane())
 }

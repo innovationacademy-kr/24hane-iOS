@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CalendarGridView: View {
     @Binding var picker: Bool
-    @Binding var selectedDate: Date
+
     @EnvironmentObject var hane: Hane
 
     let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
@@ -35,17 +35,17 @@ struct CalendarGridView: View {
                 // is today ? border only
                 // default
                 LazyVGrid(columns: cols, spacing: 12) {
-                    ForEach(selectedDate.daysOfMonth.indices, id: \.self) { d in
-                        if let day = selectedDate.daysOfMonth[d] {
+                    ForEach(hane.selectedDate.daysOfMonth.indices, id: \.self) { d in
+                        if let day = hane.selectedDate.daysOfMonth[d] {
                             Button {
-                                selectedDate = day
+                                hane.selectedDate = day
                             } label: {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: day.isSameDate(with: selectedDate) ? 20 : 10)
+                                    RoundedRectangle(cornerRadius: day.isSameDate(with: hane.selectedDate) ? 20 : 10)
                                         .foregroundColor(getGridColor(day))
                                         .overlay {
                                             if day.isSameDate(with: Date())
-                                                && !day.isSameDate(with: selectedDate) {
+                                                && !day.isSameDate(with: hane.selectedDate) {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(Color.dateToday, lineWidth: 1)
                                             }
@@ -54,7 +54,7 @@ struct CalendarGridView: View {
 
                                     Text("\(day.dayToInt)")
                                         .foregroundColor(getTextColor(day))
-                                        .font(.system(size: 14, weight: day.isSameDate(with: selectedDate) ? .bold : .regular))
+                                        .font(.system(size: 14, weight: day.isSameDate(with: hane.selectedDate) ? .bold : .regular))
                                 }
                             }
                             .frame(width: 30, height: 30)
@@ -71,7 +71,7 @@ struct CalendarGridView: View {
 
     func getGridColor(_ day: Date) -> Color {
         switch day {
-        case day where day.isSameDate(with: selectedDate):
+        case day where day.isSameDate(with: hane.selectedDate):
             return .dateSelected
         case day where day.isSameDate(with: Date.now):
             return .backgroundCalendar
@@ -82,9 +82,9 @@ struct CalendarGridView: View {
 
     func getTextColor(_ day: Date) -> Color {
         switch day {
-        case day where day > Date.now :
+        case day where day > Date.now:
             return .fontDisabled
-        case day where day.isSameDate(with: selectedDate):
+        case day where day.isSameDate(with: hane.selectedDate):
             return .fontWhite
         case day where day.isSameDate(with: Date.now):
             return .dateToday
@@ -110,8 +110,7 @@ struct CalendarGridView: View {
 
 }
 
-
 #Preview {
-    CalendarGridView(picker: .constant(false), selectedDate: .constant(Date()))
+    CalendarGridView(picker: .constant(false))
         .environmentObject(Hane())
 }
