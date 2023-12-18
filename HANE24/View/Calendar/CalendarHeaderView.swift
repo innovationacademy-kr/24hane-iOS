@@ -9,29 +9,28 @@ import SwiftUI
 
 struct CalendarHeaderView: View {
     @Binding var picker: Bool
-    @Binding var selectedDate: Date
     @EnvironmentObject var hane: Hane
 
     var body: some View {
         HStack {
             changeMonthButton(isForward: false)
-                .disabled(selectedDate.toString("yyyy.MM") <= "2022.08" || hane.loading)
+                .disabled(hane.selectedDate.toString("yyyy.MM") <= "2022.08" || hane.loading)
             Spacer()
-            Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
+            Text("\(hane.selectedDate.yearToString).\(hane.selectedDate.monthToString)")
                 .foregroundColor(picker ? .gradientPurple : .fontDefault )
                 .onTapGesture {
                     picker.toggle()
                 }
             Spacer()
             changeMonthButton(isForward: true)
-                .disabled(selectedDate.toString("yyyy.MM") >= Date().toString("yyyy.MM") || hane.loading)
+                .disabled(hane.selectedDate.toString("yyyy.MM") >= Date().toString("yyyy.MM") || hane.loading)
         }
         .font(.system(size: 20, weight: .semibold))
     }
 
     @ViewBuilder func changeMonthButton(isForward: Bool) -> some View {
         Button {
-            selectedDate = Calendar.current.date(byAdding: .month, value: isForward ? 1 : -1, to: selectedDate)!
+            hane.selectedDate = Calendar.current.date(byAdding: .month, value: isForward ? 1 : -1, to: hane.selectedDate)!
         } label: {
             ZStack {
                 Image(systemName: isForward ? "chevron.right" : "chevron.left")
@@ -44,6 +43,6 @@ struct CalendarHeaderView: View {
 }
 
 #Preview {
-    CalendarHeaderView(picker: .constant(false), selectedDate: .constant(Date()))
+    CalendarHeaderView(picker: .constant(false))
         .environmentObject(Hane())
 }

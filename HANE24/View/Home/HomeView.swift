@@ -140,9 +140,8 @@ struct HomeView: View {
 
                     ScrollView {
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                            /// [FixMe]
                             Task {
-                                try await hane.refresh(date: Date())
+                                try await hane.refresh()
                             }
                         }
 

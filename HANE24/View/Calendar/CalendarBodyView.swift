@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CalendarBodyView: View {
+    @EnvironmentObject var hane: Hane
     @State var picker = false
     @State var datePickerSelection: Date
-    @Binding var selectedDate: Date
-    
+
     var dateRange: ClosedRange<Date> {
         let min = Date(2022, 8, 1)
         let max = Date()
@@ -20,12 +20,12 @@ struct CalendarBodyView: View {
 
     var body: some View {
         VStack {
-            CalendarHeaderView(picker: $picker, selectedDate: $selectedDate)
+            CalendarHeaderView(picker: $picker)
                 .padding(10)
                 .padding(.bottom, 8)
             ZStack {
                 if !picker {
-                    CalendarGridView(picker: $picker, selectedDate: $selectedDate)
+                    CalendarGridView(picker: $picker)
                 } else {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -44,12 +44,13 @@ struct CalendarBodyView: View {
         }
         .onChange(of: picker) {pickerState in
             if !pickerState {
-                selectedDate = datePickerSelection
+                hane.selectedDate = datePickerSelection
             }
         }
     }
 }
 
 #Preview {
-    CalendarBodyView(datePickerSelection: Date(), selectedDate: .constant(Date()))
+    CalendarBodyView(datePickerSelection: Date())
+        .environmentObject(Hane())
 }

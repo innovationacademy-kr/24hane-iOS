@@ -36,7 +36,7 @@ struct MainView: View {
             .accentColor(Theme.toolBarIconColor(forScheme: colorScheme))
             .task {
                 do {
-                    try await hane.refresh(date: Date())
+                    try await hane.refresh()
                 } catch {
                     print("error on MainView \(error.localizedDescription)")
                 }

@@ -56,6 +56,9 @@ class Hane: ObservableObject {
 
     /// 카드 재발급 상태
     @Published var reissueState: CardState = .none
+    
+    /// 선택일자
+    @Published var selectedDate: Date = .now
 
     /// Model
     var inOutLog: InOutLog
@@ -112,11 +115,11 @@ class Hane: ObservableObject {
     }
 
     @MainActor
-    func refresh(date: Date) async throws {
+    func refresh() async throws {
         do {
             try await updateMainInfo()
             try await updateAccumulationTime()
-            try await updateMonthlyLogs(date: date)
+            try await updateMonthlyLogs(date: selectedDate)
         } catch {
             self.isSignIn = false
         }
