@@ -102,9 +102,10 @@ struct HomeView: View {
                             AsyncImage(url: URL(string: hane.profileImage)) { image in
                                 image
                                     .resizable()
+                                    .scaledToFill()
                                     .frame(width: 28, height: 28)
-                                    .padding(.trailing, 3)
                                     .clipShape(Circle())
+                                    .padding(.trailing, 3)
                             } placeholder: {
                                 Image(systemName: "person.circle")
                                     .resizable()
