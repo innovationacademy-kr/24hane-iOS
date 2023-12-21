@@ -146,10 +146,10 @@ struct HomeView: View {
                         }
 
                         VStack(spacing: 22.5) {
-                            TodayAccTimeCardView(isNoticed: $isNoticedFundInfo)
+                            TodayAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
                                 .padding(.horizontal, 30)
 
-                            ThisMonthAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
+                            ThisMonthAccTimeCardView(isNoticed: $isNoticedFundInfo)
                                 .padding(.horizontal, 30)
 
                             TabView {
