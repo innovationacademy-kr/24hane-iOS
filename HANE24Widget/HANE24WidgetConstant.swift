@@ -12,5 +12,5 @@ import WidgetKit
 struct HaneWidgetConstant {
     static var storageKey = "accessToken"
     static var appGroupName = "group.24HoursAreNotEnough"
-    static var widgetKind = "com.24Hane.hejang."
+    static var widgetKind = "com.24HoursAreNotEnough"
 }

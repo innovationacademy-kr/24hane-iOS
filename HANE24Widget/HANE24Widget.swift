@@ -14,8 +14,8 @@ struct Provider: TimelineProvider {
 
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(),
-                    accTimes: MonthlyAccumulationTimes(totalAccumulationTime: 123456,
-                                                       acceptedAccumulationTime: 12345), isTokenValid: true)
+                    accTimes: MonthlyAccumulationTimes(totalAccumulationTime: 153720,
+                                                       acceptedAccumulationTime: 153720), isTokenValid: true)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) { getMonthlyAccTime { (result, times) in
