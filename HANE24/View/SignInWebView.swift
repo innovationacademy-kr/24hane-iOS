@@ -8,6 +8,7 @@
 import SwiftUI
 import WebKit
 import Foundation
+import WidgetKit
 
 struct SignInWebView: UIViewRepresentable {
     @EnvironmentObject var hane: Hane
@@ -65,6 +66,8 @@ struct SignInWebView: UIViewRepresentable {
                 WKWebsiteDataStore.default().httpCookieStore.getAllCookies { (cookies) in
                     for cookie in cookies where cookie.name == "accessToken" {
                         UserDefaults.standard.setValue(String(cookie.value), forKey: "Token")
+                        UserDefaults.shared.setValue(String(cookie.value), forKey: HaneWidgetConstant.storageKey)
+                        WidgetCenter.shared.reloadAllTimelines()
                         self.hane.isSignIn = true
                         break
                     }
