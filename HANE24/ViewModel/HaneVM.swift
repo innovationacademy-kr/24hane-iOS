@@ -7,6 +7,7 @@
 
 import Foundation
 import WebKit
+import WidgetKit
 
 enum MyError: Error {
     case tokenExpired(String)
@@ -199,6 +200,8 @@ extension Hane {
         self.thisMonthAcceptedAccumulationTime = self.accumulationTimes.monthlyAcceptedAccumulationTime
 
         self.loading = false
+        
+        WidgetCenter.shared.reloadAllTimelines()
     }
     /**
      fetch

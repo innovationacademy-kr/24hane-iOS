@@ -31,7 +31,7 @@ struct Provider: TimelineProvider {
         let entry = SimpleEntry(date: Date(),
                                 accTimes: MonthlyAccumulationTimes(totalAccumulationTime: times.totalAccumulationTime,
                                                                    acceptedAccumulationTime: times.acceptedAccumulationTime), isTokenValid: result)
-        let nextRefresh = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
+        let nextRefresh = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
         let timeline = Timeline(entries: [entry], policy: .after(nextRefresh))
         completion(timeline)
         }
