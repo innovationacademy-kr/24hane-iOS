@@ -73,6 +73,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct HANE24WidgetEntryView: View {
+    @Environment(\.colorScheme) var colorScheme
     var entry: Provider.Entry
 
     var body: some View {
@@ -87,37 +88,38 @@ struct HANE24WidgetEntryView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom, spacing: 7) {
                 Text("24HANE")
-                    .font(.system(size: 12, weight: .bold))
-                    .foregroundStyle(Color.dateToday)
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(colorScheme == .dark ? Color(hex: "#FFFFFF") : Color(hex: "#735BF2"))
                 Text("\(entry.date.MM).\(entry.date.dd) \(entry.date.hourToString):\(entry.date.minuteToString) 기준")
                     .font(.system(size: 9))
-                    .foregroundStyle(Color.fontGray)
+                    .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
+                    .allowsTightening(true)
             }
-
+            
             HStack {
                 Rectangle()
                     .frame(width: 2, height: 32)
-                    .foregroundStyle(Color(hex: "#333333"))
+                    .foregroundStyle(colorScheme == .dark ? Color(hex: "#FFFFFF") : Color(hex: "#333333"))
                 VStack(alignment: .leading) {
                     Text("월 누적 시간")
                         .font(.system(size: 15, weight: .semibold))
                     Text("\(entry.accTimes.totalAccumulationTime / 3600) 시간 \(entry.accTimes.totalAccumulationTime % 3600 / 60) 분")
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(Color.fontDefault)
+                        .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
                 }
             }
             .padding(.top, 18)
-
+            
             HStack {
                 Rectangle()
                     .frame(width: 2, height: 32)
-                    .foregroundStyle(Color(hex: "#735BF2"))
+                    .foregroundStyle(colorScheme == .dark ? Color(hex: "#FFFFFF") : Color(hex: "#735BF2"))
                 VStack(alignment: .leading) {
                     Text("인정 시간")
                         .font(.system(size: 15, weight: .semibold))
                     Text("\(entry.accTimes.acceptedAccumulationTime / 3600) 시간 \(entry.accTimes.acceptedAccumulationTime % 3600 / 60) 분")
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(Color.fontDefault)
+                        .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
                 }
             }
             .padding(.top, 12)
@@ -130,7 +132,7 @@ struct HANE24WidgetEntryView: View {
                 .font(.system(size: 15, weight: .semibold))
             Text("앱에서 다시 로그인을 진행해주세요")
                 .font(.system(size: 12, weight: .medium))
-                .foregroundStyle(Color.fontGray)
+                .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
         }
     }
 }
@@ -141,7 +143,7 @@ struct HANE24Widget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             HANE24WidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(Color("WidgetBackground"), for: .widget)
         }
         .configurationDisplayName("24HANE Widget")
         .description("총 체류시간 & 인정시간 제공")
