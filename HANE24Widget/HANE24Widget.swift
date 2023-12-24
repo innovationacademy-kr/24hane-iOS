@@ -9,7 +9,6 @@ import WidgetKit
 import Foundation
 import SwiftUI
 
-
 struct Provider: TimelineProvider {
 
     func placeholder(in context: Context) -> SimpleEntry {
@@ -40,11 +39,10 @@ struct Provider: TimelineProvider {
     private func getMonthlyAccTime(completion: @escaping((Bool, MonthlyAccumulationTimes) -> Void)) {
         let APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         var components = URLComponents(string: APIroot + "/v3/tag-log/getAllTagPerMonth")!
-        let year = URLQueryItem(name: "year", value: "\(2023)")
-        let month = URLQueryItem(name: "month", value: "\(12)")
+        let year = URLQueryItem(name: "year", value: "\(Date.now.yearToInt)")
+        let month = URLQueryItem(name: "month", value: "\(Date.now.monthToInt)")
         components.queryItems = [year, month]
         guard let token = getAccessToken() else {
-            print("invalid Token")
             completion(false, MonthlyAccumulationTimes(totalAccumulationTime: 0, acceptedAccumulationTime: 0))
             return
         }
@@ -64,7 +62,6 @@ struct Provider: TimelineProvider {
     }
 
     private func getAccessToken() -> String? {
-        print("accessToken", UserDefaults.shared.string(forKey: HaneWidgetConstant.storageKey))
         return UserDefaults.shared.string(forKey: HaneWidgetConstant.storageKey)
     }
 }
@@ -126,7 +123,7 @@ struct HANE24WidgetEntryView: View {
             .padding(.top, 12)
         }
     }
-    
+
     var tokenExpired: some View {
         VStack(alignment: .center, spacing: 10) {
             Text("인증 유효시간 초과")
