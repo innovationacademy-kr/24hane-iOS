@@ -87,11 +87,11 @@ struct HANE24WidgetEntryView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom, spacing: 7) {
                 Text("24HANE")
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundStyle(Color(hex: "#735BF2"))
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(Color.dateToday)
                 Text("\(entry.date.MM).\(entry.date.dd) \(entry.date.hourToString):\(entry.date.minuteToString) 기준")
                     .font(.system(size: 9))
-                    .foregroundStyle(Color.black.opacity(0.35))
+                    .foregroundStyle(Color.fontGray)
             }
 
             HStack {
@@ -103,7 +103,7 @@ struct HANE24WidgetEntryView: View {
                         .font(.system(size: 15, weight: .semibold))
                     Text("\(entry.accTimes.totalAccumulationTime / 3600) 시간 \(entry.accTimes.totalAccumulationTime % 3600 / 60) 분")
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(Color.black.opacity(0.5))
+                        .foregroundStyle(Color.fontDefault)
                 }
             }
             .padding(.top, 18)
@@ -117,7 +117,7 @@ struct HANE24WidgetEntryView: View {
                         .font(.system(size: 15, weight: .semibold))
                     Text("\(entry.accTimes.acceptedAccumulationTime / 3600) 시간 \(entry.accTimes.acceptedAccumulationTime % 3600 / 60) 분")
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(Color.black.opacity(0.5))
+                        .foregroundStyle(Color.fontDefault)
                 }
             }
             .padding(.top, 12)
@@ -130,7 +130,7 @@ struct HANE24WidgetEntryView: View {
                 .font(.system(size: 15, weight: .semibold))
             Text("앱에서 다시 로그인을 진행해주세요")
                 .font(.system(size: 12, weight: .medium))
-                .foregroundStyle(Color.black.opacity(0.5))
+                .foregroundStyle(Color.fontGray)
         }
     }
 }
