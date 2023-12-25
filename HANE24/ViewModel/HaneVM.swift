@@ -113,7 +113,10 @@ class Hane: ObservableObject {
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             guard self.isInCluster else { return }
-            self.dailyAccumulationTime += 1
+            self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
+            if let lastTag = self.lastTag {
+                self.dailyAccumulationTime += (Date.now.millisecondsSince1970 - lastTag.millisecondsSince1970) / 1000
+            }
         }
     }
 
