@@ -72,6 +72,8 @@ class Hane: ObservableObject {
 
     var timer: Timer?
 
+    var lastTag: Date?
+
     init() {
         self.isInCluster = false
         self.profileImage = ""
@@ -111,7 +113,10 @@ class Hane: ObservableObject {
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             guard self.isInCluster else { return }
-            self.dailyAccumulationTime += 1
+            self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
+            if let lastTag = self.lastTag {
+                self.dailyAccumulationTime += (Date.now.millisecondsSince1970 - lastTag.millisecondsSince1970) / 1000
+            }
         }
     }
 
@@ -184,6 +189,14 @@ extension Hane {
             content: mainInfo.infoMessages.tagLatencyNotice.content
         )
 
+        // 실시간 이용시간 계산용 마지막 태그 시각
+        if let tagAt = mainInfo.tagAt {
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            self.lastTag = formatter.date(from: tagAt)
+        }
+
         self.loading = false
     }
 
@@ -199,8 +212,13 @@ extension Hane {
         self.sixMonthAccumulationTime = self.accumulationTimes.sixMonthAccumulationTime
         self.thisMonthAcceptedAccumulationTime = self.accumulationTimes.monthlyAcceptedAccumulationTime
 
+        // 만약 클러스터 상주중이라면 실시간 이용시간에 현재시간 - 마지막태그시간 값 더해주기
+        if self.isInCluster, let lastTag = self.lastTag {
+            self.dailyAccumulationTime += (Date.now.millisecondsSince1970 - lastTag.millisecondsSince1970) / 1000
+        }
+
         self.loading = false
-        
+
         WidgetCenter.shared.reloadAllTimelines()
     }
     /**
