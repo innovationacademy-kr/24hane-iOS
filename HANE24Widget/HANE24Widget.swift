@@ -9,7 +9,6 @@ import WidgetKit
 import Foundation
 import SwiftUI
 
-
 struct Provider: TimelineProvider {
 
     func placeholder(in context: Context) -> SimpleEntry {
@@ -40,11 +39,10 @@ struct Provider: TimelineProvider {
     private func getMonthlyAccTime(completion: @escaping((Bool, MonthlyAccumulationTimes) -> Void)) {
         let APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         var components = URLComponents(string: APIroot + "/v3/tag-log/getAllTagPerMonth")!
-        let year = URLQueryItem(name: "year", value: "\(2023)")
-        let month = URLQueryItem(name: "month", value: "\(12)")
+        let year = URLQueryItem(name: "year", value: "\(Date.now.yearToInt)")
+        let month = URLQueryItem(name: "month", value: "\(Date.now.monthToInt)")
         components.queryItems = [year, month]
         guard let token = getAccessToken() else {
-            print("invalid Token")
             completion(false, MonthlyAccumulationTimes(totalAccumulationTime: 0, acceptedAccumulationTime: 0))
             return
         }
@@ -64,7 +62,6 @@ struct Provider: TimelineProvider {
     }
 
     private func getAccessToken() -> String? {
-        print("accessToken", UserDefaults.shared.string(forKey: HaneWidgetConstant.storageKey))
         return UserDefaults.shared.string(forKey: HaneWidgetConstant.storageKey)
     }
 }
@@ -76,6 +73,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct HANE24WidgetEntryView: View {
+    @Environment(\.colorScheme) var colorScheme
     var entry: Provider.Entry
 
     var body: some View {
@@ -91,49 +89,50 @@ struct HANE24WidgetEntryView: View {
             HStack(alignment: .bottom, spacing: 7) {
                 Text("24HANE")
                     .font(.system(size: 12, weight: .semibold))
-                    .foregroundStyle(Color(hex: "#735BF2"))
+                    .foregroundStyle(colorScheme == .dark ? Color(hex: "#FFFFFF") : Color(hex: "#735BF2"))
                 Text("\(entry.date.MM).\(entry.date.dd) \(entry.date.hourToString):\(entry.date.minuteToString) 기준")
                     .font(.system(size: 9))
-                    .foregroundStyle(Color.black.opacity(0.35))
+                    .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
+                    .allowsTightening(true)
             }
-
+            
             HStack {
                 Rectangle()
                     .frame(width: 2, height: 32)
-                    .foregroundStyle(Color(hex: "#333333"))
+                    .foregroundStyle(colorScheme == .dark ? Color(hex: "#FFFFFF") : Color(hex: "#333333"))
                 VStack(alignment: .leading) {
                     Text("월 누적 시간")
                         .font(.system(size: 15, weight: .semibold))
                     Text("\(entry.accTimes.totalAccumulationTime / 3600) 시간 \(entry.accTimes.totalAccumulationTime % 3600 / 60) 분")
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(Color.black.opacity(0.5))
+                        .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
                 }
             }
             .padding(.top, 18)
-
+            
             HStack {
                 Rectangle()
                     .frame(width: 2, height: 32)
-                    .foregroundStyle(Color(hex: "#735BF2"))
+                    .foregroundStyle(colorScheme == .dark ? Color(hex: "#FFFFFF") : Color(hex: "#735BF2"))
                 VStack(alignment: .leading) {
                     Text("인정 시간")
                         .font(.system(size: 15, weight: .semibold))
                     Text("\(entry.accTimes.acceptedAccumulationTime / 3600) 시간 \(entry.accTimes.acceptedAccumulationTime % 3600 / 60) 분")
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(Color.black.opacity(0.5))
+                        .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
                 }
             }
             .padding(.top, 12)
         }
     }
-    
+
     var tokenExpired: some View {
         VStack(alignment: .center, spacing: 10) {
             Text("인증 유효시간 초과")
                 .font(.system(size: 15, weight: .semibold))
             Text("앱에서 다시 로그인을 진행해주세요")
                 .font(.system(size: 12, weight: .medium))
-                .foregroundStyle(Color.black.opacity(0.5))
+                .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
         }
     }
 }
@@ -144,7 +143,7 @@ struct HANE24Widget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             HANE24WidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(Color("WidgetBackground"), for: .widget)
         }
         .configurationDisplayName("24HANE Widget")
         .description("총 체류시간 & 인정시간 제공")
