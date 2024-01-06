@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-func  numOfDays(selection: Int) -> Double{
+func  numOfDays(selection: Int) -> Double {
     let date =  Calendar.current.date(byAdding: .month, value: -selection, to: Date())!
-    return Double(date.nubmerOfDays)
+    return Double(date.numberOfDays)
 }
 
 struct ChartDetailView: View {
@@ -18,12 +18,12 @@ struct ChartDetailView: View {
     var time: Double
     var period: String
     var body: some View {
-        ZStack{
+        ZStack {
             VStack(spacing: -3) {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.chartDetailBG)
                     .frame(height: 60)
-                HStack{
+                HStack {
                     ForEach(0..<6) { idx in
                             ZStack {
                                 Rectangle()
@@ -36,31 +36,32 @@ struct ChartDetailView: View {
                             .padding(.horizontal, 4)
                         }
                 }
-                
+
             }
-            VStack{
-                HStack{
+            VStack {
+                HStack {
                     Text(period)
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
                     Spacer()
-                    Text("총 \((time / 3600), specifier: "%.1f")시간")
+                    /// 소수점 아래 1자리까지 시간 단위로 표기 (내림처리)
+                    Text("총 \(floor(time / 360) / 10, specifier: "%.1f")시간")
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
 
                 }
                 .padding(.bottom, 2)
-                HStack{
+                HStack {
                     Spacer()
                     Text("일 평균")
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
                     if id == "주" {
-                        Text("\((time / 3600) / 7, specifier: "%.1f")시간")
+                        Text("\(floor(time / 360) / 70, specifier: "%.1f")시간")
                             .foregroundColor(.white)
                             .font(.system(size: 12, weight: .semibold))
                     } else {
-                        Text("\((time / 3600) / (numOfDays(selection: selectedChart)), specifier: "%.1f")시간")
+                        Text("\((floor(time / 360) / 10) / (numOfDays(selection: selectedChart)), specifier: "%.1f")시간")
                         .foregroundColor(.white)
                         .font(.system(size: 12, weight: .semibold))
                     }
@@ -73,8 +74,6 @@ struct ChartDetailView: View {
     }
 }
 
-struct ChartDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChartDetailView(selectedChart: .constant(3), id: "월", time: 1800, period: "1.2(월)-1.8(일)")
-    }
+#Preview {
+    ChartDetailView(selectedChart: .constant(3), id: "월", time: 1800, period: "1.2(월)-1.8(일)")
 }

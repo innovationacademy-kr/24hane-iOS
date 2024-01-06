@@ -8,207 +8,109 @@
 import SwiftUI
 
 struct CalendarGridView: View {
-    @State var picker = false
-    @Binding var selectedDate: Date
-    @Environment(\.colorScheme) var colorScheme
+    @Binding var picker: Bool
+
     @EnvironmentObject var hane: Hane
-    
-    var dateRange: ClosedRange<Date> {
-        let min = theDate("2022.08.01")
-        let max = Date()
-        return min...max
-      }
+
+    let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
+    let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
 
     var body: some View {
-        VStack {
-            // 상단 문자열
-            HStack {
-                Button(action: {
-                    selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
-                    Task{
-                        try await hane.updateMonthlyLogs(date: selectedDate)
+        ZStack {
+            LoadingAnimation()
+                .isHidden(!hane.loading)
+            VStack {
+                // day of week
+                LazyVGrid(columns: cols, spacing: 12) {
+                    ForEach(weekdays, id: \.self) { dayOfWeek in
+                        Text("\(dayOfWeek)")
+                            .foregroundColor(.fontDisabled)
+                            .font(.system(size: 13, weight: .light))
                     }
+                }
 
-                }, label: {
-                    ZStack{
-                        Image(systemName: "chevron.left")
-                            .resizable()
-                            .frame(width: 8, height: 12)
-                    }
-                    .frame(width: 15, height: 15)
-
-                })
-                .disabled(selectedDate.toString("yyyy.MM") <= "2022.08" || hane.loading)
-
-                Spacer()
-
-                Text("\(selectedDate.yearToString).\(selectedDate.monthToString)")
-                    .foregroundColor(colorScheme == .dark ? .white : Color(hex: "#333333"))
-                    .onTapGesture {
-                        picker.toggle()
-                        if !picker {
-                            Task {
-                                try await hane.updateMonthlyLogs(date: selectedDate)
-                            }
-                        }
-                    }
-
-                Spacer()
-
-                Button(action: {
-                    selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
-                    Task{
-                        try await hane.updateMonthlyLogs(date: selectedDate)
-                    }
-                }, label: {
-                    ZStack{
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .frame(width: 8, height: 12)
-                    }
-                    .frame(width: 15, height: 15)
-                })
-                .disabled(selectedDate.toString("yyyy.MM") >= Date().toString("yyyy.MM") || hane.loading)
-            }
-            .font(.system(size: 20, weight: .semibold))
-            .padding(10)
-            .padding(.bottom, 8)
-
-            // LazyGrid
-            let week = ["일", "월", "화", "수", "목", "금", "토"]
-            let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
-
-            ZStack{
-                LoadingAnimation()
-                    .isHidden(!hane.loading)
-
-                VStack {
-                    // day of week
-                    LazyVGrid(columns: cols, spacing: 12) {
-                        ForEach(week, id: \.self) { dayOfWeek in
-                            Text("\(dayOfWeek)")
-                                .foregroundColor(Color(hex: "#979797"))
-                                .font(.system(size: 13, weight: .light))
-                        }
-                    }
-
-                    // days with color
-                    // is future ? disabled
-                    // is selected ? Circle with white font
-                    // is today ? border only
-                    // default
-                    LazyVGrid(columns: cols, spacing: 12) {
-                        ForEach((daysOfMonth(selectedDate)), id: \.self) { dayOfMonth in
-                            if dayOfMonth > 0 {
-                                Button {
-                                    let dateFormatter = DateFormatter()
-                                    dateFormatter.dateFormat = "yyyy.M.d"
-                                    if let date = dateFormatter.date(from: "\(selectedDate.yearToInt).\(selectedDate.monthToInt).\(dayOfMonth)") {
-                                        selectedDate = date
-                                    } else {
-                                        selectedDate = Date()
-                                    }
-                                } label: {
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: dayOfMonth == selectedDate.dayToInt ? 20 : 10)
-                                            .foregroundColor(dayOfMonth == selectedDate.dayToInt
-                                                             ? Color(hex: "#735BF2")
-                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
-                                                             ? (colorScheme == .light ? .white : .DarkDefaultBG)
-                                                             : calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[dayOfMonth])) //TODO -> colorLevelTable
-                                            .overlay {
-                                                if "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd") && dayOfMonth != selectedDate.dayToInt {
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(colorScheme == .light ? Color(hex: "#735BF2") : .white, lineWidth: 1)
-                                                }
+                // days with color
+                // is future ? disabled
+                // is selected ? Circle with white font
+                // is today ? border only
+                // default
+                LazyVGrid(columns: cols, spacing: 12) {
+                    ForEach(hane.selectedDate.daysOfMonth.indices, id: \.self) { d in
+                        if let day = hane.selectedDate.daysOfMonth[d] {
+                            Button {
+                                hane.selectedDate = day
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: day.isSameDate(with: hane.selectedDate) ? 20 : 10)
+                                        .foregroundColor(getGridColor(day))
+                                        .overlay {
+                                            if day.isSameDate(with: Date())
+                                                && !day.isSameDate(with: hane.selectedDate) {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color.dateToday, lineWidth: 1)
                                             }
-                                            .isHidden("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
+                                        }
+                                        .isHidden(day > Date.now)
 
-                                        Text("\(dayOfMonth)")
-                                            .foregroundColor("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd")
-                                                             ? Color(hex: "#979797")
-                                                             : dayOfMonth == selectedDate.dayToInt
-                                                             ? .white
-                                                             : "\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" == Date().toString("yyyy.MM.dd")
-                                                             ? (colorScheme == .light ? Color(hex: "#735BF2") : .white)
-                                                             : (colorScheme == .light ? Color(hex: "#333333") : .white))
-                                            .font(.system(size: 14, weight: dayOfMonth == selectedDate.dayToInt ? .bold : .regular))
-                                    }
+                                    Text("\(day.dayToInt)")
+                                        .foregroundColor(getTextColor(day))
+                                        .font(.system(size: 14, weight: day.isSameDate(with: hane.selectedDate) ? .bold : .regular))
                                 }
-                                .frame(width: 30, height: 30)
-                                .disabled("\(selectedDate.yearToInt).\(selectedDate.MM).\(String(format: "%02d", dayOfMonth))" > Date().toString("yyyy.MM.dd"))
-                            } else {
-                                Text("")
                             }
+                            .frame(width: 30, height: 30)
+                            .disabled(day > Date.now)
+                        } else {
+                            Text("")
                         }
                     }
-                    .isHidden(hane.loading)
                 }
-                
-                // DatePicker
-                if picker {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(colorScheme == .light ? .white : Color(hex: "#333333"))
-
-                        DatePicker(
-                            "Date",
-                            selection: $selectedDate,
-                            in: dateRange,
-                            displayedComponents: [.date])
-                            .datePickerStyle(WheelDatePickerStyle())
-                    }
-                    .frame(maxWidth: 100)
-                }
+                .isHidden(hane.loading)
             }
         }
     }
 
-    /// 오늘 날짜 받아서 달력에 들어갈 날짜를 [Int]로 뽑는 func
-    /// 1일 이전 빈칸은 0일
-    func daysOfMonth(_ today: Date) -> [Int] {
-        var firstDay: Date {
-            let cal = Calendar.current
-            let dateComponents = DateComponents(year: today.yearToInt, month: today.monthToInt)
-            return cal.date(from: dateComponents) ?? Date()
+    func getGridColor(_ day: Date) -> Color {
+        switch day {
+        case day where day.isSameDate(with: hane.selectedDate):
+            return .dateSelected
+        case day where day.isSameDate(with: Date.now):
+            return .backgroundCalendar
+        default:
+            return calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[day.dayToInt])
         }
-        var lastDay: Date {
-            let cal = Calendar.current
-            let nextMonth = cal.date(byAdding: .month, value: 1, to: firstDay) ?? today
-            let endOfMonth = cal.date(byAdding: .day, value: -1, to: nextMonth) ?? today
-            return endOfMonth
-        }
-        var days: [Int] = Array()
+    }
 
-        for i in 1..<firstDay.weekdayToInt {
-            days.append(-i)
+    func getTextColor(_ day: Date) -> Color {
+        switch day {
+        case day where day > Date.now:
+            return .fontDisabled
+        case day where day.isSameDate(with: hane.selectedDate):
+            return .fontWhite
+        case day where day.isSameDate(with: Date.now):
+            return .dateToday
+        default:
+            return .fontDefault
         }
-        for i in 1...lastDay.dayToInt {
-            days.append(i)
-        }
-        return days
     }
 
     func calculateLogColor(accumulationTime: Int64) -> Color {
-        switch accumulationTime{
-        case 0 :
-            return colorScheme == .light ? .white : .DarkDefaultBG
-        case 1 ... 10800 :
-            return colorScheme == .light ? Color.LightcalendarColorLv1 : Color.DarkcalendarColorLv1
-        case 10801 ... 21600 :
-            return colorScheme == .light ? Color.LightcalendarColorLv2 : Color.DarkcalendarColorLv2
-        case 21601 ... 32400 :
-            return colorScheme == .light ? Color.LightcalendarColorLv3 : Color.DarkcalendarColorLv3
+        switch accumulationTime {
+        case 0:
+            return .backgroundCalendar
+        case 1 ... 14400:
+            return .dateBackgroundLevel1
+        case 14400 ... 28800:
+            return .dateBackgroundLevel2
+        case 28800 ... 43200:
+            return .dateBackgroundLevel3
         default:
-            return colorScheme == .light ? Color.LightcalendarColorLv4 : Color.DarkcalendarColorLv4
+            return .dateBackgroundLevel4
         }
     }
+
 }
 
-
-struct CalendarGridView_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarGridView(selectedDate: .constant(Date()))
-            .environmentObject(Hane())
-    }
+#Preview {
+    CalendarGridView(picker: .constant(false))
+        .environmentObject(Hane())
 }

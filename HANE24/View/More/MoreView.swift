@@ -14,19 +14,17 @@ var listItems: [MoreItem] = [
     MoreItem(id: UUID(), title: "이용가이드", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/usage", image: "info"),
     MoreItem(id: UUID(), title: "앱 피드백", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/feedback", image: "user"),
     MoreItem(id: UUID(), title: "이용약관", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/terms", image: "union")
-
-    
 ]
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    
+
     var body: some View {
-        NavigationView{
+        NavigationView {
             ZStack(alignment: .topLeading) {
-                Theme.BackgoundColor(forScheme: colorScheme)
+                Theme.backgroundColor(forScheme: colorScheme)
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing: 30) {
                     Text("더보기")
@@ -40,14 +38,14 @@ struct MoreView: View {
                                 .frame(width: 24, height: 24)
                                 .foregroundColor(.iconColor)
                             Text("카드 재발급 신청")
-                                .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
+                                .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
                                 .font(.system(size: 16, weight: .semibold))
                         }
                     }
                     .padding(.horizontal, 40)
                     .navigationBarHidden(true)
-                    .simultaneousGesture(TapGesture().onEnded{
-                        Task{
+                    .simultaneousGesture(TapGesture().onEnded {
+                        Task {
                             try await hane.updateReissueState()
                         }
                     })
@@ -64,14 +62,14 @@ struct MoreView: View {
                                 }
                             } label: {
                                 Text(item.title)
-                                    .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
+                                    .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
                                     .font(.system(size: 16, weight: .semibold))
                             }
                         }
                         .padding(.horizontal, 40)
                     }
                     Button {
-                        hane.SignOut()
+                        hane.signOut()
                     } label: {
                         HStack(spacing: 10) {
                             Image("logout")
@@ -79,12 +77,12 @@ struct MoreView: View {
                                 .frame(width: 24, height: 24)
                                 .foregroundColor(.iconColor)
                             Text("로그아웃")
-                                .foregroundColor(Theme.TextGrayColor(forScheme: colorScheme))
+                                .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
                                 .font(.system(size: 16, weight: .semibold))
                         }
                     }
                     .padding(.horizontal, 40)
-                    VStack(alignment: .center){
+                    VStack(alignment: .center) {
                         Divider()
                             .padding(.top, -10)
                         Text("🅒 2023. 24HANE. all rights reserved.")
@@ -95,13 +93,11 @@ struct MoreView: View {
                 }
             }
         }
-        
+
     }
 }
 
-struct MoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        MoreView()
-            .environmentObject(Hane())
-    }
+#Preview {
+    MoreView()
+        .environmentObject(Hane())
 }

@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="MonthlyLog" representedClassName="MonthlyLog" syncable="YES" codeGenerationType="class">
-        <attribute name="date" attributeType="String"/>
-        <attribute name="inOutLogs" attributeType="Transformable" customClassName="InOutLogs"/>
-        <attribute name="needUpdate" attributeType="Boolean" usesScalarValueType="YES"/>
-    </entity>
-</model>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier=""/>

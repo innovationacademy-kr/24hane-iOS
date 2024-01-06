@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-struct progressItem: Identifiable{
+struct ProgressItem: Identifiable {
     var id: String
     var title: String
     var statement: String
     var isProcessing: Bool
 }
 
-
-struct alertItem: Identifiable{
+struct AlertItem: Identifiable {
     var id: String
     var title1: String
     var title2: String
@@ -23,13 +22,10 @@ struct alertItem: Identifiable{
     var buttonTitle: String
 }
 
-var items: [alertItem] = [
-    alertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"),
-    alertItem(id: "수령", title1: "저는 카드를 받았음을", title2: "확인했습니다.", statement: "실물 카드를 받은 후 눌러주세요.", buttonTitle: "네, 확인했습니다")
-    
+var items: [AlertItem] = [
+    AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"),
+    AlertItem(id: "수령", title1: "저는 카드를 받았음을", title2: "확인했습니다.", statement: "실물 카드를 받은 후 눌러주세요.", buttonTitle: "네, 확인했습니다")
 ]
-
-
 
 struct ReissuanceView: View {
     @GestureState private var dragOffset = CGSize.zero
@@ -38,21 +34,21 @@ struct ReissuanceView: View {
     @Environment(\.openURL) private var openURL
     @EnvironmentObject var hane: Hane
     @State var showAlert = false
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Theme.BackgoundColor(forScheme: colorScheme)
+            Theme.backgroundColor(forScheme: colorScheme)
                 .ignoresSafeArea()
                 .navigationBarBackButtonHidden(true)
                 .navigationBarHidden(true)
-            
+
             VStack {
-                HStack{
+                HStack {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Image(systemName: "chevron.left")
-                            .foregroundColor(Theme.ToolBarIconColor(forScheme: colorScheme))
+                            .foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
                             .imageScale(.large)
                             .padding()
                     })
@@ -61,14 +57,14 @@ struct ReissuanceView: View {
                         .font(.system(size: 20, weight: .bold))
                     Spacer()
                     Image(systemName: "chevron.left")
-                        .foregroundColor(Theme.ToolBarIconColor(forScheme: colorScheme))
+                        .foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
                         .imageScale(.large)
                         .padding()
                         .isHidden(true)
                 }
                 .padding(.bottom, 15)
                 VStack(spacing: 15) {
-                    HStack{
+                    HStack {
                         Text("재발급 신청 방법")
                             .font(.system(size: 20, weight: .bold))
                         Spacer()
@@ -76,8 +72,8 @@ struct ReissuanceView: View {
                     Button {
                         if let url = URL(string: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/reissuance_guidelines") {
                             openURL(url)}
-                        } label: {
-                        ZStack{
+                    } label: {
+                        ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(colorScheme == .dark ? .white : .chartDetailBG)
                                 .frame(height: 45)
@@ -87,7 +83,7 @@ struct ReissuanceView: View {
                         }
                     }
                     .padding(.bottom, 20)
-                    HStack{
+                    HStack {
                         Text("재발급 신청 현황")
                             .font(.system(size: 20, weight: .bold))
                         Spacer()
@@ -96,16 +92,31 @@ struct ReissuanceView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(.white)
                             .frame(height: 300)
-                        VStack(alignment: .leading){
-                            CardProgressView(item: progressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: (hane.reissueState == .apply)))
+                        VStack(alignment: .leading) {
+                            CardProgressView(item: ProgressItem(
+                                id: "신청",
+                                title: "신청 후 업체에 입금해주세요",
+                                statement: "업체에서 입금 확인 후 제작이 진행됩니다.",
+                                isProcessing: (hane.reissueState == .apply)
+                            ))
                             Image(systemName: "chevron.down")
                                 .foregroundColor(Color(hex: "D9D9D9"))
                                 .padding(.horizontal, 30)
-                            CardProgressView(item:  progressItem(id: "제작", title: "제작 기간은 약 2주간 소요됩니다", statement: "출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: (hane.reissueState == .inProgress)))
+                            CardProgressView(item: ProgressItem(
+                                id: "제작",
+                                title: "제작 기간은 약 2주간 소요됩니다",
+                                statement: "출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.",
+                                isProcessing: (hane.reissueState == .inProgress)
+                            ))
                             Image(systemName: "chevron.down")
                                 .foregroundColor(Color(hex: "D9D9D9"))
                                 .padding(.horizontal, 30)
-                            CardProgressView(item: progressItem(id: "완료", title: "카드를 수령해주세요", statement: "재발급 카드는 데스크에서 수령 가능합니다", isProcessing: (hane.reissueState == .pickUpRequested)))
+                            CardProgressView(item: ProgressItem(
+                                id: "완료",
+                                title: "카드를 수령해주세요",
+                                statement: "재발급 카드는 데스크에서 수령 가능합니다",
+                                isProcessing: (hane.reissueState == .pickUpRequested)
+                            ))
                         }
                     }
                     Spacer()
@@ -122,19 +133,18 @@ struct ReissuanceView: View {
                 AlertView(showAlert: $showAlert, item: (hane.reissueState == .pickUpRequested) ? items[1] : items[0])
             }
         }
-        .gesture(DragGesture().updating($dragOffset) { (value, state, transaction) in
-            if (value.startLocation.x < 30 && value.translation.width > 100) {
+        .gesture(DragGesture().updating($dragOffset) { (value, _, _) in
+            if value.startLocation.x < 30 && value.translation.width > 100 {
                 self.presentationMode.wrappedValue.dismiss()
             }
         })
     }
-    
+
     var reissueButton: some View {
-        Button (action :{
+        Button {
             showAlert = true
-        },
-        label: {
-            ZStack{
+        } label: {
+            ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor((hane.reissueState == .none || hane.reissueState == .done) ? .gradientPurple : .textGrayMoreView)
                     .frame(height: 45)
@@ -142,16 +152,15 @@ struct ReissuanceView: View {
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
             }
-        })
+        }
         .disabled((hane.reissueState != .none && hane.reissueState != .done))
     }
-    
+
     var receiveButton: some View {
-        Button (action :{
+        Button {
             showAlert = true
-        },
-        label: {
-            ZStack{
+        } label: {
+            ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor((hane.reissueState == .pickUpRequested) ? .gradientPurple : .iconColor)
                     .frame(height: 45)
@@ -159,7 +168,7 @@ struct ReissuanceView: View {
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
             }
-        })
+        }
     }
 
 }

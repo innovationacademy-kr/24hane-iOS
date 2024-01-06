@@ -9,18 +9,18 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    
+
     @EnvironmentObject var hane: Hane
     @ObservedObject var networkManager = NetworkManager()
     @State var signInChecked = false
     let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirst")
 
     var body: some View {
-        ZStack{
+        ZStack {
             if !signInChecked {
                 LoadingView()
             } else {
-                switch hane.isSignIn{
+                switch hane.isSignIn {
                 case false:
                     SignInView()
                 case true:
@@ -28,13 +28,14 @@ struct ContentView: View {
                 }
             }
         }
-        .task{
+        .task {
             if isFirstLogin == false {
                 UserDefaults.standard.setValue(0, forKey: "DailySelectionOption")
                 UserDefaults.standard.setValue(0, forKey: "MonthlySelectionOption")
                 UserDefaults.standard.set(true, forKey: "isFirst")
             }
-            do{
+
+            do {
                 try  hane.isSignIn = await hane.isLogin() ? true : false
                 self.signInChecked = true
             } catch {
@@ -42,22 +43,18 @@ struct ContentView: View {
             }
 
         }
-        .alert(isPresented: $networkManager.showAlert){
+        .alert(isPresented: $networkManager.showAlert) {
             Alert(title: Text("Error"), message: Text("네트워크 연결 상태를 확인해주세요."),
             dismissButton: .default(Text("다시시도"), action: {
-                networkManager.monitoringNetwork{ isConnected in
+                networkManager.monitoringNetwork { _ in
                 }
             }))
         }
     }
 
-
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            .environmentObject(Hane())
-    }
+#Preview {
+    ContentView()
+        .environmentObject(Hane())
 }

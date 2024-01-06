@@ -15,15 +15,15 @@ enum Stat {
 }
 
 struct SignInView: View {
-    
-    @EnvironmentObject var hane : Hane
+
+    @EnvironmentObject var hane: Hane
     @State var viewStat: Stat = .buttonNotTabbed
-    
+
     var body: some View {
-        ZStack{
+        ZStack {
             SignInWebView(viewStat: $viewStat)
-            if viewStat != .readyToSignIn{
-                ZStack{
+            if viewStat != .readyToSignIn {
+                ZStack {
                     LinearGradient(gradient: Gradient(colors: [.gradientPurple, .gradientBlue]), startPoint: .bottomLeading, endPoint: .topTrailing)
                         .ignoresSafeArea()
                     VStack(alignment: .center) {
@@ -37,21 +37,20 @@ struct SignInView: View {
                         Text("입/퇴실 시 출입카드를 꼭 태깅해주세요.")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.white)
-                        Button{
+                        Button {
                             if self.viewStat == .viewAppeared {
                                 self.viewStat = .readyToSignIn
                             } else {
                                 self.viewStat = .buttonTabbed
                             }
                         } label: {
-                            ZStack{
+                            ZStack {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundColor(Color.DarkDefaultBG)
                                 if viewStat != .buttonTabbed {
                                     Text("LOG IN")
                                         .foregroundColor(.white)
-                                }
-                                else {
+                                } else {
                                     LoadingAnimation()
                                 }
                             }
@@ -66,9 +65,7 @@ struct SignInView: View {
     }
 }
 
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInView()
-            .environmentObject(Hane())
-    }
+#Preview {
+    SignInView()
+        .environmentObject(Hane())
 }

@@ -10,14 +10,14 @@ import SwiftUI
 struct TagLogView: View {
     @EnvironmentObject var hane: Hane
     @Environment(\.colorScheme) var colorScheme
-    @Binding var selectedDate: Date
+
     var logList: [Log]
-    
+
     var body: some View {
-        let dailyTotalTime = hane.dailyTotalTimesInAMonth[selectedDate.dayToInt]
-        VStack(alignment:.center, spacing: 4) {
-            HStack{
-                Text("\(selectedDate.monthToInt).\(selectedDate.dayToInt) \(selectedDate.toString("E"))요일")
+        let dailyTotalTime = hane.dailyTotalTimesInAMonth[hane.selectedDate.dayToInt]
+        VStack(alignment: .center, spacing: 4) {
+            HStack {
+                Text("\(hane.selectedDate.monthToInt).\(hane.selectedDate.dayToInt) \(hane.selectedDate.toString("E"))요일")
                     .padding(.leading, 5)
                 Spacer()
                 Text("\(dailyTotalTime / 3600)시간 \((dailyTotalTime % 3600) / 60)분")
@@ -25,28 +25,27 @@ struct TagLogView: View {
             }
             .font(.system(size: 14, weight: .medium, design: .default))
             .foregroundColor(colorScheme == .light ? Color.gray : Color(hex: "EAEAEA"))
-            
-            
+
             Divider()
                 .padding(.bottom, 2)
-            
+
             HStack {
                 Text("입실")
                     .frame(width: 65, height: 24)
-                
+
                 Spacer()
-                
+
                 Text("퇴실")
                     .frame(width: 65, height: 24)
-                
+
                 Spacer()
-                
+
                 Text("체류시간")
                     .frame(width: 65, height: 24)
             }
             .foregroundColor(colorScheme == .dark ? .white : .DarkDefaultBG)
             .font(.system(size: 14, weight: .bold))
-            
+
             if logList.isEmpty {
                 Text("기록이 없습니다.")
                     .foregroundColor(colorScheme == .light ? .chartDetailBG : .white)
@@ -56,14 +55,13 @@ struct TagLogView: View {
                 ScrollView {
                     ForEach(logList, id: \.self) { log in
                         tagLog(log)
-                        
                     }
                 }
                 .frame(maxHeight: 230)
             }
         }
     }
-    
+
     @ViewBuilder
     func tagLog(_ log: Log) -> some View {
         ZStack {
@@ -71,18 +69,18 @@ struct TagLogView: View {
                 .foregroundColor(colorScheme == .dark ? Color(hex: "555555") : Color(hex: "#EAEAEA"))
                 .frame(height: 24)
                 .isHidden((log.logTime != "누락"))
-            
+
             HStack {
                 Text(log.inTime ?? "-")
                     .frame(width: 65, height: 24)
-                
+
                 Spacer()
-                
+
                 Text(log.outTime ?? "-")
                     .frame(width: 65, height: 24)
-                
+
                 Spacer()
-                
+
                 Text(log.logTime ?? "누락")
                     .frame(width: 65, height: 24)
             }
@@ -92,9 +90,7 @@ struct TagLogView: View {
     }
 }
 
-struct TagLogView_Previews: PreviewProvider {
-    static var previews: some View {
-        TagLogView(selectedDate: .constant(Date()), logList: [])
-            .environmentObject(Hane())
-    }
+#Preview {
+    TagLogView(logList: [])
+        .environmentObject(Hane())
 }

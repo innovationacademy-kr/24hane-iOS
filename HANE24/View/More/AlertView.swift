@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-
-
 struct AlertView: View {
     @Binding var showAlert: Bool
     @EnvironmentObject var hane: Hane
-    var item: alertItem
+    var item: AlertItem
     var body: some View {
-        ZStack{
+        ZStack {
             GeometryReader { _ in
                 EmptyView()
             }
@@ -23,7 +21,7 @@ struct AlertView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
                 .frame(width: 300, height: 300)
-            VStack{
+            VStack {
                 Text(item.title1)
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.black)
@@ -42,7 +40,7 @@ struct AlertView: View {
                 Button {
                     showAlert = false
                 } label: {
-                    ZStack{
+                    ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(.LightDefaultBG)
                             .frame(width: 250, height: 50)
@@ -56,9 +54,9 @@ struct AlertView: View {
         }
         .background(Color.gray.opacity(0.7))
     }
-    
+
     var submitButton: some View {
-        Button{
+        Button {
             Task {
                 do {
                     try await hane.postJsonAsync()
@@ -67,7 +65,7 @@ struct AlertView: View {
             }
             showAlert = false
         } label: {
-            ZStack{
+            ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.gradientPurple)
                     .frame(width: 250, height: 50)
@@ -77,10 +75,10 @@ struct AlertView: View {
             }
         }
     }
-    
+
     var receiveButton: some View {
-        Button{
-            Task{
+        Button {
+            Task {
                 do {
                     try await hane.patchJsonAsync()
                     hane.reissueState = .done
@@ -90,7 +88,7 @@ struct AlertView: View {
             }
             showAlert = false
         } label: {
-            ZStack{
+            ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.gradientPurple)
                     .frame(width: 250, height: 50)
@@ -102,9 +100,7 @@ struct AlertView: View {
     }
 }
 
-struct AlertView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlertView(showAlert: .constant(true), item:  alertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"))
-            .environmentObject(Hane())
-    }
+#Preview {
+    AlertView(showAlert: .constant(true), item: AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"))
+        .environmentObject(Hane())
 }
