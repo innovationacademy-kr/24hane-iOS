@@ -1,0 +1,58 @@
+{
+  "configurations" : [
+    {
+      "id" : "156254FB-5092-4A54-9D7A-6B8A95AF3FFF",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:HANE24.xcodeproj",
+      "identifier" : "0E1654EE299A285B001E5EED",
+      "name" : "24HANE"
+    }
+  },
+  "testTargets" : [
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HANE24.xcodeproj",
+        "identifier" : "D65D728B2B9B220200FE2660",
+        "name" : "HaneTest"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HANE24.xcodeproj",
+        "identifier" : "D6351C7A2B94C3D8006B22CD",
+        "name" : "HaneCalendarTest"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HANE24.xcodeproj",
+        "identifier" : "D646BD082B95DCD500ED631E",
+        "name" : "HANE24Test"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "HANE24UITestsLaunchTests"
+      ],
+      "target" : {
+        "containerPath" : "container:HANE24.xcodeproj",
+        "identifier" : "D677B6D72B9B1B3100DEC3EF",
+        "name" : "HANE24UITests"
+      }
+    }
+  ],
+  "version" : 1
+}
