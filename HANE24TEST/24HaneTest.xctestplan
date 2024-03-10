@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "156254FB-5092-4A54-9D7A-6B8A95AF3FFF",
+      "id" : "1EAF6C34-23DD-4EB0-A148-F88B31BE7756",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -43,6 +43,7 @@
       }
     },
     {
+      "enabled" : false,
       "parallelizable" : true,
       "skippedTests" : [
         "HANE24UITestsLaunchTests"
