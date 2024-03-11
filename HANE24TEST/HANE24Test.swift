@@ -1,35 +1,158 @@
 //
-//  HANE24TEST.swift
-//  HANE24TEST
+//  HaneTest.swift
+//  HaneTest
 //
-//  Created by Hosung Lim on 3/4/24.
+//  Created by Hosung Lim on 3/3/24.
 //
 
 import XCTest
+@testable import Hane
 
-final class HANE24TEST: XCTestCase {
+let emptyJsonData = """
+  {
+	"login": "hoslim",
+	"profileImage": "blabla",
+	"inOutLogs": [],
+	"totalAccumulationTime": 0,
+	"acceptedAccumulationTime": 0
+  }
+""".data(using: .utf8)!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+let missingJsonData = """
+  {
+	"login": "hoslim",
+	"profileImage": "https://cdn.intra.42.fr/users/8f20c45abe403f1fd56b58211f819bea/hoslim.jpg",
+	"inOutLogs": [
+	  {
+		"inTimeStamp": 1671095311,
+		"outTimeStamp": null,
+		"durationSecond": null
+	  }
+	],
+	"totalAccumulationTime": 750975,
+	"acceptedAccumulationTime": 737614
+  }
+""".data(using: .utf8)!
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+let missingAnswer = [Log(inTime: Optional("18:08:31"), outTime: nil, logTime: Optional("누락"))]
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+let monthlyJsonData = """
+  {
+	"login": "hoslim",
+	"profileImage": "https://cdn.intra.42.fr/users/8f20c45abe403f1fd56b58211f819bea/hoslim.jpg",
+	"inOutLogs": [
+	  {
+		"inTimeStamp": 1672370079,
+		"outTimeStamp": 1672386139,
+		"durationSecond": 16060
+	  }
+	],
+	"totalAccumulationTime": 750975,
+	"acceptedAccumulationTime": 737614
+  }
+""".data(using: .utf8)!
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+let answer = [Log(inTime: Optional("12:14:39"), outTime: Optional("16:42:19"), logTime: Optional("04:27:40"))]
 
+/**
+ 
+ 테스트해야 하는 함수 및 기능
+ 
+ # 캘린더
+ 1. updateMonthlyLogs 테스트
+ 2. callPerMonth 테스트
+ 3. 누락 및 상태에 대한 테스트
+ 
+ # 테스트 구현시 원칙
+ 1. Given
+ 2. When
+ 3. Then
+ 
+ */
+
+final class HaneCalendarTest: XCTestCase {
+
+	var sut: Hane!
+
+	var calendarView: CalendarView!
+
+	override func setUpWithError() throws {
+		try super.setUpWithError()
+		sut = Hane()
+		calendarView = CalendarView()
+	}
+
+	override func tearDownWithError() throws {
+		calendarView = nil
+		sut = nil
+		try super.tearDownWithError()
+	}
+
+	// MARK: - Monthly Data Test
+	func testSeperateMonthlyData() {
+		// Given: Fake API call and receive data
+		do {
+			let data = try JSONDecoder().decode(PerMonth.self, from: monthlyJsonData)
+			sut.perMonth = data
+		} catch {
+			XCTFail("JSON Parsing fail")
+			return
+		}
+
+		// when
+		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
+		// 질문사항 1. convert 함수가 왜 calendarView에 종속되어 있는지
+		// 질문사항 2. convert를 하게 되면 기존 데이터의 순서와는 다르게 나오는 거 같은데 어떤게 맞는건지
+
+		// then
+		// 1.
+		XCTAssertEqual(parsedData, answer)
+	}
+
+	func testEmptyMonthlyData() {
+		// given
+		do {
+			let data = try JSONDecoder().decode(PerMonth.self, from: emptyJsonData)
+			sut.perMonth = data
+		} catch {
+			XCTFail("JSON Parse Fail")
+			return
+		}
+
+		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
+
+		XCTAssertEqual(parsedData, [])
+	}
+
+	// MARK: - Daily Data Test
+	func testSeperateDailyData() {
+		do {
+			let data = try JSONDecoder().decode(PerMonth.self, from: monthlyJsonData)
+			sut.perMonth = data
+		} catch {
+			XCTFail("JSON Parse Fail")
+			return
+		}
+		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
+		let parsedDataFirst = parsedData[0]
+
+		XCTAssertEqual(parsedDataFirst, answer[0])
+	}
+
+//	// MARK: - Missing Data Test
+//	func testMissingDailyData() {
+//		// 질문사항 3. 이 부분을 테스트 하려면 convert 함수 내 hane의 selectedDate를 사용하는데 이 용도와 계산 원리
+//		do {
+//			let data = try JSONDecoder().decode(PerMonth.self, from: missingJsonData)
+//			sut.perMonth = data
+//		} catch {
+//			XCTFail("JSON Parse Fail")
+//			return
+//		}
+//
+//		calendarView.$hane.selectedDate = Date.now
+//		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
+//
+//		XCTAssertEqual(parsedData, missingAnswer)
+//	}
 }
