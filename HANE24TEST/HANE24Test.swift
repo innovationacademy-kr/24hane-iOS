@@ -72,16 +72,19 @@ let answer = [Log(inTime: Optional("12:14:39"), outTime: Optional("16:42:19"), l
 
 final class HaneCalendarTest: XCTestCase {
 
+	// ViewModel
 	var sut: Hane!
-
+	// CalendarView 안에 있는 convert 함수를 테스트하기 위해 View 객체 생성
 	var calendarView: CalendarView!
 
+	// 테스트 객체 초기화
 	override func setUpWithError() throws {
 		try super.setUpWithError()
 		sut = Hane()
 		calendarView = CalendarView()
 	}
 
+	// 테스트 이후 객체 소멸
 	override func tearDownWithError() throws {
 		calendarView = nil
 		sut = nil
@@ -102,7 +105,6 @@ final class HaneCalendarTest: XCTestCase {
 		// when
 		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
 		// 질문사항 1. convert 함수가 왜 calendarView에 종속되어 있는지
-		// 질문사항 2. convert를 하게 되면 기존 데이터의 순서와는 다르게 나오는 거 같은데 어떤게 맞는건지
 
 		// then
 		// 1.
@@ -119,13 +121,16 @@ final class HaneCalendarTest: XCTestCase {
 			return
 		}
 
+		// when
 		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
 
+		// then
 		XCTAssertEqual(parsedData, [])
 	}
 
 	// MARK: - Daily Data Test
 	func testSeperateDailyData() {
+		// given
 		do {
 			let data = try JSONDecoder().decode(PerMonth.self, from: monthlyJsonData)
 			sut.perMonth = data
@@ -133,9 +138,12 @@ final class HaneCalendarTest: XCTestCase {
 			XCTFail("JSON Parse Fail")
 			return
 		}
+
+		// when
 		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
 		let parsedDataFirst = parsedData[0]
 
+		// then
 		XCTAssertEqual(parsedDataFirst, answer[0])
 	}
 
