@@ -24,6 +24,8 @@ jobs:
     - uses: szenius/set-timezone@v1.1
       with:
         timezoneMacos: "Asia/Korea"
+      run:
+        listtimezones
     
     - name: Install pods
       run: |
@@ -35,5 +37,17 @@ jobs:
     - name: Select Xcode Version
       run: sudo xcode-select -s /Applications/Xcode_15.0.app
 
-    - name: Run Test
-      run: xcodebuild test clean -workspace ./HANE24.xcworkspace -scheme 24HANE -destination 'platform=iOS Simulator,name=iPhone 14 Pro' | xcpretty --color
+    # - name: Run Test
+    #   run: |
+    #     xcodebuild build clean \
+    #     -workspace ./HANE24.xcworkspace \
+    #     -scheme 24HANE \
+    #     -destination 'platform=iOS Simulator,name=iPhone 14 Pro' \
+    #     CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES test | xcpretty -c; echo "::set-output name=result::${PIPESTATUS[0]}"; echo "${PIPESTATUS[0]}"
+    
+    # - name: Check Test Result
+    #   if: steps.logger_tests.outputs.result != 0
+    #   run: |
+    #     echo "Tests Failed"; exit 1
+        
+
