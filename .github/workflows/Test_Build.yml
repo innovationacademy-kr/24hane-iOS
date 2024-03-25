@@ -21,6 +21,9 @@ jobs:
     runs-on: macos-14
     steps:
     - uses: actions/checkout@v3
+    - uses: szenius/set-timezone@v1.2
+      with:
+        timezoneWindows: "Singapore Standard Time"
     
     - name: Install pods
       run: |
@@ -34,15 +37,14 @@ jobs:
 
     - name: Run Test
       run: |
-        xcodebuild build clean \
-        -workspace ./HANE24.xcworkspace \
+        xcodebuild -workspace ./HANE24.xcworkspace \
         -scheme 24HANE \
         -destination 'platform=iOS Simulator,name=iPhone 14 Pro' \
-        CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES test | xcpretty -c; echo "::set-output name=result::${PIPESTATUS[0]}"; echo "${PIPESTATUS[0]}"
+        -resultBundlePath TestResults test
     
-    - name: Check Test Result
-      if: steps.logger_tests.outputs.result != 0
-      run: |
-        echo "Tests Failed"; exit 1
+    - uses: kishikawakatsumi/xcresulttool@v1
+      with:
+        path: TestResults.xcresult
+      if: success() || failure()
         
 
