@@ -18,8 +18,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build
       run: |
-          touch .env.xcconfig
-          echo ${{ secrets.API_URL }} >> .env.xcconfig
+          touch ./env.xcconfig
+          echo ${{ secrets.API_URL }} >> ./env.xcconfig
           pod install --repo-update --clean-install
           xcodebuild clean test -workspace HANE24.xcworkspace -scheme 24HANE -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest'
     - name: Run Swiftlint
