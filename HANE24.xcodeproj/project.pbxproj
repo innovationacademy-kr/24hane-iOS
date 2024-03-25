@@ -18,7 +18,8 @@
 		0E165510299A5A82001E5EED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550F299A5A82001E5EED /* HomeView.swift */; };
 		0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */; };
 		0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B32A829A3815B001D10BF /* SignInWebView.swift */; };
-		0E6B608F29AC850D009D8BC4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */; };
+		0E3ED8A82BB13727001B0BAE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */; };
+		0E6B608F29AC850D009D8BC4 /* NetworkMonitoringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */; };
 		0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9868242B2B6C0B00E127DC /* CalendarHeaderView.swift */; };
 		0E9868272B2B76BE00E127DC /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9868262B2B76BE00E127DC /* CalendarBodyView.swift */; };
 		0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBBF14D29B08D580076AAB9 /* ErrorView.swift */; };
@@ -95,7 +96,8 @@
 		0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationView.swift; sourceTree = "<group>"; };
 		0E3B32A729A37D3C001D10BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0E3B32A829A3815B001D10BF /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
-		0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitoringManager.swift; sourceTree = "<group>"; };
 		0E85DCE12B26C1B600928B5B /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		0E9868242B2B6C0B00E127DC /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		0E9868262B2B76BE00E127DC /* CalendarBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBodyView.swift; sourceTree = "<group>"; };
@@ -293,7 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
-				0E6B608E29AC850D009D8BC4 /* NetworkManager.swift */,
+				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
+				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -475,10 +478,11 @@
 				0ED6E3F82B354DD00026E69D /* UserDefaultsExtension.swift in Sources */,
 				0ED6E3FB2B354DFC0026E69D /* HANE24WidgetConstant.swift in Sources */,
 				0EFAF5B829A492A500125948 /* SignInView.swift in Sources */,
-				0E6B608F29AC850D009D8BC4 /* NetworkManager.swift in Sources */,
+				0E6B608F29AC850D009D8BC4 /* NetworkMonitoringManager.swift in Sources */,
 				2B1326132B285B1D00301A8B /* NoticeView.swift in Sources */,
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
 				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
+				0E3ED8A82BB13727001B0BAE /* NetworkManager.swift in Sources */,
 				0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */,
 				0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */,
 				0E9868272B2B76BE00E127DC /* CalendarBodyView.swift in Sources */,
