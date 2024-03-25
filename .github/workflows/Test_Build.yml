@@ -21,6 +21,9 @@ jobs:
     runs-on: macos-14
     steps:
     - uses: actions/checkout@v3
+    - uses: szenius/set-timezone@v1.1
+      with:
+        timezoneMacos: "Asia/Japan"
     
     - name: Install pods
       run: |
