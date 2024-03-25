@@ -24,7 +24,7 @@ jobs:
           echo ${{ secrets.API_URL }} >> ./env.xcconfig
           pod install --repo-update --clean-install
           xcodebuild test clean \
-            -project HANE24.xcodeproj \
+            -workspace "HANE24.xcworkspace" \
             -scheme 24HANE \
             -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest' \
             -configuration=DEBUG
