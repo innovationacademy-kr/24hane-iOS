@@ -11,7 +11,7 @@ import CoreData
 struct ContentView: View {
 
     @EnvironmentObject var hane: Hane
-    @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject var networkMonitoringManager = NetworkMonitoringManager()
     @State var signInChecked = false
     let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirst")
 
@@ -43,10 +43,10 @@ struct ContentView: View {
             }
 
         }
-        .alert(isPresented: $networkManager.showAlert) {
+        .alert(isPresented: $networkMonitoringManager.showAlert) {
             Alert(title: Text("Error"), message: Text("네트워크 연결 상태를 확인해주세요."),
             dismissButton: .default(Text("다시시도"), action: {
-                networkManager.monitoringNetwork { _ in
+                networkMonitoringManager.monitoringNetwork { _ in
                 }
             }))
         }
