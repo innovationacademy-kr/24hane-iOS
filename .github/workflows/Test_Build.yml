@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: szenius/set-timezone@v1.2
       with:
-        timezoneWindows: "Singapore Standard Time"
+        timezoneMacos: "Asia/Seoul"
     
     - name: Install pods
       run: |
@@ -37,10 +37,11 @@ jobs:
 
     - name: Run Test
       run: |
+        set -o pipefail && \
         xcodebuild -workspace ./HANE24.xcworkspace \
         -scheme 24HANE \
         -destination 'platform=iOS Simulator,name=iPhone 14 Pro' \
-        -resultBundlePath TestResults test
+        -resultBundlePath TestResults test | xcbeautify
     
     - uses: kishikawakatsumi/xcresulttool@v1
       with:
