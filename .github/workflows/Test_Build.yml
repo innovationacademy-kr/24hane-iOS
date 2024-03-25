@@ -17,7 +17,7 @@ jobs:
       - name: Github Action For SwiftLint
         uses: norio-nomura/action-swiftlint@3.2.1
     
-  Build:
+  Test:
     runs-on: macos-14
     steps:
     - uses: actions/checkout@v3
@@ -33,4 +33,16 @@ jobs:
       run: sudo xcode-select -s /Applications/Xcode_15.0.app
 
     - name: Run Test
-      run: xcodebuild test clean -workspace ./HANE24.xcworkspace -scheme 24HANE -destination 'platform=iOS Simulator,name=iPhone 14 Pro'
+      run: |
+        xcodebuild build clean \
+        -workspace ./HANE24.xcworkspace \
+        -scheme 24HANE \
+        -destination 'platform=iOS Simulator,name=iPhone 14 Pro' \
+        CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES test | xcpretty -c; echo "::set-output name=result::${PIPESTATUS[0]}"; echo "${PIPESTATUS[0]}"
+    
+    - name: Check Test Result
+      if: steps.logger_tests.outputs.result != 0
+      run: |
+        echo "Tests Failed"; exit 1
+        
+
