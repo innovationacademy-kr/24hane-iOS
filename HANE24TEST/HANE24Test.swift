@@ -52,6 +52,7 @@ let monthlyJsonData = """
   }
 """.data(using: .utf8)!
 
+//let utcAnswer = [Log(inTime: Optional("03:14:39"), outTime: Optional("07:42:19"), logTime: Optional("19:27:40"))]
 let answer = [Log(inTime: Optional("12:14:39"), outTime: Optional("16:42:19"), logTime: Optional("04:27:40"))]
 
 /**

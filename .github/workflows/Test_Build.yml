@@ -1,0 +1,51 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
+
+jobs:
+  SwiftLint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Github Action For SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
+    
+  Test:
+    runs-on: macos-14
+    steps:
+    - uses: actions/checkout@v3
+    - uses: szenius/set-timezone@v1.2
+      with:
+        timezoneMacos: "Asia/Seoul"
+    
+    - name: Install pods
+      run: |
+          touch ./env.xcconfig
+          echo ${{ secrets.API_URL }} >> ./env.xcconfig
+          pod install --repo-update --clean-install
+      shell: bash
+
+    - name: Select Xcode Version
+      run: sudo xcode-select -s /Applications/Xcode_15.0.app
+
+    - name: Run Test
+      run: |
+        set -o pipefail && \
+        xcodebuild -workspace ./HANE24.xcworkspace \
+        -scheme 24HANE \
+        -destination 'platform=iOS Simulator,name=iPhone 14 Pro' \
+        -resultBundlePath TestResults test | xcbeautify
+    
+    - uses: kishikawakatsumi/xcresulttool@v1
+      with:
+        path: TestResults.xcresult
+      if: success() || failure()
+        
+
