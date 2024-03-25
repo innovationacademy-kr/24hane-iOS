@@ -12,16 +12,22 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: macos-14
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build
+    - name: Select Xcode Version
+      run: sudo xcode-select -s /Applications/Xcode_15.0.app
+    - name: Install pods
       run: |
-          ls -lra
+          touch ./env.xcconfig
+          echo ${{ secrets.API_URL }} >> ./env.xcconfig
           pod install --repo-update --clean-install
-          xcodebuild clean test -workspace HANE24.xcworkspace -scheme 24HANE -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest'
     - name: Run Swiftlint
       run: swiftlint --config .swiftlint.yml
-    - name: Run tests
-      run: swift test -v
+    - name: Run Test
+      run: xcodebuild test clean \
+            -workspace "HANE24.xcworkspace" \
+            -scheme 24HANE \
+            -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest' \
+            -configuration=DEBUG
