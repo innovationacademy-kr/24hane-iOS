@@ -57,7 +57,7 @@ class Hane: ObservableObject {
 
     /// 카드 재발급 상태
     @Published var reissueState: CardState = .none
-    
+
     /// 선택일자
     @Published var selectedDate: Date = .now
 

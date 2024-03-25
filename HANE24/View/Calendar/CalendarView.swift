@@ -65,7 +65,6 @@ struct CalendarView: View {
             return Log(inTime: inTime, outTime: outTime, logTime: logTime)
         }
         logArray[0].logTime = (logArray[0].logTime == "누락" && hane.selectedDate.toString("yyyy.MM.dd") == Date().toString("yyyy.MM.dd")) ? "-" : logArray[0].logTime
-
         return logArray.reversed()
     }
 }
