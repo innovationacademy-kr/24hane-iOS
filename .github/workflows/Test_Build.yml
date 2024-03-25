@@ -33,4 +33,4 @@ jobs:
       run: sudo xcode-select -s /Applications/Xcode_15.0.app
 
     - name: Run Test
-      run: xcodebuild test clean -workspace ./HANE24.xcworkspace -scheme 24HANE -destination='platform=iOS Simulator,name=iPhone 14 Pro,OS=17.0'
+      run: xcodebuild test clean -workspace ./HANE24.xcworkspace -scheme 24HANE -sdk=iphoneos -destination='platform=iOS Simulator,name=iPhone 14 Pro,OS=17.0'
