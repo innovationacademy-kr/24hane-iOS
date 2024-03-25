@@ -24,7 +24,7 @@ jobs:
           echo ${{ secrets.API_URL }} >> ./env.xcconfig
           pod install --repo-update --clean-install
     - name: Run Swiftlint
-      run: swiftlint --config .swiftlint.yml
+      run: swiftlint --config ./swiftlint.yml
     - name: Run Test
       run: xcodebuild test clean \
             -workspace "HANE24.xcworkspace" \
