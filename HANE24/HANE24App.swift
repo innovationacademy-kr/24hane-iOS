@@ -14,7 +14,7 @@ struct HANE24App: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentViews()
+            ContentView()
                 .environmentObject(hane)
         }
     }

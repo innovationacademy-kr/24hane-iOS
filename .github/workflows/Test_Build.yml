@@ -15,12 +15,18 @@ jobs:
     runs-on: macos-latest
 
     steps:
+    - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
+      with:
+        swift-version: ${{ matrix.swift }}
     - uses: actions/checkout@v3
     - name: Build
       run: |
           touch ./env.xcconfig
           echo ${{ secrets.API_URL }} >> ./env.xcconfig
           pod install --repo-update --clean-install
-          xcodebuild clean -project HANE24.xcodeproj -target 24HANE -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest' -configuration=DEBUG
+          swift build -v
+          # xcodebuild clean -project HANE24.xcodeproj -target 24HANE -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest' -configuration=DEBUG
     - name: Run Swiftlint
       run: swiftlint --config .swiftlint.yml
+    - name: Run Test
+      run: swift test -v
