@@ -34,5 +34,4 @@ jobs:
 
     - name: Run Test
       run: xcodebuild test clean -workspace HANE24.xcworkspace
-            -scheme 24HANE \
-            -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest'
+            -scheme 24HANE -destination='platform=iOS simulator,name=iPhone 14 Pro,OS=latest'
