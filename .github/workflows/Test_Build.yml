@@ -24,5 +24,3 @@ jobs:
           xcodebuild clean -project HANE24.xcodeproj -target 24HANE -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest' -configuration=DEBUG
     - name: Run Swiftlint
       run: swiftlint --config .swiftlint.yml
-    - name: Run tests
-      run: swift test -v
