@@ -21,7 +21,7 @@ jobs:
           touch ./env.xcconfig
           echo ${{ secrets.API_URL }} >> ./env.xcconfig
           pod install --repo-update --clean-install
-          xcodebuild clean test -workspace HANE24.xcworkspace -scheme 24HANE -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest' -target 24HANE
+          xcodebuild clean test -project HANE24.xcodeproj -scheme 24HANE -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest' -target 24HANE
     - name: Run Swiftlint
       run: swiftlint --config .swiftlint.yml
     - name: Run tests
