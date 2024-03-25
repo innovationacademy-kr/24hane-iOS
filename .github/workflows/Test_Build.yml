@@ -10,24 +10,27 @@ on:
     branches: [ "dev" ]
 
 jobs:
-  build:
-
+  SwiftLint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Github Action For SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
+    
+  Build:
     runs-on: macos-14
-
     steps:
     - uses: actions/checkout@v3
-    - name: Select Xcode Version
-      run: sudo xcode-select -s /Applications/Xcode_15.0.app
+    
     - name: Install pods
       run: |
           touch ./env.xcconfig
           echo ${{ secrets.API_URL }} >> ./env.xcconfig
           pod install --repo-update --clean-install
-    - name: Run Swiftlint
-      run: swiftlint --config .swiftlint.yml
+      shell: bash
+
+    - name: Select Xcode Version
+      run: sudo xcode-select -s /Applications/Xcode_15.0.app
+
     - name: Run Test
-      run: xcodebuild test clean \
-            -workspace "HANE24.xcworkspace" \
-            -scheme 24HANE \
-            -destination 'platform=iOS simulator,name=iPhone 14 Pro,OS=latest' \
-            -configuration=DEBUG
+      run: xcodebuild test clean -workspace ./HANE24.xcworkspace -scheme 24HANE -destination 'platform=iOS Simulator,name=iPhone 14 Pro'
