@@ -25,11 +25,21 @@ struct PerMonth: Codable {
 struct InfoMessage: Codable {
     let title: String
     let content: String
+	
+	init() {
+		self.title = ""
+		self.content = ""
+	}
 }
 
 struct InfoMessages: Codable {
     let fundInfoNotice: InfoMessage
     let tagLatencyNotice: InfoMessage
+	
+	init() {
+		self.fundInfoNotice = InfoMessage()
+		self.tagLatencyNotice = InfoMessage()
+	}
 }
 
 struct MainInfo: Codable {
@@ -41,6 +51,16 @@ struct MainInfo: Codable {
     let gaepo: Int
     /// v3
     let infoMessages: InfoMessages
+	
+	init() {
+		self.login = ""
+		self.profileImage = ""
+		self.isAdmin = false
+		self.inoutState = ""
+		self.tagAt = ""
+		self.gaepo = 0
+		self.infoMessages = InfoMessages()
+	}
 }
 
 struct AccumulationTimes: Codable {
@@ -50,6 +70,14 @@ struct AccumulationTimes: Codable {
     let sixMonthAccumulationTime: [Double]
     /// v3
     let monthlyAcceptedAccumulationTime: Int64
+	
+	init() {
+		self.todayAccumulationTime = 0
+		self.monthAccumulationTime = 0
+		self.sixWeekAccumulationTime = []
+		self.sixMonthAccumulationTime = []
+		self.monthlyAcceptedAccumulationTime = 0
+	}
 }
 
 struct ReissueState: Codable {

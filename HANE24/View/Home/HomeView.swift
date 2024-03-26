@@ -84,7 +84,7 @@ struct HomeView: View {
     @Binding var isNoticedFundInfo: Bool
     @Binding var isNoticedTagLatencyInfo: Bool
 
-    var body: some View {
+    var body: some Vi ew {
         NavigationView {
            ZStack {
                if hane.isInCluster {

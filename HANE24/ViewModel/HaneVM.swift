@@ -80,8 +80,8 @@ class Hane: ObservableObject {
         self.loginID = ""
         self.clusterPopulation = 0
 
-        self.fundInfoNotice = Notice(title: "", content: "")
-        self.tagLatencyNotice = Notice(title: "", content: "")
+        self.fundInfoNotice = Notice()
+        self.tagLatencyNotice = Notice()
 
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [], totalAccumulationTime: 0, acceptedAccumulationTime: 0)
