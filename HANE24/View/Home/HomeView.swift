@@ -36,39 +36,6 @@ func getMonthlyPeriod() -> [String] {
     return monthlyPeriod
 }
 
-struct PullToRefresh: View {
-    var coordinateSpaceName: String
-    var onRefresh: () -> Void
-
-    @State var needRefresh: Bool = false
-
-    var body: some View {
-        GeometryReader { geo in
-            if (geo.frame(in: .named(coordinateSpaceName))).midY > 50 {
-                Spacer()
-                    .onAppear {
-                        needRefresh = true
-                    }
-            } else if geo.frame(in: .named(coordinateSpaceName)).midY < 10 {
-                Spacer()
-                    .onAppear {
-                        if needRefresh {
-                            needRefresh = false
-                            onRefresh()
-                        }
-                    }
-            }
-            HStack {
-                Spacer()
-                if needRefresh {
-                    ProgressView()
-                }
-                Spacer()
-            }
-        } .padding(.top, -50)
-    }
-}
-
 struct HomeView: View {
     init(fundInfo: Binding<Bool>, tagLatencyInfo: Binding<Bool>) {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
@@ -97,48 +64,7 @@ struct HomeView: View {
                        .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
                }
                VStack(alignment: .center, spacing: 20) {
-                    HStack(alignment: .center) {
-                        if hane.profileImage != "" {
-                            AsyncImage(url: URL(string: hane.profileImage)) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 28, height: 28)
-                                    .clipShape(Circle())
-                                    .padding(.trailing, 3)
-                            } placeholder: {
-                                Image(systemName: "person.circle")
-                                    .resizable()
-                                    .frame(width: 28, height: 28)
-                                    .padding(.trailing, 3)
-                                    .foregroundColor(.iconColor)
-                            }
-                        } else {
-                            Image(systemName: "person.circle")
-                                .resizable()
-                                .frame(width: 28, height: 28)
-                                .padding(.trailing, 3)
-                                .foregroundColor(.iconColor)
-                        }
-
-                        Text(hane.loginID)
-                            .font(.system(size: 20, weight: .semibold, design: .rounded))
-                            .foregroundColor(!hane.isInCluster && colorScheme == .light ? .black : .white)
-
-                        if hane.isInCluster {
-                            Circle()
-                                .foregroundColor(.green)
-                                .frame(width: 8, height: 8)
-                                .padding(.bottom, 10)
-                                .padding(.leading, 0)
-                        }
-
-                        Spacer()
-                    }
-                    .padding(.top, 20)
-                    .frame(height: 30)
-                    .padding(.horizontal, 30)
-
+					HeaderView()
                     ScrollView {
                         PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                             Task {
@@ -149,7 +75,7 @@ struct HomeView: View {
                         VStack(spacing: 22.5) {
                             TodayAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
                                 .padding(.horizontal, 30)
-
+        
                             ThisMonthAccTimeCardView(isNoticed: $isNoticedFundInfo)
                                 .padding(.horizontal, 30)
 

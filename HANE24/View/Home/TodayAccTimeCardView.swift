@@ -155,7 +155,7 @@ struct TodayAccTimeCardView: View {
                                 .gradientPurple.opacity(0.1),
                                 .gradientWhtie.opacity(0.1),
                                 .gradientBlue.opacity(0.1)
-                            ]
+							]
                         ),
                         center: .center,
                         startAngle: .zero,
