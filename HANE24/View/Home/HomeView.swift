@@ -50,8 +50,6 @@ struct HomeView: View {
 
     @Binding var isNoticedFundInfo: Bool
     @Binding var isNoticedTagLatencyInfo: Bool
-	
-	@State var showAlert: Bool = false
 
     var body: some View {
 	   ZStack {
@@ -101,9 +99,6 @@ struct HomeView: View {
 				} .coordinateSpace(name: "pullToRefresh")
 			}
 		}
-	   .noticeAlert(isPresented: $showAlert) {
-		   NoticeView(showNotice: $showAlert, notice: Notice(title: "g", content: ""))
-	   }
     }
 }
 
