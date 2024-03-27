@@ -50,56 +50,60 @@ struct HomeView: View {
 
     @Binding var isNoticedFundInfo: Bool
     @Binding var isNoticedTagLatencyInfo: Bool
+	
+	@State var showAlert: Bool = false
 
     var body: some View {
-        NavigationView {
-           ZStack {
-               if hane.isInCluster {
-                   Image("Background")
-                        .resizable()
-                        .edgesIgnoringSafeArea(.top)
-                        .opacity(0.7)
-               } else {
-                   Theme.backgroundColor(forScheme: colorScheme)
-                       .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
-               }
-               VStack(alignment: .center, spacing: 20) {
-					HeaderView()
-                    ScrollView {
-                        PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                            Task {
-                                try await hane.refresh()
-                            }
-                        }
+	   ZStack {
+		   if hane.isInCluster {
+			   Image("Background")
+					.resizable()
+					.edgesIgnoringSafeArea(.top)
+					.opacity(0.7)
+		   } else {
+			   Theme.backgroundColor(forScheme: colorScheme)
+				   .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
+		   }
+		   VStack(alignment: .center, spacing: 20) {
+				HeaderView()
+				ScrollView {
+					PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+						Task {
+							try await hane.refresh()
+						}
+					}
 
-                        VStack(spacing: 22.5) {
-                            TodayAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
-                                .padding(.horizontal, 30)
-        
-                            ThisMonthAccTimeCardView(isNoticed: $isNoticedFundInfo)
-                                .padding(.horizontal, 30)
+					VStack(spacing: 22.5) {
+						TodayAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
+							.padding(.horizontal, 30)
+							.onTapGesture {
+								self.showAlert = true
+							}
+	
+						ThisMonthAccTimeCardView(isNoticed: $isNoticedFundInfo)
+							.padding(.horizontal, 30)
 
-                            TabView {
-                                ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
-                                    .padding(.horizontal, 10)
-                                ChartView(item: ChartItem(id: "개월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
-                                    .padding(.horizontal, 10)
-                            }
-                            .padding(.horizontal, 20)
-                            .tabViewStyle(.page)
-                            .frame(height: 289)
+						TabView {
+							ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
+								.padding(.horizontal, 10)
+							ChartView(item: ChartItem(id: "개월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
+								.padding(.horizontal, 10)
+						}
+						.padding(.horizontal, 20)
+						.tabViewStyle(.page)
+						.frame(height: 289)
 
-                            PopulationView()
-                                .padding(.horizontal, 30)
-                        }
-                        .padding(.bottom, 30)
-                        .padding(.top, 10)
-                    } .coordinateSpace(name: "pullToRefresh")
-                }
-            }
-        }
-        .navigationTitle("알림")
-
+						PopulationView()
+							.padding(.horizontal, 30)
+					}
+					.padding(.bottom, 30)
+					.padding(.top, 10)
+				} .coordinateSpace(name: "pullToRefresh")
+			}
+		}
+	   .noticeAlert(isPresented: $showAlert) {
+		   NoticeView(showNotice: $showAlert, notice: Notice(title: "g", content: ""))
+	   }
     }
 }
 
