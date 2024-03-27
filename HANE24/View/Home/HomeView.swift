@@ -74,9 +74,6 @@ struct HomeView: View {
 					VStack(spacing: 22.5) {
 						TodayAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
 							.padding(.horizontal, 30)
-							.onTapGesture {
-								self.showAlert = true
-							}
 	
 						ThisMonthAccTimeCardView(isNoticed: $isNoticedFundInfo)
 							.padding(.horizontal, 30)
