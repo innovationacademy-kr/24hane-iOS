@@ -34,6 +34,7 @@ class NetworkManager: NetworkProtocol {
 			/// FIXME: invalid URL의 경우 error handling
 			return nil
 		}
+
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
 			/// FIXME: token invalid 경우에 signIn 상태 변경
 			throw MyError.tokenExpired("get new token!")

@@ -232,7 +232,7 @@ extension Hane {
         apicall
      */
     @MainActor
-    func updateMonthlyLogs(date: Date) async throws {
+	func updateMonthlyLogs(date: Date = .now) async throws {
         // update MonthlyLogs
         self.loading = true
 

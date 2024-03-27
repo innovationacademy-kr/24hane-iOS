@@ -32,17 +32,18 @@ class CalendarVM: ObservableObject, CalendarProtocol {
 	// 데이터를 갱신하거나 불러오는 함수
 
 	func getPerMonth(year: Int, month: Int) async throws -> PerMonth {
-		var components = URLComponents(string: network.apiRoot + "/v3/tag-log/getAllTagPerMonth")!
+		var components = URLComponents(string: "/v3/tag-log/getAllTagPerMonth")!
 		let year = URLQueryItem(name: "year", value: "\(year)")
 		let month = URLQueryItem(name: "month", value: "\(month)")
 		components.queryItems = [year, month]
 
 		guard let perMonth = try await network.getRequest(components.url!.absoluteString, type: PerMonth.self) else {
-			fatalError()
+			fatalError("CalendarVM - getPerMonth")
 		}
 		return perMonth
 	}
 
+	@MainActor
 	func updateMonthlyLogs(date: Date) async throws {
 		self.loading = true
 
@@ -73,7 +74,6 @@ class CalendarVM: ObservableObject, CalendarProtocol {
 
 	func convert(_ from: [InOutLog]) -> [Log] {
 		guard !from.isEmpty else { return [] }
-		print(from)
 		var logArray = from.map {
 			var inTime: String?
 			var outTime: String?
@@ -93,7 +93,7 @@ class CalendarVM: ObservableObject, CalendarProtocol {
 		logArray[0].logTime = (logArray[0].logTime == "누락" && calendarModel.selectedDate.toString("yyyy.MM.dd") == Date().toString("yyyy.MM.dd")) ? "-" : logArray[0].logTime
 		return logArray.reversed()
 	}
-
+	
 	// 초기화
 	init(network: NetworkProtocol = NetworkManager.shared) {
 		self.network = network
