@@ -36,7 +36,7 @@ struct ContentView: View {
             }
 
             do {
-                try  hane.isSignIn = await hane.isLogin() ? true : false
+                try hane.isSignIn = await hane.isLogin() ? true : false
                 self.signInChecked = true
             } catch {
                 print("Invalid URL")
