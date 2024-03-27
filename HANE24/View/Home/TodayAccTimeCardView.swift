@@ -118,7 +118,7 @@ struct TodayAccTimeCardView: View {
                     .padding(.leading, 10)
                     .padding(.trailing, 14)
                     /// Progress Circle
-                    progressCircle
+					CircularProgressBar(drawingStroke: $drawingStroke, objectiveTime: options[dailySelectionOption], progressiveTime: Double(hane.dailyAccumulationTime))
                         .frame(width: 112, height: 112)
                         .padding(.top, 11)
                         .padding(.bottom, 18)
@@ -130,60 +130,6 @@ struct TodayAccTimeCardView: View {
             }
         }
         .frame(height: isFold ? 80 : 260, alignment: .top)
-    }
-
-    var progressCircle: some View {
-
-        ZStack {
-            HStack(spacing: 0) {
-                Text("\(Int(Double(hane.dailyAccumulationTime) / Double(options[dailySelectionOption] * 3600) * 100))")
-                    .font(.system(size: 32, weight: .medium, design: .default))
-                    .foregroundColor(.black)
-                Text("%")
-                    .font(.system(size: 14, weight: .medium, design: .default))
-                    .foregroundColor(.black)
-                    .padding(.top, 10)
-            }
-            Circle()
-                .stroke(
-                    AngularGradient(
-                        gradient: Gradient(
-                            colors: [
-                                .gradientBlue.opacity(0.1),
-                                .gradientWhtie.opacity(0.1),
-                                .gradientPurple.opacity(0.1),
-                                .gradientPurple.opacity(0.1),
-                                .gradientWhtie.opacity(0.1),
-                                .gradientBlue.opacity(0.1)
-							]
-                        ),
-                        center: .center,
-                        startAngle: .zero,
-                        endAngle: .degrees(360)
-                    ),
-                    style: StrokeStyle(lineWidth: 8, lineCap: .round)
-                )
-                .overlay {
-                    Circle()
-                        .trim(from: 0, to: drawingStroke ? (Double(hane.dailyAccumulationTime) / Double(options[dailySelectionOption] * 3600)) : 0)
-                        .stroke(
-                            AngularGradient(
-                                gradient: Gradient(colors: [
-                                    .gradientBlue.opacity(0.35),
-                                    .gradientWhtie,
-                                    .gradientPurple,
-                                    .gradientPurple,
-                                    .gradientWhtie,
-                                    .gradientBlue.opacity(0.35)
-                                ]),
-                                center: .center,
-                                startAngle: .degrees(0),
-                                endAngle: .degrees(360)
-                            ),
-                            style: StrokeStyle(lineWidth: 8, lineCap: .round))
-                        .rotationEffect(.degrees(270))
-                }
-        }
     }
 }
 

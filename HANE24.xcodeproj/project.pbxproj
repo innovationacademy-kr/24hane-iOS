@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0E0FE5F12BB3DDA30050498E /* NoticeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE5F02BB3DDA30050498E /* NoticeModifier.swift */; };
+		0E0FE5F32BB3E6110050498E /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */; };
+		0E0FE5F42BB3E6180050498E /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */; };
 		0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F2299A285B001E5EED /* HANE24App.swift */; };
 		0E1654F5299A285B001E5EED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F4299A285B001E5EED /* ContentView.swift */; };
 		0E1654F7299A285E001E5EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1654F6299A285E001E5EED /* Assets.xcassets */; };
@@ -95,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		0E0FE5F02BB3DDA30050498E /* NoticeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModifier.swift; sourceTree = "<group>"; };
+		0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		0E1654EF299A285B001E5EED /* 24HANE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24HANE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1654F2299A285B001E5EED /* HANE24App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24App.swift; sourceTree = "<group>"; };
 		0E1654F4299A285B001E5EED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -250,6 +253,7 @@
 			children = (
 				0E16550F299A5A82001E5EED /* HomeView.swift */,
 				9A1A4BED299ADE650076D650 /* TodayAccTimeCardView.swift */,
+				0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */,
 				0E165507299A3C20001E5EED /* ChartView.swift */,
 				0E16550B299A3DF6001E5EED /* ChartDetailView.swift */,
 				0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */,
@@ -572,6 +576,7 @@
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 				0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */,
 				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
+				0E0FE5F32BB3E6110050498E /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +587,7 @@
 				0ED6E4002B354E670026E69D /* AccumulationTimeStruct.swift in Sources */,
 				0ED6E3F92B354DD00026E69D /* UserDefaultsExtension.swift in Sources */,
 				0ED6E3E82B354D320026E69D /* HANE24WidgetBundle.swift in Sources */,
+				0E0FE5F42BB3E6180050498E /* CircularProgressBar.swift in Sources */,
 				0ED6E3EA2B354D320026E69D /* HANE24Widget.swift in Sources */,
 				0ED6E3F52B354DBD0026E69D /* DateExtensions.swift in Sources */,
 				0ED6E3F62B354DC00026E69D /* ColorExtension.swift in Sources */,
