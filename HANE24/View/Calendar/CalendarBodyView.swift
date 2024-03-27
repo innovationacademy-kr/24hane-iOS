@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CalendarBodyView: View {
-    @EnvironmentObject var hane: Hane
+	@EnvironmentObject var calendarVM: CalendarVM
     @State var picker = false
     @State var datePickerSelection: Date
 
@@ -42,9 +42,9 @@ struct CalendarBodyView: View {
                 }
             }
         }
-        .onChange(of: picker) {pickerState in
+        .onChange(of: picker) { pickerState in
             if !pickerState {
-                hane.selectedDate = datePickerSelection
+				calendarVM.calendarModel.selectedDate = datePickerSelection
             }
         }
     }
@@ -52,5 +52,6 @@ struct CalendarBodyView: View {
 
 #Preview {
     CalendarBodyView(datePickerSelection: Date())
-        .environmentObject(Hane())
+		.environmentObject(CalendarVM())
+//        .environmentObject(Hane())
 }

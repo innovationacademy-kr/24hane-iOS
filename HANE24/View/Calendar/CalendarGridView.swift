@@ -10,7 +10,8 @@ import SwiftUI
 struct CalendarGridView: View {
     @Binding var picker: Bool
 
-    @EnvironmentObject var hane: Hane
+	@EnvironmentObject var calendarVM: CalendarVM
+//    @EnvironmentObject var hane: Hane
 
     let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
     let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
@@ -18,7 +19,7 @@ struct CalendarGridView: View {
     var body: some View {
         ZStack {
             LoadingAnimation()
-                .isHidden(!hane.loading)
+				.isHidden(!calendarVM.loading)
             VStack {
                 // day of week
                 LazyVGrid(columns: cols, spacing: 12) {
@@ -35,17 +36,17 @@ struct CalendarGridView: View {
                 // is today ? border only
                 // default
                 LazyVGrid(columns: cols, spacing: 12) {
-                    ForEach(hane.selectedDate.daysOfMonth.indices, id: \.self) { d in
-                        if let day = hane.selectedDate.daysOfMonth[d] {
+					ForEach(calendarVM.calendarModel.selectedDate.daysOfMonth.indices, id: \.self) { d in
+                        if let day = calendarVM.calendarModel.selectedDate.daysOfMonth[d] {
                             Button {
-                                hane.selectedDate = day
+								calendarVM.calendarModel.selectedDate = day
                             } label: {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: day.isSameDate(with: hane.selectedDate) ? 20 : 10)
+                                    RoundedRectangle(cornerRadius: day.isSameDate(with: calendarVM.calendarModel.selectedDate) ? 20 : 10)
                                         .foregroundColor(getGridColor(day))
                                         .overlay {
                                             if day.isSameDate(with: Date())
-                                                && !day.isSameDate(with: hane.selectedDate) {
+                                                && !day.isSameDate(with: calendarVM.calendarModel.selectedDate) {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(Color.dateToday, lineWidth: 1)
                                             }
@@ -54,7 +55,7 @@ struct CalendarGridView: View {
 
                                     Text("\(day.dayToInt)")
                                         .foregroundColor(getTextColor(day))
-                                        .font(.system(size: 14, weight: day.isSameDate(with: hane.selectedDate) ? .bold : .regular))
+                                        .font(.system(size: 14, weight: day.isSameDate(with: calendarVM.calendarModel.selectedDate) ? .bold : .regular))
                                 }
                             }
                             .frame(width: 30, height: 30)
@@ -64,19 +65,19 @@ struct CalendarGridView: View {
                         }
                     }
                 }
-                .isHidden(hane.loading)
+                .isHidden(calendarVM.loading)
             }
         }
     }
 
     func getGridColor(_ day: Date) -> Color {
         switch day {
-        case day where day.isSameDate(with: hane.selectedDate):
+        case day where day.isSameDate(with: calendarVM.calendarModel.selectedDate):
             return .dateSelected
         case day where day.isSameDate(with: Date.now):
             return .backgroundCalendar
         default:
-            return calculateLogColor(accumulationTime: hane.dailyTotalTimesInAMonth[day.dayToInt])
+            return calculateLogColor(accumulationTime: calendarVM.calendarModel.dailyTotalTimesInAMonth[day.dayToInt])
         }
     }
 
@@ -84,7 +85,7 @@ struct CalendarGridView: View {
         switch day {
         case day where day > Date.now:
             return .fontDisabled
-        case day where day.isSameDate(with: hane.selectedDate):
+        case day where day.isSameDate(with: calendarVM.calendarModel.selectedDate):
             return .fontWhite
         case day where day.isSameDate(with: Date.now):
             return .dateToday
@@ -112,5 +113,6 @@ struct CalendarGridView: View {
 
 #Preview {
     CalendarGridView(picker: .constant(false))
-        .environmentObject(Hane())
+		.environmentObject(CalendarVM())
+//        .environmentObject(Hane())
 }

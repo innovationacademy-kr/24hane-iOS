@@ -71,23 +71,51 @@ let answer = [Log(inTime: Optional("12:14:39"), outTime: Optional("16:42:19"), l
  
  */
 
+class MockNetwork: NetworkProtocol {
+	static var shared = MockNetwork()
+
+	var session: URLSession
+	
+	var apiRoot: String = ""
+	
+	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
+		return nil
+	}
+
+	func postRequest(_ urlPath: String) async throws {
+		return
+	}
+	
+	func patchRequest(_ urlPath: String) async throws {
+		return
+	}
+	
+	func deleteRequest(_ urlPath: String) async throws {
+		return
+	}
+
+	private init(session: URLSession = URLSession.shared) {
+		self.session = session
+	}
+}
+
 final class HaneCalendarTest: XCTestCase {
 
 	// ViewModel
 	var sut: Hane!
 	// CalendarView 안에 있는 convert 함수를 테스트하기 위해 View 객체 생성
-	var calendarView: CalendarView!
+	var calendarVM: CalendarVM!
 
 	// 테스트 객체 초기화
 	override func setUpWithError() throws {
 		try super.setUpWithError()
 		sut = Hane()
-		calendarView = CalendarView()
+		calendarVM = CalendarVM(network: MockNetwork.shared)
 	}
 
 	// 테스트 이후 객체 소멸
 	override func tearDownWithError() throws {
-		calendarView = nil
+		calendarVM = nil
 		sut = nil
 		try super.tearDownWithError()
 	}
@@ -104,7 +132,7 @@ final class HaneCalendarTest: XCTestCase {
 		}
 
 		// when
-		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
+		let parsedData = calendarVM.convert(sut.perMonth.inOutLogs)
 		// 질문사항 1. convert 함수가 왜 calendarView에 종속되어 있는지
 
 		// then
@@ -123,7 +151,7 @@ final class HaneCalendarTest: XCTestCase {
 		}
 
 		// when
-		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
+		let parsedData = calendarVM.convert(sut.perMonth.inOutLogs)
 
 		// then
 		XCTAssertEqual(parsedData, [])
@@ -141,7 +169,7 @@ final class HaneCalendarTest: XCTestCase {
 		}
 
 		// when
-		let parsedData = calendarView.convert(sut.perMonth.inOutLogs)
+		let parsedData = calendarVM.convert(sut.perMonth.inOutLogs)
 		let parsedDataFirst = parsedData[0]
 
 		// then

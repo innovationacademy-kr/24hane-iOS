@@ -9,28 +9,29 @@ import SwiftUI
 
 struct CalendarHeaderView: View {
     @Binding var picker: Bool
-    @EnvironmentObject var hane: Hane
+//    @EnvironmentObject var hane: Hane
+	@EnvironmentObject var calendarVM: CalendarVM
 
     var body: some View {
         HStack {
             changeMonthButton(isForward: false)
-                .disabled(hane.selectedDate.toString("yyyy.MM") <= "2022.08" || hane.loading)
+				.disabled(calendarVM.calendarModel.selectedDate.toString("yyyy.MM") <= "2022.08" || calendarVM.loading)
             Spacer()
-            Text("\(hane.selectedDate.yearToString).\(hane.selectedDate.monthToString)")
+			Text("\(calendarVM.calendarModel.selectedDate.yearToString).\(calendarVM.calendarModel.selectedDate.monthToString)")
                 .foregroundColor(picker ? .gradientPurple : .fontDefault )
                 .onTapGesture {
                     picker.toggle()
                 }
             Spacer()
             changeMonthButton(isForward: true)
-                .disabled(hane.selectedDate.toString("yyyy.MM") >= Date().toString("yyyy.MM") || hane.loading)
+                .disabled(calendarVM.calendarModel.selectedDate.toString("yyyy.MM") >= Date().toString("yyyy.MM") || calendarVM.loading)
         }
         .font(.system(size: 20, weight: .semibold))
     }
 
     @ViewBuilder func changeMonthButton(isForward: Bool) -> some View {
         Button {
-            hane.selectedDate = Calendar.current.date(byAdding: .month, value: isForward ? 1 : -1, to: hane.selectedDate)!
+			calendarVM.calendarModel.selectedDate = Calendar.current.date(byAdding: .month, value: isForward ? 1 : -1, to: calendarVM.calendarModel.selectedDate)!
         } label: {
             ZStack {
                 Image(systemName: isForward ? "chevron.right" : "chevron.left")
@@ -44,5 +45,6 @@ struct CalendarHeaderView: View {
 
 #Preview {
     CalendarHeaderView(picker: .constant(false))
-        .environmentObject(Hane())
+		.environmentObject(CalendarVM())
+//        .environmentObject(Hane())
 }
