@@ -93,11 +93,11 @@ class HomeVM: ObservableObject {
 		self.mainInfo = mainInfo
 	}
 	
+	@MainActor
 	func requestAccumulationTime() async throws {
 		guard let accTimes = try await NetworkManager.shared.getRequest("/v3/tag-log/accumulationTimes", type: AccumulationTimes.self) else {
 			throw MyError.tokenExpired("")
 		}
 		self.accumulationTime = accTimes
 	}
-	
 }
