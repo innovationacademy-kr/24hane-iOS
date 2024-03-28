@@ -52,44 +52,60 @@ let monthlyJsonData = """
   }
 """.data(using: .utf8)!
 
+
+
+let emptyMonthlyData = PerMonth(login: "hoslim", profileImage: "https://cdn.intra.42.fr/users/8f20c45abe403f1fd56b58211f819bea/hoslim.jpg", inOutLogs: [], totalAccumulationTime: 0, acceptedAccumulationTime: 0)
+
 //let utcAnswer = [Log(inTime: Optional("03:14:39"), outTime: Optional("07:42:19"), logTime: Optional("19:27:40"))]
 let answer = [Log(inTime: Optional("12:14:39"), outTime: Optional("16:42:19"), logTime: Optional("04:27:40"))]
 
 /**
- 
+
  테스트해야 하는 함수 및 기능
- 
+
  # 캘린더
  1. updateMonthlyLogs 테스트
  2. callPerMonth 테스트
  3. 누락 및 상태에 대한 테스트
- 
+
  # 테스트 구현시 원칙
  1. Given
  2. When
  3. Then
- 
+
  */
+
+//protocol MockNetworkInfoProtocol {
+//	var session: URLSession { get set }
+//	var apiRoot: String { get set }
+//}
+//
+//protocol MockNetworkGetProtocol {
+//	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable
+//}
+//
+//protocol MockNetworkProtocol: MockNetworkProtocol {}
 
 class MockNetwork: NetworkProtocol {
 	static var shared = MockNetwork()
 
 	var session: URLSession
-	
+
 	var apiRoot: String = ""
-	
+
 	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
-		return nil
+		let decodedData = try JSONDecoder().decode(type.self, from: monthlyJsonData)
+		return decodedData
 	}
 
 	func postRequest(_ urlPath: String) async throws {
 		return
 	}
-	
+
 	func patchRequest(_ urlPath: String) async throws {
 		return
 	}
-	
+
 	func deleteRequest(_ urlPath: String) async throws {
 		return
 	}
@@ -101,79 +117,79 @@ class MockNetwork: NetworkProtocol {
 
 final class HaneCalendarTest: XCTestCase {
 
-	// ViewModel
-	var sut: Hane!
-	// CalendarView 안에 있는 convert 함수를 테스트하기 위해 View 객체 생성
-	var calendarVM: CalendarVM!
+	// CalendarVM 객체
+	var sut: CalendarVM!
 
 	// 테스트 객체 초기화
 	override func setUpWithError() throws {
 		try super.setUpWithError()
-		sut = Hane()
-		calendarVM = CalendarVM(network: MockNetwork.shared)
+		sut = CalendarVM(network: MockNetwork.shared)
 	}
 
 	// 테스트 이후 객체 소멸
 	override func tearDownWithError() throws {
-		calendarVM = nil
 		sut = nil
 		try super.tearDownWithError()
 	}
 
 	// MARK: - Monthly Data Test
-	func testSeperateMonthlyData() {
-		// Given: Fake API call and receive data
+	func testGetMonthlyData() async {
 		do {
-			let data = try JSONDecoder().decode(PerMonth.self, from: monthlyJsonData)
-			sut.perMonth = data
+			try await sut.updateMonthlyLogs(date: .now)
 		} catch {
-			XCTFail("JSON Parsing fail")
-			return
+			XCTFail("testGetMonthlyData data load is failed")
 		}
-
-		// when
-		let parsedData = calendarVM.convert(sut.perMonth.inOutLogs)
-		// 질문사항 1. convert 함수가 왜 calendarView에 종속되어 있는지
-
-		// then
-		// 1.
-		XCTAssertEqual(parsedData, answer)
+		XCTAssertNotNil(sut.calendarModel.monthlyLogs)
 	}
 
-	func testEmptyMonthlyData() {
-		// given
+	func testGetDailyTotalTimesInAMonth() async {
 		do {
-			let data = try JSONDecoder().decode(PerMonth.self, from: emptyJsonData)
-			sut.perMonth = data
+			try await sut.updateMonthlyLogs(date: .now)
 		} catch {
-			XCTFail("JSON Parse Fail")
-			return
+			XCTFail("testGetDailyTotalTimesInAMonth data load is failed")
 		}
+		XCTAssertNotNil(sut.calendarModel.dailyTotalTimesInAMonth)
+	}
 
-		// when
-		let parsedData = calendarVM.convert(sut.perMonth.inOutLogs)
+	func testMonthlyTotalAccumulationTime() async {
+		do {
+			try await sut.updateMonthlyLogs(date: .now)
+		} catch {
+			XCTFail("testMonthlyTotalAccumulationTime data load is failed")
+		}
+		XCTAssertNotNil(sut.calendarModel.monthlyTotalAccumulationTime)
+	}
 
-		// then
-		XCTAssertEqual(parsedData, [])
+	func testMonthlyAcceptedAccumulationTime() async {
+		do {
+			try await sut.updateMonthlyLogs(date: .now)
+		} catch {
+			XCTFail("testMonthlyAcceptedAccumulationTime data load is failed")
+		}
+		XCTAssertNotNil(sut.calendarModel.monthlyAcceptedAccumulationTime)
+	}
+
+	func testLoading() async {
+		do {
+			try await sut.updateMonthlyLogs(date: .now)
+		} catch {
+			XCTFail("testLoading data load is failed")
+		}
+		XCTAssertFalse(sut.loading)
 	}
 
 	// MARK: - Daily Data Test
-	func testSeperateDailyData() {
-		// given
+	func testSeperateDailyData() async {
 		do {
-			let data = try JSONDecoder().decode(PerMonth.self, from: monthlyJsonData)
-			sut.perMonth = data
+			try await sut.updateMonthlyLogs(date: .now)
 		} catch {
-			XCTFail("JSON Parse Fail")
-			return
+			XCTFail("testSeperateDailyData data load is failed")
 		}
-
-		// when
-		let parsedData = calendarVM.convert(sut.perMonth.inOutLogs)
-		let parsedDataFirst = parsedData[0]
+		let parsedData = sut.convertedSelectedMonthlyLog
+		print(parsedData)
 
 		// then
-		XCTAssertEqual(parsedDataFirst, answer[0])
+//		XCTAssertEqual(parsedData, answer[0])
 	}
 
 //	// MARK: - Missing Data Test

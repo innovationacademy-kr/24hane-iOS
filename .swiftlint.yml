@@ -1,2 +1,5 @@
 identifier_name:
   min_length: 0
+
+disabled_rules:
+  - line_length
