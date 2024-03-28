@@ -7,13 +7,24 @@
 
 import Foundation
 
-protocol CalendarDataProtocol {}
+protocol CalendarDataProtocol {
+	// Calendar에서 사용할 Model
+	var calendarModel: CalendarModel { get set }
+	// 데이터를 불러올 때 loading 페이지 노출 여부
+	var loading: Bool { get set }
 
-protocol CalendarFetchProtocol {}
+	//
+	func convert(_ from: [InOutLog]) -> [Log]
+}
+
+protocol CalendarFetchProtocol {
+	func updateMonthlyLogs(date: Date) async throws
+}
 
 protocol CalendarProtocol {}
 
 struct CalendarModel {
+	// 데이터의 원본
 	var selectedDate: Date = .now
 	var monthlyTotalAccumulationTime: Int64 = 0
 	var monthlyAcceptedAccumulationTime: Int64 = 0
@@ -25,13 +36,20 @@ class CalendarVM: ObservableObject, CalendarProtocol {
 	// 네트워크VM 객체
 	private var network: NetworkProtocol
 
-	// 사용할 날짜 데이터
 	@Published var calendarModel: CalendarModel = CalendarModel()
 	@Published var loading = false
 
-	// 데이터를 갱신하거나 불러오는 함수
+	// 일일 로그를 보여줄 때 변환을 거친 변수
+	var convertedSelectedMonthlyLog: [Log] {
+		let selectedDate = calendarModel.selectedDate
+		let monthlyLogs = calendarModel.monthlyLogs
+		let selectedLog = monthlyLogs[selectedDate.toString("yyyy.MM.dd")]
+		let converted = convert(selectedLog ?? [])
+		return converted
+	}
 
-	func getPerMonth(year: Int, month: Int) async throws -> PerMonth {
+	// 데이터를 갱신하거나 불러오는 함수
+	private func getPerMonth(year: Int, month: Int) async throws -> PerMonth {
 		var components = URLComponents(string: "/v3/tag-log/getAllTagPerMonth")!
 		let year = URLQueryItem(name: "year", value: "\(year)")
 		let month = URLQueryItem(name: "month", value: "\(month)")
@@ -69,9 +87,7 @@ class CalendarVM: ObservableObject, CalendarProtocol {
 
 		self.loading = false
 	}
-
-	// 보여줄 문자를 파싱하는 함수들
-
+	// 선택한 일자의 일일 기록을 보여주기 위해 변환하는 함수
 	func convert(_ from: [InOutLog]) -> [Log] {
 		guard !from.isEmpty else { return [] }
 		var logArray = from.map {
@@ -90,10 +106,11 @@ class CalendarVM: ObservableObject, CalendarProtocol {
 			}
 			return Log(inTime: inTime, outTime: outTime, logTime: logTime)
 		}
+		// 누락된 경우를 체크
+		let isMissing: Bool = logArray[0].logTime == "누락" && calendarModel.selectedDate.toString("yyyy.MM.dd") == Date().toString("yyyy.MM.dd")
 		logArray[0].logTime = (logArray[0].logTime == "누락" && calendarModel.selectedDate.toString("yyyy.MM.dd") == Date().toString("yyyy.MM.dd")) ? "-" : logArray[0].logTime
 		return logArray.reversed()
 	}
-	
 	// 초기화
 	init(network: NetworkProtocol = NetworkManager.shared) {
 		self.network = network

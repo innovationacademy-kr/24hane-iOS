@@ -30,7 +30,7 @@ struct CalendarView: View {
 						totalAccTime: calendarVM.calendarModel.monthlyTotalAccumulationTime,
 						validAccTime: calendarVM.calendarModel.monthlyAcceptedAccumulationTime)
                     .padding(.vertical, 10)
-					TagLogView(logList: calendarVM.convert(calendarVM.calendarModel.monthlyLogs[calendarVM.calendarModel.selectedDate.toString("yyyy.MM.dd")] ?? []))
+					TagLogView(logList: calendarVM.convertedSelectedMonthlyLog)
                     .padding(.top, 10)
                     Spacer()
                 }
