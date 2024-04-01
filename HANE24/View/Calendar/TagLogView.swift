@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct TagLogView: View {
-    @EnvironmentObject var hane: Hane
+//    @EnvironmentObject var hane: Hane
+	@EnvironmentObject var calendarVM: CalendarVM
     @Environment(\.colorScheme) var colorScheme
 
     var logList: [Log]
 
     var body: some View {
-        let dailyTotalTime = hane.dailyTotalTimesInAMonth[hane.selectedDate.dayToInt]
+        let dailyTotalTime = calendarVM.calendarModel.dailyTotalTimesInAMonth[calendarVM.calendarModel.selectedDate.dayToInt]
         VStack(alignment: .center, spacing: 4) {
             HStack {
-                Text("\(hane.selectedDate.monthToInt).\(hane.selectedDate.dayToInt) \(hane.selectedDate.toString("E"))요일")
+                Text("\(calendarVM.calendarModel.selectedDate.monthToInt).\(calendarVM.calendarModel.selectedDate.dayToInt) \(calendarVM.calendarModel.selectedDate.toString("E"))요일")
                     .padding(.leading, 5)
                 Spacer()
                 Text("\(dailyTotalTime / 3600)시간 \((dailyTotalTime % 3600) / 60)분")
@@ -92,5 +93,6 @@ struct TagLogView: View {
 
 #Preview {
     TagLogView(logList: [])
-        .environmentObject(Hane())
+		.environmentObject(CalendarVM())
+//        .environmentObject(Hane())
 }

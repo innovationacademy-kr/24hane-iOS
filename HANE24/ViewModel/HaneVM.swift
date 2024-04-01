@@ -6,8 +6,10 @@
 //
 
 import Foundation
-import WebKit
 import WidgetKit
+#if canImport(WebKit)
+import WebKit
+#endif
 
 enum MyError: Error {
     case tokenExpired(String)
@@ -131,6 +133,7 @@ class Hane: ObservableObject {
         }
     }
 
+#if os(iOS)
     func signOut() {
         WKWebsiteDataStore
             .default()
@@ -142,6 +145,7 @@ class Hane: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "Token")
         self.isSignIn = false
     }
+#endif
 }
 
 // update Published
@@ -232,7 +236,7 @@ extension Hane {
         apicall
      */
     @MainActor
-    func updateMonthlyLogs(date: Date) async throws {
+	func updateMonthlyLogs(date: Date = .now) async throws {
         // update MonthlyLogs
         self.loading = true
 

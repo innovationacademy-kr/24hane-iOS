@@ -11,11 +11,13 @@ import SwiftUI
 struct HANE24App: App {
 
     var hane = Hane()
+	var calendar = CalendarVM()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(hane)
+				.environmentObject(calendar)
         }
     }
 }
