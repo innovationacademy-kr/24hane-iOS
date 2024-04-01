@@ -56,6 +56,7 @@
 		9AF730F8299E2F5000AF2E53 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F7299E2F5000AF2E53 /* CalendarView.swift */; };
 		9AF730FB299F53C700AF2E53 /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FA299F53C700AF2E53 /* HaneVM.swift */; };
 		9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
+		D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
 		D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646BD0B2B95DCD500ED631E /* HANE24Test.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,9 +131,9 @@
 		0EFDFD46299F5AF500A911F7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		2B1326102B2821E600301A8B /* ThisMonthAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthAccTimeCardView.swift; sourceTree = "<group>"; };
 		2B1326122B285B1D00301A8B /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.debug.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.debug.xcconfig"; sourceTree = "<group>"; };
 		5F9D5EBD040CA1B419BF545D /* Pods_24HANE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_24HANE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1A4BED299ADE650076D650 /* TodayAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAccTimeCardView.swift; sourceTree = "<group>"; };
-		9AF0C045D5FEBE82760C04A3 /* Pods-24HANE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.debug.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.debug.xcconfig"; sourceTree = "<group>"; };
 		9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 		9AF730FA299F53C700AF2E53 /* HaneVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaneVM.swift; sourceTree = "<group>"; };
 		9AF730FC299F602D00AF2E53 /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
 		A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.release.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.release.xcconfig"; sourceTree = "<group>"; };
+		D6185AE02BB3C71800E6944A /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
 		D680AC322BB17CA00083025D /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
+				D6185AE02BB3C71800E6944A /* CalendarVM.swift */,
 				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
 			);
@@ -335,8 +338,8 @@
 		CC7009C835DF6CA6ECA500B0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9AF0C045D5FEBE82760C04A3 /* Pods-24HANE.debug.xcconfig */,
 				A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */,
+				38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				0E6B608F29AC850D009D8BC4 /* NetworkMonitoringManager.swift in Sources */,
 				2B1326132B285B1D00301A8B /* NoticeView.swift in Sources */,
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
+				D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */,
 				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
 				0E3ED8A82BB13727001B0BAE /* NetworkManager.swift in Sources */,
 				0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */,
@@ -603,6 +607,7 @@
 /* Begin XCBuildConfiguration section */
 		0E165500299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D680AC322BB17CA00083025D /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -663,6 +668,7 @@
 		};
 		0E165501299A285E001E5EED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D680AC322BB17CA00083025D /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -717,7 +723,7 @@
 		};
 		0E165503299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AF0C045D5FEBE82760C04A3 /* Pods-24HANE.debug.xcconfig */;
+			baseConfigurationReference = 38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
