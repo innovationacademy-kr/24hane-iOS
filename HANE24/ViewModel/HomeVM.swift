@@ -38,7 +38,7 @@ class HomeVM: ObservableObject {
 		self.clusterPopulation = 0
 		
 		self.fundInfoNotice = Notice()
-		self.tagLatencyNotice = Notice()
+		self.tagLatencyNotice = Notice( )
 		
 		self.mainInfo = MainInfo()
 		
