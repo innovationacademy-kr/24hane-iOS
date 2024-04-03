@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//MARK: unused in V3
+
 public struct NoticeView: View {
     @Binding var showNotice: Bool
     var notice: Notice
