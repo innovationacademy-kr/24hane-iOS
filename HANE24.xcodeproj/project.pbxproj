@@ -42,6 +42,7 @@
 		0ED6E4002B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
 		0EE06CBF2BB2AD4C00B4988C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */; };
 		0EE06CC12BB2B2EB00B4988C /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */; };
+		0EE06CBD2BB2819500B4988C /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBC2BB2819500B4988C /* HomeVM.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
 		0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */; };
@@ -131,6 +132,7 @@
 		0ED6E4042B3559DF0026E69D /* HANE24WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HANE24WidgetExtension.entitlements; sourceTree = "<group>"; };
 		0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
+		0EE06CBC2BB2819500B4988C /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProgressView.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
 				D6185AE02BB3C71800E6944A /* CalendarVM.swift */,
 				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
+				0EE06CBC2BB2819500B4988C /* HomeVM.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
 			);
 			path = ViewModel;
@@ -544,6 +547,7 @@
 				0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */,
 				0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */,
 				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
+				0EE06CBD2BB2819500B4988C /* HomeVM.swift in Sources */,
 				0EEB0E2629AE303100FEB700 /* AlertView.swift in Sources */,
 				9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */,
 				2B1326112B2821E600301A8B /* ThisMonthAccTimeCardView.swift in Sources */,

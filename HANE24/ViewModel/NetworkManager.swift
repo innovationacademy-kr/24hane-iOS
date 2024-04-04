@@ -18,9 +18,9 @@ protocol NetworkProtocol {
 }
 
 class NetworkManager: NetworkProtocol {
-
+	
 	static let shared = NetworkManager()
-
+	
 	var session: URLSession
 	var apiRoot: String
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TodayAccTimeCardView: View {
+	@ObservedObject var homeManager: HomeVM
     @EnvironmentObject var hane: Hane
 
     @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
@@ -58,11 +59,11 @@ struct TodayAccTimeCardView: View {
                                 LoadingAnimation()
                             } else {
                                 HStack(alignment: .bottom, spacing: 0) {
-                                    Text("\(hane.dailyAccumulationTime / 3600)")
+                                    Text("\(homeManager.dailyAccumulationTime / 3600)")
                                         .font(.system(size: 20, weight: .bold))
                                     Text("시간 ")
                                         .font(.system(size: 16, weight: .bold))
-                                    Text("\(hane.dailyAccumulationTime % 3600 / 60)")
+                                    Text("\(homeManager.dailyAccumulationTime % 3600 / 60)")
                                         .font(.system(size: 20, weight: .bold))
                                     Text("분")
                                         .font(.system(size: 16, weight: .bold))
@@ -164,6 +165,6 @@ extension View {
     let hane = Hane()
     hane.dailyAccumulationTime = 12280
     hane.loading = false
-    return TodayAccTimeCardView(isNoticed: .constant(false))
+	return TodayAccTimeCardView(homeManager: HomeVM(), isNoticed: .constant(false))
         .environmentObject(hane)
 }
