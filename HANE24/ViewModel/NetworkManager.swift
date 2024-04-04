@@ -67,6 +67,7 @@ class NetworkManager: NetworkProtocol {
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
 		let (_, response) = try await session.data(for: request)
+		/// 200...299까지 늘려야?
 		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
 			throw MyError.tokenExpired("request Failed")
 		}

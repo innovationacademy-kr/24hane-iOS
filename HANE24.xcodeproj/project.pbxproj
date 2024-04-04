@@ -58,6 +58,7 @@
 		9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
 		D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
 		D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646BD0B2B95DCD500ED631E /* HANE24Test.swift */; };
+		D6C528F82BBECE0700F51A06 /* ReissueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C528F72BBECE0700F51A06 /* ReissueVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
 		D680AC322BB17CA00083025D /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		D69A01AF2B9F1639003C84C1 /* HaneTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = HaneTest.xctestplan; path = HANE24TEST/HaneTest.xctestplan; sourceTree = "<group>"; };
+		D6C528F72BBECE0700F51A06 /* ReissueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
+				D6C528F72BBECE0700F51A06 /* ReissueVM.swift */,
 				D6185AE02BB3C71800E6944A /* CalendarVM.swift */,
 				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
@@ -563,6 +566,7 @@
 				0E165508299A3C20001E5EED /* ChartView.swift in Sources */,
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 				0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */,
+				D6C528F82BBECE0700F51A06 /* ReissueVM.swift in Sources */,
 				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
