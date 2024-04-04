@@ -36,39 +36,6 @@ func getMonthlyPeriod() -> [String] {
     return monthlyPeriod
 }
 
-struct PullToRefresh: View {
-    var coordinateSpaceName: String
-    var onRefresh: () -> Void
-
-    @State var needRefresh: Bool = false
-
-    var body: some View {
-        GeometryReader { geo in
-            if (geo.frame(in: .named(coordinateSpaceName))).midY > 50 {
-                Spacer()
-                    .onAppear {
-                        needRefresh = true
-                    }
-            } else if geo.frame(in: .named(coordinateSpaceName)).midY < 10 {
-                Spacer()
-                    .onAppear {
-                        if needRefresh {
-                            needRefresh = false
-                            onRefresh()
-                        }
-                    }
-            }
-            HStack {
-                Spacer()
-                if needRefresh {
-                    ProgressView()
-                }
-                Spacer()
-            }
-        } .padding(.top, -50)
-    }
-}
-
 struct HomeView: View {
     init(fundInfo: Binding<Bool>, tagLatencyInfo: Binding<Bool>) {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
@@ -85,95 +52,50 @@ struct HomeView: View {
     @Binding var isNoticedTagLatencyInfo: Bool
 
     var body: some View {
-        NavigationView {
-           ZStack {
-               if hane.isInCluster {
-                   Image("Background")
-                        .resizable()
-                        .edgesIgnoringSafeArea(.top)
-                        .opacity(0.7)
-               } else {
-                   Theme.backgroundColor(forScheme: colorScheme)
-                       .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
-               }
-               VStack(alignment: .center, spacing: 20) {
-                    HStack(alignment: .center) {
-                        if hane.profileImage != "" {
-                            AsyncImage(url: URL(string: hane.profileImage)) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 28, height: 28)
-                                    .clipShape(Circle())
-                                    .padding(.trailing, 3)
-                            } placeholder: {
-                                Image(systemName: "person.circle")
-                                    .resizable()
-                                    .frame(width: 28, height: 28)
-                                    .padding(.trailing, 3)
-                                    .foregroundColor(.iconColor)
-                            }
-                        } else {
-                            Image(systemName: "person.circle")
-                                .resizable()
-                                .frame(width: 28, height: 28)
-                                .padding(.trailing, 3)
-                                .foregroundColor(.iconColor)
-                        }
+	   ZStack {
+		   if hane.isInCluster {
+			   Image("Background")
+					.resizable()
+					.edgesIgnoringSafeArea(.top)
+					.opacity(0.7)
+		   } else {
+			   Theme.backgroundColor(forScheme: colorScheme)
+				   .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
+		   }
+		   VStack(alignment: .center, spacing: 20) {
+				HeaderView()
+				ScrollView {
+					PullToRefresh(coordinateSpaceName: "pullToRefresh") {
+						Task {
+							try await hane.refresh()
+						}
+					}
 
-                        Text(hane.loginID)
-                            .font(.system(size: 20, weight: .semibold, design: .rounded))
-                            .foregroundColor(!hane.isInCluster && colorScheme == .light ? .black : .white)
+					VStack(spacing: 22.5) {
+						TodayAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
+							.padding(.horizontal, 30)
+	
+						ThisMonthAccTimeCardView(isNoticed: $isNoticedFundInfo)
+							.padding(.horizontal, 30)
 
-                        if hane.isInCluster {
-                            Circle()
-                                .foregroundColor(.green)
-                                .frame(width: 8, height: 8)
-                                .padding(.bottom, 10)
-                                .padding(.leading, 0)
-                        }
+						TabView {
+							ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
+								.padding(.horizontal, 10)
+							ChartView(item: ChartItem(id: "개월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
+								.padding(.horizontal, 10)
+						}
+						.padding(.horizontal, 20)
+						.tabViewStyle(.page)
+						.frame(height: 289)
 
-                        Spacer()
-                    }
-                    .padding(.top, 20)
-                    .frame(height: 30)
-                    .padding(.horizontal, 30)
-
-                    ScrollView {
-                        PullToRefresh(coordinateSpaceName: "pullToRefresh") {
-                            Task {
-                                try await hane.refresh()
-                            }
-                        }
-
-                        VStack(spacing: 22.5) {
-                            TodayAccTimeCardView(isNoticed: $isNoticedTagLatencyInfo)
-                                .padding(.horizontal, 30)
-
-                            ThisMonthAccTimeCardView(isNoticed: $isNoticedFundInfo)
-                                .padding(.horizontal, 30)
-
-                            TabView {
-                                ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
-                                    .padding(.horizontal, 10)
-                                ChartView(item: ChartItem(id: "개월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: hane.sixMonthAccumulationTime))
-                                    .padding(.horizontal, 10)
-                            }
-                            .padding(.horizontal, 20)
-                            .tabViewStyle(.page)
-                            .frame(height: 289)
-
-                            PopulationView()
-                                .padding(.horizontal, 30)
-                        }
-                        .padding(.bottom, 30)
-                        .padding(.top, 10)
-                    } .coordinateSpace(name: "pullToRefresh")
-                }
-            }
-        }
-        .navigationTitle("알림")
-
+						PopulationView()
+							.padding(.horizontal, 30)
+					}
+					.padding(.bottom, 30)
+					.padding(.top, 10)
+				} .coordinateSpace(name: "pullToRefresh")
+			}
+		}
     }
 }
 

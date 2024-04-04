@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0FE5F12BB3DDA30050498E /* NoticeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE5F02BB3DDA30050498E /* NoticeModifier.swift */; };
+		0E0FE5F32BB3E6110050498E /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */; };
+		0E0FE5F42BB3E6180050498E /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */; };
 		0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F2299A285B001E5EED /* HANE24App.swift */; };
 		0E1654F5299A285B001E5EED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F4299A285B001E5EED /* ContentView.swift */; };
 		0E1654F7299A285E001E5EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1654F6299A285E001E5EED /* Assets.xcassets */; };
@@ -37,6 +40,8 @@
 		0ED6E3FC2B354DFC0026E69D /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FA2B354DFC0026E69D /* HANE24WidgetConstant.swift */; };
 		0ED6E3FF2B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
 		0ED6E4002B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
+		0EE06CBF2BB2AD4C00B4988C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */; };
+		0EE06CC12BB2B2EB00B4988C /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
 		0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */; };
@@ -92,6 +97,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E0FE5F02BB3DDA30050498E /* NoticeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModifier.swift; sourceTree = "<group>"; };
+		0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		0E1654EF299A285B001E5EED /* 24HANE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24HANE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1654F2299A285B001E5EED /* HANE24App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24App.swift; sourceTree = "<group>"; };
 		0E1654F4299A285B001E5EED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +129,8 @@
 		0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationTimeStruct.swift; sourceTree = "<group>"; };
 		0ED6E4032B3559B80026E69D /* 24HANE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 24HANE.entitlements; sourceTree = "<group>"; };
 		0ED6E4042B3559DF0026E69D /* HANE24WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HANE24WidgetExtension.entitlements; sourceTree = "<group>"; };
+		0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProgressView.swift; sourceTree = "<group>"; };
@@ -246,11 +255,14 @@
 			children = (
 				0E16550F299A5A82001E5EED /* HomeView.swift */,
 				9A1A4BED299ADE650076D650 /* TodayAccTimeCardView.swift */,
+				0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */,
 				0E165507299A3C20001E5EED /* ChartView.swift */,
 				0E16550B299A3DF6001E5EED /* ChartDetailView.swift */,
+				0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */,
 				0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */,
 				2B1326102B2821E600301A8B /* ThisMonthAccTimeCardView.swift */,
 				2B1326122B285B1D00301A8B /* NoticeView.swift */,
+				0E0FE5F02BB3DDA30050498E /* NoticeModifier.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -286,6 +298,7 @@
 				0E16550D299A5887001E5EED /* MainView.swift */,
 				0EFAF5BD29A4D97800125948 /* LoadingView.swift */,
 				0E3B32A829A3815B001D10BF /* SignInWebView.swift */,
+				0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */,
 				0EFAF5B729A492A500125948 /* SignInView.swift */,
 				0EE5818F299CC01D00EE3351 /* Home */,
 				0EE58190299CC02A00EE3351 /* Calendar */,
@@ -546,8 +559,10 @@
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
 				D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */,
 				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
+				0EE06CC12BB2B2EB00B4988C /* PullToRefresh.swift in Sources */,
 				0E3ED8A82BB13727001B0BAE /* NetworkManager.swift in Sources */,
 				0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */,
+				0EE06CBF2BB2AD4C00B4988C /* HeaderView.swift in Sources */,
 				0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */,
 				0E9868272B2B76BE00E127DC /* CalendarBodyView.swift in Sources */,
 				9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */,
@@ -557,6 +572,7 @@
 				9AF730F6299E074800AF2E53 /* Structs.swift in Sources */,
 				0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */,
 				0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */,
+				0E0FE5F12BB3DDA30050498E /* NoticeModifier.swift in Sources */,
 				0E16550A299A3D8A001E5EED /* ColorExtension.swift in Sources */,
 				0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */,
 				9AF730FB299F53C700AF2E53 /* HaneVM.swift in Sources */,
@@ -564,6 +580,7 @@
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 				0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */,
 				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
+				0E0FE5F32BB3E6110050498E /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +591,7 @@
 				0ED6E4002B354E670026E69D /* AccumulationTimeStruct.swift in Sources */,
 				0ED6E3F92B354DD00026E69D /* UserDefaultsExtension.swift in Sources */,
 				0ED6E3E82B354D320026E69D /* HANE24WidgetBundle.swift in Sources */,
+				0E0FE5F42BB3E6180050498E /* CircularProgressBar.swift in Sources */,
 				0ED6E3EA2B354D320026E69D /* HANE24Widget.swift in Sources */,
 				0ED6E3F52B354DBD0026E69D /* DateExtensions.swift in Sources */,
 				0ED6E3F62B354DC00026E69D /* ColorExtension.swift in Sources */,
