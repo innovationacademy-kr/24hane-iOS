@@ -57,35 +57,6 @@ let monthlyJsonData = """
 
 let answer = [Log(inTime: Optional("12:14:39"), outTime: Optional("16:42:19"), logTime: Optional("04:27:40"))]
 
-class MockNetwork: NetworkProtocol {
-	static var shared = MockNetwork()
-
-	var session: URLSession
-
-	var apiRoot: String = ""
-
-	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
-		let decodedData = try JSONDecoder().decode(type.self, from: monthlyJsonData)
-		return decodedData
-	}
-
-	func postRequest(_ urlPath: String) async throws {
-		return
-	}
-
-	func patchRequest(_ urlPath: String) async throws {
-		return
-	}
-
-	func deleteRequest(_ urlPath: String) async throws {
-		return
-	}
-
-	private init(session: URLSession = URLSession.shared) {
-		self.session = session
-	}
-}
-
 final class HaneCalendarTest: XCTestCase {
 
 	// CalendarVM 객체
@@ -94,7 +65,7 @@ final class HaneCalendarTest: XCTestCase {
 	// 테스트 객체 초기화
 	override func setUpWithError() throws {
 		try super.setUpWithError()
-		sut = CalendarVM(network: MockNetwork.shared)
+		sut = CalendarVM(network: FakeCalenderNetwork.shared)
 	}
 
 	// 테스트 이후 객체 소멸

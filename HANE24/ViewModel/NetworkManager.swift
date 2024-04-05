@@ -8,9 +8,6 @@
 import Foundation
 
 protocol NetworkProtocol {
-	var session: URLSession { get }
-	var apiRoot: String { get }
-
 	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T: Decodable
 	func postRequest(_ urlPath: String) async throws
 	func patchRequest(_ urlPath: String) async throws

@@ -25,8 +25,7 @@ protocol ReissueNetworkProtocol {
 protocol ReissueProtocol: 
 	ObservableObject,
 	ReissueInfomationProtocol,
-	ReissueNetworkProtocol
-{}
+	ReissueNetworkProtocol {}
 
 class ReissueVM: ReissueProtocol {
 	private let network: NetworkProtocol
