@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,7 +36,6 @@
 		C88D09437179DCEBE60DA7E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42BBC0892E7FD0E445C9D7E /* HomeView.swift */; };
 		C8D281B293C784BD8272D5C8 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36046512B58E4FCCA2E59DE /* DateExtensions.swift */; };
 		CE584676EF088423F2CADC26 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7BE04FA876A6107B499DA /* MainView.swift */; };
-		D695785A2BC3C90C00FCFCBB /* Project+Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69578592BC3C90C00FCFCBB /* Project+Templates.swift */; };
 		E65FBAB60D7477ED8F999966 /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62E9F54CF59D82AD0BDFAE /* CalendarVM.swift */; };
 		E726421BEDA20741BE8E3CE0 /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEE1520EAA3BC3046D4589F /* ChartDetailView.swift */; };
 		E84A6A76256CDC993A7B8302 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87642CEAD0AA9A0C2A4EB053 /* MoreView.swift */; };
@@ -88,7 +87,6 @@
 		BDEE1520EAA3BC3046D4589F /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 		C397CEBB31DB01ADA231FDE7 /* PopulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationView.swift; sourceTree = "<group>"; };
 		D00BD307E8AA303E0B12E22B /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
-		D69578592BC3C90C00FCFCBB /* Project+Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Templates.swift"; sourceTree = "<group>"; };
 		D9E8CC8A262FFCBB3AF4D372 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		DAA7BE04FA876A6107B499DA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E14F6D731412D5FFBB79D9B5 /* CardProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProgressView.swift; sourceTree = "<group>"; };
@@ -124,7 +122,8 @@
 				F7790849D64F05C02BAA405C /* HANE24App.swift */,
 				D00BD307E8AA303E0B12E22B /* LaunchScreen.swift */,
 			);
-			path = HANE24;
+			name = HANE24;
+			path = ../HANE24;
 			sourceTree = "<group>";
 		};
 		05EBF5C4E25FB3D94CEBB7C6 /* View */ = {
@@ -239,98 +238,9 @@
 			path = Derived;
 			sourceTree = "<group>";
 		};
-		D695784E2BC3C86000FCFCBB /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		D695784F2BC3C86700FCFCBB /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widget;
-			sourceTree = "<group>";
-		};
-		D69578502BC3C86D00FCFCBB /* App */ = {
-			isa = PBXGroup;
-			children = (
-				D69578562BC3C8BA00FCFCBB /* Utils */,
-				D69578552BC3C8A200FCFCBB /* More */,
-				D69578542BC3C89B00FCFCBB /* Calendar */,
-				D69578532BC3C89500FCFCBB /* MainPage */,
-				D69578522BC3C88D00FCFCBB /* Asset */,
-				D69578512BC3C88600FCFCBB /* Network */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		D69578512BC3C88600FCFCBB /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		D69578522BC3C88D00FCFCBB /* Asset */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Asset;
-			sourceTree = "<group>";
-		};
-		D69578532BC3C89500FCFCBB /* MainPage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MainPage;
-			sourceTree = "<group>";
-		};
-		D69578542BC3C89B00FCFCBB /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		D69578552BC3C8A200FCFCBB /* More */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = More;
-			sourceTree = "<group>";
-		};
-		D69578562BC3C8BA00FCFCBB /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		D69578572BC3C8C100FCFCBB /* Tuist */ = {
-			isa = PBXGroup;
-			children = (
-				D69578582BC3C8F100FCFCBB /* TuistDescriptionHelpers */,
-			);
-			path = Tuist;
-			sourceTree = "<group>";
-		};
-		D69578582BC3C8F100FCFCBB /* TuistDescriptionHelpers */ = {
-			isa = PBXGroup;
-			children = (
-				D69578592BC3C90C00FCFCBB /* Project+Templates.swift */,
-			);
-			path = TuistDescriptionHelpers;
-			sourceTree = "<group>";
-		};
 		D75746B119214E0D5DB9138F = {
 			isa = PBXGroup;
 			children = (
-				D69578572BC3C8C100FCFCBB /* Tuist */,
-				D69578502BC3C86D00FCFCBB /* App */,
-				D695784F2BC3C86700FCFCBB /* Widget */,
-				D695784E2BC3C86000FCFCBB /* New Group */,
 				8986B1419AB4088F809D4CCA /* Project */,
 				79F249CAE6D7A3C17B12D935 /* Frameworks */,
 				78D04AC4CDE664451D4A1899 /* Products */,
@@ -377,6 +287,8 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "Hane24-iOS";
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 0AAC51529E4526D055A4E7CF /* Build configuration list for PBXProject "HANE24" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -412,7 +324,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE3E14F4933672A6953A8A56 /* ContentView.swift in Sources */,
-				D695785A2BC3C90C00FCFCBB /* Project+Templates.swift in Sources */,
 				B8B1722B0F69256CB896A0E0 /* GraphView.swift in Sources */,
 				4D01EFDAAF207B8FBD452B39 /* HANE24App.swift in Sources */,
 				EFBAB906389EE0F2D2B729FD /* LaunchScreen.swift in Sources */,
@@ -520,7 +431,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/HANE24-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -543,7 +453,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/HANE24-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

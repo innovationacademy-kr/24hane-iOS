@@ -1,0 +1,363 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2EA2D0ECB6A7866D5D6CE095 /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A919A416FB8B2DCFBF244E8 /* AccumulationTimeStruct.swift */; };
+		391E438D18F2A1BC1BC001CB /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C2FC6773DD7A5F18B7EA7C /* HANE24WidgetBundle.swift */; };
+		7BF99B9F83404886BACB4A5F /* HANE24Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8BB766874131C3425684B /* HANE24Widget.swift */; };
+		B12693DD389665994288D5C9 /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF5B380168C9850CB70178F /* HANE24WidgetConstant.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5F43052F003A1886B1D3F019 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0992BD601067EC2160E6F71C /* HANE24WidgetExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HANE24WidgetExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BB8BB766874131C3425684B /* HANE24Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Widget.swift; sourceTree = "<group>"; };
+		5086A21734B0257035D99D8E /* HANE24WidgetExtension-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HANE24WidgetExtension-Info.plist"; sourceTree = "<group>"; };
+		5A919A416FB8B2DCFBF244E8 /* AccumulationTimeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationTimeStruct.swift; sourceTree = "<group>"; };
+		F8C2FC6773DD7A5F18B7EA7C /* HANE24WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WidgetBundle.swift; sourceTree = "<group>"; };
+		FBF5B380168C9850CB70178F /* HANE24WidgetConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WidgetConstant.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37D489CB0229A1FD9149C02B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07DB0D9BDCB7B2B87E3B34B3 /* HANE24Widget */ = {
+			isa = PBXGroup;
+			children = (
+				5A919A416FB8B2DCFBF244E8 /* AccumulationTimeStruct.swift */,
+				1BB8BB766874131C3425684B /* HANE24Widget.swift */,
+				F8C2FC6773DD7A5F18B7EA7C /* HANE24WidgetBundle.swift */,
+				FBF5B380168C9850CB70178F /* HANE24WidgetConstant.swift */,
+			);
+			name = HANE24Widget;
+			path = ../HANE24Widget;
+			sourceTree = "<group>";
+		};
+		62A3A43A89FAF0DEA52190B3 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				5086A21734B0257035D99D8E /* HANE24WidgetExtension-Info.plist */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		78D04AC4CDE664451D4A1899 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0992BD601067EC2160E6F71C /* HANE24WidgetExtension.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79F249CAE6D7A3C17B12D935 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8986B1419AB4088F809D4CCA /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				C87842156B36B4BD8C66438C /* Derived */,
+				07DB0D9BDCB7B2B87E3B34B3 /* HANE24Widget */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		C87842156B36B4BD8C66438C /* Derived */ = {
+			isa = PBXGroup;
+			children = (
+				62A3A43A89FAF0DEA52190B3 /* InfoPlists */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		D75746B119214E0D5DB9138F = {
+			isa = PBXGroup;
+			children = (
+				8986B1419AB4088F809D4CCA /* Project */,
+				79F249CAE6D7A3C17B12D935 /* Frameworks */,
+				78D04AC4CDE664451D4A1899 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37FE3E23032B2394A94A81D3 /* HANE24WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9822E341C82BC4A0C2294A49 /* Build configuration list for PBXNativeTarget "HANE24WidgetExtension" */;
+			buildPhases = (
+				5D82061293391734CA5786CA /* Sources */,
+				5B16EE43B311A0B413367CE2 /* Resources */,
+				5F43052F003A1886B1D3F019 /* Embed Frameworks */,
+				37D489CB0229A1FD9149C02B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HANE24WidgetExtension;
+			productName = HANE24WidgetExtension;
+			productReference = 0992BD601067EC2160E6F71C /* HANE24WidgetExtension.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C214AE8352FC08659CE3139 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Hane24-iOS";
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 0AAC51529E4526D055A4E7CF /* Build configuration list for PBXProject "HANE24" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = D75746B119214E0D5DB9138F;
+			productRefGroup = 78D04AC4CDE664451D4A1899 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37FE3E23032B2394A94A81D3 /* HANE24WidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B16EE43B311A0B413367CE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5D82061293391734CA5786CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EA2D0ECB6A7866D5D6CE095 /* AccumulationTimeStruct.swift in Sources */,
+				7BF99B9F83404886BACB4A5F /* HANE24Widget.swift in Sources */,
+				391E438D18F2A1BC1BC001CB /* HANE24WidgetBundle.swift in Sources */,
+				B12693DD389665994288D5C9 /* HANE24WidgetConstant.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5103FDF1FD31830668B08FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/HANE24WidgetExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.HANE24Widget";
+				PRODUCT_NAME = HANE24WidgetExtension;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52B19F71EA52B86CD204B648 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BB6F9DF472DC2EB6C5707987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/HANE24WidgetExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.HANE24Widget";
+				PRODUCT_NAME = HANE24WidgetExtension;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D679DA93B4E253836B2A2880 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AAC51529E4526D055A4E7CF /* Build configuration list for PBXProject "HANE24" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52B19F71EA52B86CD204B648 /* Debug */,
+				D679DA93B4E253836B2A2880 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9822E341C82BC4A0C2294A49 /* Build configuration list for PBXNativeTarget "HANE24WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5103FDF1FD31830668B08FDC /* Debug */,
+				BB6F9DF472DC2EB6C5707987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C214AE8352FC08659CE3139 /* Project object */;
+}

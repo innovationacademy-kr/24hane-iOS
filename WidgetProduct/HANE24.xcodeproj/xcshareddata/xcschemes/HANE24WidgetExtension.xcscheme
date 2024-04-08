@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8B36164494E09CD6962087B9"
-               BuildableName = "HANE24.app"
-               BlueprintName = "HANE24"
+               BlueprintIdentifier = "37FE3E23032B2394A94A81D3"
+               BuildableName = "HANE24WidgetExtension.app"
+               BlueprintName = "HANE24WidgetExtension"
                ReferencedContainer = "container:HANE24.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      disableMainThreadChecker = "YES">
       <Testables>
       </Testables>
    </TestAction>
@@ -44,9 +45,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8B36164494E09CD6962087B9"
-            BuildableName = "HANE24.app"
-            BlueprintName = "HANE24"
+            BlueprintIdentifier = "37FE3E23032B2394A94A81D3"
+            BuildableName = "HANE24WidgetExtension.app"
+            BlueprintName = "HANE24WidgetExtension"
             ReferencedContainer = "container:HANE24.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +62,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8B36164494E09CD6962087B9"
-            BuildableName = "HANE24.app"
-            BlueprintName = "HANE24"
+            BlueprintIdentifier = "37FE3E23032B2394A94A81D3"
+            BuildableName = "HANE24WidgetExtension.app"
+            BlueprintName = "HANE24WidgetExtension"
             ReferencedContainer = "container:HANE24.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
