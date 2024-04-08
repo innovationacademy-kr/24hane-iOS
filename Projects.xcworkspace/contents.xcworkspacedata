@@ -5,7 +5,7 @@
       location = "group:Projects"
       name = "Projects">
       <FileRef
-         location = "group:App/HANE24.xcodeproj">
+         location = "group:App/App.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Home/Home.xcodeproj">
@@ -14,7 +14,4 @@
          location = "group:Network/Network.xcodeproj">
       </FileRef>
    </Group>
-   <FileRef
-      location = "group:WidgetProject/HANE24-Widget.xcodeproj">
-   </FileRef>
 </Workspace>
