@@ -7,25 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FFE35F98F648C958B1CA321 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 76E66C32BAE4D2C1EE4C64CB /* Home.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		37F5EA01EBA88C4FCC4B3495 /* HANE24Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6691FF4E191494EA0850E70D /* HANE24Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3BD59442555FBD7257E9AC6A /* Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF21D914DAEAEB24E77A223 /* Network.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34B270224DC4C780BB21AA42 /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6B21CE1B6A02BBA60F74A /* AccumulationTimeStruct.swift */; };
+		3CD43DB3B5AE2601645F5003 /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6B21CE1B6A02BBA60F74A /* AccumulationTimeStruct.swift */; };
 		44FD0B4C76F80EBFBC7AE17D /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E6A6BDC3AECEEB4C07B7 /* HANE24WidgetConstant.swift */; };
 		4B572D6BDDDAA29153702D95 /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6B21CE1B6A02BBA60F74A /* AccumulationTimeStruct.swift */; };
-		618C5A4BDBBDA7F1A2F8DC93 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E66C32BAE4D2C1EE4C64CB /* Home.framework */; platformFilter = ios; };
-		A6AD7D93BA643DF9F9147116 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF21D914DAEAEB24E77A223 /* Network.framework */; platformFilter = ios; };
+		52EB105187E9BFACCFBAD24A /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A843D49A70BFF4DFD16494 /* HANE24WidgetBundle.swift */; };
 		A8928DA446D4074B8D63BE3E /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A843D49A70BFF4DFD16494 /* HANE24WidgetBundle.swift */; };
+		C511FF3B82E23E741F264ACC /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A843D49A70BFF4DFD16494 /* HANE24WidgetBundle.swift */; };
+		C9A7BD9027A19D24004DC263 /* HANE24Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9286F72C1D552042994909B /* HANE24Widget.swift */; };
+		CA987D1E0DFAA3804A007DCE /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E6A6BDC3AECEEB4C07B7 /* HANE24WidgetConstant.swift */; };
+		DA055E6B6B8AD3028383EF13 /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E6A6BDC3AECEEB4C07B7 /* HANE24WidgetConstant.swift */; };
+		F4CFC4761B13BAA11D62EE11 /* HANE24Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9286F72C1D552042994909B /* HANE24Widget.swift */; };
 		FDEC05DFA6AF6DB359097950 /* HANE24Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9286F72C1D552042994909B /* HANE24Widget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0A7A80F9F6507F79D10FF8E7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B590BF25178DC7D824D09CE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B999BDEAE4A33676600D86F;
-			remoteInfo = HANE24Widget;
-		};
 		32EAB22E4CA94300DDDCDCCB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6B590BF25178DC7D824D09CE /* Project object */;
@@ -36,16 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		09D807360A032D6D9FE61325 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstSubfolderSpec = 13;
-			files = (
-				37F5EA01EBA88C4FCC4B3495 /* HANE24Widget.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		32C1016586DA85539DC02287 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,8 +48,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1FFE35F98F648C958B1CA321 /* Home.framework in Embed Frameworks */,
-				3BD59442555FBD7257E9AC6A /* Network.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,11 +65,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1AF21D914DAEAEB24E77A223 /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A843D49A70BFF4DFD16494 /* HANE24WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WidgetBundle.swift; sourceTree = "<group>"; };
 		571E08A9083FD4334E4B7D06 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6691FF4E191494EA0850E70D /* HANE24Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HANE24Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		76E66C32BAE4D2C1EE4C64CB /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F2F88C79ED82BBA62B85AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		84C9E6A6BDC3AECEEB4C07B7 /* HANE24WidgetConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WidgetConstant.swift; sourceTree = "<group>"; };
 		A9286F72C1D552042994909B /* HANE24Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Widget.swift; sourceTree = "<group>"; };
@@ -113,8 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				618C5A4BDBBDA7F1A2F8DC93 /* Home.framework in Frameworks */,
-				A6AD7D93BA643DF9F9147116 /* Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,8 +154,6 @@
 				571E08A9083FD4334E4B7D06 /* App.app */,
 				BAFF060C3D8E68253DF6AABA /* AppTests.xctest */,
 				6691FF4E191494EA0850E70D /* HANE24Widget.appex */,
-				76E66C32BAE4D2C1EE4C64CB /* Home.framework */,
-				1AF21D914DAEAEB24E77A223 /* Network.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,14 +185,12 @@
 			buildPhases = (
 				B77F0AF073564580D75A2CF1 /* Sources */,
 				37BFF6A8CB5CC7FA21AD3FA3 /* Resources */,
-				09D807360A032D6D9FE61325 /* Embed App Extensions */,
 				8EFDE6013C818852098745E7 /* Embed Frameworks */,
 				BC0DC3536DED64E0E8C9923E /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				312AEA2F693C02A369C11B0A /* PBXTargetDependency */,
 			);
 			name = App;
 			productName = App;
@@ -301,6 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD43DB3B5AE2601645F5003 /* AccumulationTimeStruct.swift in Sources */,
+				F4CFC4761B13BAA11D62EE11 /* HANE24Widget.swift in Sources */,
+				C511FF3B82E23E741F264ACC /* HANE24WidgetBundle.swift in Sources */,
+				DA055E6B6B8AD3028383EF13 /* HANE24WidgetConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,18 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B270224DC4C780BB21AA42 /* AccumulationTimeStruct.swift in Sources */,
+				C9A7BD9027A19D24004DC263 /* HANE24Widget.swift in Sources */,
+				52EB105187E9BFACCFBAD24A /* HANE24WidgetBundle.swift in Sources */,
+				CA987D1E0DFAA3804A007DCE /* HANE24WidgetConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		312AEA2F693C02A369C11B0A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = HANE24Widget;
-			target = 1B999BDEAE4A33676600D86F /* HANE24Widget */;
-			targetProxy = 0A7A80F9F6507F79D10FF8E7 /* PBXContainerItemProxy */;
-		};
 		96AA6D50C1AA746282D306B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = App;
@@ -352,7 +330,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANEApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
 				PRODUCT_NAME = AppTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -377,7 +355,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANEApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
 				PRODUCT_NAME = App;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -453,7 +431,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANEApp.WidgetExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.WidgetExtension";
 				PRODUCT_NAME = HANE24Widget;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -476,7 +454,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANEApp.WidgetExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.WidgetExtension";
 				PRODUCT_NAME = HANE24Widget;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -499,7 +477,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANEApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
 				PRODUCT_NAME = AppTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -525,7 +503,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANEApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
 				PRODUCT_NAME = App;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
