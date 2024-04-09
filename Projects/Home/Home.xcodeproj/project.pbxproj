@@ -6,10 +6,68 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		F59260D8476FA45929EC249E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F648A09DF594BC533BCA5FD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52E844066D197E3B81FA748F;
+			remoteInfo = Home;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3C28B78DE981ED6F9F6774E2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		724F10C18B84459D2E88EF10 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3E27707CF3AF39D07540B293 /* HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F1196A513FD820ADCF87AB /* Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Home.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		948F79AFEFCA171FA9D42198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		989FE4D10E5FABD20EDC2D85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2D1CD11E151DABAE249ECD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		156072FA40260C0FBAAE35F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				49F1196A513FD820ADCF87AB /* Home.app */,
+				3E27707CF3AF39D07540B293 /* HomeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -19,6 +77,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B5CD67E425F6AA1CFF25633 /* HANE24 */ = {
+			isa = PBXGroup;
+			children = (
+				948F79AFEFCA171FA9D42198 /* Info.plist */,
+			);
+			name = HANE24;
+			path = ../../HANE24;
 			sourceTree = "<group>";
 		};
 		7EE17195DCED3B55274927B6 = {
@@ -33,17 +100,61 @@
 		A0406DFCF5F3BCA58AF39988 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				6B5CD67E425F6AA1CFF25633 /* HANE24 */,
 			);
 			name = Project;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXNativeTarget section */
+		52E844066D197E3B81FA748F /* Home */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B53DD812B90D6329E3432A7A /* Build configuration list for PBXNativeTarget "Home" */;
+			buildPhases = (
+				2B21B3A2EC9193465C060BAD /* Sources */,
+				0C6214A8F4021BA62D8E98E9 /* Resources */,
+				3C28B78DE981ED6F9F6774E2 /* Embed Frameworks */,
+				989FE4D10E5FABD20EDC2D85 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Home;
+			productName = Home;
+			productReference = 49F1196A513FD820ADCF87AB /* Home.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF31213DA71B06E9B09EA3F0 /* HomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C15959F489528457DA19444D /* Build configuration list for PBXNativeTarget "HomeTests" */;
+			buildPhases = (
+				4CC58563C7B5AE74252419D8 /* Sources */,
+				95C7AAA080E708276A8F09A7 /* Resources */,
+				724F10C18B84459D2E88EF10 /* Embed Frameworks */,
+				D2D1CD11E151DABAE249ECD8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E36DF25B0B5D8E224B93FC24 /* PBXTargetDependency */,
+			);
+			name = HomeTests;
+			productName = HomeTests;
+			productReference = 3E27707CF3AF39D07540B293 /* HomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
 /* Begin PBXProject section */
 		F648A09DF594BC533BCA5FD3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				TargetAttributes = {
+					AF31213DA71B06E9B09EA3F0 = {
+						TestTargetID = 52E844066D197E3B81FA748F;
+					};
 				};
 			};
 			buildConfigurationList = AA685C1613CFBDFB4ED6BAE7 /* Build configuration list for PBXProject "Home" */;
@@ -59,11 +170,80 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				52E844066D197E3B81FA748F /* Home */,
+				AF31213DA71B06E9B09EA3F0 /* HomeTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		0C6214A8F4021BA62D8E98E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95C7AAA080E708276A8F09A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B21B3A2EC9193465C060BAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC58563C7B5AE74252419D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E36DF25B0B5D8E224B93FC24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Home;
+			target = 52E844066D197E3B81FA748F /* Home */;
+			targetProxy = F59260D8476FA45929EC249E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1B0052CC5DCDA316E217CB85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ../../HANE24/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_NAME = Home;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
 		5B23AD7BA110686AF5014647 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -120,6 +300,80 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A0D499078A2C717F0427DEEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ../../HANE24/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_NAME = Home;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A319B01445FC0CE1927E3317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ../../HANE24/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_NAME = HomeTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Home.app/Home";
+				TEST_TARGET_NAME = Home;
+			};
+			name = Release;
+		};
+		E9972A5C63F9283C539E1E33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ../../HANE24/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_NAME = HomeTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Home.app/Home";
+				TEST_TARGET_NAME = Home;
 			};
 			name = Debug;
 		};
@@ -184,6 +438,24 @@
 			buildConfigurations = (
 				5B23AD7BA110686AF5014647 /* Debug */,
 				EBE000C2C15A2514D251F457 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B53DD812B90D6329E3432A7A /* Build configuration list for PBXNativeTarget "Home" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B0052CC5DCDA316E217CB85 /* Debug */,
+				A0D499078A2C717F0427DEEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C15959F489528457DA19444D /* Build configuration list for PBXNativeTarget "HomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9972A5C63F9283C539E1E33 /* Debug */,
+				A319B01445FC0CE1927E3317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

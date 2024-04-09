@@ -34,7 +34,7 @@ public extension Project {
             bundleId: bundleID,
             deploymentTarget: deploymentTarget,
             infoPlist: infoPlist,
-            sources: [.glob(.relativeToRoot("HANE24Widget/**"))],
+//            sources: [.glob(.relativeToRoot("HANE24Widget/**"))],
             //                    resources: resources,
             dependencies: dependencies
         )
@@ -89,8 +89,16 @@ public extension Project {
             name: name,
             product: .framework,
             bundleID: bundleID + ".\(name)",
-            dependencies: dependencies
-            //            resources: resources
+            dependencies: dependencies,
+            target: [generateTarget(name: name, product: .app, bundleID: bundleID, deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist"))),
+                     generateTarget( name: "\(name)Tests",
+                                    product: .unitTests,
+                                     bundleID: bundleID,
+                                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+                                    dependencies: [
+                                    .target(name: name)])]
         )
     }
     
@@ -102,7 +110,10 @@ public extension Project {
         return .project(
             name: name,
             product: .appExtension,
-            bundleID:  bundleID + ".WidgetExtension")
+            bundleID:  bundleID + ".WidgetExtension",
+            target: [generateTarget(name: name, product: .app, bundleID: bundleID, deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")))]
+        )
     }
 }
 

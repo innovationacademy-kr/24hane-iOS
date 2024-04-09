@@ -7,17 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34B270224DC4C780BB21AA42 /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6B21CE1B6A02BBA60F74A /* AccumulationTimeStruct.swift */; };
-		3CD43DB3B5AE2601645F5003 /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6B21CE1B6A02BBA60F74A /* AccumulationTimeStruct.swift */; };
 		44FD0B4C76F80EBFBC7AE17D /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E6A6BDC3AECEEB4C07B7 /* HANE24WidgetConstant.swift */; };
 		4B572D6BDDDAA29153702D95 /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6B21CE1B6A02BBA60F74A /* AccumulationTimeStruct.swift */; };
-		52EB105187E9BFACCFBAD24A /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A843D49A70BFF4DFD16494 /* HANE24WidgetBundle.swift */; };
 		A8928DA446D4074B8D63BE3E /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A843D49A70BFF4DFD16494 /* HANE24WidgetBundle.swift */; };
-		C511FF3B82E23E741F264ACC /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A843D49A70BFF4DFD16494 /* HANE24WidgetBundle.swift */; };
-		C9A7BD9027A19D24004DC263 /* HANE24Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9286F72C1D552042994909B /* HANE24Widget.swift */; };
-		CA987D1E0DFAA3804A007DCE /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E6A6BDC3AECEEB4C07B7 /* HANE24WidgetConstant.swift */; };
-		DA055E6B6B8AD3028383EF13 /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E6A6BDC3AECEEB4C07B7 /* HANE24WidgetConstant.swift */; };
-		F4CFC4761B13BAA11D62EE11 /* HANE24Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9286F72C1D552042994909B /* HANE24Widget.swift */; };
 		FDEC05DFA6AF6DB359097950 /* HANE24Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9286F72C1D552042994909B /* HANE24Widget.swift */; };
 /* End PBXBuildFile section */
 
@@ -277,10 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CD43DB3B5AE2601645F5003 /* AccumulationTimeStruct.swift in Sources */,
-				F4CFC4761B13BAA11D62EE11 /* HANE24Widget.swift in Sources */,
-				C511FF3B82E23E741F264ACC /* HANE24WidgetBundle.swift in Sources */,
-				DA055E6B6B8AD3028383EF13 /* HANE24WidgetConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,10 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34B270224DC4C780BB21AA42 /* AccumulationTimeStruct.swift in Sources */,
-				C9A7BD9027A19D24004DC263 /* HANE24Widget.swift in Sources */,
-				52EB105187E9BFACCFBAD24A /* HANE24WidgetBundle.swift in Sources */,
-				CA987D1E0DFAA3804A007DCE /* HANE24WidgetConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
