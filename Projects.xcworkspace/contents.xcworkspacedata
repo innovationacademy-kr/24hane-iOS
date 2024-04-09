@@ -8,6 +8,9 @@
          location = "group:App/App.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:Calendar/Calendar.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Home/Home.xcodeproj">
       </FileRef>
       <FileRef

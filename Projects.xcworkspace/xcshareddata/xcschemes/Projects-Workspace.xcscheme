@@ -42,6 +42,34 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "917276B2C06A6B638EB2B054"
+               BuildableName = "Calendar.app"
+               BlueprintName = "Calendar"
+               ReferencedContainer = "container:Projects/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1FE9A76EA43315B375FD33FD"
+               BuildableName = "CalendarTests.xctest"
+               BlueprintName = "CalendarTests"
+               ReferencedContainer = "container:Projects/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B999BDEAE4A33676600D86F"
                BuildableName = "HANE24Widget.appex"
                BlueprintName = "HANE24Widget"
@@ -120,6 +148,16 @@
                BuildableName = "AppTests.xctest"
                BlueprintName = "AppTests"
                ReferencedContainer = "container:Projects/App/App.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1FE9A76EA43315B375FD33FD"
+               BuildableName = "CalendarTests.xctest"
+               BlueprintName = "CalendarTests"
+               ReferencedContainer = "container:Projects/Calendar/Calendar.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference

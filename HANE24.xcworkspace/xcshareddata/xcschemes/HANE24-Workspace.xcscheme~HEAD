@@ -17,7 +17,7 @@
                BlueprintIdentifier = "8B36164494E09CD6962087B9"
                BuildableName = "HANE24.app"
                BlueprintName = "HANE24"
-               ReferencedContainer = "container:Projects/App/HANE24.xcodeproj">
+               ReferencedContainer = "container:HANE24.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,24 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52E844066D197E3B81FA748F"
-               BuildableName = "Home.app"
-               BlueprintName = "Home"
-               ReferencedContainer = "container:Projects/Home/Home.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1AEBE67F28FC7607B2C411E"
-               BuildableName = "Network.app"
-               BlueprintName = "Network"
-               ReferencedContainer = "container:Projects/Network/Network.xcodeproj">
+               BlueprintIdentifier = "37FE3E23032B2394A94A81D3"
+               BuildableName = "HANE24WidgetExtension.app"
+               BlueprintName = "HANE24WidgetExtension"
+               ReferencedContainer = "container:HANE24.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -75,7 +61,7 @@
             BlueprintIdentifier = "8B36164494E09CD6962087B9"
             BuildableName = "HANE24.app"
             BlueprintName = "HANE24"
-            ReferencedContainer = "container:Projects/App/HANE24.xcodeproj">
+            ReferencedContainer = "container:HANE24.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -92,7 +78,7 @@
             BlueprintIdentifier = "8B36164494E09CD6962087B9"
             BuildableName = "HANE24.app"
             BlueprintName = "HANE24"
-            ReferencedContainer = "container:Projects/App/HANE24.xcodeproj">
+            ReferencedContainer = "container:HANE24.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

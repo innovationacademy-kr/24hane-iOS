@@ -8,10 +8,12 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project.app(name: Module.app.name,
-                          dependencies: [
-                            Module.home.project,
-                            Module.network.project,
-                            .target(name: "HANE24Widget")
-                          ],
-                          resources: .default)
+let project = Project.app(
+	name: Module.app.name,
+	dependencies: [
+		Module.home.project,
+		Module.network.project,
+		.target(name: "HANE24Widget")
+	],
+	resources: .default
+)
