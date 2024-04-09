@@ -11,7 +11,8 @@ public enum Module {
     case app
     case home
     case network
-//    case more
+    case calendar
+    case more
 }
 
 extension Module {
@@ -23,8 +24,10 @@ extension Module {
             return "Home"
         case .network:
             return "Network"
-//        case .more:
-//            return "More"
+        case .calendar:
+            return "Calendar"
+        case .more:
+            return "More"
         }
     }
     

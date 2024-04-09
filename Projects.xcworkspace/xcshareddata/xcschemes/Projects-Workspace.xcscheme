@@ -42,6 +42,34 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "917276B2C06A6B638EB2B054"
+               BuildableName = "Calendar.app"
+               BlueprintName = "Calendar"
+               ReferencedContainer = "container:Projects/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1FE9A76EA43315B375FD33FD"
+               BuildableName = "CalendarTests.xctest"
+               BlueprintName = "CalendarTests"
+               ReferencedContainer = "container:Projects/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B999BDEAE4A33676600D86F"
                BuildableName = "HANE24Widget.appex"
                BlueprintName = "HANE24Widget"
@@ -74,6 +102,34 @@
                BuildableName = "HomeTests.xctest"
                BlueprintName = "HomeTests"
                ReferencedContainer = "container:Projects/Home/Home.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B62D369236B992A982308107"
+               BuildableName = "More.app"
+               BlueprintName = "More"
+               ReferencedContainer = "container:Projects/More/More.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4C3F1338973193AC3EFE0A4"
+               BuildableName = "MoreTests.xctest"
+               BlueprintName = "MoreTests"
+               ReferencedContainer = "container:Projects/More/More.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -126,10 +182,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1FE9A76EA43315B375FD33FD"
+               BuildableName = "CalendarTests.xctest"
+               BlueprintName = "CalendarTests"
+               ReferencedContainer = "container:Projects/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "AF31213DA71B06E9B09EA3F0"
                BuildableName = "HomeTests.xctest"
                BlueprintName = "HomeTests"
                ReferencedContainer = "container:Projects/Home/Home.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4C3F1338973193AC3EFE0A4"
+               BuildableName = "MoreTests.xctest"
+               BlueprintName = "MoreTests"
+               ReferencedContainer = "container:Projects/More/More.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
