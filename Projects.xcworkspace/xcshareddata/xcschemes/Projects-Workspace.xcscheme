@@ -113,7 +113,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A1AEBE67F28FC7607B2C411E"
-               BuildableName = "Network.app"
+               BuildableName = "Network.framework"
                BlueprintName = "Network"
                ReferencedContainer = "container:Projects/Network/Network.xcodeproj">
             </BuildableReference>
@@ -130,6 +130,34 @@
                BuildableName = "NetworkTests.xctest"
                BlueprintName = "NetworkTests"
                ReferencedContainer = "container:Projects/Network/Network.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
+               BuildableName = "Utils.framework"
+               BlueprintName = "Utils"
+               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1DCB1A88ED933140A011EC01"
+               BuildableName = "UtilsTests.xctest"
+               BlueprintName = "UtilsTests"
+               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -178,6 +206,16 @@
                BuildableName = "NetworkTests.xctest"
                BlueprintName = "NetworkTests"
                ReferencedContainer = "container:Projects/Network/Network.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1DCB1A88ED933140A011EC01"
+               BuildableName = "UtilsTests.xctest"
+               BlueprintName = "UtilsTests"
+               ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

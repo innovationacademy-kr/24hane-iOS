@@ -9,4 +9,4 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project.framework(name: Module.network.name)
+let project = Project.makeFramework(name: Module.network.name)

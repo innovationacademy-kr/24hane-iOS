@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Utils
 
 struct CalendarBodyView: View {
 	@EnvironmentObject var calendarVM: CalendarVM

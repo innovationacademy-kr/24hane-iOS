@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BD330900C24C638F9F9708A5"
-               BuildableName = "HANE24_App.app"
-               BlueprintName = "HANE24-App"
-               ReferencedContainer = "container:HANE24-App.xcodeproj">
+               BlueprintIdentifier = "A1AEBE67F28FC7607B2C411E"
+               BuildableName = "Network.framework"
+               BlueprintName = "Network"
+               ReferencedContainer = "container:Network.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,9 +26,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      disableMainThreadChecker = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "802E8B11362B1C5C00136DF4"
+               BuildableName = "NetworkTests.xctest"
+               BlueprintName = "NetworkTests"
+               ReferencedContainer = "container:Network.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -41,16 +50,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD330900C24C638F9F9708A5"
-            BuildableName = "HANE24_App.app"
-            BlueprintName = "HANE24-App"
-            ReferencedContainer = "container:HANE24-App.xcodeproj">
+            BlueprintIdentifier = "A1AEBE67F28FC7607B2C411E"
+            BuildableName = "Network.framework"
+            BlueprintName = "Network"
+            ReferencedContainer = "container:Network.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -58,16 +66,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD330900C24C638F9F9708A5"
-            BuildableName = "HANE24_App.app"
-            BlueprintName = "HANE24-App"
-            ReferencedContainer = "container:HANE24-App.xcodeproj">
+            BlueprintIdentifier = "A1AEBE67F28FC7607B2C411E"
+            BuildableName = "Network.framework"
+            BlueprintName = "Network"
+            ReferencedContainer = "container:Network.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

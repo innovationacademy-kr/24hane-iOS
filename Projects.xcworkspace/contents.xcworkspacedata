@@ -16,5 +16,8 @@
       <FileRef
          location = "group:Network/Network.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:Utils/Utils.xcodeproj">
+      </FileRef>
    </Group>
 </Workspace>

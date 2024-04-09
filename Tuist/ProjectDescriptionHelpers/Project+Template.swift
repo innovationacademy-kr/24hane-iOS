@@ -34,7 +34,7 @@ public extension Project {
 			bundleId: bundleID,
 			deploymentTarget: deploymentTarget,
 			infoPlist: infoPlist,
-			//            sources: [.glob(.relativeToRoot("HANE24Widget/**"))],
+			sources: ["Sources/**"],
 			resources: resources,
 			dependencies: dependencies
 		)
@@ -86,6 +86,40 @@ public extension Project {
 		)
 	}
 
+	static func makeFramework(
+		name: String,
+		dependencies: [TargetDependency] = [],
+		resources: ProjectDescription.ResourceFileElements? = nil
+	) -> Project {
+		return .project(
+			name: name,
+			product: .framework,
+			bundleID: "\(bundleID).\(name)",
+			target: [
+				generateTarget(
+					name: name,
+					product: .framework,
+					bundleID: "\(bundleID).\(name)",
+					deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+					infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+					dependencies: dependencies,
+					resources: .default
+				),
+				generateTarget(
+					name: "\(name)Tests",
+					product: .unitTests,
+					bundleID: "\(bundleID).\(name)",
+					deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+					infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+					dependencies: [
+						.target(name: name)
+					],
+					resources: .default
+				)
+			]
+		)
+	}
+
 	static func framework(
 		name: String,
 		dependencies: [TargetDependency] = [],
@@ -95,7 +129,6 @@ public extension Project {
 			name: name,
 			product: .framework,
 			bundleID: "\(bundleID).\(name)",
-			dependencies: dependencies,
 			target: [
 				generateTarget(
 					name: name,
@@ -103,6 +136,7 @@ public extension Project {
 					bundleID: "\(bundleID).\(name)",
 					deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
 					infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+					dependencies: dependencies,
 					resources: .default
 				),
 				generateTarget(
