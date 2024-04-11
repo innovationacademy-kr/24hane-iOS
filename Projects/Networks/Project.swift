@@ -2,9 +2,8 @@
 //  Project.swift
 //  ProjectDescriptionHelpers
 //
-//  Created by Katherine JANG on 4/8/24.
+//  Created by Hosung Lim on 4/9/24.
 //
-
 
 import ProjectDescription
 import ProjectDescriptionHelpers

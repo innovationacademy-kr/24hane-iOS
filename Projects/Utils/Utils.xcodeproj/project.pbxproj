@@ -7,25 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27B97DA38D1F5FAD3E6B99C6 /* DarkMode.swift in Resources */ = {isa = PBXBuildFile; fileRef = 515004E8006FA9BE66FE59AC /* DarkMode.swift */; };
-		38AE6071B5A5C2E46555CAF4 /* TuistBundle+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313819CE8DE2E294D92D2CAB /* TuistBundle+Utils.swift */; };
-		40352AAD770A510180890CC3 /* ColorExtension.swift in Resources */ = {isa = PBXBuildFile; fileRef = B68C841F66DF45ECED152A2B /* ColorExtension.swift */; };
-		4BFECDA4CE9141B8C4BB1B6B /* TuistBundle+UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CDF822E0F769C2AB78371B /* TuistBundle+UtilsTests.swift */; };
 		51BD6CC5683C4B114E1B5DCB /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCBF949C135D68CD4C39064 /* DateExtensions.swift */; };
 		63AF63D5690D975CF84DE764 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED387C90D1A41732A0E0BF7D /* UserDefaultsExtension.swift */; };
 		6CF9E3768ECDEF97E8F56D44 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED387C90D1A41732A0E0BF7D /* UserDefaultsExtension.swift */; };
 		809FB9E055467C017D081392 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8560399625C09B590AEC8A /* ColorExtension.swift */; };
-		81EDA66FDEE7E3AE332C5B04 /* DateExtensions.swift in Resources */ = {isa = PBXBuildFile; fileRef = 278C6150F09C088C0F56FF5E /* DateExtensions.swift */; };
-		82A48C7439C1CFEADEC9F6D7 /* UserDefaultsExtension.swift in Resources */ = {isa = PBXBuildFile; fileRef = AD0A86B36DBB710A89412852 /* UserDefaultsExtension.swift */; };
-		910917EBDED9A37FA66E8F6F /* UserDefaultsExtension.swift in Resources */ = {isa = PBXBuildFile; fileRef = AD0A86B36DBB710A89412852 /* UserDefaultsExtension.swift */; };
 		9890AAD06AAE3202DBEF27E3 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46F95A132B0B1FD026E448 /* DarkMode.swift */; };
 		A65FAD705874B1C76B4A9DC1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCBF949C135D68CD4C39064 /* DateExtensions.swift */; };
 		AAEA6CA5BECBDB552483D029 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8560399625C09B590AEC8A /* ColorExtension.swift */; };
 		CEFDDB58B761D5AA132A48F2 /* Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF087C0420B9110FD8E562E /* Utils.framework */; platformFilter = ios; };
-		EB8151030C7CFA61703B7561 /* DateExtensions.swift in Resources */ = {isa = PBXBuildFile; fileRef = 278C6150F09C088C0F56FF5E /* DateExtensions.swift */; };
-		EF60FFA098737BB08692B916 /* ColorExtension.swift in Resources */ = {isa = PBXBuildFile; fileRef = B68C841F66DF45ECED152A2B /* ColorExtension.swift */; };
 		F9954AC021DBEA20F95D816A /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46F95A132B0B1FD026E448 /* DarkMode.swift */; };
-		FB5B62BA180BA513232FE07A /* DarkMode.swift in Resources */ = {isa = PBXBuildFile; fileRef = 515004E8006FA9BE66FE59AC /* DarkMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,16 +53,10 @@
 
 /* Begin PBXFileReference section */
 		2658225C6E425C649B2DF909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		278C6150F09C088C0F56FF5E /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		313819CE8DE2E294D92D2CAB /* TuistBundle+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Utils.swift"; sourceTree = "<group>"; };
 		4C8560399625C09B590AEC8A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		4FCBF949C135D68CD4C39064 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		515004E8006FA9BE66FE59AC /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		5A46F95A132B0B1FD026E448 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		5DF087C0420B9110FD8E562E /* Utils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		64CDF822E0F769C2AB78371B /* TuistBundle+UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+UtilsTests.swift"; sourceTree = "<group>"; };
-		AD0A86B36DBB710A89412852 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
-		B68C841F66DF45ECED152A2B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		D1B2ABD3D197170B8718ADEA /* UtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED387C90D1A41732A0E0BF7D /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,17 +91,6 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		0733D14A5A32E267D906078B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B68C841F66DF45ECED152A2B /* ColorExtension.swift */,
-				515004E8006FA9BE66FE59AC /* DarkMode.swift */,
-				278C6150F09C088C0F56FF5E /* DateExtensions.swift */,
-				AD0A86B36DBB710A89412852 /* UserDefaultsExtension.swift */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		16F1F86CCF512761601A1236 /* HANE24 */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,15 +116,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		50FE9F342245A3E398450288 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				313819CE8DE2E294D92D2CAB /* TuistBundle+Utils.swift */,
-				64CDF822E0F769C2AB78371B /* TuistBundle+UtilsTests.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
 		7C91285099B6527E754106D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,20 +125,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B9534BBE7230884C96215762 /* Derived */ = {
-			isa = PBXGroup;
-			children = (
-				50FE9F342245A3E398450288 /* Sources */,
-			);
-			path = Derived;
-			sourceTree = "<group>";
-		};
 		FA04A5DD391F0E1717789561 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				B9534BBE7230884C96215762 /* Derived */,
 				16F1F86CCF512761601A1236 /* HANE24 */,
-				0733D14A5A32E267D906078B /* Resources */,
 				064FB321429B186288EABD56 /* Sources */,
 			);
 			name = Project;
@@ -253,10 +207,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF60FFA098737BB08692B916 /* ColorExtension.swift in Resources */,
-				FB5B62BA180BA513232FE07A /* DarkMode.swift in Resources */,
-				81EDA66FDEE7E3AE332C5B04 /* DateExtensions.swift in Resources */,
-				910917EBDED9A37FA66E8F6F /* UserDefaultsExtension.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,10 +214,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40352AAD770A510180890CC3 /* ColorExtension.swift in Resources */,
-				27B97DA38D1F5FAD3E6B99C6 /* DarkMode.swift in Resources */,
-				EB8151030C7CFA61703B7561 /* DateExtensions.swift in Resources */,
-				82A48C7439C1CFEADEC9F6D7 /* UserDefaultsExtension.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +224,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38AE6071B5A5C2E46555CAF4 /* TuistBundle+Utils.swift in Sources */,
 				AAEA6CA5BECBDB552483D029 /* ColorExtension.swift in Sources */,
 				F9954AC021DBEA20F95D816A /* DarkMode.swift in Sources */,
 				51BD6CC5683C4B114E1B5DCB /* DateExtensions.swift in Sources */,
@@ -290,7 +235,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BFECDA4CE9141B8C4BB1B6B /* TuistBundle+UtilsTests.swift in Sources */,
 				809FB9E055467C017D081392 /* ColorExtension.swift in Sources */,
 				9890AAD06AAE3202DBEF27E3 /* DarkMode.swift in Sources */,
 				A65FAD705874B1C76B4A9DC1 /* DateExtensions.swift in Sources */,

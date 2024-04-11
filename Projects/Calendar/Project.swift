@@ -9,11 +9,11 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project.framework(
+let project = Project.makeFramework(
 	name: Module.calendar.name,
 	dependencies: [
 		.project(target: "Utils", path: "../Utils"),
-		.project(target: "Network", path: "../Network")
+		.project(target: "Networks", path: "../Networks")
 	],
 	resources: .default
 )

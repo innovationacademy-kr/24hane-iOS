@@ -1,6 +1,6 @@
 import ProjectDescription
 
-let bundleID = "net.hejang.-4HANE"
+public let bundleID = "net.hejang.-4HANE"
 
 public let widgetTarget = Target(
 	name: "HANE24Widget",
@@ -35,7 +35,7 @@ public extension Project {
 			deploymentTarget: deploymentTarget,
 			infoPlist: infoPlist,
 			sources: ["Sources/**"],
-			resources: resources,
+			//			resources: resources,
 			dependencies: dependencies
 		)
 	}
@@ -52,7 +52,37 @@ public extension Project {
 		return Project(
 			name: name,
 			targets: target,
-			schemes: schemes
+			schemes: [
+				Scheme(
+					name: name,
+					shared: true,
+					buildAction: BuildAction(
+						targets: [
+							TargetReference(projectPath: nil, target: name)
+						]
+					),
+					testAction: .targets(
+						["\(name)Tests"],
+						configuration: .debug,
+						options: .options(coverage: true, codeCoverageTargets: ["\(name)"])
+					)
+//					testAction: TestAction(
+//						targets: [
+//							TestableTarget(
+//								target: TargetReference(
+//									projectPath: nil,
+//									target: "\(name)Tests"
+//								)
+//							)
+//						],
+//						arguments: Arguments(
+//							environment: [
+//								"OS_ACTIVITY_MODE": "disable"
+//							]
+//						)
+//					)
+				)
+			]
 		)
 	}
 
@@ -181,47 +211,3 @@ public extension ProjectDescription.ResourceFileElements {
 	static let `default`: ProjectDescription.ResourceFileElements = ["Resources/**"]
 
 }
-
-//public extension Project {
-//    static func makeModule(
-//        name: String,
-//        platform: Platform = .iOS,
-//        product: Product,
-//        organizationName: String = "Hane24-iOS",
-//        packages: [Package] = [],
-//        deploymentTarget: DeploymentTarget? = .iOS(targetVersion: "15.0", devices: [.iphone]),
-//        dependencies: [TargetDependency] = [
-//        ],
-//        sources: SourceFilesList? = nil,
-//        resources: ResourceFileElements? = nil,
-//        infoPlist: InfoPlist = .default
-//    ) -> Project {
-//        let settings: Settings = .settings(
-//            base: [:],
-//            configurations: [
-//                .debug(name: .debug),
-//                .release(name: .release)
-//            ], defaultSettings: .recommended)
-//
-//        let appTarget = Target(
-//            name: name,
-//            platform: platform,
-//            product: product,
-//            bundleId: "\(organizationName).\(name)",
-//            deploymentTarget: deploymentTarget,
-//            infoPlist: infoPlist,
-//            sources: sources,
-//            resources: resources
-//        )
-//
-//        let targets: [Target] = [appTarget]
-//
-//        return Project(
-//            name: name,
-//            organizationName: organizationName,
-//            packages: packages,
-//            settings: settings,
-//            targets: targets
-//        )
-//    }
-//}

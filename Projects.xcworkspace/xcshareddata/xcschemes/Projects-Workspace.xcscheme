@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "917276B2C06A6B638EB2B054"
-               BuildableName = "Calendar.app"
+               BuildableName = "Calendar.framework"
                BlueprintName = "Calendar"
                ReferencedContainer = "container:Projects/Calendar/Calendar.xcodeproj">
             </BuildableReference>
@@ -112,10 +112,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1AEBE67F28FC7607B2C411E"
-               BuildableName = "Network.framework"
-               BlueprintName = "Network"
-               ReferencedContainer = "container:Projects/Network/Network.xcodeproj">
+               BlueprintIdentifier = "2EE557D34B930B760FD4A735"
+               BuildableName = "Networks.framework"
+               BlueprintName = "Networks"
+               ReferencedContainer = "container:Projects/Networks/Networks.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -126,10 +126,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "802E8B11362B1C5C00136DF4"
-               BuildableName = "NetworkTests.xctest"
-               BlueprintName = "NetworkTests"
-               ReferencedContainer = "container:Projects/Network/Network.xcodeproj">
+               BlueprintIdentifier = "F13A87E240A54270A150D681"
+               BuildableName = "NetworksTests.xctest"
+               BlueprintName = "NetworksTests"
+               ReferencedContainer = "container:Projects/Networks/Networks.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -202,10 +202,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "802E8B11362B1C5C00136DF4"
-               BuildableName = "NetworkTests.xctest"
-               BlueprintName = "NetworkTests"
-               ReferencedContainer = "container:Projects/Network/Network.xcodeproj">
+               BlueprintIdentifier = "F13A87E240A54270A150D681"
+               BuildableName = "NetworksTests.xctest"
+               BlueprintName = "NetworksTests"
+               ReferencedContainer = "container:Projects/Networks/Networks.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference

@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum MyError: Error {
+	case tokenExpired(String)
+}
+
 protocol NetworkProtocol {
 	var session: URLSession { get }
 	var apiRoot: String { get }

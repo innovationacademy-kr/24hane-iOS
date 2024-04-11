@@ -1,0 +1,26 @@
+//
+//  Project.stencil.swift
+//  ProjectDescriptionHelpers
+//
+//  Created by Hosung Lim on 4/11/24.
+//
+
+import ProjectDescription
+
+let project = Project(
+	name: "{{ name }}",
+	targets: [
+		Target(
+			name: "{{ name }}",
+			platform: .iOS,
+			product: .framework,
+			bundleId: "\(bundleID)+{{ name }}",
+			infoPlist: .file(
+				path: .relativeToRoot()
+			),
+			dependencies: [
+
+			]
+		)
+	]
+)

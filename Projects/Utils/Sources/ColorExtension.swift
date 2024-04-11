@@ -36,7 +36,7 @@ public extension Color {
     static let dateToday = Color("dateToday")
 }
 
-extension Color {
+public extension Color {
 
     init(hex: String) {
         let scanner = Scanner(string: hex)

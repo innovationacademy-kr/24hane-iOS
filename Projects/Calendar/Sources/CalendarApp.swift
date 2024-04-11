@@ -10,7 +10,7 @@ import Utils
 
 @main
 struct CalendarApp: App {
-	var calendar = CalendarVM()
+	@StateObject var calendar = CalendarVM()
 
     var body: some Scene {
 		WindowGroup {

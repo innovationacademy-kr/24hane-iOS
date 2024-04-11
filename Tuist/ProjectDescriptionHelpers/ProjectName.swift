@@ -24,7 +24,7 @@ extension Module {
         case .home:
             return "Home"
         case .network:
-            return "Network"
+            return "Networks"
 		case .calendar:
 			return "Calendar"
 		case .utils:
