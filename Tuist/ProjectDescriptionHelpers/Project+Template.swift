@@ -132,7 +132,7 @@ public extension Project {
             target: [
                 generateTarget(
                     name: name,
-                    product: .app,
+                    product: .framework,
                     bundleID: "\(bundleID).\(name)",
                     deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
                     infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),

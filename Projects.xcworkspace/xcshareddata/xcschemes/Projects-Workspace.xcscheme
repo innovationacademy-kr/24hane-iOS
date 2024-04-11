@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "917276B2C06A6B638EB2B054"
-               BuildableName = "Calendar.app"
+               BuildableName = "Calendar.framework"
                BlueprintName = "Calendar"
                ReferencedContainer = "container:Projects/Calendar/Calendar.xcodeproj">
             </BuildableReference>
@@ -85,7 +85,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52E844066D197E3B81FA748F"
-               BuildableName = "Home.app"
+               BuildableName = "Home.framework"
                BlueprintName = "Home"
                ReferencedContainer = "container:Projects/Home/Home.xcodeproj">
             </BuildableReference>
@@ -113,7 +113,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2EE557D34B930B760FD4A735"
-               BuildableName = "Networks.app"
+               BuildableName = "Networks.framework"
                BlueprintName = "Networks"
                ReferencedContainer = "container:Projects/Networks/Networks.xcodeproj">
             </BuildableReference>
@@ -141,7 +141,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
-               BuildableName = "Utils.app"
+               BuildableName = "Utils.framework"
                BlueprintName = "Utils"
                ReferencedContainer = "container:Projects/Utils/Utils.xcodeproj">
             </BuildableReference>

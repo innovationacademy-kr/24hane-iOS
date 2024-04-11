@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
-               BuildableName = "Utils.app"
+               BuildableName = "Utils.framework"
                BlueprintName = "Utils"
                ReferencedContainer = "container:Utils.xcodeproj">
             </BuildableReference>
@@ -50,16 +50,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
-            BuildableName = "Utils.app"
+            BuildableName = "Utils.framework"
             BlueprintName = "Utils"
             ReferencedContainer = "container:Utils.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,16 +66,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0252FCCE7557E2D21E4561C"
-            BuildableName = "Utils.app"
+            BuildableName = "Utils.framework"
             BlueprintName = "Utils"
             ReferencedContainer = "container:Utils.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

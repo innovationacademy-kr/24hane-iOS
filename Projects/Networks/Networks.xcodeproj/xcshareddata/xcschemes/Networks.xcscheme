@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2EE557D34B930B760FD4A735"
-               BuildableName = "Networks.app"
+               BuildableName = "Networks.framework"
                BlueprintName = "Networks"
                ReferencedContainer = "container:Networks.xcodeproj">
             </BuildableReference>
@@ -50,16 +50,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2EE557D34B930B760FD4A735"
-            BuildableName = "Networks.app"
+            BuildableName = "Networks.framework"
             BlueprintName = "Networks"
             ReferencedContainer = "container:Networks.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,16 +66,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2EE557D34B930B760FD4A735"
-            BuildableName = "Networks.app"
+            BuildableName = "Networks.framework"
             BlueprintName = "Networks"
             ReferencedContainer = "container:Networks.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
