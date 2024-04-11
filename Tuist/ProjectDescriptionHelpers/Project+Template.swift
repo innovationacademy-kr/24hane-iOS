@@ -16,16 +16,16 @@ public let widgetTarget = Target(
 
 
 public extension Project {
-    
+
     static func generateTarget(
         name: String,
         product: Product,
         bundleID: String,
-//        schemes: [Scheme] = [],
+        //        schemes: [Scheme] = [],
         deploymentTarget: ProjectDescription.DeploymentTarget? = nil,
         infoPlist: ProjectDescription.InfoPlist? = .default,
-        dependencies: [TargetDependency] = []
-//        resources: ProjectDescription.ResourceFileElements? = nil,
+        dependencies: [TargetDependency] = [],
+        resources: ProjectDescription.ResourceFileElements? = nil
     ) -> Target {
         return Target(
             name: name,
@@ -34,12 +34,12 @@ public extension Project {
             bundleId: bundleID,
             deploymentTarget: deploymentTarget,
             infoPlist: infoPlist,
-//            sources: [.glob(.relativeToRoot("HANE24Widget/**"))],
-            //                    resources: resources,
+            sources: ["Sources/**"],
+//            resources: resources,
             dependencies: dependencies
         )
     }
-    
+
     static func project(
         name: String,
         product: Product,
@@ -55,7 +55,7 @@ public extension Project {
             schemes: schemes
         )
     }
-    
+
     static func app(
         name: String,
         dependencies: [TargetDependency] = [],
@@ -65,21 +65,61 @@ public extension Project {
         return self.project(
             name: name,
             product: .app,
-            bundleID: bundleID + "\(name)",
+            bundleID: "\(bundleID).\(name)",
             dependencies: dependencies,
             //            resources: resourct
-            target: [generateTarget(name: name, product: .app, bundleID: bundleID, deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
-                                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist"))),
-                     generateTarget( name: "\(name)Tests",
-                                    product: .unitTests,
-                                     bundleID: bundleID,
-                                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
-                                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
-                                    dependencies: [
-                                    .target(name: name)]), widgetTarget]
+            target: [
+                generateTarget(
+                    name: name,
+                    product: .app,
+                    bundleID: "\(bundleID).\(name)",
+                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist"))),
+                generateTarget(
+                    name: "\(name)Tests",
+                    product: .unitTests,
+                    bundleID: "\(bundleID).\(name)",
+                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+                    dependencies: [
+                        .target(name: name)]), widgetTarget]
         )
     }
-    
+
+    static func makeFramework(
+        name: String,
+        dependencies: [TargetDependency] = [],
+        resources: ProjectDescription.ResourceFileElements? = nil
+    ) -> Project {
+        return .project(
+            name: name,
+            product: .framework,
+            bundleID: "\(bundleID).\(name)",
+            target: [
+                generateTarget(
+                    name: name,
+                    product: .framework,
+                    bundleID: "\(bundleID).\(name)",
+                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+                    dependencies: dependencies
+//                    resources: .default
+                ),
+                generateTarget(
+                    name: "\(name)Tests",
+                    product: .unitTests,
+                    bundleID: "\(bundleID).\(name)",
+                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+                    dependencies: [
+                        .target(name: name)
+                    ]
+//                    resources: .default
+                )
+            ]
+        )
+    }
+
     static func framework(
         name: String,
         dependencies: [TargetDependency] = [],
@@ -88,20 +128,32 @@ public extension Project {
         return .project(
             name: name,
             product: .framework,
-            bundleID: bundleID + ".\(name)",
-            dependencies: dependencies,
-            target: [generateTarget(name: name, product: .app, bundleID: bundleID, deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
-                                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist"))),
-                     generateTarget( name: "\(name)Tests",
-                                    product: .unitTests,
-                                     bundleID: bundleID,
-                                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
-                                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
-                                    dependencies: [
-                                    .target(name: name)])]
+            bundleID: "\(bundleID).\(name)",
+            target: [
+                generateTarget(
+                    name: name,
+                    product: .app,
+                    bundleID: "\(bundleID).\(name)",
+                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+                    dependencies: dependencies,
+                    resources: .default
+                ),
+                generateTarget(
+                    name: "\(name)Tests",
+                    product: .unitTests,
+                    bundleID: "\(bundleID).\(name)",
+                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")),
+                    dependencies: [
+                        .target(name: name)
+                    ],
+                    resources: .default
+                )
+            ]
         )
     }
-    
+
     static func appExtension(
         name: String,
         dependencies: [TargetDependency] = [],
@@ -110,17 +162,24 @@ public extension Project {
         return .project(
             name: name,
             product: .appExtension,
-            bundleID:  bundleID + ".WidgetExtension",
-            target: [generateTarget(name: name, product: .app, bundleID: bundleID, deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
-                                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist")))]
+            bundleID: bundleID + ".WidgetExtension",
+            target: [
+                generateTarget(
+                    name: name,
+                    product: .app,
+                    bundleID: bundleID,
+                    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone]),
+                    infoPlist: .file(path: .relativeToRoot("HANE24/Info.plist"))
+                )
+            ]
         )
     }
 }
 
 public extension ProjectDescription.ResourceFileElements {
-    
+
     static let `default`: ProjectDescription.ResourceFileElements = ["Resources/**"]
-    
+
 }
 
 //public extension Project {

@@ -6,6 +6,23 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2CD6121395B44F71FCA0C3DD /* TagLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E2044BD8EB14DC636EF10 /* TagLogView.swift */; };
+		2CFB33D39323D7614B33205B /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */; };
+		2FEE00C1D7E5957D4F8E3ED0 /* TagLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E2044BD8EB14DC636EF10 /* TagLogView.swift */; };
+		4DA09D0282A16A61BE99730E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91F9F48570BD144E8661F9 /* CalendarView.swift */; };
+		672A9C06E101A18BE691B5A2 /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE25381928FF39BE5568D /* CalendarBodyView.swift */; };
+		9001D99384B4FE9BEA178B30 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5001F3B91315F29316907EC /* CalendarHeaderView.swift */; };
+		92384F348F41A9492838B032 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A1543B205C1341F6B70209 /* AccTimeCardForCalendarView.swift */; };
+		93B8FB85360AC8B06F2A8D1A /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77134B24AF607170445EBD86 /* CalendarGridView.swift */; };
+		9ADA041876B56F3E4F1306D0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91F9F48570BD144E8661F9 /* CalendarView.swift */; };
+		D2CDC0273E2B8CA71F117C49 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A1543B205C1341F6B70209 /* AccTimeCardForCalendarView.swift */; };
+		D9A7A044CE9C5A6EEF5FA04B /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFE25381928FF39BE5568D /* CalendarBodyView.swift */; };
+		EDC7C485ED03DC87BDB295FE /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */; };
+		F7C37C6AB24DC3B629777FE6 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5001F3B91315F29316907EC /* CalendarHeaderView.swift */; };
+		FC774563B8EB4AE1FF41DD5C /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77134B24AF607170445EBD86 /* CalendarGridView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CA4193D9A7934AD0856A8D78 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -40,9 +57,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		5BC606424E55FA4AB4F7DD87 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77134B24AF607170445EBD86 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
+		89A1543B205C1341F6B70209 /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
 		9DA0BBF8C190A2F308383244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B6CFE25381928FF39BE5568D /* CalendarBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBodyView.swift; sourceTree = "<group>"; };
+		CD91F9F48570BD144E8661F9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		D19E2044BD8EB14DC636EF10 /* TagLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLogView.swift; sourceTree = "<group>"; };
 		E2674919CDA9410C2A08AAC1 /* CalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5001F3B91315F29316907EC /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +96,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		69CCA26CDB9541F7535D4339 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A8AEEBA2FFCF7175C4EEDB6B /* View */,
+				7E504A878EFC8F8947655099 /* ViewModel */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7E504A878EFC8F8947655099 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8C943711F7C787B16D32BA19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,10 +129,24 @@
 			);
 			sourceTree = "<group>";
 		};
+		A8AEEBA2FFCF7175C4EEDB6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89A1543B205C1341F6B70209 /* AccTimeCardForCalendarView.swift */,
+				B6CFE25381928FF39BE5568D /* CalendarBodyView.swift */,
+				77134B24AF607170445EBD86 /* CalendarGridView.swift */,
+				F5001F3B91315F29316907EC /* CalendarHeaderView.swift */,
+				CD91F9F48570BD144E8661F9 /* CalendarView.swift */,
+				D19E2044BD8EB14DC636EF10 /* TagLogView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F6304BF3F44A3679A0C56FD1 /* Project */ = {
 			isa = PBXGroup;
 			children = (
 				F949EA78910955D350931071 /* HANE24 */,
+				69CCA26CDB9541F7535D4339 /* Sources */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -198,6 +253,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CDC0273E2B8CA71F117C49 /* AccTimeCardForCalendarView.swift in Sources */,
+				672A9C06E101A18BE691B5A2 /* CalendarBodyView.swift in Sources */,
+				93B8FB85360AC8B06F2A8D1A /* CalendarGridView.swift in Sources */,
+				9001D99384B4FE9BEA178B30 /* CalendarHeaderView.swift in Sources */,
+				9ADA041876B56F3E4F1306D0 /* CalendarView.swift in Sources */,
+				2FEE00C1D7E5957D4F8E3ED0 /* TagLogView.swift in Sources */,
+				2CFB33D39323D7614B33205B /* CalendarVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +267,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92384F348F41A9492838B032 /* AccTimeCardForCalendarView.swift in Sources */,
+				D9A7A044CE9C5A6EEF5FA04B /* CalendarBodyView.swift in Sources */,
+				FC774563B8EB4AE1FF41DD5C /* CalendarGridView.swift in Sources */,
+				F7C37C6AB24DC3B629777FE6 /* CalendarHeaderView.swift in Sources */,
+				4DA09D0282A16A61BE99730E /* CalendarView.swift in Sources */,
+				2CD6121395B44F71FCA0C3DD /* TagLogView.swift in Sources */,
+				EDC7C485ED03DC87BDB295FE /* CalendarVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +301,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Calendar";
 				PRODUCT_NAME = Calendar;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -315,7 +384,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Calendar";
 				PRODUCT_NAME = CalendarTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -341,7 +410,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Calendar";
 				PRODUCT_NAME = CalendarTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -419,7 +488,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Calendar";
 				PRODUCT_NAME = Calendar;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;

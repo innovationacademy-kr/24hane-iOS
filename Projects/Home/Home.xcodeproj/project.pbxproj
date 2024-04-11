@@ -6,6 +6,31 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		03B1EDF30F6E2418FF5E0BEC /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B380A50C505A4A4A56F43 /* HomeVM.swift */; };
+		070AD6DE47365A6C919110A4 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F393CA271AEB193BB2957ACB /* NoticeView.swift */; };
+		11E545761C336874AE9BE4D7 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A3CCBD875BB647C34F691A /* CircularProgressBar.swift */; };
+		22C8CBEE7560244BF5071327 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10CDD80BA48DBC52E3CA73 /* HomeView.swift */; };
+		2769E32E193C47C49AEDFEA6 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A3CCBD875BB647C34F691A /* CircularProgressBar.swift */; };
+		29B36AD1C6513780D66D0F39 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B380A50C505A4A4A56F43 /* HomeVM.swift */; };
+		2A8A688795AE68A52E6CAE97 /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F403F1DCAE67FA9601A72CE /* ChartDetailView.swift */; };
+		2BAADA4BEB6496878ABA95EF /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F403F1DCAE67FA9601A72CE /* ChartDetailView.swift */; };
+		4CB552239DE8230EBA07FDD3 /* TodayAccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6042A1CD4A9B8425CDF82CF /* TodayAccTimeCardView.swift */; };
+		5775CF43B0872A6345588006 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBACD48A2E8F4B2571BE49 /* ChartView.swift */; };
+		8374B3F8500019482A09859F /* NoticeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CB815A076C37C9DA72FCF /* NoticeModifier.swift */; };
+		8B68A588AAB72B9932B2CB03 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B94CC3D1DAE05A4382726 /* HeaderView.swift */; };
+		981258FA4A236071F458D7B2 /* ThisMonthAccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42106985E14F14D2AA7EBD9 /* ThisMonthAccTimeCardView.swift */; };
+		9B6EB05E8B7AE1965C141992 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B94CC3D1DAE05A4382726 /* HeaderView.swift */; };
+		9F256B6D6A7891C618B47B6D /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBACD48A2E8F4B2571BE49 /* ChartView.swift */; };
+		9F6A54E36F6C34979B923642 /* TodayAccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6042A1CD4A9B8425CDF82CF /* TodayAccTimeCardView.swift */; };
+		A458CCD02D1EDFA4BAD5523C /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E200DB4B0B9B3967E56C7AC3 /* PopulationView.swift */; };
+		ADC34B8285E2F2E950EB7283 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F393CA271AEB193BB2957ACB /* NoticeView.swift */; };
+		B132FC7DAC5395ABA1E5651B /* ThisMonthAccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42106985E14F14D2AA7EBD9 /* ThisMonthAccTimeCardView.swift */; };
+		BBF403D83096C6422D79C865 /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E200DB4B0B9B3967E56C7AC3 /* PopulationView.swift */; };
+		C451A32569EED270CD81F097 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10CDD80BA48DBC52E3CA73 /* HomeView.swift */; };
+		CF18DC03085319D72AE69277 /* NoticeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CB815A076C37C9DA72FCF /* NoticeModifier.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F59260D8476FA45929EC249E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -40,9 +65,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		20A3CCBD875BB647C34F691A /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		3E27707CF3AF39D07540B293 /* HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F403F1DCAE67FA9601A72CE /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 		49F1196A513FD820ADCF87AB /* Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Home.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B7B380A50C505A4A4A56F43 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		921B94CC3D1DAE05A4382726 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		948F79AFEFCA171FA9D42198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BB10CDD80BA48DBC52E3CA73 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D42106985E14F14D2AA7EBD9 /* ThisMonthAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthAccTimeCardView.swift; sourceTree = "<group>"; };
+		E200DB4B0B9B3967E56C7AC3 /* PopulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationView.swift; sourceTree = "<group>"; };
+		E6042A1CD4A9B8425CDF82CF /* TodayAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAccTimeCardView.swift; sourceTree = "<group>"; };
+		F393CA271AEB193BB2957ACB /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		F4BBACD48A2E8F4B2571BE49 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		FA4CB815A076C37C9DA72FCF /* NoticeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +106,14 @@
 				3E27707CF3AF39D07540B293 /* HomeTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3027615A25CB4E8FBF763BF5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B7B380A50C505A4A4A56F43 /* HomeVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		440337F7B58BC84FCBC5A96E /* Frameworks */ = {
@@ -101,8 +145,35 @@
 			isa = PBXGroup;
 			children = (
 				6B5CD67E425F6AA1CFF25633 /* HANE24 */,
+				B74810073A3D8A4993EE22B2 /* Sources */,
 			);
 			name = Project;
+			sourceTree = "<group>";
+		};
+		B74810073A3D8A4993EE22B2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FE645B4E4E03FA2167B048A9 /* View */,
+				3027615A25CB4E8FBF763BF5 /* ViewModel */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FE645B4E4E03FA2167B048A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F403F1DCAE67FA9601A72CE /* ChartDetailView.swift */,
+				F4BBACD48A2E8F4B2571BE49 /* ChartView.swift */,
+				20A3CCBD875BB647C34F691A /* CircularProgressBar.swift */,
+				921B94CC3D1DAE05A4382726 /* HeaderView.swift */,
+				BB10CDD80BA48DBC52E3CA73 /* HomeView.swift */,
+				FA4CB815A076C37C9DA72FCF /* NoticeModifier.swift */,
+				F393CA271AEB193BB2957ACB /* NoticeView.swift */,
+				E200DB4B0B9B3967E56C7AC3 /* PopulationView.swift */,
+				D42106985E14F14D2AA7EBD9 /* ThisMonthAccTimeCardView.swift */,
+				E6042A1CD4A9B8425CDF82CF /* TodayAccTimeCardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +269,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAADA4BEB6496878ABA95EF /* ChartDetailView.swift in Sources */,
+				9F256B6D6A7891C618B47B6D /* ChartView.swift in Sources */,
+				2769E32E193C47C49AEDFEA6 /* CircularProgressBar.swift in Sources */,
+				9B6EB05E8B7AE1965C141992 /* HeaderView.swift in Sources */,
+				22C8CBEE7560244BF5071327 /* HomeView.swift in Sources */,
+				CF18DC03085319D72AE69277 /* NoticeModifier.swift in Sources */,
+				070AD6DE47365A6C919110A4 /* NoticeView.swift in Sources */,
+				BBF403D83096C6422D79C865 /* PopulationView.swift in Sources */,
+				981258FA4A236071F458D7B2 /* ThisMonthAccTimeCardView.swift in Sources */,
+				4CB552239DE8230EBA07FDD3 /* TodayAccTimeCardView.swift in Sources */,
+				29B36AD1C6513780D66D0F39 /* HomeVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +287,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A8A688795AE68A52E6CAE97 /* ChartDetailView.swift in Sources */,
+				5775CF43B0872A6345588006 /* ChartView.swift in Sources */,
+				11E545761C336874AE9BE4D7 /* CircularProgressBar.swift in Sources */,
+				8B68A588AAB72B9932B2CB03 /* HeaderView.swift in Sources */,
+				C451A32569EED270CD81F097 /* HomeView.swift in Sources */,
+				8374B3F8500019482A09859F /* NoticeModifier.swift in Sources */,
+				ADC34B8285E2F2E950EB7283 /* NoticeView.swift in Sources */,
+				A458CCD02D1EDFA4BAD5523C /* PopulationView.swift in Sources */,
+				B132FC7DAC5395ABA1E5651B /* ThisMonthAccTimeCardView.swift in Sources */,
+				9F6A54E36F6C34979B923642 /* TodayAccTimeCardView.swift in Sources */,
+				03B1EDF30F6E2418FF5E0BEC /* HomeVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +325,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Home";
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -315,7 +408,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Home";
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -338,7 +431,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Home";
 				PRODUCT_NAME = HomeTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -363,7 +456,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Home";
 				PRODUCT_NAME = HomeTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;

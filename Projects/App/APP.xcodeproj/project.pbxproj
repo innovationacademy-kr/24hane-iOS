@@ -314,7 +314,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.App";
 				PRODUCT_NAME = AppTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -339,7 +339,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.App";
 				PRODUCT_NAME = App;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -461,7 +461,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.App";
 				PRODUCT_NAME = AppTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -487,7 +487,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.App";
 				PRODUCT_NAME = App;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;

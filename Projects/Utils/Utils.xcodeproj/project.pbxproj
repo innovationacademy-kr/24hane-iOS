@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		74921912F3A49DD393D752BE /* PBXContainerItemProxy */ = {
+		717AF27F6F93617952619C65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CE30DA66E8F9024F4E5F5F22 /* Project object */;
+			containerPortal = 2C2BA054C1221733DF152FF6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A1AEBE67F28FC7607B2C411E;
-			remoteInfo = Network;
+			remoteGlobalIDString = C0252FCCE7557E2D21E4561C;
+			remoteInfo = Utils;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1854DF020C1544F96D7445BF /* Embed Frameworks */ = {
+		AD0F82A0F0D932041F742DFD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -27,7 +27,7 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		25CC73EFCBFA850690E82C35 /* Embed Frameworks */ = {
+		CE5B019BE9F4DC9E5907B1C7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -40,20 +40,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A76942ED6226F5C8D94501B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E51A5090278507B855F12FA0 /* Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Network.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEF8D6A1F2989443BD0A2218 /* NetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2658225C6E425C649B2DF909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		683192511AA6FF790F6024CD /* Utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1B2ABD3D197170B8718ADEA /* UtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		437591BC673FB1CC3BC2CEBC /* Frameworks */ = {
+		C01A0085DD2EBD948246E05F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4E73BBAFF38C9F70CF753D6 /* Frameworks */ = {
+		D02FB5F53CF1FA442658353E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,101 +63,101 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45136B8DDE2D542E43FEAB3B = {
+		16F1F86CCF512761601A1236 /* HANE24 */ = {
 			isa = PBXGroup;
 			children = (
-				DA2A7B178B1FAD113C3DC944 /* Project */,
-				E28E2C8DB194E60CF4C5EA44 /* Frameworks */,
-				B02A4899222D2A1DA3F4A4FA /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		8D23A4C725383E12C55C08FE /* HANE24 */ = {
-			isa = PBXGroup;
-			children = (
-				A76942ED6226F5C8D94501B0 /* Info.plist */,
+				2658225C6E425C649B2DF909 /* Info.plist */,
 			);
 			name = HANE24;
 			path = ../../HANE24;
 			sourceTree = "<group>";
 		};
-		B02A4899222D2A1DA3F4A4FA /* Products */ = {
+		28E5C2FE1BB733E7E3D1895C = {
 			isa = PBXGroup;
 			children = (
-				E51A5090278507B855F12FA0 /* Network.app */,
-				FEF8D6A1F2989443BD0A2218 /* NetworkTests.xctest */,
+				FA04A5DD391F0E1717789561 /* Project */,
+				2FF6B709A803A48E48C82B08 /* Frameworks */,
+				7C91285099B6527E754106D6 /* Products */,
 			);
-			name = Products;
 			sourceTree = "<group>";
 		};
-		DA2A7B178B1FAD113C3DC944 /* Project */ = {
-			isa = PBXGroup;
-			children = (
-				8D23A4C725383E12C55C08FE /* HANE24 */,
-			);
-			name = Project;
-			sourceTree = "<group>";
-		};
-		E28E2C8DB194E60CF4C5EA44 /* Frameworks */ = {
+		2FF6B709A803A48E48C82B08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7C91285099B6527E754106D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				683192511AA6FF790F6024CD /* Utils.app */,
+				D1B2ABD3D197170B8718ADEA /* UtilsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA04A5DD391F0E1717789561 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				16F1F86CCF512761601A1236 /* HANE24 */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		802E8B11362B1C5C00136DF4 /* NetworkTests */ = {
+		1DCB1A88ED933140A011EC01 /* UtilsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 379CEDB68CA75D0691C9BE7E /* Build configuration list for PBXNativeTarget "NetworkTests" */;
+			buildConfigurationList = E89298FCE2A76A42F5DA67C6 /* Build configuration list for PBXNativeTarget "UtilsTests" */;
 			buildPhases = (
-				C165DA99FCC1F49503359338 /* Sources */,
-				A7D53FE4853B57BE7FC2A40F /* Resources */,
-				25CC73EFCBFA850690E82C35 /* Embed Frameworks */,
-				D4E73BBAFF38C9F70CF753D6 /* Frameworks */,
+				EAD15A4DADA02D28244C5CB2 /* Sources */,
+				461DADDA03E7939A73CC6630 /* Resources */,
+				CE5B019BE9F4DC9E5907B1C7 /* Embed Frameworks */,
+				C01A0085DD2EBD948246E05F /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				60EE529F107346FB590F83E5 /* PBXTargetDependency */,
+				9BB4C0DE968B41BEED01ED1E /* PBXTargetDependency */,
 			);
-			name = NetworkTests;
-			productName = NetworkTests;
-			productReference = FEF8D6A1F2989443BD0A2218 /* NetworkTests.xctest */;
+			name = UtilsTests;
+			productName = UtilsTests;
+			productReference = D1B2ABD3D197170B8718ADEA /* UtilsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A1AEBE67F28FC7607B2C411E /* Network */ = {
+		C0252FCCE7557E2D21E4561C /* Utils */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAE8D133E507755E98BE4D27 /* Build configuration list for PBXNativeTarget "Network" */;
+			buildConfigurationList = 1E3A21591BE1CCABEFAF894A /* Build configuration list for PBXNativeTarget "Utils" */;
 			buildPhases = (
-				172C8586A0850CD6189763C2 /* Sources */,
-				C03F7BC015EBF76D352BD749 /* Resources */,
-				1854DF020C1544F96D7445BF /* Embed Frameworks */,
-				437591BC673FB1CC3BC2CEBC /* Frameworks */,
+				A7CE1E61EA90EC05CCA5EDAE /* Sources */,
+				DD3BE28A4E2BC9DE6F2EB21C /* Resources */,
+				AD0F82A0F0D932041F742DFD /* Embed Frameworks */,
+				D02FB5F53CF1FA442658353E /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Network;
-			productName = Network;
-			productReference = E51A5090278507B855F12FA0 /* Network.app */;
+			name = Utils;
+			productName = Utils;
+			productReference = 683192511AA6FF790F6024CD /* Utils.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CE30DA66E8F9024F4E5F5F22 /* Project object */ = {
+		2C2BA054C1221733DF152FF6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				TargetAttributes = {
-					802E8B11362B1C5C00136DF4 = {
-						TestTargetID = A1AEBE67F28FC7607B2C411E;
+					1DCB1A88ED933140A011EC01 = {
+						TestTargetID = C0252FCCE7557E2D21E4561C;
 					};
 				};
 			};
-			buildConfigurationList = EB691E6AAD04B88F092CB587 /* Build configuration list for PBXProject "Network" */;
+			buildConfigurationList = 1D504186A615098AF84132FA /* Build configuration list for PBXProject "Utils" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -165,26 +165,26 @@
 				Base,
 				en,
 			);
-			mainGroup = 45136B8DDE2D542E43FEAB3B;
-			productRefGroup = B02A4899222D2A1DA3F4A4FA /* Products */;
+			mainGroup = 28E5C2FE1BB733E7E3D1895C;
+			productRefGroup = 7C91285099B6527E754106D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1AEBE67F28FC7607B2C411E /* Network */,
-				802E8B11362B1C5C00136DF4 /* NetworkTests */,
+				C0252FCCE7557E2D21E4561C /* Utils */,
+				1DCB1A88ED933140A011EC01 /* UtilsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A7D53FE4853B57BE7FC2A40F /* Resources */ = {
+		461DADDA03E7939A73CC6630 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C03F7BC015EBF76D352BD749 /* Resources */ = {
+		DD3BE28A4E2BC9DE6F2EB21C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -194,14 +194,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		172C8586A0850CD6189763C2 /* Sources */ = {
+		A7CE1E61EA90EC05CCA5EDAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C165DA99FCC1F49503359338 /* Sources */ = {
+		EAD15A4DADA02D28244C5CB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -211,114 +211,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		60EE529F107346FB590F83E5 /* PBXTargetDependency */ = {
+		9BB4C0DE968B41BEED01ED1E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Network;
-			target = A1AEBE67F28FC7607B2C411E /* Network */;
-			targetProxy = 74921912F3A49DD393D752BE /* PBXContainerItemProxy */;
+			name = Utils;
+			target = C0252FCCE7557E2D21E4561C /* Utils */;
+			targetProxy = 717AF27F6F93617952619C65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04F3E82E7E9FD1D398CED439 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ../../HANE24/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
-				PRODUCT_NAME = Network;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_COMPILATION_MODE = singlefile;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		1D1388190647ED043AE809CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = ../../HANE24/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
-				PRODUCT_NAME = NetworkTests;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Network.app/Network";
-				TEST_TARGET_NAME = Network;
-			};
-			name = Release;
-		};
-		C0FC0233689340BAEE7828EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ../../HANE24/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
-				PRODUCT_NAME = Network;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		E003F887272A2101EBD29D1F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = ../../HANE24/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
-				PRODUCT_NAME = NetworkTests;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_COMPILATION_MODE = singlefile;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Network.app/Network";
-				TEST_TARGET_NAME = Network;
-			};
-			name = Debug;
-		};
-		EC1CDA88B25D7972DF99B786 /* Debug */ = {
+		1E83C057E14050D2D5E11FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -377,7 +279,57 @@
 			};
 			name = Debug;
 		};
-		F7289CD4700EAB402DCE2DAD /* Release */ = {
+		3E24C17A5DBA3D88D6D21FC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ../../HANE24/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Utils";
+				PRODUCT_NAME = UtilsTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Utils.app/Utils";
+				TEST_TARGET_NAME = Utils;
+			};
+			name = Debug;
+		};
+		4D2CD0CE26866744335ACB49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ../../HANE24/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Utils";
+				PRODUCT_NAME = Utils;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9DA93AFBE0F16AEE189CCCC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -430,37 +382,85 @@
 			};
 			name = Release;
 		};
+		AB004842840884F6C82A1363 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ../../HANE24/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Utils";
+				PRODUCT_NAME = UtilsTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Utils.app/Utils";
+				TEST_TARGET_NAME = Utils;
+			};
+			name = Release;
+		};
+		B8493CEC43CF815D4935BA47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ../../HANE24/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.Utils";
+				PRODUCT_NAME = Utils;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		379CEDB68CA75D0691C9BE7E /* Build configuration list for PBXNativeTarget "NetworkTests" */ = {
+		1D504186A615098AF84132FA /* Build configuration list for PBXProject "Utils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E003F887272A2101EBD29D1F /* Debug */,
-				1D1388190647ED043AE809CC /* Release */,
+				1E83C057E14050D2D5E11FAE /* Debug */,
+				9DA93AFBE0F16AEE189CCCC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAE8D133E507755E98BE4D27 /* Build configuration list for PBXNativeTarget "Network" */ = {
+		1E3A21591BE1CCABEFAF894A /* Build configuration list for PBXNativeTarget "Utils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04F3E82E7E9FD1D398CED439 /* Debug */,
-				C0FC0233689340BAEE7828EF /* Release */,
+				4D2CD0CE26866744335ACB49 /* Debug */,
+				B8493CEC43CF815D4935BA47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB691E6AAD04B88F092CB587 /* Build configuration list for PBXProject "Network" */ = {
+		E89298FCE2A76A42F5DA67C6 /* Build configuration list for PBXNativeTarget "UtilsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC1CDA88B25D7972DF99B786 /* Debug */,
-				F7289CD4700EAB402DCE2DAD /* Release */,
+				3E24C17A5DBA3D88D6D21FC1 /* Debug */,
+				AB004842840884F6C82A1363 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CE30DA66E8F9024F4E5F5F22 /* Project object */;
+	rootObject = 2C2BA054C1221733DF152FF6 /* Project object */;
 }
