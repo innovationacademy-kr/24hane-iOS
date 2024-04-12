@@ -20,7 +20,7 @@ public struct Theme {
         }
     }
 
-    static func calendarBackgroundColor(forScheme scheme: ColorScheme) -> Color {
+    public static func calendarBackgroundColor(forScheme scheme: ColorScheme) -> Color {
         let lightBG = Color.white
         let darkBG = Color(hex: "333333")
 

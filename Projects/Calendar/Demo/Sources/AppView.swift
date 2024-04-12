@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import Utils
+import Calendar
 
 @main
-struct CalendarApp: App {
-	@StateObject var calendar = CalendarVM()
-
+struct AppView: App {
+	var calendar = CalendarVM()
     var body: some Scene {
 		WindowGroup {
 			CalendarView()

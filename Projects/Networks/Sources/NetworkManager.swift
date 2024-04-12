@@ -11,7 +11,7 @@ enum MyError: Error {
 	case tokenExpired(String)
 }
 
-protocol NetworkProtocol {
+public protocol NetworkProtocol {
 	var session: URLSession { get }
 	var apiRoot: String { get }
 
@@ -21,19 +21,19 @@ protocol NetworkProtocol {
 	func deleteRequest(_ urlPath: String) async throws
 }
 
-class NetworkManager: NetworkProtocol {
+public class NetworkManager: NetworkProtocol {
 
-	static let shared = NetworkManager()
+	public static let shared = NetworkManager()
 
-	var session: URLSession
-	var apiRoot: String
+	public var session: URLSession
+	public var apiRoot: String
 
 	private init(session: URLSession = URLSession.shared) {
 		self.session = session
 		self.apiRoot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
 	}
 
-	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
+	public func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
 		guard let url = URL(string: apiRoot + urlPath) else {
 			/// FIXME: invalid URL의 경우 error handling
 			return nil
@@ -58,7 +58,7 @@ class NetworkManager: NetworkProtocol {
 	}
 
 	// MARK: post, patch, delete의 경우 httpMethod를 제외하고 로직이 동일함 -> request with return value, request without return value로 나눠서 method 방식을 전달받는건 어떤지?
-	func postRequest(_ urlPath: String) async throws {
+	public func postRequest(_ urlPath: String) async throws {
 		guard let url = URL(string: apiRoot + urlPath) else {
 			return
 		}
@@ -76,7 +76,7 @@ class NetworkManager: NetworkProtocol {
 		}
 	}
 
-	func patchRequest(_ urlPath: String) async throws {
+	public func patchRequest(_ urlPath: String) async throws {
 		guard let url = URL(string: apiRoot	+ urlPath) else {
 			return
 		}
@@ -93,7 +93,7 @@ class NetworkManager: NetworkProtocol {
 		}
 	}
 	
-	func deleteRequest(_ urlPath: String) async throws {
+	public func deleteRequest(_ urlPath: String) async throws {
 		guard let url = URL(string: apiRoot	+ urlPath) else {
 			return
 		}

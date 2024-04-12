@@ -14,6 +14,9 @@
          location = "group:Home/Home.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:More/More.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Networks/Networks.xcodeproj">
       </FileRef>
       <FileRef

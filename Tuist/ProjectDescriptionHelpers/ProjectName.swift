@@ -7,13 +7,16 @@
 
 import ProjectDescription
 
+public let bundleID = "net.hejang.-4HANE"
+
 public enum Module {
     case app
     case home
     case network
 	case calendar
 	case utils
-//    case more
+	case widget
+    case more
 }
 
 extension Module {
@@ -29,8 +32,10 @@ extension Module {
 			return "Calendar"
 		case .utils:
 			return "Utils"
-//        case .more:
-//            return "More"
+		case .widget:
+			return "HANE24Widget"
+        case .more:
+            return "More"
         }
     }
     

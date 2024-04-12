@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Networks
+import Network
 
 protocol CalendarDataProtocol {
 	// Calendar에서 사용할 Model
@@ -32,7 +34,7 @@ struct CalendarModel {
 	var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
 }
 
-class CalendarVM: ObservableObject, CalendarProtocol {
+public class CalendarVM: ObservableObject, CalendarProtocol {
 	// 네트워크VM 객체
 	private var network: NetworkProtocol
 
@@ -112,7 +114,7 @@ class CalendarVM: ObservableObject, CalendarProtocol {
 		return logArray.reversed()
 	}
 	// 초기화
-	init(network: NetworkProtocol = NetworkManager.shared) {
+	public init(network: NetworkProtocol = NetworkManager.shared) {
 		self.network = network
 	}
 }

@@ -8,4 +8,8 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project.framework(name: Module.home.name)
+//let project = Project.framework(name: Module.home.name)
+
+let project = Project(
+	name: Module.home.name
+)
