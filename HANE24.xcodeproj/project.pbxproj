@@ -59,6 +59,12 @@
 		D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
 		D63B24422BBFBA7E001DB9E3 /* FakeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B24412BBFBA7E001DB9E3 /* FakeNetwork.swift */; };
 		D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646BD0B2B95DCD500ED631E /* HANE24Test.swift */; };
+		D68CC3E62BCC1585008D62E2 /* MockDataForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3E52BCC1585008D62E2 /* MockDataForTest.swift */; };
+		D68CC3E82BCC1764008D62E2 /* ReissueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */; };
+		D68CC3EC2BCC1DCC008D62E2 /* MoreViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3EA2BCC1D34008D62E2 /* MoreViewFooter.swift */; };
+		D68CC3F02BCC1E81008D62E2 /* ReissueButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3EE2BCC1E43008D62E2 /* ReissueButtonAppearance.swift */; };
+		D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3F12BCC1F0A008D62E2 /* ListItemButton.swift */; };
+		D68CC3F62BCC1FA4008D62E2 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3F42BCC1F8E008D62E2 /* LogoutButton.swift */; };
 		D6C528F82BBECE0700F51A06 /* ReissueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C528F72BBECE0700F51A06 /* ReissueVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +156,12 @@
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
 		D680AC322BB17CA00083025D /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		D68CC3E52BCC1585008D62E2 /* MockDataForTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataForTest.swift; sourceTree = "<group>"; };
+		D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueModel.swift; sourceTree = "<group>"; };
+		D68CC3EA2BCC1D34008D62E2 /* MoreViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewFooter.swift; sourceTree = "<group>"; };
+		D68CC3EE2BCC1E43008D62E2 /* ReissueButtonAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueButtonAppearance.swift; sourceTree = "<group>"; };
+		D68CC3F12BCC1F0A008D62E2 /* ListItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemButton.swift; sourceTree = "<group>"; };
+		D68CC3F42BCC1F8E008D62E2 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		D69A01AF2B9F1639003C84C1 /* HaneTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = HaneTest.xctestplan; path = HANE24TEST/HaneTest.xctestplan; sourceTree = "<group>"; };
 		D6C528F72BBECE0700F51A06 /* ReissueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -275,6 +287,7 @@
 		0EE58191299CC03100EE3351 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				D68CC3ED2BCC1DD6008D62E2 /* MoreViewComponent */,
 				0EE58192299CC24000EE3351 /* MoreView.swift */,
 				0EE58197299CC74C00EE3351 /* ReissuanceView.swift */,
 				0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */,
@@ -314,6 +327,7 @@
 			children = (
 				9AF730F5299E074800AF2E53 /* Structs.swift */,
 				9AF730FC299F602D00AF2E53 /* JSONs.swift */,
+				D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,8 +368,20 @@
 			children = (
 				D646BD0B2B95DCD500ED631E /* HANE24Test.swift */,
 				D63B24412BBFBA7E001DB9E3 /* FakeNetwork.swift */,
+				D68CC3E52BCC1585008D62E2 /* MockDataForTest.swift */,
 			);
 			path = HANE24TEST;
+			sourceTree = "<group>";
+		};
+		D68CC3ED2BCC1DD6008D62E2 /* MoreViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D68CC3F42BCC1F8E008D62E2 /* LogoutButton.swift */,
+				D68CC3F12BCC1F0A008D62E2 /* ListItemButton.swift */,
+				D68CC3EE2BCC1E43008D62E2 /* ReissueButtonAppearance.swift */,
+				D68CC3EA2BCC1D34008D62E2 /* MoreViewFooter.swift */,
+			);
+			path = MoreViewComponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,6 +566,7 @@
 				0EEB0E2629AE303100FEB700 /* AlertView.swift in Sources */,
 				9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */,
 				2B1326112B2821E600301A8B /* ThisMonthAccTimeCardView.swift in Sources */,
+				D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */,
 				9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */,
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
@@ -553,13 +580,16 @@
 				D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */,
 				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
 				0E3ED8A82BB13727001B0BAE /* NetworkManager.swift in Sources */,
+				D68CC3F02BCC1E81008D62E2 /* ReissueButtonAppearance.swift in Sources */,
 				0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */,
+				D68CC3F62BCC1FA4008D62E2 /* LogoutButton.swift in Sources */,
 				0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */,
 				0E9868272B2B76BE00E127DC /* CalendarBodyView.swift in Sources */,
 				9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */,
 				9AF730F8299E2F5000AF2E53 /* CalendarView.swift in Sources */,
 				0ED6E3FF2B354E670026E69D /* AccumulationTimeStruct.swift in Sources */,
 				9A1A4BEE299ADE650076D650 /* TodayAccTimeCardView.swift in Sources */,
+				D68CC3EC2BCC1DCC008D62E2 /* MoreViewFooter.swift in Sources */,
 				9AF730F6299E074800AF2E53 /* Structs.swift in Sources */,
 				0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */,
 				0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */,
@@ -593,6 +623,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */,
+				D68CC3E62BCC1585008D62E2 /* MockDataForTest.swift in Sources */,
+				D68CC3E82BCC1764008D62E2 /* ReissueModel.swift in Sources */,
 				D63B24422BBFBA7E001DB9E3 /* FakeNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

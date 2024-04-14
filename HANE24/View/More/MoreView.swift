@@ -8,6 +8,7 @@
 import SwiftUI
 import WebKit
 
+// More 페이지의 내부 페이지들
 var listItems: [MoreItem] = [
     MoreItem(id: UUID(), title: "지원금 지침 안내", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/money_guidelines", image: "book"),
     MoreItem(id: UUID(), title: "출입기록 문의", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/question", image: "chat"),
@@ -20,6 +21,7 @@ struct MoreView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
+	@StateObject var reissue: ReissueVM = ReissueVM()
 
     var body: some View {
         NavigationView {
@@ -31,65 +33,25 @@ struct MoreView: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding(.top)
                         .padding(.leading, 30)
+
                     NavigationLink(destination: ReissuanceView()) {
-                        HStack(spacing: 10) {
-                            Image("card")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.iconColor)
-                            Text("카드 재발급 신청")
-                                .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
-                                .font(.system(size: 16, weight: .semibold))
-                        }
+                        ReissueButtonAppearance()
                     }
                     .padding(.horizontal, 40)
                     .navigationBarHidden(true)
                     .simultaneousGesture(TapGesture().onEnded {
                         Task {
-                            try await hane.updateReissueState()
+							try await reissue.updateReissueState()
                         }
                     })
+
                     ForEach(listItems) { item in
-                        HStack(spacing: 10) {
-                            Image(item.image)
-                                .resizable()
-                                .frame(width: 24.0, height: 24.0)
-                                .foregroundColor(.iconColor)
-                                .imageScale(.large)
-                            Button {
-                                if let url = URL(string: item.url) {
-                                    openURL(url)
-                                }
-                            } label: {
-                                Text(item.title)
-                                    .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
-                                    .font(.system(size: 16, weight: .semibold))
-                            }
-                        }
-                        .padding(.horizontal, 40)
+						ListItemButton(item: item)
                     }
-                    Button {
-                        hane.signOut()
-                    } label: {
-                        HStack(spacing: 10) {
-                            Image("logout")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.iconColor)
-                            Text("로그아웃")
-                                .foregroundColor(Theme.textGrayColor(forScheme: colorScheme))
-                                .font(.system(size: 16, weight: .semibold))
-                        }
-                    }
-                    .padding(.horizontal, 40)
-                    VStack(alignment: .center) {
-                        Divider()
-                            .padding(.top, -10)
-                        Text("🅒 2023. 24HANE. all rights reserved.")
-                            .font(.system(size: 10, weight: .regular))
-                            .foregroundColor(Color(hex: "9B9797"))
-                    }
-                    .padding(.horizontal, 40)
+
+                    LogoutButton()
+
+                    MoreViewFooter()
                 }
             }
         }

@@ -7,21 +7,6 @@
 
 import SwiftUI
 
-struct ProgressItem: Identifiable {
-    var id: String
-    var title: String
-    var statement: String
-    var isProcessing: Bool
-}
-
-struct AlertItem: Identifiable {
-    var id: String
-    var title1: String
-    var title2: String
-    var statement: String
-    var buttonTitle: String
-}
-
 var items: [AlertItem] = [
     AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"),
     AlertItem(id: "수령", title1: "저는 카드를 받았음을", title2: "확인했습니다.", statement: "실물 카드를 받은 후 눌러주세요.", buttonTitle: "네, 확인했습니다")
@@ -33,6 +18,8 @@ struct ReissuanceView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) private var openURL
     @EnvironmentObject var hane: Hane
+	@EnvironmentObject var reissue: ReissueVM
+
     @State var showAlert = false
 
     var body: some View {
@@ -70,8 +57,9 @@ struct ReissuanceView: View {
                         Spacer()
                     }
                     Button {
-                        if let url = URL(string: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/reissuance_guidelines") {
-                            openURL(url)}
+						if let url = URL(string: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/reissuance_guidelines") {
+							openURL(url)
+						}
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
@@ -97,7 +85,7 @@ struct ReissuanceView: View {
                                 id: "신청",
                                 title: "신청 후 업체에 입금해주세요",
                                 statement: "업체에서 입금 확인 후 제작이 진행됩니다.",
-                                isProcessing: (hane.reissueState == .apply)
+								isProcessing: (reissue.cardReissueState == .apply)
                             ))
                             Image(systemName: "chevron.down")
                                 .foregroundColor(Color(hex: "D9D9D9"))
@@ -106,7 +94,7 @@ struct ReissuanceView: View {
                                 id: "제작",
                                 title: "제작 기간은 약 2주간 소요됩니다",
                                 statement: "출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.",
-                                isProcessing: (hane.reissueState == .inProgress)
+								isProcessing: (reissue.cardReissueState == .inProgress)
                             ))
                             Image(systemName: "chevron.down")
                                 .foregroundColor(Color(hex: "D9D9D9"))
@@ -115,12 +103,12 @@ struct ReissuanceView: View {
                                 id: "완료",
                                 title: "카드를 수령해주세요",
                                 statement: "재발급 카드는 데스크에서 수령 가능합니다",
-                                isProcessing: (hane.reissueState == .pickUpRequested)
+								isProcessing: (reissue.cardReissueState == .pickUpRequested)
                             ))
                         }
                     }
                     Spacer()
-                    if hane.reissueState != .pickUpRequested {
+                    if reissue.cardReissueState != .pickUpRequested {
                         reissueButton
                     } else {
                         receiveButton
@@ -130,7 +118,7 @@ struct ReissuanceView: View {
                 .padding(.bottom, 30)
             }
             if showAlert {
-                AlertView(showAlert: $showAlert, item: (hane.reissueState == .pickUpRequested) ? items[1] : items[0])
+                AlertView(showAlert: $showAlert, item: (reissue.cardReissueState == .pickUpRequested) ? items[1] : items[0])
             }
         }
         .gesture(DragGesture().updating($dragOffset) { (value, _, _) in
@@ -146,14 +134,14 @@ struct ReissuanceView: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor((hane.reissueState == .none || hane.reissueState == .done) ? .gradientPurple : .textGrayMoreView)
+                    .foregroundColor((reissue.cardReissueState == .none || reissue.cardReissueState == .done) ? .gradientPurple : .textGrayMoreView)
                     .frame(height: 45)
                 Text("카드 신청하기")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
             }
         }
-        .disabled((hane.reissueState != .none && hane.reissueState != .done))
+        .disabled((reissue.cardReissueState != .none && reissue.cardReissueState != .done))
     }
 
     var receiveButton: some View {
@@ -162,7 +150,7 @@ struct ReissuanceView: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor((hane.reissueState == .pickUpRequested) ? .gradientPurple : .iconColor)
+                    .foregroundColor((reissue.cardReissueState == .pickUpRequested) ? .gradientPurple : .iconColor)
                     .frame(height: 45)
                 Text("데스크 카드 수령 완료")
                     .font(.system(size: 16, weight: .bold))
@@ -177,5 +165,6 @@ struct ReissuanceView_Previews: PreviewProvider {
     static var previews: some View {
         ReissuanceView()
             .environmentObject(Hane())
+			.environmentObject(ReissueVM())
     }
 }

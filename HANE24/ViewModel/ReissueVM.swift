@@ -22,7 +22,7 @@ protocol ReissueNetworkProtocol {
 	init(network: NetworkProtocol)
 }
 
-protocol ReissueProtocol: 
+protocol ReissueProtocol:
 	ObservableObject,
 	ReissueInfomationProtocol,
 	ReissueNetworkProtocol {}
@@ -30,7 +30,17 @@ protocol ReissueProtocol:
 class ReissueVM: ReissueProtocol {
 	private let network: NetworkProtocol
 	@Published var loading: Bool = false
-	@Published var cardReissueState: ReissueState = .init(state: "")
+	@Published var cardReissueState: CardState = .none
+
+	@MainActor
+	func updateReissueState() async throws {
+		do {
+			try await getReissueStatus()
+		} catch {
+			self.cardReissueState = .none
+			return
+		}
+	}
 
 	func requestReissue() async throws {
 		self.loading = true
@@ -60,7 +70,18 @@ class ReissueVM: ReissueProtocol {
 		guard let state = try await network.getRequest(url.absoluteString, type: ReissueState.self) else {
 			fatalError("ReissueVM - getReissueStatus")
 		}
-		self.cardReissueState = state
+		switch state.state {
+		case "none":
+			self.cardReissueState = .none
+		case "apply":
+			self.cardReissueState = .apply
+		case "in_progress":
+			self.cardReissueState = .inProgress
+		case "pick_up_requested":
+			self.cardReissueState = .pickUpRequested
+		default:
+			self.cardReissueState = .done
+		}
 		self.loading = false
 	}
 

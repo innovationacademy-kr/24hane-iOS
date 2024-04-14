@@ -10,7 +10,10 @@ import SwiftUI
 struct AlertView: View {
     @Binding var showAlert: Bool
     @EnvironmentObject var hane: Hane
+	@EnvironmentObject var reissue: ReissueVM
+
     var item: AlertItem
+
     var body: some View {
         ZStack {
             GeometryReader { _ in
@@ -59,8 +62,8 @@ struct AlertView: View {
         Button {
             Task {
                 do {
-                    try await hane.postJsonAsync()
-                    hane.reissueState = .apply
+					try await reissue.requestReissue()
+					reissue.cardReissueState = .apply
                 }
             }
             showAlert = false
@@ -80,10 +83,10 @@ struct AlertView: View {
         Button {
             Task {
                 do {
-                    try await hane.patchJsonAsync()
-                    hane.reissueState = .done
+					try await reissue.finishReissue()
+					reissue.cardReissueState = .done
                 } catch {
-                    hane.reissueState = .pickUpRequested
+					reissue.cardReissueState = .pickUpRequested
                 }
             }
             showAlert = false
@@ -103,4 +106,5 @@ struct AlertView: View {
 #Preview {
     AlertView(showAlert: .constant(true), item: AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"))
         .environmentObject(Hane())
+		.environmentObject(ReissueVM())
 }
