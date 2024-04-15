@@ -13,14 +13,6 @@ enum MyError: Error {
     case tokenExpired(String)
 }
 
-enum CardState {
-    case none
-    case apply
-    case inProgress
-    case pickUpRequested
-    case done
-}
-
 class Hane: ObservableObject {
     /// 기본정보
     @Published var isInCluster: Bool

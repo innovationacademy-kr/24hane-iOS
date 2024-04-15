@@ -34,7 +34,8 @@ struct MoreView: View {
                         .padding(.top)
                         .padding(.leading, 30)
 
-                    NavigationLink(destination: ReissuanceView()) {
+                    NavigationLink(destination: ReissuanceView().environmentObject(reissue)
+					) {
                         ReissueButtonAppearance()
                     }
                     .padding(.horizontal, 40)

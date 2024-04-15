@@ -39,6 +39,19 @@ class FakeCalenderNetwork: FakeNetworkProtocol {
 	}
 }
 
+let updateReissueStateMock = """
+{
+	"state": "none"
+}
+"""
+
+let requestReissueMock = """
+{
+	"login": "hoslim",
+	"requested_at": "2024-04-02 04:02:42"
+}
+"""
+
 class FakeReissueSuccessNetwork: FakeNetworkProtocol {
 	static var shared = FakeReissueSuccessNetwork()
 	var session: URLSession
@@ -46,7 +59,19 @@ class FakeReissueSuccessNetwork: FakeNetworkProtocol {
 	var apiRoot: String = ""
 
 	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
-		return .none
+		var responseValue: String
+		switch urlPath {
+		case "/v2/reissue":
+			responseValue = updateReissueStateMock
+		case "/v2/reissue/request":
+			responseValue = requestReissueMock
+		case "/v2/reissue/finish":
+			responseValue = requestReissueMock
+		default:
+			responseValue = ""
+		}
+		let returnValue = try JSONDecoder().decode(type.self, from: responseValue.data(using: .utf8)!)
+		return returnValue
 	}
 
 	func postRequest(_ urlPath: String) async throws {

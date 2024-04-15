@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-var items: [AlertItem] = [
-    AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"),
-    AlertItem(id: "수령", title1: "저는 카드를 받았음을", title2: "확인했습니다.", statement: "실물 카드를 받은 후 눌러주세요.", buttonTitle: "네, 확인했습니다")
-]
-
 struct ReissuanceView: View {
     @GestureState private var dragOffset = CGSize.zero
     @Environment(\.presentationMode) var presentationMode
@@ -30,88 +25,22 @@ struct ReissuanceView: View {
                 .navigationBarHidden(true)
 
             VStack {
-                HStack {
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
-                            .imageScale(.large)
-                            .padding()
-                    })
-                    Spacer()
-                    Text("카드 재발급 신청")
-                        .font(.system(size: 20, weight: .bold))
-                    Spacer()
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
-                        .imageScale(.large)
-                        .padding()
-                        .isHidden(true)
-                }
-                .padding(.bottom, 15)
+				Tapbar()
+
                 VStack(spacing: 15) {
-                    HStack {
-                        Text("재발급 신청 방법")
-                            .font(.system(size: 20, weight: .bold))
-                        Spacer()
-                    }
-                    Button {
-						if let url = URL(string: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/reissuance_guidelines") {
-							openURL(url)
-						}
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(colorScheme == .dark ? .white : .chartDetailBG)
-                                .frame(height: 45)
-                            Text("자세히보기")
-                                .font(.system(size: 16, weight: .bold))
-                                .foregroundColor(colorScheme == .dark ? .chartDetailBG : .LightDefaultBG)
-                        }
-                    }
-                    .padding(.bottom, 20)
-                    HStack {
-                        Text("재발급 신청 현황")
-                            .font(.system(size: 20, weight: .bold))
-                        Spacer()
-                    }
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.white)
-                            .frame(height: 300)
-                        VStack(alignment: .leading) {
-                            CardProgressView(item: ProgressItem(
-                                id: "신청",
-                                title: "신청 후 업체에 입금해주세요",
-                                statement: "업체에서 입금 확인 후 제작이 진행됩니다.",
-								isProcessing: (reissue.cardReissueState == .apply)
-                            ))
-                            Image(systemName: "chevron.down")
-                                .foregroundColor(Color(hex: "D9D9D9"))
-                                .padding(.horizontal, 30)
-                            CardProgressView(item: ProgressItem(
-                                id: "제작",
-                                title: "제작 기간은 약 2주간 소요됩니다",
-                                statement: "출입카드 재발급 신청 후 업체에서 입금 확인 후 제작이 진행됩니다.",
-								isProcessing: (reissue.cardReissueState == .inProgress)
-                            ))
-                            Image(systemName: "chevron.down")
-                                .foregroundColor(Color(hex: "D9D9D9"))
-                                .padding(.horizontal, 30)
-                            CardProgressView(item: ProgressItem(
-                                id: "완료",
-                                title: "카드를 수령해주세요",
-                                statement: "재발급 카드는 데스크에서 수령 가능합니다",
-								isProcessing: (reissue.cardReissueState == .pickUpRequested)
-                            ))
-                        }
-                    }
+					HowToReissue()
+
+					ProgressToReissue(cardReissueState: reissue.cardReissueState)
+
                     Spacer()
                     if reissue.cardReissueState != .pickUpRequested {
-                        reissueButton
+                        ReissueButton(
+							cardReissueState: reissue.cardReissueState,
+							showAlert: $showAlert)
                     } else {
-                        receiveButton
+                        ReceiveButton(
+							cardReissueState: reissue.cardReissueState,
+							showAlert: $showAlert)
                     }
                 }
                 .padding(.horizontal, 30)
@@ -127,38 +56,6 @@ struct ReissuanceView: View {
             }
         })
     }
-
-    var reissueButton: some View {
-        Button {
-            showAlert = true
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor((reissue.cardReissueState == .none || reissue.cardReissueState == .done) ? .gradientPurple : .textGrayMoreView)
-                    .frame(height: 45)
-                Text("카드 신청하기")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-            }
-        }
-        .disabled((reissue.cardReissueState != .none && reissue.cardReissueState != .done))
-    }
-
-    var receiveButton: some View {
-        Button {
-            showAlert = true
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor((reissue.cardReissueState == .pickUpRequested) ? .gradientPurple : .iconColor)
-                    .frame(height: 45)
-                Text("데스크 카드 수령 완료")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-            }
-        }
-    }
-
 }
 
 struct ReissuanceView_Previews: PreviewProvider {

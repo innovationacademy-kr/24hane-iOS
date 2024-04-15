@@ -42,7 +42,7 @@ class NetworkManager: NetworkProtocol {
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
 		let (data, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+		guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
 			/// FIXME: Status Code에 따른 Error Handling
 			throw MyError.tokenExpired("request Failed")
 		}
@@ -56,7 +56,7 @@ class NetworkManager: NetworkProtocol {
 			return
 		}
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
-			throw MyError.tokenExpired("get new tokenn")
+			throw MyError.tokenExpired("get new token")
 		}
 
 		var request = URLRequest(url: url)
@@ -65,7 +65,7 @@ class NetworkManager: NetworkProtocol {
 			"Authorization": "Bearer \(String(describing: token) )"]
 		let (_, response) = try await session.data(for: request)
 		/// 200...299까지 늘려야?
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+		guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
 			throw MyError.tokenExpired("request Failed")
 		}
 	}
@@ -75,14 +75,14 @@ class NetworkManager: NetworkProtocol {
 			return
 		}
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
-			throw MyError.tokenExpired("get new tokenn")
+			throw MyError.tokenExpired("get new token")
 		}
 		var request = URLRequest(url: url)
 		request.httpMethod = "PATCH"
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
 		let (_, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+		guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
 			throw MyError.tokenExpired("request Failed")
 		}
 	}
@@ -92,7 +92,7 @@ class NetworkManager: NetworkProtocol {
 			return
 		}
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
-			throw MyError.tokenExpired("get new tokenn")
+			throw MyError.tokenExpired("get new token")
 		}
 
 		var request = URLRequest(url: url)
@@ -100,7 +100,7 @@ class NetworkManager: NetworkProtocol {
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
 		let (_, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+		guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
 			throw MyError.tokenExpired("request Failed")
 		}
 	}

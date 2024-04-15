@@ -8,7 +8,9 @@
 import Foundation
 
 protocol ReissueInfomationProtocol {
+	var cardReissueState: CardState { get set }
 	var loading: Bool { get set }
+	func updateReissueState() async throws
 }
 
 protocol ReissueNetworkProtocol {
@@ -34,8 +36,10 @@ class ReissueVM: ReissueProtocol {
 
 	@MainActor
 	func updateReissueState() async throws {
+		self.loading = true
 		do {
 			try await getReissueStatus()
+			self.loading = false
 		} catch {
 			self.cardReissueState = .none
 			return
@@ -43,29 +47,24 @@ class ReissueVM: ReissueProtocol {
 	}
 
 	func requestReissue() async throws {
-		self.loading = true
 		let url = URL(string: "/v2/reissue/request")!
 		do {
 			try await network.postRequest(url.absoluteString)
 		} catch {
 			throw MyError.tokenExpired("get new token!")
 		}
-		self.loading = false
 	}
 
 	func finishReissue() async throws {
-		self.loading = true
 		let url = URL(string: "/v2/reissue/finish")!
 		do {
 			try await network.patchRequest(url.absoluteString)
 		} catch {
 			throw MyError.tokenExpired("get new token!")
 		}
-		self.loading = false
 	}
 
 	func getReissueStatus() async throws {
-		self.loading = true
 		let url = URL(string: "/v2/reissue")!
 		guard let state = try await network.getRequest(url.absoluteString, type: ReissueState.self) else {
 			fatalError("ReissueVM - getReissueStatus")
@@ -82,7 +81,6 @@ class ReissueVM: ReissueProtocol {
 		default:
 			self.cardReissueState = .done
 		}
-		self.loading = false
 	}
 
 	required init(network: NetworkProtocol = NetworkManager.shared) {

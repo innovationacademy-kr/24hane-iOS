@@ -8,9 +8,7 @@
 import XCTest
 @testable import Hane
 
-let answer = [Log(inTime: Optional("12:14:39"), outTime: Optional("16:42:19"), logTime: Optional("04:27:40"))]
-
-final class HaneCalendarTest: XCTestCase {
+final class CalendarTest: XCTestCase {
 
 	// CalendarVM 객체
 	var sut: CalendarVM!

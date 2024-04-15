@@ -54,3 +54,5 @@ let monthlyJsonData = """
 	"acceptedAccumulationTime": 737614
   }
 """.data(using: .utf8)!
+
+let answer = [Log(inTime: Optional("12:14:39"), outTime: Optional("16:42:19"), logTime: Optional("04:27:40"))]
