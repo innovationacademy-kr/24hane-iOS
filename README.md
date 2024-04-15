@@ -94,6 +94,7 @@
 | ------------------------------------------------- | ------------ |
 | [👩🏻‍💻 장희주 (hejang)](https://github.com/ittzggd)  | 기획, 개발   |
 | [🐾 황윤기 (yuhwang)](https://github.com/YunKi-H) | 개발         |
+| [🐾 임호성 (hoslim)](https://github.com/HiHoi) | 개발         |
 | [🎨 신인호 (inshin)](https://github.com/42inshin) | 기획, 디자인 |
 
 <!-- |  <a href="https://github.com/innovationacademy-kr"><img src="https://img.shields.io/badge/42Seoul-000000?style=flat-square&logo=42&logoColor=white" /></a> |
