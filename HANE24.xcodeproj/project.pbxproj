@@ -58,6 +58,13 @@
 		9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
 		D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
 		D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646BD0B2B95DCD500ED631E /* HANE24Test.swift */; };
+		D6881CC22BCE6F5E0088B713 /* AccumulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6881CC12BCE6F5E0088B713 /* AccumulationView.swift */; };
+		D6C6C6682BCE6E210028A486 /* HANE24WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6C6672BCE6E210028A486 /* HANE24WatchApp.swift */; };
+		D6C6C66A2BCE6E210028A486 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6C6692BCE6E210028A486 /* ContentView.swift */; };
+		D6C6C66C2BCE6E220028A486 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6C6C66B2BCE6E220028A486 /* Assets.xcassets */; };
+		D6C6C66F2BCE6E220028A486 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6C6C66E2BCE6E220028A486 /* Preview Assets.xcassets */; };
+		D6C6C6792BCE6E230028A486 /* HANE24WatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6C6782BCE6E230028A486 /* HANE24WatchTests.swift */; };
+		D6C6C6882BCE6E230028A486 /* HANE24Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D6C6C6652BCE6E210028A486 /* HANE24Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,20 @@
 			remoteGlobalIDString = 0E1654EE299A285B001E5EED;
 			remoteInfo = 24HANE;
 		};
+		D6C6C6752BCE6E230028A486 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E1654E7299A285B001E5EED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6C6C6642BCE6E210028A486;
+			remoteInfo = "HANE24Watch Watch App";
+		};
+		D6C6C6862BCE6E230028A486 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E1654E7299A285B001E5EED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6C6C6642BCE6E210028A486;
+			remoteInfo = "HANE24Watch Watch App";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +108,17 @@
 				0ED6E3F02B354D350026E69D /* HANE24WidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6C6C6892BCE6E230028A486 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D6C6C6882BCE6E230028A486 /* HANE24Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -147,7 +179,16 @@
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
 		D680AC322BB17CA00083025D /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		D6881CC12BCE6F5E0088B713 /* AccumulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationView.swift; sourceTree = "<group>"; };
+		D6881CC32BCE71360088B713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D69A01AF2B9F1639003C84C1 /* HaneTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = HaneTest.xctestplan; path = HANE24TEST/HaneTest.xctestplan; sourceTree = "<group>"; };
+		D6C6C6652BCE6E210028A486 /* HANE24Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HANE24Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6C6C6672BCE6E210028A486 /* HANE24WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WatchApp.swift; sourceTree = "<group>"; };
+		D6C6C6692BCE6E210028A486 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D6C6C66B2BCE6E220028A486 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D6C6C66E2BCE6E220028A486 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D6C6C6742BCE6E230028A486 /* HANE24WatchTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24WatchTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6C6C6782BCE6E230028A486 /* HANE24WatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WatchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +216,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6C6C6622BCE6E210028A486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6C6C6712BCE6E230028A486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -188,6 +243,8 @@
 				0E1654F1299A285B001E5EED /* HANE24 */,
 				0ED6E3E62B354D320026E69D /* HANE24Widget */,
 				D646BD0A2B95DCD500ED631E /* HANE24TEST */,
+				D6C6C6662BCE6E210028A486 /* HANE24Watch */,
+				D6C6C6772BCE6E230028A486 /* HANE24WatchTest */,
 				0E1654F0299A285B001E5EED /* Products */,
 				CC7009C835DF6CA6ECA500B0 /* Pods */,
 				AF5C32407FEB35F3BB6E0804 /* Frameworks */,
@@ -200,6 +257,8 @@
 				0E1654EF299A285B001E5EED /* 24HANE.app */,
 				0ED6E3E12B354D310026E69D /* HANE24WidgetExtension.appex */,
 				D646BD092B95DCD500ED631E /* HANE24Test.xctest */,
+				D6C6C6652BCE6E210028A486 /* HANE24Watch.app */,
+				D6C6C6742BCE6E230028A486 /* HANE24WatchTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -352,6 +411,59 @@
 			path = HANE24TEST;
 			sourceTree = "<group>";
 		};
+		D6881CBE2BCE6EEA0088B713 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6C6C6692BCE6E210028A486 /* ContentView.swift */,
+				D6881CC12BCE6F5E0088B713 /* AccumulationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6881CBF2BCE6EEE0088B713 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6881CC02BCE6EF40088B713 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6C6C6662BCE6E210028A486 /* HANE24Watch */ = {
+			isa = PBXGroup;
+			children = (
+				D6881CC02BCE6EF40088B713 /* Model */,
+				D6881CBF2BCE6EEE0088B713 /* ViewModel */,
+				D6881CBE2BCE6EEA0088B713 /* View */,
+				D6C6C6672BCE6E210028A486 /* HANE24WatchApp.swift */,
+				D6C6C66B2BCE6E220028A486 /* Assets.xcassets */,
+				D6C6C66D2BCE6E220028A486 /* Preview Content */,
+			);
+			path = HANE24Watch;
+			sourceTree = "<group>";
+		};
+		D6C6C66D2BCE6E220028A486 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D6C6C66E2BCE6E220028A486 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D6C6C6772BCE6E230028A486 /* HANE24WatchTest */ = {
+			isa = PBXGroup;
+			children = (
+				D6881CC32BCE71360088B713 /* Info.plist */,
+				D6C6C6782BCE6E230028A486 /* HANE24WatchTests.swift */,
+			);
+			path = HANE24WatchTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -365,11 +477,13 @@
 				0E1654ED299A285B001E5EED /* Resources */,
 				0E00516A2B1860BE006B1DEB /* ShellScript */,
 				0ED6E3F12B354D350026E69D /* Embed Foundation Extensions */,
+				D6C6C6892BCE6E230028A486 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				0ED6E3EF2B354D350026E69D /* PBXTargetDependency */,
+				D6C6C6872BCE6E230028A486 /* PBXTargetDependency */,
 			);
 			name = 24HANE;
 			productName = HANE24;
@@ -411,6 +525,41 @@
 			productReference = D646BD092B95DCD500ED631E /* HANE24Test.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D6C6C6642BCE6E210028A486 /* HANE24Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6C6C6902BCE6E230028A486 /* Build configuration list for PBXNativeTarget "HANE24Watch" */;
+			buildPhases = (
+				D6C6C6612BCE6E210028A486 /* Sources */,
+				D6C6C6622BCE6E210028A486 /* Frameworks */,
+				D6C6C6632BCE6E210028A486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HANE24Watch;
+			productName = "HANE24Watch Watch App";
+			productReference = D6C6C6652BCE6E210028A486 /* HANE24Watch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D6C6C6732BCE6E230028A486 /* HANE24WatchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6C6C6912BCE6E230028A486 /* Build configuration list for PBXNativeTarget "HANE24WatchTest" */;
+			buildPhases = (
+				D6C6C6702BCE6E230028A486 /* Sources */,
+				D6C6C6712BCE6E230028A486 /* Frameworks */,
+				D6C6C6722BCE6E230028A486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6C6C6762BCE6E230028A486 /* PBXTargetDependency */,
+			);
+			name = HANE24WatchTest;
+			productName = "HANE24Watch Watch AppTests";
+			productReference = D6C6C6742BCE6E230028A486 /* HANE24WatchTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -431,6 +580,13 @@
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 0E1654EE299A285B001E5EED;
 					};
+					D6C6C6642BCE6E210028A486 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					D6C6C6732BCE6E230028A486 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = D6C6C6642BCE6E210028A486;
+					};
 				};
 			};
 			buildConfigurationList = 0E1654EA299A285B001E5EED /* Build configuration list for PBXProject "HANE24" */;
@@ -449,6 +605,8 @@
 				0E1654EE299A285B001E5EED /* 24HANE */,
 				0ED6E3E02B354D310026E69D /* HANE24WidgetExtension */,
 				D646BD082B95DCD500ED631E /* HANE24Test */,
+				D6C6C6642BCE6E210028A486 /* HANE24Watch */,
+				D6C6C6732BCE6E230028A486 /* HANE24WatchTest */,
 			);
 		};
 /* End PBXProject section */
@@ -472,6 +630,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D646BD072B95DCD500ED631E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6C6C6632BCE6E210028A486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6C6C66F2BCE6E220028A486 /* Preview Assets.xcassets in Resources */,
+				D6C6C66C2BCE6E220028A486 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6C6C6722BCE6E230028A486 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -589,6 +763,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6C6C6612BCE6E210028A486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6C6C66A2BCE6E210028A486 /* ContentView.swift in Sources */,
+				D6C6C6682BCE6E210028A486 /* HANE24WatchApp.swift in Sources */,
+				D6881CC22BCE6F5E0088B713 /* AccumulationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6C6C6702BCE6E230028A486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6C6C6792BCE6E230028A486 /* HANE24WatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -601,6 +793,16 @@
 			isa = PBXTargetDependency;
 			target = 0E1654EE299A285B001E5EED /* 24HANE */;
 			targetProxy = D646BD0D2B95DCD500ED631E /* PBXContainerItemProxy */;
+		};
+		D6C6C6762BCE6E230028A486 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6C6C6642BCE6E210028A486 /* HANE24Watch */;
+			targetProxy = D6C6C6752BCE6E230028A486 /* PBXContainerItemProxy */;
+		};
+		D6C6C6872BCE6E230028A486 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6C6C6642BCE6E210028A486 /* HANE24Watch */;
+			targetProxy = D6C6C6862BCE6E230028A486 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -929,6 +1131,130 @@
 			};
 			name = Release;
 		};
+		D6C6C68A2BCE6E230028A486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HANE24Watch/Preview Content\"";
+				DEVELOPMENT_TEAM = LT7Z66ZBAP;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HANE24Watch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "net.hejang.-4HANE";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		D6C6C68B2BCE6E230028A486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HANE24Watch/Preview Content\"";
+				DEVELOPMENT_TEAM = LT7Z66ZBAP;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HANE24Watch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "net.hejang.-4HANE";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
+		D6C6C68C2BCE6E230028A486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = APH7WMHZRK;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HANE24WatchTest/Info.plist;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.hoslim.HANE24WatchTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HANE24Watch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HANE24Watch";
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		D6C6C68D2BCE6E230028A486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = APH7WMHZRK;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HANE24WatchTest/Info.plist;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.hoslim.HANE24WatchTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HANE24Watch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HANE24Watch";
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -964,6 +1290,24 @@
 			buildConfigurations = (
 				D646BD102B95DCD500ED631E /* Debug */,
 				D646BD112B95DCD500ED631E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6C6C6902BCE6E230028A486 /* Build configuration list for PBXNativeTarget "HANE24Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6C6C68A2BCE6E230028A486 /* Debug */,
+				D6C6C68B2BCE6E230028A486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6C6C6912BCE6E230028A486 /* Build configuration list for PBXNativeTarget "HANE24WatchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6C6C68C2BCE6E230028A486 /* Debug */,
+				D6C6C68D2BCE6E230028A486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
