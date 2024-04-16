@@ -1,11 +1,12 @@
 //
-//  NetworkManager.swift
-//  24HANE
+//  NetworkModel.swift
+//  HANE24Watch
 //
-//  Created by Katherine JANG on 3/25/24.
+//  Created by Hosung Lim on 4/16/24.
 //
 
 import Foundation
+import Combine
 
 protocol NetworkProtocol {
 	var session: URLSession { get }
@@ -17,9 +18,17 @@ protocol NetworkProtocol {
 	func deleteRequest(_ urlPath: String) async throws
 }
 
-class NetworkManager: NetworkProtocol {
+enum NetworkError: Error {
+	case tokenError(String)
+	case apiRootError(String)
+	case responseError(String)
+}
 
-	static let shared = NetworkManager()
+class NetworkModel: NetworkProtocol {
+
+	static let shared = NetworkModel()
+
+	private var cancellabels = Set<AnyCancellable>()
 
 	var session: URLSession
 	var apiRoot: String
@@ -31,77 +40,79 @@ class NetworkManager: NetworkProtocol {
 
 	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
 		guard let url = URL(string: apiRoot + urlPath) else {
-			/// FIXME: invalid URL의 경우 error handling
-			return nil
+			throw NetworkError.apiRootError("not found apiRoot")
 		}
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
 			/// FIXME: token invalid 경우에 signIn 상태 변경
-			throw MyError.tokenExpired("get new token!")
+			throw NetworkError.tokenError("get new token!")
 		}
 		var request = URLRequest(url: url)
 		request.httpMethod = "GET"
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
 		let (data, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+		guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
 			/// FIXME: Status Code에 따른 Error Handling
-			throw MyError.tokenExpired("request Failed")
+			throw NetworkError.responseError("request Failed")
 		}
 		let decodedData = try JSONDecoder().decode(type.self, from: data)
 		return decodedData
 	}
 
-	// MARK: post, patch, delete의 경우 httpMethod를 제외하고 로직이 동일함 -> request with return value, request without return value로 나눠서 method 방식을 전달받는건 어떤지?
 	func postRequest(_ urlPath: String) async throws {
 		guard let url = URL(string: apiRoot + urlPath) else {
-			return
+			throw NetworkError.apiRootError("not found apiRoot")
 		}
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
-			throw MyError.tokenExpired("get new tokenn")
+			/// FIXME: token invalid 경우에 signIn 상태 변경
+			throw NetworkError.tokenError("get new token!")
 		}
-
 		var request = URLRequest(url: url)
 		request.httpMethod = "POST"
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
-		let (_, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-			throw MyError.tokenExpired("request Failed")
+		let (data, response) = try await session.data(for: request)
+		guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+			/// FIXME: Status Code에 따른 Error Handling
+			throw NetworkError.responseError("request Failed")
 		}
 	}
 
 	func patchRequest(_ urlPath: String) async throws {
-		guard let url = URL(string: apiRoot	+ urlPath) else {
-			return
+		guard let url = URL(string: apiRoot + urlPath) else {
+			throw NetworkError.apiRootError("not found apiRoot")
 		}
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
-			throw MyError.tokenExpired("get new tokenn")
+			/// FIXME: token invalid 경우에 signIn 상태 변경
+			throw NetworkError.tokenError("get new token!")
 		}
 		var request = URLRequest(url: url)
 		request.httpMethod = "PATCH"
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
-		let (_, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-			throw MyError.tokenExpired("request Failed")
+		let (data, response) = try await session.data(for: request)
+		guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+			/// FIXME: Status Code에 따른 Error Handling
+			throw NetworkError.responseError("request Failed")
 		}
 	}
-	
+
 	func deleteRequest(_ urlPath: String) async throws {
-		guard let url = URL(string: apiRoot	+ urlPath) else {
-			return
+		guard let url = URL(string: apiRoot + urlPath) else {
+			throw NetworkError.apiRootError("not found apiRoot")
 		}
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
-			throw MyError.tokenExpired("get new tokenn")
+			/// FIXME: token invalid 경우에 signIn 상태 변경
+			throw NetworkError.tokenError("get new token!")
 		}
-
 		var request = URLRequest(url: url)
 		request.httpMethod = "DELETE"
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
-		let (_, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-			throw MyError.tokenExpired("request Failed")
+		let (data, response) = try await session.data(for: request)
+		guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+			/// FIXME: Status Code에 따른 Error Handling
+			throw NetworkError.responseError("request Failed")
 		}
 	}
 }
