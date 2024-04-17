@@ -40,7 +40,6 @@ struct AccumulationView: View {
 					}
 				}
 
-
 				Spacer()
 
 				HStack {

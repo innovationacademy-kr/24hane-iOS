@@ -58,6 +58,8 @@
 		9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
 		D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
 		D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646BD0B2B95DCD500ED631E /* HANE24Test.swift */; };
+		D6497C0C2BCFC38C00E17F85 /* TargetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6497C0B2BCFC38C00E17F85 /* TargetTimeView.swift */; };
+		D6497C0E2BCFD44400E17F85 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6497C0D2BCFD44400E17F85 /* CircleProgressBar.swift */; };
 		D6881CC22BCE6F5E0088B713 /* AccumulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6881CC12BCE6F5E0088B713 /* AccumulationView.swift */; };
 		D6881CC52BCE78840088B713 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6881CC42BCE78840088B713 /* SettingView.swift */; };
 		D6881CC72BCE87270088B713 /* AccumulationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6881CC62BCE87270088B713 /* AccumulationViewModel.swift */; };
@@ -69,6 +71,8 @@
 		D6C6C66F2BCE6E220028A486 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6C6C66E2BCE6E220028A486 /* Preview Assets.xcassets */; };
 		D6C6C6792BCE6E230028A486 /* HANE24WatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6C6782BCE6E230028A486 /* HANE24WatchTests.swift */; };
 		D6C6C6882BCE6E230028A486 /* HANE24Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D6C6C6652BCE6E210028A486 /* HANE24Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D6DAA5872BCFA95D000A5A2C /* WatchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DAA5862BCFA95D000A5A2C /* WatchConnect.swift */; };
+		D6DAA58A2BCFAAEB000A5A2C /* WatchToiOSConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DAA5892BCFAAEB000A5A2C /* WatchToiOSConnect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +186,8 @@
 		D6185AE02BB3C71800E6944A /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
+		D6497C0B2BCFC38C00E17F85 /* TargetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTimeView.swift; sourceTree = "<group>"; };
+		D6497C0D2BCFD44400E17F85 /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
 		D680AC322BB17CA00083025D /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		D6881CC12BCE6F5E0088B713 /* AccumulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationView.swift; sourceTree = "<group>"; };
 		D6881CC32BCE71360088B713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 		D6C6C66E2BCE6E220028A486 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D6C6C6742BCE6E230028A486 /* HANE24WatchTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24WatchTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C6C6782BCE6E230028A486 /* HANE24WatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WatchTests.swift; sourceTree = "<group>"; };
+		D6DAA5862BCFA95D000A5A2C /* WatchConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnect.swift; sourceTree = "<group>"; };
+		D6DAA5892BCFAAEB000A5A2C /* WatchToiOSConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToiOSConnect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +376,7 @@
 				0ED6E3F72B354DD00026E69D /* UserDefaultsExtension.swift */,
 				0E165509299A3D8A001E5EED /* ColorExtension.swift */,
 				0EFDFD46299F5AF500A911F7 /* DarkMode.swift */,
+				D6DAA5862BCFA95D000A5A2C /* WatchConnect.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -425,6 +434,8 @@
 				D6C6C6692BCE6E210028A486 /* ContentView.swift */,
 				D6881CC12BCE6F5E0088B713 /* AccumulationView.swift */,
 				D6881CC42BCE78840088B713 /* SettingView.swift */,
+				D6497C0B2BCFC38C00E17F85 /* TargetTimeView.swift */,
+				D6497C0D2BCFD44400E17F85 /* CircleProgressBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -449,6 +460,7 @@
 		D6C6C6662BCE6E210028A486 /* HANE24Watch */ = {
 			isa = PBXGroup;
 			children = (
+				D6DAA5882BCFAACA000A5A2C /* Utils */,
 				D6881CC02BCE6EF40088B713 /* Model */,
 				D6881CBF2BCE6EEE0088B713 /* ViewModel */,
 				D6881CBE2BCE6EEA0088B713 /* View */,
@@ -474,6 +486,14 @@
 				D6C6C6782BCE6E230028A486 /* HANE24WatchTests.swift */,
 			);
 			path = HANE24WatchTest;
+			sourceTree = "<group>";
+		};
+		D6DAA5882BCFAACA000A5A2C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D6DAA5892BCFAAEB000A5A2C /* WatchToiOSConnect.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -722,6 +742,7 @@
 				2B1326112B2821E600301A8B /* ThisMonthAccTimeCardView.swift in Sources */,
 				9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */,
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
+				D6DAA5872BCFA95D000A5A2C /* WatchConnect.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */,
 				0ED6E3F82B354DD00026E69D /* UserDefaultsExtension.swift in Sources */,
@@ -780,12 +801,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6C6C66A2BCE6E210028A486 /* ContentView.swift in Sources */,
+				D6DAA58A2BCFAAEB000A5A2C /* WatchToiOSConnect.swift in Sources */,
 				D6881CC72BCE87270088B713 /* AccumulationViewModel.swift in Sources */,
 				D6881CC92BCE876C0088B713 /* AccumulationModel.swift in Sources */,
 				D6881CC52BCE78840088B713 /* SettingView.swift in Sources */,
 				D6C6C6682BCE6E210028A486 /* HANE24WatchApp.swift in Sources */,
+				D6497C0E2BCFD44400E17F85 /* CircleProgressBar.swift in Sources */,
 				D6881CCB2BCE8A110088B713 /* NetworkModel.swift in Sources */,
 				D6881CC22BCE6F5E0088B713 /* AccumulationView.swift in Sources */,
+				D6497C0C2BCFC38C00E17F85 /* TargetTimeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
