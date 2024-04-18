@@ -10,5 +10,6 @@ import Foundation
 protocol AccumulationProtocol: ObservableObject {}
 
 class AccumulationViewModel: AccumulationProtocol {
+	@Published var accumulation: AccumulationModel = AccumulationModel()
 
 }

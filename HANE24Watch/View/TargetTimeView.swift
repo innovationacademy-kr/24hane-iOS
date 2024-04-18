@@ -7,17 +7,40 @@
 
 import SwiftUI
 
+private struct BackgroundColor: View {
+	var body: some View {
+		LinearGradient(
+			colors: [
+				Color.dateBackgroundLevel3,
+				Color.dateSelected
+			],
+			startPoint: .top,
+			endPoint: .bottom)
+			.ignoresSafeArea()
+	}
+}
+
+struct TargetTimeStringView: View {
+	var accumulationtime: Int64
+	var targetTime: Int
+	// TODO: UserDefault - DailySelectionOption
+	var body: some View {
+		HStack(alignment: .lastTextBaseline) {
+			Text("\(accumulationtime)")
+				.font(.largeTitle)
+				.fontWeight(.bold)
+			Text("/ \(targetTime)h")
+				.font(.footnote)
+				.foregroundColor(.fontDisabled)
+			Spacer()
+		}
+	}
+}
+
 struct TargetTimeView: View {
     var body: some View {
 		ZStack {
-			LinearGradient(
-				colors: [
-					Color.dateBackgroundLevel3,
-					Color.dateSelected
-				],
-				startPoint: .top,
-				endPoint: .bottom)
-				.ignoresSafeArea()
+			BackgroundColor()
 
 			VStack {
 				HStack {
@@ -28,15 +51,8 @@ struct TargetTimeView: View {
 					Spacer()
 				}
 
-				HStack(alignment: .lastTextBaseline) {
-					Text("6.2")
-						.font(.largeTitle)
-						.fontWeight(.bold)
-					Text("/ 12h")
-						.font(.footnote)
-						.foregroundColor(.fontDisabled)
-					Spacer()
-				}
+				TargetTimeStringView(accumulationtime: 4, targetTime: 12)
+
 				HStack {
 					CircleProgressBar(percent: 30)
 						.scaleEffect(0.8)

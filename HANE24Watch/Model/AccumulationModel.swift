@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct AccumulationModel {
-
+struct AccumulationModel: Codable {
+	var totalAccumulationTime: Int64 = Int64()
+	var acceptedAccumulationTime: Int64 = Int64()
 }

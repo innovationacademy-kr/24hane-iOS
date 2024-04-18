@@ -7,6 +7,37 @@
 
 import SwiftUI
 
+struct BackgroundCircle: View {
+	var body: some View {
+		Circle()
+			.stroke(
+				Color.white.opacity(0.2),
+				style: StrokeStyle(
+					lineWidth: 15,
+					lineCap: .round
+				)
+			)
+	}
+}
+
+struct InProgressCircle: View {
+	var drawingStroke: Bool
+	var percent: Int
+	var body: some View {
+		Circle()
+			.trim(from: 0, to: drawingStroke ? (CGFloat(percent) / 100) : 0)
+			.stroke(
+				Color.white,
+				style: StrokeStyle(
+					lineWidth: 15,
+					lineCap: .round
+				)
+			)
+			.rotationEffect(Angle(degrees: -90))
+			.shadow(radius: 28)
+	}
+}
+
 struct CircleProgressBar: View {
 	@State private var drawingStroke = false
 
@@ -18,26 +49,9 @@ struct CircleProgressBar: View {
 
     var body: some View {
 		ZStack {
-			Circle()
-				.stroke(
-					Color.white.opacity(0.2),
-					style: StrokeStyle(
-						lineWidth: 15,
-						lineCap: .round
-					)
-				)
+			BackgroundCircle()
 
-			Circle()
-				.trim(from: 0, to: drawingStroke ? (CGFloat(percent) / 100) : 0)
-				.stroke(
-					Color.white,
-					style: StrokeStyle(
-						lineWidth: 15,
-						lineCap: .round
-					)
-				)
-				.rotationEffect(Angle(degrees: -90))
-				.shadow(radius: 28)
+			InProgressCircle(drawingStroke: drawingStroke, percent: percent)
 
 			Image(systemName: "medal")
 				.resizable()
