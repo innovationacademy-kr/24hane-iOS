@@ -28,7 +28,7 @@ struct TargetTimeView: View {
 					Spacer()
 				}
 
-				HStack {
+				HStack(alignment: .lastTextBaseline) {
 					Text("6.2")
 						.font(.largeTitle)
 						.fontWeight(.bold)
@@ -38,14 +38,16 @@ struct TargetTimeView: View {
 					Spacer()
 				}
 				HStack {
-					CircleProgressBar(percent: 50)
+					CircleProgressBar(percent: 30)
+						.scaleEffect(0.8)
 					Spacer()
 				}
+
 				Spacer()
 			}
 			.padding(.horizontal, 20)
 		}
-    }
+	}
 }
 
 #Preview {

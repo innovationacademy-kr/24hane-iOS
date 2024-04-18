@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct CircleProgressBar: View {
+	@State private var drawingStroke = false
+
+	let animation = Animation
+			.easeOut(duration: 3)
+			.delay(0.5)
 
 	@State var percent: Int
 
@@ -23,7 +28,7 @@ struct CircleProgressBar: View {
 				)
 
 			Circle()
-				.trim(from: (1 - (CGFloat(percent) / 100)), to: 1)
+				.trim(from: 0, to: drawingStroke ? (CGFloat(percent) / 100) : 0)
 				.stroke(
 					Color.white,
 					style: StrokeStyle(
@@ -31,17 +36,18 @@ struct CircleProgressBar: View {
 						lineCap: .round
 					)
 				)
-				.rotationEffect(Angle(degrees: 90))
-				.rotation3DEffect(
-					Angle(degrees: 180),
-					axis: (x: 1.0, y: 0.0, z: 0.0)
-				)
+				.rotationEffect(Angle(degrees: -90))
 				.shadow(radius: 28)
 
 			Image(systemName: "medal")
 				.resizable()
 				.scaledToFit()
 				.frame(width: 30)
+				.opacity(0.6)
+		}
+		.animation(animation, value: drawingStroke)
+		.onAppear {
+			drawingStroke.toggle()
 		}
     }
 }
