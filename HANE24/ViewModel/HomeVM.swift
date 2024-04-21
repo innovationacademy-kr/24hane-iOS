@@ -24,12 +24,15 @@ class HomeVM: ObservableObject {
 	
 	@Published var accumulationTime: AccumulationTimes
 	
+	@Published var isLoading: Bool
+	
 	var mainInfo: MainInfo
 	
 	var accumulationTimes: AccumulationTimes
 	
 	var timer: Timer?
 	var lastTag: Date?
+
 	
 	init() {
 		self.isInCluster = false
@@ -39,6 +42,8 @@ class HomeVM: ObservableObject {
 		
 		self.fundInfoNotice = Notice()
 		self.tagLatencyNotice = Notice( )
+		
+		self.isLoading = false
 		
 		self.mainInfo = MainInfo()
 		
