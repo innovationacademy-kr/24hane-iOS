@@ -73,6 +73,14 @@
 		9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
 		D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
 		D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646BD0B2B95DCD500ED631E /* HANE24Test.swift */; };
+		D67DA2C62BD64F540041435A /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2C52BD64F540041435A /* NetworkModel.swift */; };
+		D67DA2C92BD64FAD0041435A /* AccumulationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2C82BD64FAD0041435A /* AccumulationModel.swift */; };
+		D67DA2CB2BD64FC50041435A /* AccumulationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2CA2BD64FC50041435A /* AccumulationViewModel.swift */; };
+		D67DA2CD2BD64FE70041435A /* WatchToiOSConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2CC2BD64FE70041435A /* WatchToiOSConnect.swift */; };
+		D67DA2CF2BD650110041435A /* AccumulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2CE2BD650110041435A /* AccumulationView.swift */; };
+		D67DA2D12BD650290041435A /* CircleProcessBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2D02BD650290041435A /* CircleProcessBar.swift */; };
+		D67DA2D32BD6504C0041435A /* TargetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2D22BD6504C0041435A /* TargetTimeView.swift */; };
+		D67DA2D52BD6505E0041435A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2D42BD6505E0041435A /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +194,14 @@
 		D6185AE02BB3C71800E6944A /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
+		D67DA2C52BD64F540041435A /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		D67DA2C82BD64FAD0041435A /* AccumulationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationModel.swift; sourceTree = "<group>"; };
+		D67DA2CA2BD64FC50041435A /* AccumulationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationViewModel.swift; sourceTree = "<group>"; };
+		D67DA2CC2BD64FE70041435A /* WatchToiOSConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToiOSConnect.swift; sourceTree = "<group>"; };
+		D67DA2CE2BD650110041435A /* AccumulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationView.swift; sourceTree = "<group>"; };
+		D67DA2D02BD650290041435A /* CircleProcessBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProcessBar.swift; sourceTree = "<group>"; };
+		D67DA2D22BD6504C0041435A /* TargetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTimeView.swift; sourceTree = "<group>"; };
+		D67DA2D42BD6505E0041435A /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		D680AC322BB17CA00083025D /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		D69A01AF2B9F1639003C84C1 /* HaneTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = HaneTest.xctestplan; path = HANE24TEST/HaneTest.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +272,7 @@
 		0E1654F1299A285B001E5EED /* HANE24 */ = {
 			isa = PBXGroup;
 			children = (
+				0E1654F6299A285E001E5EED /* Assets.xcassets */,
 				0E3B32A729A37D3C001D10BF /* Info.plist */,
 				0E1654F2299A285B001E5EED /* HANE24App.swift */,
 				0E1654F4299A285B001E5EED /* ContentView.swift */,
@@ -263,7 +280,6 @@
 				9AF730F4299E071D00AF2E53 /* Model */,
 				9A1A4BEC299ADDDD0076D650 /* View */,
 				9AF730F9299F539F00AF2E53 /* ViewModel */,
-				0E1654F6299A285E001E5EED /* Assets.xcassets */,
 				0E1654F8299A285E001E5EED /* Preview Content */,
 			);
 			path = HANE24;
@@ -281,11 +297,12 @@
 			isa = PBXGroup;
 			children = (
 				0E27383A2BD642B6009A9E6B /* WatchHANE24 Watch App.entitlements */,
-				0EAF76A92BD5308400170C1A /* ContentView.swift */,
-				0EAF76C12BD533C500170C1A /* CalendarGridView.swift */,
-				0EAF76C32BD533D100170C1A /* CalendarView.swift */,
 				0EAF76AB2BD5308700170C1A /* Assets.xcassets */,
 				0EAF76AD2BD5308700170C1A /* Preview Content */,
+				D67DA2C42BD64EC80041435A /* Utils */,
+				D67DA2C32BD64EC30041435A /* Model */,
+				D67DA2C22BD64EBF0041435A /* ViewModel */,
+				D67DA2C12BD64EB90041435A /* View */,
 			);
 			path = "WatchHANE24 Watch App";
 			sourceTree = "<group>";
@@ -422,6 +439,45 @@
 			path = HANE24TEST;
 			sourceTree = "<group>";
 		};
+		D67DA2C12BD64EB90041435A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0EAF76A92BD5308400170C1A /* ContentView.swift */,
+				D67DA2D02BD650290041435A /* CircleProcessBar.swift */,
+				D67DA2CE2BD650110041435A /* AccumulationView.swift */,
+				D67DA2D22BD6504C0041435A /* TargetTimeView.swift */,
+				D67DA2D42BD6505E0041435A /* SettingView.swift */,
+				0EAF76C32BD533D100170C1A /* CalendarView.swift */,
+				0EAF76C12BD533C500170C1A /* CalendarGridView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D67DA2C22BD64EBF0041435A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D67DA2CA2BD64FC50041435A /* AccumulationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D67DA2C32BD64EC30041435A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D67DA2C52BD64F540041435A /* NetworkModel.swift */,
+				D67DA2C82BD64FAD0041435A /* AccumulationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D67DA2C42BD64EC80041435A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D67DA2CC2BD64FE70041435A /* WatchToiOSConnect.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -539,8 +595,8 @@
 			projectRoot = "";
 			targets = (
 				0E1654EE299A285B001E5EED /* 24HANE */,
-				0ED6E3E02B354D310026E69D /* HANE24WidgetExtension */,
 				D646BD082B95DCD500ED631E /* HANE24Test */,
+				0ED6E3E02B354D310026E69D /* HANE24WidgetExtension */,
 				0EAF76A42BD5308400170C1A /* WatchHANE24 Watch App */,
 			);
 		};
@@ -673,15 +729,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D67DA2D32BD6504C0041435A /* TargetTimeView.swift in Sources */,
+				D67DA2D52BD6505E0041435A /* SettingView.swift in Sources */,
 				0EAF76B92BD5320500170C1A /* CalendarVM.swift in Sources */,
+				D67DA2CD2BD64FE70041435A /* WatchToiOSConnect.swift in Sources */,
+				D67DA2CB2BD64FC50041435A /* AccumulationViewModel.swift in Sources */,
 				0EAF76AA2BD5308400170C1A /* ContentView.swift in Sources */,
 				0EAF76C42BD533D100170C1A /* CalendarView.swift in Sources */,
+				D67DA2C62BD64F540041435A /* NetworkModel.swift in Sources */,
 				0EAF76BB2BD5320A00170C1A /* NetworkManager.swift in Sources */,
 				0EAF76BF2BD532FF00170C1A /* ColorExtension.swift in Sources */,
 				0EAF76BD2BD5321600170C1A /* Structs.swift in Sources */,
+				D67DA2D12BD650290041435A /* CircleProcessBar.swift in Sources */,
 				0EAF76C22BD533C500170C1A /* CalendarGridView.swift in Sources */,
 				0EAF76B82BD5320200170C1A /* HaneVM.swift in Sources */,
+				D67DA2CF2BD650110041435A /* AccumulationView.swift in Sources */,
 				0EAF76C02BD5330600170C1A /* DarkMode.swift in Sources */,
+				D67DA2C92BD64FAD0041435A /* AccumulationModel.swift in Sources */,
 				0EAF76BE2BD532FA00170C1A /* DateExtensions.swift in Sources */,
 				0EAF76B72BD531E400170C1A /* HANE24App.swift in Sources */,
 				0EAF76BC2BD5321400170C1A /* JSONs.swift in Sources */,
