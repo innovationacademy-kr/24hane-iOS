@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct SettingView: View {
+    @ObservedObject var watch = WatchToiOSConnect()
     var body: some View {
 		VStack {
 			Text("설정")
+            Text("토큰: \(watch.token)")
 		}
     }
 }

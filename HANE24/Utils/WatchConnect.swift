@@ -8,35 +8,40 @@
 import Foundation
 import WatchConnectivity
 
-class WatchConnect: NSObject, WCSessionDelegate {
-
-	var session: WCSession
-
-	init(session: WCSession = .default) {
-		self.session = session
-		super.init()
-		session.delegate = self
-		session.activate()
-	}
-
-	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {
-		if session.isWatchAppInstalled {
-			do {
-				guard let token = UserDefaults.standard.string(forKey: "Token") else {
-					return
-				}
-				try session.updateApplicationContext(["userToken" : token])
-			} catch {
-				print("watchConnect: \(error)")
-			}
-		}
-	}
-
-	func sessionDidBecomeInactive(_ session: WCSession) {
-	}
-
-	func sessionDidDeactivate(_ session: WCSession) {
-		session.activate()
-	}
-
+class WatchManager: NSObject, WCSessionDelegate {
+    
+    static let shared = WatchManager()
+    private var session: WCSession?
+    
+    private override init() {
+        super.init()
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+    }
+    
+    func sendDataToWatch(_ data: [String: Any]) {
+        session?.transferUserInfo(data)
+    }
+    
+    // WCSession 상태 변화 처리
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        // 활성화 상태 처리
+    }
+    
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
+        // watchOS 앱에서 전송한 데이터 처리
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        if WCSession.isSupported() {
+            session.activate()
+        }
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
 }
