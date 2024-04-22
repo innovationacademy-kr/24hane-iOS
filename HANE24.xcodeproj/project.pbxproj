@@ -26,10 +26,7 @@
 		0EAF76AC2BD5308700170C1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAF76AB2BD5308700170C1A /* Assets.xcassets */; };
 		0EAF76AF2BD5308700170C1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAF76AE2BD5308700170C1A /* Preview Assets.xcassets */; };
 		0EAF76B22BD5308700170C1A /* WatchHANE24 Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EAF76A52BD5308400170C1A /* WatchHANE24 Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0EAF76B72BD531E400170C1A /* HANE24App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F2299A285B001E5EED /* HANE24App.swift */; };
-		0EAF76B82BD5320200170C1A /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FA299F53C700AF2E53 /* HaneVM.swift */; };
 		0EAF76B92BD5320500170C1A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
-		0EAF76BB2BD5320A00170C1A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */; };
 		0EAF76BC2BD5321400170C1A /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
 		0EAF76BD2BD5321600170C1A /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F5299E074800AF2E53 /* Structs.swift */; };
 		0EAF76BE2BD532FA00170C1A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
@@ -81,6 +78,10 @@
 		D67DA2D12BD650290041435A /* CircleProcessBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2D02BD650290041435A /* CircleProcessBar.swift */; };
 		D67DA2D32BD6504C0041435A /* TargetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2D22BD6504C0041435A /* TargetTimeView.swift */; };
 		D67DA2D52BD6505E0041435A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2D42BD6505E0041435A /* SettingView.swift */; };
+		D67DA2D72BD672540041435A /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2D62BD672540041435A /* WatchManager.swift */; };
+		D687F0892BD6A8300054137E /* HANE24App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F2299A285B001E5EED /* HANE24App.swift */; };
+		D687F08A2BD6A8360054137E /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FA299F53C700AF2E53 /* HaneVM.swift */; };
+		D687F08B2BD6A88D0054137E /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67DA2D62BD672540041435A /* WatchManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +203,7 @@
 		D67DA2D02BD650290041435A /* CircleProcessBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProcessBar.swift; sourceTree = "<group>"; };
 		D67DA2D22BD6504C0041435A /* TargetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTimeView.swift; sourceTree = "<group>"; };
 		D67DA2D42BD6505E0041435A /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		D67DA2D62BD672540041435A /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 		D680AC322BB17CA00083025D /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		D69A01AF2B9F1639003C84C1 /* HaneTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = HaneTest.xctestplan; path = HANE24TEST/HaneTest.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -406,6 +408,7 @@
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
 				D6185AE02BB3C71800E6944A /* CalendarVM.swift */,
+				D67DA2D62BD672540041435A /* WatchManager.swift */,
 				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
 			);
@@ -704,6 +707,7 @@
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
 				D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */,
 				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
+				D67DA2D72BD672540041435A /* WatchManager.swift in Sources */,
 				0E3ED8A82BB13727001B0BAE /* NetworkManager.swift in Sources */,
 				0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */,
 				0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */,
@@ -731,23 +735,23 @@
 			files = (
 				D67DA2D32BD6504C0041435A /* TargetTimeView.swift in Sources */,
 				D67DA2D52BD6505E0041435A /* SettingView.swift in Sources */,
+				D687F08A2BD6A8360054137E /* HaneVM.swift in Sources */,
 				0EAF76B92BD5320500170C1A /* CalendarVM.swift in Sources */,
 				D67DA2CD2BD64FE70041435A /* WatchToiOSConnect.swift in Sources */,
 				D67DA2CB2BD64FC50041435A /* AccumulationViewModel.swift in Sources */,
 				0EAF76AA2BD5308400170C1A /* ContentView.swift in Sources */,
+				D687F08B2BD6A88D0054137E /* WatchManager.swift in Sources */,
 				0EAF76C42BD533D100170C1A /* CalendarView.swift in Sources */,
 				D67DA2C62BD64F540041435A /* NetworkModel.swift in Sources */,
-				0EAF76BB2BD5320A00170C1A /* NetworkManager.swift in Sources */,
 				0EAF76BF2BD532FF00170C1A /* ColorExtension.swift in Sources */,
 				0EAF76BD2BD5321600170C1A /* Structs.swift in Sources */,
 				D67DA2D12BD650290041435A /* CircleProcessBar.swift in Sources */,
 				0EAF76C22BD533C500170C1A /* CalendarGridView.swift in Sources */,
-				0EAF76B82BD5320200170C1A /* HaneVM.swift in Sources */,
+				D687F0892BD6A8300054137E /* HANE24App.swift in Sources */,
 				D67DA2CF2BD650110041435A /* AccumulationView.swift in Sources */,
 				0EAF76C02BD5330600170C1A /* DarkMode.swift in Sources */,
 				D67DA2C92BD64FAD0041435A /* AccumulationModel.swift in Sources */,
 				0EAF76BE2BD532FA00170C1A /* DateExtensions.swift in Sources */,
-				0EAF76B72BD531E400170C1A /* HANE24App.swift in Sources */,
 				0EAF76BC2BD5321400170C1A /* JSONs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -920,12 +924,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = 24HANE.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HANE24/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LT7Z66ZBAP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HANE24/Info.plist;
@@ -944,7 +946,6 @@
 				PRODUCT_MODULE_NAME = Hane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 24HoursAreNotEnough;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -963,12 +964,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = 24HANE.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HANE24/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LT7Z66ZBAP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HANE24/Info.plist;
@@ -987,7 +986,6 @@
 				PRODUCT_MODULE_NAME = Hane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 24HoursAreNotEnough;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1005,12 +1003,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "WatchHANE24 Watch App/WatchHANE24 Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchHANE24 Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=watchos*]" = LT7Z66ZBAP;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -1028,7 +1024,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = 24HANE;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -1047,12 +1042,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "WatchHANE24 Watch App/WatchHANE24 Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchHANE24 Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=watchos*]" = LT7Z66ZBAP;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -1070,7 +1063,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = 24HANE;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1088,11 +1080,9 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HANE24WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LT7Z66ZBAP;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1110,7 +1100,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.HANE24Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = HANEWidget;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1130,11 +1119,9 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HANE24WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LT7Z66ZBAP;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1152,7 +1139,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.HANE24Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = HANEWidget;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1168,7 +1154,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1196,7 +1183,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;

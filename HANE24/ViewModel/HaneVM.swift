@@ -273,6 +273,7 @@ extension Hane {
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
             return false
         }
+        WatchManager.shared.sendDataToWatch(["userToken": token])
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = [

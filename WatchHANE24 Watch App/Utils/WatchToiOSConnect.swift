@@ -5,30 +5,39 @@
 //  Created by Hosung Lim on 4/17/24.
 //
 
-import Foundation
+import WatchKit
 import WatchConnectivity
 
-class WatchToiOSConnect: NSObject, ObservableObject, WCSessionDelegate {
-
-    var session: WCSession
-
-    @Published var token: String?
-
+class WatchToiOSConnect: WKInterfaceController, WCSessionDelegate {
+    
+    var session: WCSession?
+    
     init(session: WCSession = .default) {
         self.session = session
         super.init()
         session.delegate = self
         session.activate()
     }
-
+    
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
+        
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+    }
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {
     }
-
+    
     @MainActor
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        if let token = applicationContext["userToken"] as? String {
-            self.token = token
-            print(token)
+        guard let message = applicationContext["userToken"] as? String else {
+            print("watch error")
+            return
         }
+        print(message)
     }
 }
