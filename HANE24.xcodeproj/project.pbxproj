@@ -849,6 +849,7 @@
 /* Begin XCBuildConfiguration section */
 		0E165500299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D680AC322BB17CA00083025D /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -909,6 +910,7 @@
 		};
 		0E165501299A285E001E5EED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D680AC322BB17CA00083025D /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -963,7 +965,7 @@
 		};
 		0E165503299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D680AC322BB17CA00083025D /* env.xcconfig */;
+			baseConfigurationReference = 38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1003,7 +1005,7 @@
 		};
 		0E165504299A285E001E5EED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D680AC322BB17CA00083025D /* env.xcconfig */;
+			baseConfigurationReference = A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1171,7 +1173,7 @@
 		};
 		D6C6C68A2BCE6E230028A486 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D680AC322BB17CA00083025D /* env.xcconfig */;
+			baseConfigurationReference = 38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1208,7 +1210,7 @@
 		};
 		D6C6C68B2BCE6E230028A486 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D680AC322BB17CA00083025D /* env.xcconfig */;
+			baseConfigurationReference = A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

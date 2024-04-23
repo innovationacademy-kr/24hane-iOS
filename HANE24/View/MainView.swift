@@ -37,6 +37,7 @@ struct MainView: View {
             }
             .accentColor(Theme.toolBarIconColor(forScheme: colorScheme))
             .task {
+                print("refresh")
                 do {
                     try await hane.refresh()
 					try await calendar.updateMonthlyLogs(date: .now)

@@ -9,9 +9,7 @@ import Foundation
 import WatchConnectivity
 
 class WatchToiOSConnect: NSObject, WCSessionDelegate, ObservableObject {
-
     var session: WCSession
-    
     @Published var token = ""
     
     init(session: WCSession = .default) {
@@ -20,16 +18,27 @@ class WatchToiOSConnect: NSObject, WCSessionDelegate, ObservableObject {
         self.session.delegate = self
         session.activate()
     }
+    func requestDataFromiOS() {
+        print("fetch")
+        let context: [String: Any] = [
+            "requestType": "getData"
+        ]
+        do {
+            try self.session.updateApplicationContext(context)
+        } catch {
+            print("error \(error.localizedDescription)")
+        }
+    }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {
     }
-    
-    @MainActor
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        guard let message = applicationContext["userToken"] as? String else {
-            print("watch error")
-            return
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("get data")
+        DispatchQueue.main.async {
+            self.token = message["userToken"] as? String ?? "wrong"
         }
-        print(message)
-        token = message
-    }}
+    }
+
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String:Any]) {
+    }
+}

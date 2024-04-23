@@ -55,6 +55,12 @@ struct PullToRefresh: View {
                         if needRefresh {
                             needRefresh = false
                             onRefresh()
+                            guard let token = UserDefaults.standard.string(forKey: "Token") else {
+                                return
+                            }
+                            WatchManager.shared.session.sendMessage(["userToken":token], replyHandler: nil) { (error) in
+                                print(error.localizedDescription)
+                            }
                         }
                     }
             }
