@@ -38,11 +38,11 @@ struct ThisMonthAccTimeCardView: View {
                             LoadingAnimation()
                         } else {
                             HStack(alignment: .bottom, spacing: 0) {
-                                Text("\(homeManager.monthlyAccumulationTime / 3600)")
+                                Text("\(homeManager.accumulationTimes.monthAccumulationTime / 3600)")
                                     .font(.system(size: 20, weight: .bold))
                                 Text("시간 ")
                                     .font(.system(size: 16, weight: .bold))
-                                Text("\(homeManager.monthlyAccumulationTime % 3600 / 60)")
+                                Text("\(homeManager.accumulationTimes.monthAccumulationTime % 3600 / 60)")
                                     .font(.system(size: 20, weight: .bold))
                                 Text("분")
                                     .font(.system(size: 16, weight: .bold))

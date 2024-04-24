@@ -40,7 +40,7 @@ struct PopulationView: View {
     }
 }
 
-#Preview {
-    PopulationView()
-        .environmentObject(Hane())
-}
+//#Preview {
+//    PopulationView()
+//        .environmentObject(Hane())
+//}

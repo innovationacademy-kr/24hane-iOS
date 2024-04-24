@@ -9,13 +9,13 @@ import SwiftUI
 
 struct HeaderView: View {
 	@Environment(\.colorScheme) var colorScheme
-	@EnvironmentObject var hane: Hane
+    @ObservedObject var homeManager: HomeVM
 	
     var body: some View {
 		VStack(alignment: .center, spacing: 20) {
 			HStack(alignment: .center) {
-				if hane.profileImage != "" {
-					AsyncImage(url: URL(string: hane.profileImage)) { image in
+                if homeManager.mainInfo.profileImage != "" {
+                    AsyncImage(url: URL(string: homeManager.mainInfo.profileImage)) { image in
 						image
 							.resizable()
 							.scaledToFill()
@@ -37,11 +37,11 @@ struct HeaderView: View {
 						.foregroundColor(.iconColor)
 				}
 				
-				Text(hane.loginID)
+                Text(homeManager.mainInfo.login)
 					.font(.system(size: 20, weight: .semibold, design: .rounded))
-					.foregroundColor(!hane.isInCluster && colorScheme == .light ? .black : .white)
+					.foregroundColor(!homeManager.isInCluster && colorScheme == .light ? .black : .white)
 				
-				if hane.isInCluster {
+				if homeManager.isInCluster {
 					Circle()
 						.foregroundColor(.green)
 						.frame(width: 8, height: 8)
@@ -60,5 +60,7 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView()
+    @StateObject var homeVM = HomeVM()
+    
+    return HeaderView(homeManager: homeVM)
 }

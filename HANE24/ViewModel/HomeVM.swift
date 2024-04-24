@@ -8,27 +8,27 @@
 import Foundation
 
 class HomeVM: ObservableObject {
-	@Published var isInCluster: Bool
-	@Published var profileImage: String
-	@Published var userID: String
-	@Published var clusterPopulation: Int
+    @Published var isInCluster: Bool
+//	@Published var profileImage: String
+//	@Published var userID: String
+//	@Published var clusterPopulation: Int
 	
-	@Published var fundInfoNotice: Notice
-	@Published var tagLatencyNotice: Notice
+	@Published var fundInfoNotice: InfoMessage
+	@Published var tagLatencyNotice: InfoMessage
 	
 	/// 누적시간데이터
 	@Published var dailyAccumulationTime: Int64 = 0
-	@Published var monthlyAccumulationTime: Int64 = 0
-	@Published var sixWeekAccumulationTime: [Double] = Array(repeating: 0, count: 6)
-	@Published var sixMonthAccumulationTime: [Double] = Array(repeating: 0, count: 6)
+//	@Published var monthlyAccumulationTime: Int64 = 0
+//	@Published var sixWeekAccumulationTime: [Double] = Array(repeating: 0, count: 6)
+//	@Published var sixMonthAccumulationTime: [Double] = Array(repeating: 0, count: 6)
 	
-	@Published var accumulationTime: AccumulationTimes
+	@Published var accumulationTimes: AccumulationTimes
 	
 	@Published var isLoading: Bool
 	
-	var mainInfo: MainInfo
+	@Published var mainInfo: MainInfo
 	
-	var accumulationTimes: AccumulationTimes
+//	var accumulationTimes: AccumulationTimes
 	
 	var timer: Timer?
 	var lastTag: Date?
@@ -36,12 +36,12 @@ class HomeVM: ObservableObject {
 	
 	init() {
 		self.isInCluster = false
-		self.profileImage = ""
-		self.userID = ""
-		self.clusterPopulation = 0
+//		self.profileImage = ""
+//		self.userID = ""
+//		self.clusterPopulation = 0
 		
-		self.fundInfoNotice = Notice()
-		self.tagLatencyNotice = Notice( )
+		self.fundInfoNotice = InfoMessage()
+		self.tagLatencyNotice = InfoMessage( )
 		
 		self.isLoading = false
 		
@@ -51,7 +51,8 @@ class HomeVM: ObservableObject {
 		
 		self.lastTag = Date()
 		
-		self.accumulationTime = AccumulationTimes()
+//		self.accumulationTime = AccumulationTimes()
+//        self.userInfo = MainInfo()
 		
 		self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
 			guard let self = self else { return }
@@ -62,47 +63,29 @@ class HomeVM: ObservableObject {
 			}
 		}
 	}
-	
+
 	@MainActor
-	func updateUserInfo() async throws {
-		try await requestMainInfo()
-		
-		self.userID = mainInfo.login
-		self.profileImage = mainInfo.profileImage
-		self.isInCluster = mainInfo.inoutState == "IN" ? true : false
-		self.clusterPopulation = mainInfo.gaepo
-	}
-	
-	@MainActor
-	func updateNotice() async throws {
-		self.fundInfoNotice = Notice(
-			title: mainInfo.infoMessages.fundInfoNotice.title,
-			content: mainInfo.infoMessages.fundInfoNotice.content
-		)
-		self.tagLatencyNotice = Notice(
-			title: mainInfo.infoMessages.tagLatencyNotice.title,
-			content: mainInfo.infoMessages.tagLatencyNotice.content
-		)
-	}
-	
-	@MainActor
-	func updateAccumulationTime() async throws {
-		
+	func updateAccumulationTimes() async throws {
+        guard let accTimes = try await NetworkManager.shared.getRequest("/v3/tag-log/accumulationTimes", type: AccumulationTimes.self) else {
+            throw MyError.tokenExpired("")
+        }
+        self.accumulationTimes = accTimes
+        self.dailyAccumulationTime = accTimes.todayAccumulationTime
 	}
 	
 //TODO: 요청한 데이터가 nil일 경우 에러 핸들링
-	func requestMainInfo() async throws {
+	func updateMainInfo() async throws {
 		guard let mainInfo = try await NetworkManager.shared.getRequest("/v3/tag-log/maininfo", type: MainInfo.self) else {
 			throw MyError.tokenExpired("")
 		}
 		self.mainInfo = mainInfo
+        self.isInCluster = mainInfo.inoutState == "IN"
+        self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
+        self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
 	}
-	
-	@MainActor
-	func requestAccumulationTime() async throws {
-		guard let accTimes = try await NetworkManager.shared.getRequest("/v3/tag-log/accumulationTimes", type: AccumulationTimes.self) else {
-			throw MyError.tokenExpired("")
-		}
-		self.accumulationTime = accTimes
-	}
+
+    func refresh() async throws {
+        try await self.updateMainInfo()
+        try await self.updateAccumulationTimes()
+    }
 }
