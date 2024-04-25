@@ -31,6 +31,7 @@ class WatchManager: NSObject, WCSessionDelegate {
         // watchOS 앱에서 전송한 데이터 처리
         print("from watch")
     }
+
     func sessionDidDeactivate(_ session: WCSession) {
         if WCSession.isSupported() {
             session.activate()
