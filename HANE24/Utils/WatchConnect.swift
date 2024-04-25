@@ -60,4 +60,18 @@ class WatchManager: NSObject, WCSessionDelegate {
             }
         }
     }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        DispatchQueue.main.async {
+            let requestType = message["requestType"] as? String
+            if requestType == "getData" {
+                guard let token = UserDefaults.standard.string(forKey: "Token") else {
+                    return
+                }
+                WatchManager.shared.session.sendMessage(["userToken":token], replyHandler: nil) { (error) in
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
 }

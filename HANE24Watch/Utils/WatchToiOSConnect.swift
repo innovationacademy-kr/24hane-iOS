@@ -19,6 +19,7 @@ class WatchToiOSConnect: NSObject, WCSessionDelegate, ObservableObject {
         session.activate()
     }
 
+    @MainActor
     func requestDataFromiOS() {
         print("fetch")
         let context: [String: Any] = [
@@ -26,7 +27,9 @@ class WatchToiOSConnect: NSObject, WCSessionDelegate, ObservableObject {
         ]
 
         do {
-            try self.session.updateApplicationContext(context)
+            self.session.sendMessage(context, replyHandler: nil) {error in
+                print(error.localizedDescription)
+            }
         } catch {
             print("error \(error.localizedDescription)")
         }
@@ -36,7 +39,6 @@ class WatchToiOSConnect: NSObject, WCSessionDelegate, ObservableObject {
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("get data")
         DispatchQueue.main.async {
             self.token = message["userToken"] as? String ?? "wrong"
         }

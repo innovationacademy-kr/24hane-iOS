@@ -158,6 +158,8 @@ struct HomeView: View {
 
                             ThisMonthAccTimeCardView(isNoticed: $isNoticedFundInfo)
                                 .padding(.horizontal, 30)
+                            
+                            Text("\(WatchManager.shared.session.isReachable)")
 
                             TabView {
                                 ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: hane.sixWeekAccumulationTime))
@@ -174,12 +176,22 @@ struct HomeView: View {
                         }
                         .padding(.bottom, 30)
                         .padding(.top, 10)
-                    } .coordinateSpace(name: "pullToRefresh")
+                    } 
+                    .coordinateSpace(name: "pullToRefresh")
                 }
             }
         }
         .navigationTitle("알림")
-
+        .onAppear {
+            Task {
+                guard let token = UserDefaults.standard.string(forKey: "Token") else {
+                    return
+                }
+                WatchManager.shared.session.sendMessage(["userToken":token], replyHandler: nil) { (error) in
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 
