@@ -17,8 +17,9 @@ struct Notification {
 class LocalNotificationManager {
     static let shared = LocalNotificationManager()
     var notifications = [Notification]()
+    var hane = Hane()
 
-    private init() { }
+    private init() { } 
 
     func requestPermission() {
         UNUserNotificationCenter
@@ -57,17 +58,24 @@ class LocalNotificationManager {
             let content = UNMutableNotificationContent()
             content.title = notification.title
             content.sound = UNNotificationSound.default
-            content.subtitle = "알림테스트입니두"
+            content.title = "알림테스트입니두"
             content.body = "알림 테스트 바디는 어딜까"
 
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
 //            let trigger = UNCalendarNotificationTrigger(tim: dateComponents, repeats: true)
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
-
-            UNUserNotificationCenter.current().add(request) { error in
-                guard error == nil else { return }
-                print("scheduling notification with id: \(notification.id) failed")
+            
+            Task {
+                try await hane.callMainInfo()
+                let offsetComps = Calendar.current.dateComponents([.year,.month,.day], from: hane.lastTag ?? Date(), to: Date())
+                if offsetComps.day ?? 0 <= 7 {
+                    UNUserNotificationCenter.current().add(request) { error in
+                        guard error == nil else { return }
+                        print("scheduling notification with id: \(notification.id) failed")
+                    }
+                }
             }
+            
         }
     }
 }

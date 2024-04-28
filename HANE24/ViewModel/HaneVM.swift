@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(WebKit)
 import WebKit
+#endif
 import WidgetKit
 
 enum MyError: Error {
@@ -131,6 +133,7 @@ class Hane: ObservableObject {
         }
     }
 
+#if os(iOS)
     func signOut() {
         WKWebsiteDataStore
             .default()
@@ -142,6 +145,7 @@ class Hane: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "Token")
         self.isSignIn = false
     }
+#endif
 }
 
 // update Published

@@ -44,6 +44,17 @@
 		0EF614982BDE2CA500FC0F8B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF614972BDE2CA500FC0F8B /* LocalNotificationManager.swift */; };
 		0EF6149A2BDE315D00FC0F8B /* NotificationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF614992BDE315D00FC0F8B /* NotificationTestView.swift */; };
 		0EF6149C2BDE375C00FC0F8B /* HaneAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6149B2BDE375C00FC0F8B /* HaneAppDelegate.swift */; };
+		0EF614A02BDE4FB800FC0F8B /* WatchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6149F2BDE4FB800FC0F8B /* WatchAppDelegate.swift */; };
+		0EF614A22BDE4FD300FC0F8B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF614972BDE2CA500FC0F8B /* LocalNotificationManager.swift */; };
+		0EF614A32BDE4FE300FC0F8B /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FA299F53C700AF2E53 /* HaneVM.swift */; };
+		0EF614A42BDE500000FC0F8B /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
+		0EF614A52BDE500000FC0F8B /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F5299E074800AF2E53 /* Structs.swift */; };
+		0EF614A62BDE500A00FC0F8B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */; };
+		0EF614A72BDE501B00FC0F8B /* WatchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DAA5862BCFA95D000A5A2C /* WatchConnect.swift */; };
+		0EF614A82BDE501B00FC0F8B /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
+		0EF614A92BDE501B00FC0F8B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E165509299A3D8A001E5EED /* ColorExtension.swift */; };
+		0EF614AA2BDE501B00FC0F8B /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3F72B354DD00026E69D /* UserDefaultsExtension.swift */; };
+		0EF614AB2BDE501B00FC0F8B /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
 		0EFAF5B829A492A500125948 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5B729A492A500125948 /* SignInView.swift */; };
 		0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5BD29A4D97800125948 /* LoadingView.swift */; };
 		0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
@@ -172,6 +183,7 @@
 		0EF614972BDE2CA500FC0F8B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		0EF614992BDE315D00FC0F8B /* NotificationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTestView.swift; sourceTree = "<group>"; };
 		0EF6149B2BDE375C00FC0F8B /* HaneAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaneAppDelegate.swift; sourceTree = "<group>"; };
+		0EF6149F2BDE4FB800FC0F8B /* WatchAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppDelegate.swift; sourceTree = "<group>"; };
 		0EFAF5B729A492A500125948 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0EFAF5BD29A4D97800125948 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0EFDFD46299F5AF500A911F7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
@@ -474,6 +486,7 @@
 				D6881CBF2BCE6EEE0088B713 /* ViewModel */,
 				D6881CBE2BCE6EEA0088B713 /* View */,
 				D6C6C6672BCE6E210028A486 /* HANE24WatchApp.swift */,
+				0EF6149F2BDE4FB800FC0F8B /* WatchAppDelegate.swift */,
 				D6C6C66B2BCE6E220028A486 /* Assets.xcassets */,
 				D6C6C66D2BCE6E220028A486 /* Preview Content */,
 			);
@@ -812,16 +825,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF614AB2BDE501B00FC0F8B /* DarkMode.swift in Sources */,
 				D6C6C66A2BCE6E210028A486 /* ContentView.swift in Sources */,
 				D6DAA58A2BCFAAEB000A5A2C /* WatchToiOSConnect.swift in Sources */,
+				0EF614A32BDE4FE300FC0F8B /* HaneVM.swift in Sources */,
+				0EF614A72BDE501B00FC0F8B /* WatchConnect.swift in Sources */,
 				D6881CC72BCE87270088B713 /* AccumulationViewModel.swift in Sources */,
+				0EF614A82BDE501B00FC0F8B /* DateExtensions.swift in Sources */,
+				0EF614A62BDE500A00FC0F8B /* NetworkManager.swift in Sources */,
 				D6881CC92BCE876C0088B713 /* AccumulationModel.swift in Sources */,
 				D6881CC52BCE78840088B713 /* SettingView.swift in Sources */,
 				D6C6C6682BCE6E210028A486 /* HANE24WatchApp.swift in Sources */,
+				0EF614AA2BDE501B00FC0F8B /* UserDefaultsExtension.swift in Sources */,
+				0EF614A22BDE4FD300FC0F8B /* LocalNotificationManager.swift in Sources */,
 				D6497C0E2BCFD44400E17F85 /* CircleProgressBar.swift in Sources */,
 				D6881CCB2BCE8A110088B713 /* NetworkModel.swift in Sources */,
 				D6881CC22BCE6F5E0088B713 /* AccumulationView.swift in Sources */,
+				0EF614A42BDE500000FC0F8B /* JSONs.swift in Sources */,
+				0EF614A52BDE500000FC0F8B /* Structs.swift in Sources */,
+				0EF614A02BDE4FB800FC0F8B /* WatchAppDelegate.swift in Sources */,
 				D6497C0C2BCFC38C00E17F85 /* TargetTimeView.swift in Sources */,
+				0EF614A92BDE501B00FC0F8B /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
