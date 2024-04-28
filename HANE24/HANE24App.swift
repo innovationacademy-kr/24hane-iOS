@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct HANE24App: App {
-
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDeleegate
     var hane = Hane()
 	var calendar = CalendarVM()
 

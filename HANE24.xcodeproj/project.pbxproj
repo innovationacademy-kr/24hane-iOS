@@ -41,6 +41,9 @@
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
 		0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */; };
 		0EEB0E2629AE303100FEB700 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB0E2529AE303100FEB700 /* AlertView.swift */; };
+		0EF614982BDE2CA500FC0F8B /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF614972BDE2CA500FC0F8B /* LocalNotificationManager.swift */; };
+		0EF6149A2BDE315D00FC0F8B /* NotificationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF614992BDE315D00FC0F8B /* NotificationTestView.swift */; };
+		0EF6149C2BDE375C00FC0F8B /* HaneAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6149B2BDE375C00FC0F8B /* HaneAppDelegate.swift */; };
 		0EFAF5B829A492A500125948 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5B729A492A500125948 /* SignInView.swift */; };
 		0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5BD29A4D97800125948 /* LoadingView.swift */; };
 		0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
@@ -166,13 +169,16 @@
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProgressView.swift; sourceTree = "<group>"; };
 		0EEB0E2529AE303100FEB700 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		0EF614972BDE2CA500FC0F8B /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		0EF614992BDE315D00FC0F8B /* NotificationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTestView.swift; sourceTree = "<group>"; };
+		0EF6149B2BDE375C00FC0F8B /* HaneAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaneAppDelegate.swift; sourceTree = "<group>"; };
 		0EFAF5B729A492A500125948 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0EFAF5BD29A4D97800125948 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0EFDFD46299F5AF500A911F7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		2B1326102B2821E600301A8B /* ThisMonthAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthAccTimeCardView.swift; sourceTree = "<group>"; };
 		2B1326122B285B1D00301A8B /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
-		38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.debug.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.debug.xcconfig"; sourceTree = "<group>"; };
 		5F9D5EBD040CA1B419BF545D /* Pods_24HANE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_24HANE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		767D66044CFED200C8C36E69 /* Pods-24HANE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.debug.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.debug.xcconfig"; sourceTree = "<group>"; };
 		9A1A4BED299ADE650076D650 /* TodayAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAccTimeCardView.swift; sourceTree = "<group>"; };
 		9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
@@ -182,7 +188,7 @@
 		9AF730F7299E2F5000AF2E53 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		9AF730FA299F53C700AF2E53 /* HaneVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaneVM.swift; sourceTree = "<group>"; };
 		9AF730FC299F602D00AF2E53 /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
-		A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.release.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.release.xcconfig"; sourceTree = "<group>"; };
+		B8603BE400B46154BAEA6367 /* Pods-24HANE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.release.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.release.xcconfig"; sourceTree = "<group>"; };
 		D6185AE02BB3C71800E6944A /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
@@ -284,6 +290,7 @@
 			children = (
 				0E3B32A729A37D3C001D10BF /* Info.plist */,
 				0E1654F2299A285B001E5EED /* HANE24App.swift */,
+				0EF6149B2BDE375C00FC0F8B /* HaneAppDelegate.swift */,
 				0E1654F4299A285B001E5EED /* ContentView.swift */,
 				9AF730EB299CC53700AF2E53 /* Utils */,
 				9AF730F4299E071D00AF2E53 /* Model */,
@@ -360,6 +367,7 @@
 			children = (
 				0E16550D299A5887001E5EED /* MainView.swift */,
 				0EFAF5BD29A4D97800125948 /* LoadingView.swift */,
+				0EF614992BDE315D00FC0F8B /* NotificationTestView.swift */,
 				0E3B32A829A3815B001D10BF /* SignInWebView.swift */,
 				0EFAF5B729A492A500125948 /* SignInView.swift */,
 				0EE5818F299CC01D00EE3351 /* Home */,
@@ -395,6 +403,7 @@
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
 				D6185AE02BB3C71800E6944A /* CalendarVM.swift */,
+				0EF614972BDE2CA500FC0F8B /* LocalNotificationManager.swift */,
 				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
 			);
@@ -414,8 +423,8 @@
 		CC7009C835DF6CA6ECA500B0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */,
-				38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */,
+				767D66044CFED200C8C36E69 /* Pods-24HANE.debug.xcconfig */,
+				B8603BE400B46154BAEA6367 /* Pods-24HANE.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -734,6 +743,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF6149C2BDE375C00FC0F8B /* HaneAppDelegate.swift in Sources */,
 				0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */,
 				0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */,
 				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
@@ -766,8 +776,10 @@
 				0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */,
 				0E16550A299A3D8A001E5EED /* ColorExtension.swift in Sources */,
 				0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */,
+				0EF6149A2BDE315D00FC0F8B /* NotificationTestView.swift in Sources */,
 				9AF730FB299F53C700AF2E53 /* HaneVM.swift in Sources */,
 				0E165508299A3C20001E5EED /* ChartView.swift in Sources */,
+				0EF614982BDE2CA500FC0F8B /* LocalNotificationManager.swift in Sources */,
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 				0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */,
 				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
@@ -965,7 +977,7 @@
 		};
 		0E165503299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */;
+			baseConfigurationReference = 767D66044CFED200C8C36E69 /* Pods-24HANE.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1005,7 +1017,7 @@
 		};
 		0E165504299A285E001E5EED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */;
+			baseConfigurationReference = B8603BE400B46154BAEA6367 /* Pods-24HANE.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1173,7 +1185,6 @@
 		};
 		D6C6C68A2BCE6E230028A486 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1210,7 +1221,6 @@
 		};
 		D6C6C68B2BCE6E230028A486 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
