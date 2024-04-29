@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct HANE24Watch: App {
+    @WKApplicationDelegateAdaptor var appDelegate: WatchAppDelegate
     var body: some Scene {
         WindowGroup {
             ContentView()

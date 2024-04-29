@@ -24,7 +24,7 @@ class LocalNotificationManager {
     func requestPermission() {
         UNUserNotificationCenter
             .current()
-            .requestAuthorization(options: [.alert, .badge]) { granted, error in
+            .requestAuthorization(options: [.alert,.sound,.badge]) { granted, error in
                 if granted && error == nil {
                     // got permission for Local notification
                 }
@@ -37,6 +37,7 @@ class LocalNotificationManager {
 
     func schedule() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("hey")
             switch settings.authorizationStatus {
             case .notDetermined:
                 self.requestPermission()
@@ -49,6 +50,7 @@ class LocalNotificationManager {
     }
 
     func scheduleNotification() {
+        print("notifications")
         for notification in notifications {
             var dateComponents = DateComponents()
             dateComponents.calendar = Calendar.current
@@ -61,21 +63,21 @@ class LocalNotificationManager {
             content.title = "알림테스트입니두"
             content.body = "알림 테스트 바디는 어딜까"
 
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: true)
 //            let trigger = UNCalendarNotificationTrigger(tim: dateComponents, repeats: true)
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
             
-            Task {
-                try await hane.callMainInfo()
-                let offsetComps = Calendar.current.dateComponents([.year,.month,.day], from: hane.lastTag ?? Date(), to: Date())
-                if offsetComps.day ?? 0 <= 7 {
+//            Task {
+//                try await hane.callMainInfo()
+//                let offsetComps = Calendar.current.dateComponents([.year,.month,.day], from: hane.lastTag ?? Date(), to: Date())
+//                if offsetComps.day ?? 0 <= 7 {
                     UNUserNotificationCenter.current().add(request) { error in
                         guard error == nil else { return }
                         print("scheduling notification with id: \(notification.id) failed")
                     }
                 }
-            }
-            
-        }
+//            }
+//            
+//        }
     }
 }

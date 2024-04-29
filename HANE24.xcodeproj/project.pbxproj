@@ -49,11 +49,9 @@
 		0EF614A32BDE4FE300FC0F8B /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FA299F53C700AF2E53 /* HaneVM.swift */; };
 		0EF614A42BDE500000FC0F8B /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
 		0EF614A52BDE500000FC0F8B /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730F5299E074800AF2E53 /* Structs.swift */; };
-		0EF614A62BDE500A00FC0F8B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */; };
 		0EF614A72BDE501B00FC0F8B /* WatchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DAA5862BCFA95D000A5A2C /* WatchConnect.swift */; };
 		0EF614A82BDE501B00FC0F8B /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
 		0EF614A92BDE501B00FC0F8B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E165509299A3D8A001E5EED /* ColorExtension.swift */; };
-		0EF614AA2BDE501B00FC0F8B /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3F72B354DD00026E69D /* UserDefaultsExtension.swift */; };
 		0EF614AB2BDE501B00FC0F8B /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
 		0EFAF5B829A492A500125948 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5B729A492A500125948 /* SignInView.swift */; };
 		0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5BD29A4D97800125948 /* LoadingView.swift */; };
@@ -832,11 +830,9 @@
 				0EF614A72BDE501B00FC0F8B /* WatchConnect.swift in Sources */,
 				D6881CC72BCE87270088B713 /* AccumulationViewModel.swift in Sources */,
 				0EF614A82BDE501B00FC0F8B /* DateExtensions.swift in Sources */,
-				0EF614A62BDE500A00FC0F8B /* NetworkManager.swift in Sources */,
 				D6881CC92BCE876C0088B713 /* AccumulationModel.swift in Sources */,
 				D6881CC52BCE78840088B713 /* SettingView.swift in Sources */,
 				D6C6C6682BCE6E210028A486 /* HANE24WatchApp.swift in Sources */,
-				0EF614AA2BDE501B00FC0F8B /* UserDefaultsExtension.swift in Sources */,
 				0EF614A22BDE4FD300FC0F8B /* LocalNotificationManager.swift in Sources */,
 				D6497C0E2BCFD44400E17F85 /* CircleProgressBar.swift in Sources */,
 				D6881CCB2BCE8A110088B713 /* NetworkModel.swift in Sources */,
@@ -1239,7 +1235,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -1274,7 +1270,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};

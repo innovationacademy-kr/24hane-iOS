@@ -273,9 +273,9 @@ extension Hane {
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
             return false
         }
-        WatchManager.shared.session.sendMessage(["userToken":token], replyHandler: nil) { (error) in
-            print(error.localizedDescription)
-        }
+//        WatchManager.shared.session.sendMessage(["userToken":token], replyHandler: nil) { (error) in
+//            print(error.localizedDescription)
+//        }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = [

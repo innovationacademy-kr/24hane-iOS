@@ -68,9 +68,9 @@ struct SignInWebView: UIViewRepresentable {
                         UserDefaults.standard.setValue(String(cookie.value), forKey: "Token")
                         UserDefaults.shared.setValue(String(cookie.value), forKey: HaneWidgetConstant.storageKey)
                         WidgetCenter.shared.reloadAllTimelines()
-                        WatchManager.shared.session.sendMessage(["userToken":cookie.value], replyHandler: nil) { (error) in
-                            print(error.localizedDescription)
-                        }
+//                        WatchManager.shared.session.sendMessage(["userToken":cookie.value], replyHandler: nil) { (error) in
+//                            print(error.localizedDescription)
+//                        }
                         self.hane.isSignIn = true
                         break
                     }
