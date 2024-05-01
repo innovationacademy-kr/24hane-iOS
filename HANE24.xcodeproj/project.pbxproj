@@ -57,6 +57,7 @@
 		9AF730FB299F53C700AF2E53 /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FA299F53C700AF2E53 /* HaneVM.swift */; };
 		9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
 		D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
+		D63051132BE20C9500FDDC5C /* DisplaySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63051122BE20C9500FDDC5C /* DisplaySetting.swift */; };
 		D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646BD0B2B95DCD500ED631E /* HANE24Test.swift */; };
 		D6497C0C2BCFC38C00E17F85 /* TargetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6497C0B2BCFC38C00E17F85 /* TargetTimeView.swift */; };
 		D6497C0E2BCFD44400E17F85 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6497C0D2BCFD44400E17F85 /* CircleProgressBar.swift */; };
@@ -184,6 +185,7 @@
 		9AF730FC299F602D00AF2E53 /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
 		A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.release.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.release.xcconfig"; sourceTree = "<group>"; };
 		D6185AE02BB3C71800E6944A /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
+		D63051122BE20C9500FDDC5C /* DisplaySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySetting.swift; sourceTree = "<group>"; };
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
 		D6497C0B2BCFC38C00E17F85 /* TargetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTimeView.swift; sourceTree = "<group>"; };
@@ -420,6 +422,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D63051112BE20C8B00FDDC5C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D63051122BE20C9500FDDC5C /* DisplaySetting.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		D646BD0A2B95DCD500ED631E /* HANE24TEST */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +441,7 @@
 		D6881CBE2BCE6EEA0088B713 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D63051112BE20C8B00FDDC5C /* Settings */,
 				D6C6C6692BCE6E210028A486 /* ContentView.swift */,
 				D6881CC12BCE6F5E0088B713 /* AccumulationView.swift */,
 				D6881CC42BCE78840088B713 /* SettingView.swift */,
@@ -802,6 +813,7 @@
 			files = (
 				D6C6C66A2BCE6E210028A486 /* ContentView.swift in Sources */,
 				D6DAA58A2BCFAAEB000A5A2C /* WatchToiOSConnect.swift in Sources */,
+				D63051132BE20C9500FDDC5C /* DisplaySetting.swift in Sources */,
 				D6881CC72BCE87270088B713 /* AccumulationViewModel.swift in Sources */,
 				D6881CC92BCE876C0088B713 /* AccumulationModel.swift in Sources */,
 				D6881CC52BCE78840088B713 /* SettingView.swift in Sources */,
