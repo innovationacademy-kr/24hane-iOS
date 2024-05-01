@@ -50,17 +50,31 @@ struct DisplaySettingView: View {
     @State private var selectedIndex = 0
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text("옵션을 선택하세요")
-                .font(.title3)
-                .padding(16)
-            
-            Text("\(selectedIndex)")
-            
-            ForEach(displayOptions.sorted(by: <), id: \.key) { item in
-                RadioButton(label: item.value, key: item.key, selectedIndex: $selectedIndex)
+        NavigationStack {
+            List(displayOptions.sorted(by: <), id: \.key) { item in
+                Button(action: {
+                    selectedIndex = item.key
+                }, label: {
+                    HStack {
+                        Text(item.value)
+                        
+                        Spacer()
+                        
+                        ZStack {
+                            Circle()
+                                .stroke(style: StrokeStyle())
+                                .frame(width: 20, height: 20)
+                            
+                            if selectedIndex == item.key {
+                                Circle()
+                                    .fill(Color.dateBackgroundLevel4)
+                                    .frame(width: 12, height: 12)
+                            }
+                        }
+                    }
+                })
             }
-            Spacer()
+            .navigationTitle("화면 설정")
         }
     }
 }
