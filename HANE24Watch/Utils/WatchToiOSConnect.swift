@@ -26,12 +26,8 @@ class WatchToiOSConnect: NSObject, WCSessionDelegate, ObservableObject {
             "requestType": "getData"
         ]
 
-        do {
-            self.session.sendMessage(context, replyHandler: nil) {error in
-                print(error.localizedDescription)
-            }
-        } catch {
-            print("error \(error.localizedDescription)")
+        self.session.sendMessage(context, replyHandler: nil) {error in
+            print(error.localizedDescription)
         }
     }
     

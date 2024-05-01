@@ -25,6 +25,7 @@ struct TokenTest: View {
 }
 
 struct DisplaySettingView: View {
+    // 초기 화면을 설정하는 기능: swiftData로 저장하고 불러오기
     var body: some View {
         Text("")
     }
