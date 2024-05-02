@@ -24,12 +24,6 @@ struct TokenTest: View {
     }
 }
 
-struct AboutAppView: View {
-    var body: some View {
-        Text("")
-    }
-}
-
 struct SettingView: View {
     let settingItems: [(String, String, () -> AnyView)] = [
         ("토큰 확인", "person.slash", { AnyView(TokenTest()) }),

@@ -74,6 +74,7 @@
 		D6C6C6882BCE6E230028A486 /* HANE24Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D6C6C6652BCE6E210028A486 /* HANE24Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D6DAA5872BCFA95D000A5A2C /* WatchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DAA5862BCFA95D000A5A2C /* WatchConnect.swift */; };
 		D6DAA58A2BCFAAEB000A5A2C /* WatchToiOSConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DAA5892BCFAAEB000A5A2C /* WatchToiOSConnect.swift */; };
+		D6E622432BE256900004AC81 /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E622422BE256900004AC81 /* AboutAppView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +208,7 @@
 		D6C6C6782BCE6E230028A486 /* HANE24WatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WatchTests.swift; sourceTree = "<group>"; };
 		D6DAA5862BCFA95D000A5A2C /* WatchConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnect.swift; sourceTree = "<group>"; };
 		D6DAA5892BCFAAEB000A5A2C /* WatchToiOSConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToiOSConnect.swift; sourceTree = "<group>"; };
+		D6E622422BE256900004AC81 /* AboutAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				D63051122BE20C9500FDDC5C /* DisplaySetting.swift */,
+				D6E622422BE256900004AC81 /* AboutAppView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -815,6 +818,7 @@
 				D6DAA58A2BCFAAEB000A5A2C /* WatchToiOSConnect.swift in Sources */,
 				D63051132BE20C9500FDDC5C /* DisplaySetting.swift in Sources */,
 				D6881CC72BCE87270088B713 /* AccumulationViewModel.swift in Sources */,
+				D6E622432BE256900004AC81 /* AboutAppView.swift in Sources */,
 				D6881CC92BCE876C0088B713 /* AccumulationModel.swift in Sources */,
 				D6881CC52BCE78840088B713 /* SettingView.swift in Sources */,
 				D6C6C6682BCE6E210028A486 /* HANE24WatchApp.swift in Sources */,
