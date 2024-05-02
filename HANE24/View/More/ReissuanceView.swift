@@ -12,7 +12,6 @@ struct ReissuanceView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) private var openURL
-    @EnvironmentObject var hane: Hane
 	@EnvironmentObject var reissue: ReissueVM
 
     @State var showAlert = false
@@ -61,7 +60,6 @@ struct ReissuanceView: View {
 struct ReissuanceView_Previews: PreviewProvider {
     static var previews: some View {
         ReissuanceView()
-            .environmentObject(Hane())
 			.environmentObject(ReissueVM())
     }
 }
