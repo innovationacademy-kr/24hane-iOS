@@ -33,7 +33,7 @@ final class ReissueTest: XCTestCase {
 			let actualStateRawValue = successSut.cardReissueState.rawValue
 			XCTAssertEqual(expectedStateRawValue, actualStateRawValue)
 		} catch {
-			XCTFail()
+            XCTFail("testGetCardStateSuccessful Fail: \(error.localizedDescription)")
 		}
 	}
 
@@ -43,13 +43,10 @@ final class ReissueTest: XCTestCase {
 			try await successSut.requestReissue()
 			XCTAssertFalse(successSut.loading)
 		} catch {
-			XCTFail()
+            XCTFail("testSuccessRequest Fail: \(error.localizedDescription)")
 		}
 	}
 
 	// 카드 재발급 요청 실패
-	func testFailRequest() async {
-		
-	}
 
 }
