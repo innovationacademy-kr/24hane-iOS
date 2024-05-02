@@ -11,7 +11,6 @@ struct CalendarGridView: View {
     @Binding var picker: Bool
 
 	@EnvironmentObject var calendarVM: CalendarVM
-//    @EnvironmentObject var hane: Hane
 
     let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
     let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 20), count: 7)
@@ -114,5 +113,4 @@ struct CalendarGridView: View {
 #Preview {
     CalendarGridView(picker: .constant(false))
 		.environmentObject(CalendarVM())
-//        .environmentObject(Hane())
 }
