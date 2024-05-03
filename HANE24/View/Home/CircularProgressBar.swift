@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct CircularProgressBar: View {
-	
+
 	var drawingStroke: Binding<Bool>
 	var percentage: Int
-	
+
 	init(drawingStroke: Binding<Bool>, objectiveTime: Double, progressiveTime: Double) {
 		self.percentage = Int(progressiveTime / objectiveTime * 3600) * 100
 		self.drawingStroke = drawingStroke
 	}
-	
+
     var body: some View {
 		ZStack {
 			HStack(spacing: 0) {

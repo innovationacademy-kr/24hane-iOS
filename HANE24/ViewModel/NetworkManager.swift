@@ -18,9 +18,9 @@ protocol NetworkProtocol {
 }
 
 class NetworkManager: NetworkProtocol {
-	
+
 	static let shared = NetworkManager()
-	
+
 	var session: URLSession
 	var apiRoot: String
 
@@ -39,7 +39,7 @@ class NetworkManager: NetworkProtocol {
 			/// FIXME: token invalid 경우에 signIn 상태 변경
 			throw MyError.tokenExpired("get new token!")
 		}
-		
+
 		var request = URLRequest(url: url)
 		request.httpMethod = "GET"
 		request.allHTTPHeaderFields = [
@@ -88,7 +88,7 @@ class NetworkManager: NetworkProtocol {
 			throw MyError.tokenExpired("request Failed")
 		}
 	}
-	
+
 	func deleteRequest(_ urlPath: String) async throws {
 		guard let url = URL(string: apiRoot	+ urlPath) else {
 			return

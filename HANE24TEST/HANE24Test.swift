@@ -164,5 +164,5 @@ final class HaneCalendarTest: XCTestCase {
 	}
 
 	// MARK: - Missing Data Test
-	
+
 }

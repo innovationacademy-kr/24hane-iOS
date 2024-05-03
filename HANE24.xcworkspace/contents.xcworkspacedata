@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/katherinejang/P/ios/24hane-iOS/HANE24TEST/HaneHomeTest.swift">
-   </FileRef>
-   <FileRef
       location = "group:HANE24.xcodeproj">
    </FileRef>
    <FileRef

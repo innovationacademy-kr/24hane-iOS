@@ -90,7 +90,7 @@ struct ThisMonthAccTimeCardView: View {
                             if hane.loading {
                                 LoadingAnimation()
                             } else {
-								//TODO: hane -> homeVM
+								// TODO: hane -> homeVM
                                 HStack(alignment: .bottom, spacing: 0) {
                                     Text("\(hane.thisMonthAcceptedAccumulationTime / 3600)")
                                         .font(.system(size: 20, weight: .bold))

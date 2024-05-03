@@ -10,7 +10,7 @@ import SwiftUI
 struct HeaderView: View {
 	@Environment(\.colorScheme) var colorScheme
     @ObservedObject var homeManager: HomeVM
-	
+
     var body: some View {
 		VStack(alignment: .center, spacing: 20) {
 			HStack(alignment: .center) {
@@ -36,11 +36,11 @@ struct HeaderView: View {
 						.padding(.trailing, 3)
 						.foregroundColor(.iconColor)
 				}
-				
+			
                 Text(homeManager.mainInfo.login)
 					.font(.system(size: 20, weight: .semibold, design: .rounded))
 					.foregroundColor(!homeManager.isInCluster && colorScheme == .light ? .black : .white)
-				
+			
 				if homeManager.isInCluster {
 					Circle()
 						.foregroundColor(.green)

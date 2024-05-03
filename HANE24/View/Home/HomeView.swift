@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct HomeView: View {
-    init(fundInfo: Binding<Bool>, tagLatencyInfo: Binding<Bool>) {
-        //        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
-        //        UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-        
-        self._isNoticedFundInfo = fundInfo
-        self._isNoticedTagLatencyInfo = tagLatencyInfo
-    }
+//    init(homeManageR: HomeVM, fundInfo: Binding<Bool>, tagLatencyInfo: Binding<Bool>) {
+//        //        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
+//        //        UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+//        
+//        self._isNoticedFundInfo = fundInfo
+//        self._isNoticedTagLatencyInfo = tagLatencyInfo
+//        self._
+//    }
+
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var hane: Hane
-    
-    @StateObject var homeManager = HomeVM()
-    
+
+    @ObservedObject var homeManager: HomeVM
+
     @Binding var isNoticedFundInfo: Bool
     @Binding var isNoticedTagLatencyInfo: Bool
-    
+
     var body: some View {
         ZStack {
             if homeManager.isInCluster {
@@ -43,14 +45,14 @@ struct HomeView: View {
                             try await homeManager.refresh()
                         }
                     }
-                    
+
                     VStack(spacing: 22.5) {
                         TodayAccTimeCardView(homeManager: homeManager, isNoticed: $isNoticedTagLatencyInfo)
                             .padding(.horizontal, 30)
-                        
+
                         ThisMonthAccTimeCardView(homeManager: homeManager, isNoticed: $isNoticedFundInfo)
                             .padding(.horizontal, 30)
-                        
+
                         TabView {
                             ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: homeManager.accumulationTimes.sixWeekAccumulationTime))
                                 .padding(.horizontal, 10)
@@ -60,7 +62,6 @@ struct HomeView: View {
                         .padding(.horizontal, 20)
                         .tabViewStyle(.page)
                         .frame(height: 289)
-                        
                         PopulationView(population: homeManager.mainInfo.gaepo)
                             .padding(.horizontal, 30)
                     }
@@ -102,8 +103,8 @@ private func getMonthlyPeriod() -> [String] {
 }
 
 
-
-#Preview {
-    HomeView(fundInfo: .constant(false), tagLatencyInfo: .constant(false))
-        .environmentObject(Hane())
-}
+//
+//#Preview {
+//    HomeView(fundInfo: .constant(false), tagLatencyInfo: .constant(false))
+//        .environmentObject(Hane())
+//}

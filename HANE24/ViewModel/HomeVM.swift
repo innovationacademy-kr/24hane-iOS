@@ -12,48 +12,47 @@ class HomeVM: ObservableObject {
 //	@Published var profileImage: String
 //	@Published var userID: String
 //	@Published var clusterPopulation: Int
-	
+
 	@Published var fundInfoNotice: InfoMessage
 	@Published var tagLatencyNotice: InfoMessage
-	
+
 	/// 누적시간데이터
 	@Published var dailyAccumulationTime: Int64 = 0
 //	@Published var monthlyAccumulationTime: Int64 = 0
 //	@Published var sixWeekAccumulationTime: [Double] = Array(repeating: 0, count: 6)
 //	@Published var sixMonthAccumulationTime: [Double] = Array(repeating: 0, count: 6)
-	
+
 	@Published var accumulationTimes: AccumulationTimes
-	
+
 	@Published var isLoading: Bool
-	
+
 	@Published var mainInfo: MainInfo
-	
+
 //	var accumulationTimes: AccumulationTimes
-	
+
 	var timer: Timer?
 	var lastTag: Date?
 
-	
 	init() {
 		self.isInCluster = false
 //		self.profileImage = ""
 //		self.userID = ""
 //		self.clusterPopulation = 0
-		
-		self.fundInfoNotice = InfoMessage()
+
+        self.fundInfoNotice = InfoMessage()
 		self.tagLatencyNotice = InfoMessage( )
-		
+
 		self.isLoading = false
-		
+
 		self.mainInfo = MainInfo()
-		
+
 		self.accumulationTimes = AccumulationTimes()
-		
+
 		self.lastTag = Date()
-		
+
 //		self.accumulationTime = AccumulationTimes()
 //        self.userInfo = MainInfo()
-		
+
 		self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
 			guard let self = self else { return }
 			guard self.isInCluster else { return }
@@ -72,9 +71,10 @@ class HomeVM: ObservableObject {
         self.accumulationTimes = accTimes
         self.dailyAccumulationTime = accTimes.todayAccumulationTime
 	}
-	
-//TODO: 요청한 데이터가 nil일 경우 에러 핸들링
-	func updateMainInfo() async throws {
+
+    //TODO: 요청한 데이터가 nil일 경우 에러 핸들링
+	@MainActor
+    func updateMainInfo() async throws {
 		guard let mainInfo = try await NetworkManager.shared.getRequest("/v3/tag-log/maininfo", type: MainInfo.self) else {
 			throw MyError.tokenExpired("")
 		}
@@ -84,6 +84,7 @@ class HomeVM: ObservableObject {
         self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
 	}
 
+    @MainActor
     func refresh() async throws {
         try await self.updateMainInfo()
         try await self.updateAccumulationTimes()

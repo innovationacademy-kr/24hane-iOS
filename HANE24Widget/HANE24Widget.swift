@@ -95,7 +95,7 @@ struct HANE24WidgetEntryView: View {
                     .foregroundStyle(colorScheme == .dark ? Color(hex: "#EAEAEA") : Color(hex: "#707070"))
                     .allowsTightening(true)
             }
-            
+
             HStack {
                 Rectangle()
                     .frame(width: 2, height: 32)
@@ -109,7 +109,7 @@ struct HANE24WidgetEntryView: View {
                 }
             }
             .padding(.top, 18)
-            
+
             HStack {
                 Rectangle()
                     .frame(width: 2, height: 32)
