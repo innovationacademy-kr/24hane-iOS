@@ -7,10 +7,19 @@
 
 import Foundation
 
+enum RequestMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+}
+
 protocol NetworkProtocol {
 	var session: URLSession { get }
 	var apiRoot: String { get }
 
+    func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type?) async throws -> T? where T: Decodable
+    
 	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T: Decodable
 	func postRequest(_ urlPath: String) async throws
 	func patchRequest(_ urlPath: String) async throws
@@ -29,6 +38,32 @@ class NetworkManager: NetworkProtocol {
 		self.apiRoot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
 	}
 
+    func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type?) async throws -> T? where T : Decodable {
+        guard let url = URL(string: apiRoot + urlPath) else {
+            return nil
+        }
+        
+        guard let token = UserDefaults.standard.string(forKey: "Token") else {
+            throw MyError.tokenExpired("get new token")
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.allHTTPHeaderFields = [
+            "Authorization": "Bearer \(String(describing: token) )"]
+        let (data, response) = try await session.data(for: request)
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            /// FIXME: Status Code에 따른 Error Handling
+            throw MyError.tokenExpired("request Failed")
+        }
+        if method == .get, type != nil {
+            let decodedData = try JSONDecoder().decode(type!.self, from: data)
+            return decodedData
+        }
+        return nil
+    }
+    
+    
+    
 	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
 		guard let url = URL(string: apiRoot + urlPath) else {
 			/// FIXME: invalid URL의 경우 error handling
