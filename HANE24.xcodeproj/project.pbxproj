@@ -41,6 +41,7 @@
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
 		0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */; };
 		0EEB0E2629AE303100FEB700 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB0E2529AE303100FEB700 /* AlertView.swift */; };
+		0EFA8E692BE8D63100892D5B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFA8E682BE8D63100892D5B /* Errors.swift */; };
 		0EFAF5B829A492A500125948 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5B729A492A500125948 /* SignInView.swift */; };
 		0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFAF5BD29A4D97800125948 /* LoadingView.swift */; };
 		0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
@@ -126,6 +127,7 @@
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProgressView.swift; sourceTree = "<group>"; };
 		0EEB0E2529AE303100FEB700 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		0EFA8E682BE8D63100892D5B /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		0EFAF5B729A492A500125948 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0EFAF5BD29A4D97800125948 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0EFDFD46299F5AF500A911F7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF730F5299E074800AF2E53 /* Structs.swift */,
+				0EFA8E682BE8D63100892D5B /* Errors.swift */,
 				9AF730FC299F602D00AF2E53 /* JSONs.swift */,
 			);
 			path = Model;
@@ -557,6 +560,7 @@
 				9AF730F6299E074800AF2E53 /* Structs.swift in Sources */,
 				0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */,
 				0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */,
+				0EFA8E692BE8D63100892D5B /* Errors.swift in Sources */,
 				0E16550A299A3D8A001E5EED /* ColorExtension.swift in Sources */,
 				0E16550C299A3DF6001E5EED /* ChartDetailView.swift in Sources */,
 				9AF730FB299F53C700AF2E53 /* HaneVM.swift in Sources */,
