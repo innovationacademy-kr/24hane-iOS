@@ -7,13 +7,6 @@
 
 import Foundation
 
-// API 처리에 대한 실패
-enum ReissueError: Error {
-	case tokenExpired(String)
-	case notFoundCardNumber(String)
-	case failToUpdateSheet(String)
-}
-
 // 카드의 재발급 상태를 알려주는 구조체
 enum CardState: String {
 	case none

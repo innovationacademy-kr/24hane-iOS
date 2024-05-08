@@ -15,10 +15,3 @@ struct CalendarModel {
 	var monthlyLogs: [String: [InOutLog]] = [:]
 	var dailyTotalTimesInAMonth: [Int64] = Array(repeating: 0, count: 32)
 }
-
-enum CalendarError: Error {
-	case tokenExpired(String)
-	case wrongQueryType(String)
-	case nonAuthenticated(String)
-	case unknownError(String)
-}
