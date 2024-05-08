@@ -7,63 +7,110 @@
 
 import SwiftUI
 
+struct ReissueButtonStyle: ButtonStyle {
+    var cardReissueState: CardState
+    @Binding var showAlert: Bool
+    var isReceiveButton: Bool
+
+    func makeBody(configuration: Configuration) -> some View {
+        Button(action: {
+            showAlert = true
+        }) {
+            buildLabel(for: configuration)
+        }
+    }
+
+    private func buildLabel(for configuration: ButtonStyle.Configuration) -> some View {
+        let foregroundColor = getForegroundColor(for: cardReissueState)
+
+        return ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(foregroundColor)
+                .frame(height: 45)
+            configuration.label
+                .foregroundColor(.white)
+                .font(.system(size: 16, weight: .bold))
+        }
+    }
+
+    private func getForegroundColor(for state: CardState) -> Color {
+        if isReceiveButton == true {
+            switch state {
+            case .pickUpRequested:
+                return .gradientPurple
+            default:
+                return .iconColor
+            }
+        } else {
+            switch state {
+            case .none, .done:
+                return .gradientPurple
+            default:
+                return .textGrayMoreView
+            }
+        }
+    }
+}
+
 struct ReissueButton: View {
-	var cardReissueState: CardState
-	@Binding var showAlert: Bool
+    var cardReissueState: CardState
+    @Binding var showAlert: Bool
+
     var body: some View {
-		Button {
-			showAlert = true
-		} label: {
-			ZStack {
-				RoundedRectangle(cornerRadius: 10)
-					.foregroundColor((cardReissueState == .none || cardReissueState == .done) ? .gradientPurple : .textGrayMoreView)
-					.frame(height: 45)
-				Text("카드 신청하기")
-					.font(.system(size: 16, weight: .bold))
-					.foregroundColor(.white)
-			}
-		}
-		.disabled((cardReissueState != .none && cardReissueState != .done))
+        Button(action: {}) {
+            Text("카드 신청하기")
+        }
+        .buttonStyle(
+            ReissueButtonStyle(
+                cardReissueState: cardReissueState, 
+                showAlert: $showAlert,
+                isReceiveButton: false
+            ))
+        .disabled((cardReissueState != .none && cardReissueState != .done))
     }
 }
 
 struct ReceiveButton: View {
-	var cardReissueState: CardState
-	@Binding var showAlert: Bool
-	var body: some View {
-		Button {
-			showAlert = true
-		} label: {
-			ZStack {
-				RoundedRectangle(cornerRadius: 10)
-					.foregroundColor((cardReissueState == .pickUpRequested) ? .gradientPurple : .iconColor)
-					.frame(height: 45)
-				Text("데스크 카드 수령 완료")
-					.font(.system(size: 16, weight: .bold))
-					.foregroundColor(.white)
-			}
-		}
-	}
+    var cardReissueState: CardState
+    @Binding var showAlert: Bool
+
+    var body: some View {
+        Button(action: {}) {
+            Text("데스크 카드 수령 완료")
+        }
+        .buttonStyle(
+            ReissueButtonStyle(
+                cardReissueState: cardReissueState,
+                showAlert: $showAlert,
+                isReceiveButton: true
+            )
+        )
+    }
 }
 
-
 struct Preview: PreviewProvider {
-	@State static var showAlert: Bool = false
-	static var previews: some View {
-		VStack {
-			Spacer()
-			ReissueButton(
-				cardReissueState: .inProgress, showAlert: $showAlert
-			)
-			Spacer()
-			ReissueButton(
-				cardReissueState: .none, showAlert: $showAlert
-			)
-			Spacer()
-			ReceiveButton(
-				cardReissueState: .done, showAlert: $showAlert
-			)
-			Spacer()
-		}
-	}
+    @State static var showAlert: Bool = false
+    static var previews: some View {
+        VStack {
+            Spacer()
+            VStack(spacing: 10) {
+                ReissueButton(
+                    cardReissueState: .none, showAlert: $showAlert
+                )
+                ReissueButton(
+                    cardReissueState: .inProgress, showAlert: $showAlert
+                )
+            }
+            Spacer()
+            VStack(spacing: 10) {
+                ReceiveButton(
+                    cardReissueState: .pickUpRequested, showAlert: $showAlert
+                )
+                ReceiveButton(
+                    cardReissueState: .done, showAlert: $showAlert
+                )
+            }
+            Spacer()
+        }
+    }
 }
