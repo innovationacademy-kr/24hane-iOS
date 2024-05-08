@@ -36,9 +36,9 @@ struct AlertView: View {
                     .foregroundColor(.gradientPurple)
                     .padding()
                 if item.id == "신청" {
-                    submitButton
+                    AlertSubmitButton(showAlert: $showAlert)
                 } else {
-                    receiveButton
+                    AlertReceiveButton(showAlert: $showAlert)
                 }
                 Button {
                     showAlert = false
@@ -56,50 +56,6 @@ struct AlertView: View {
             }
         }
         .background(Color.gray.opacity(0.7))
-    }
-
-    var submitButton: some View {
-        Button {
-            Task {
-                do {
-					try await reissue.requestReissue()
-					reissue.cardReissueState = .apply
-                }
-            }
-            showAlert = false
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.gradientPurple)
-                    .frame(width: 250, height: 50)
-                Text("네, 신청하겠습니다")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-            }
-        }
-    }
-
-    var receiveButton: some View {
-        Button {
-            Task {
-                do {
-					try await reissue.finishReissue()
-					reissue.cardReissueState = .done
-                } catch {
-					reissue.cardReissueState = .pickUpRequested
-                }
-            }
-            showAlert = false
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.gradientPurple)
-                    .frame(width: 250, height: 50)
-                Text("네, 확인했습니다")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-            }
-        }
     }
 }
 
