@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CalendarGridView: View {
     @Binding var picker: Bool
-
 	@EnvironmentObject var calendarVM: CalendarVM
 
     let weekdays = ["일", "월", "화", "수", "목", "금", "토"]

@@ -23,7 +23,7 @@ struct CalendarHeaderView: View {
                     picker.toggle()
                 }
             Spacer()
-            
+
             changeMonthButton(isForward: true)
                 .disabled(calendarVM.calendarModel.selectedDate.toString("yyyy.MM") >= Date().toString("yyyy.MM") || calendarVM.loading)
         }

@@ -32,6 +32,10 @@ class CalendarVM:  CalendarProtocol {
 
 	@Published var calendarModel: CalendarModel = CalendarModel()
 	@Published var loading = false
+    
+    var dailyTotalTime : Int64 {
+        return calendarModel.dailyTotalTimesInAMonth[calendarModel.selectedDate.dayToInt]
+    }
 
 	// 일일 로그를 보여줄 때 변환을 거친 변수
 	var convertedSelectedMonthlyLog: [Log] {

@@ -29,8 +29,8 @@ struct CalendarBodyView: View {
                 } else {
                     VStack {
                         // TODO: 이 코드는 어떤 의도인지?
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .foregroundColor(.backgroundCalendar)
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.backgroundCalendar)
 
                         DatePicker(
                             "Date",

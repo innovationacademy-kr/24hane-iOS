@@ -65,6 +65,7 @@
 		D68CC3F02BCC1E81008D62E2 /* ReissueButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3EE2BCC1E43008D62E2 /* ReissueButtonAppearance.swift */; };
 		D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3F12BCC1F0A008D62E2 /* ListItemButton.swift */; };
 		D68CC3F62BCC1FA4008D62E2 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3F42BCC1F8E008D62E2 /* LogoutButton.swift */; };
+		D6AECA262BECCBF5009A8018 /* AccTimeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AECA252BECCBF5009A8018 /* AccTimeCardsView.swift */; };
 		D6C528F82BBECE0700F51A06 /* ReissueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C528F72BBECE0700F51A06 /* ReissueVM.swift */; };
 		D6E19CF32BEB427B005DF8C3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E19CF22BEB427B005DF8C3 /* Error.swift */; };
 		D6E780B82BCCDEBE00FB547D /* ReissueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */; };
@@ -172,6 +173,7 @@
 		D68CC3F12BCC1F0A008D62E2 /* ListItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemButton.swift; sourceTree = "<group>"; };
 		D68CC3F42BCC1F8E008D62E2 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		D69A01AF2B9F1639003C84C1 /* HaneTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = HaneTest.xctestplan; path = HANE24TEST/HaneTest.xctestplan; sourceTree = "<group>"; };
+		D6AECA252BECCBF5009A8018 /* AccTimeCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardsView.swift; sourceTree = "<group>"; };
 		D6C528F72BBECE0700F51A06 /* ReissueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueVM.swift; sourceTree = "<group>"; };
 		D6E19CF22BEB427B005DF8C3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		D6E780C62BCCE03700FB547D /* ReissueTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueTest.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				0E9868262B2B76BE00E127DC /* CalendarBodyView.swift */,
 				9AF730F2299D599300AF2E53 /* TagLogView.swift */,
 				9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */,
+				D6AECA252BECCBF5009A8018 /* AccTimeCardsView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */,
 				9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */,
 				D6E780D42BCD04AB00FB547D /* ReissueButton.swift in Sources */,
+				D6AECA262BECCBF5009A8018 /* AccTimeCardsView.swift in Sources */,
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */,
