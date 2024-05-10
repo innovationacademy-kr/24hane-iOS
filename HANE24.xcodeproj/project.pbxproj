@@ -26,6 +26,7 @@
 		0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9868242B2B6C0B00E127DC /* CalendarHeaderView.swift */; };
 		0E9868272B2B76BE00E127DC /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9868262B2B76BE00E127DC /* CalendarBodyView.swift */; };
 		0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBBF14D29B08D580076AAB9 /* ErrorView.swift */; };
+		0ECF97A62BEDE7CB00C37095 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF97A52BEDE7CB00C37095 /* Error.swift */; };
 		0ED6E3E32B354D320026E69D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED6E3E22B354D310026E69D /* WidgetKit.framework */; };
 		0ED6E3E52B354D320026E69D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED6E3E42B354D320026E69D /* SwiftUI.framework */; };
 		0ED6E3E82B354D320026E69D /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3E72B354D320026E69D /* HANE24WidgetBundle.swift */; };
@@ -40,9 +41,9 @@
 		0ED6E3FC2B354DFC0026E69D /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FA2B354DFC0026E69D /* HANE24WidgetConstant.swift */; };
 		0ED6E3FF2B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
 		0ED6E4002B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
+		0EE06CBD2BB2819500B4988C /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBC2BB2819500B4988C /* HomeVM.swift */; };
 		0EE06CBF2BB2AD4C00B4988C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */; };
 		0EE06CC12BB2B2EB00B4988C /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */; };
-		0EE06CBD2BB2819500B4988C /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBC2BB2819500B4988C /* HomeVM.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
 		0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */; };
@@ -118,6 +119,7 @@
 		0E9868242B2B6C0B00E127DC /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		0E9868262B2B76BE00E127DC /* CalendarBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBodyView.swift; sourceTree = "<group>"; };
 		0EBBF14D29B08D580076AAB9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		0ECF97A52BEDE7CB00C37095 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		0ED6E3E12B354D310026E69D /* HANE24WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HANE24WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED6E3E22B354D310026E69D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		0ED6E3E42B354D320026E69D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -130,9 +132,9 @@
 		0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationTimeStruct.swift; sourceTree = "<group>"; };
 		0ED6E4032B3559B80026E69D /* 24HANE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 24HANE.entitlements; sourceTree = "<group>"; };
 		0ED6E4042B3559DF0026E69D /* HANE24WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HANE24WidgetExtension.entitlements; sourceTree = "<group>"; };
+		0EE06CBC2BB2819500B4988C /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
-		0EE06CBC2BB2819500B4988C /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProgressView.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF730F5299E074800AF2E53 /* Structs.swift */,
+				0ECF97A52BEDE7CB00C37095 /* Error.swift */,
 				9AF730FC299F602D00AF2E53 /* JSONs.swift */,
 			);
 			path = Model;
@@ -584,6 +587,7 @@
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 				0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */,
 				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
+				0ECF97A62BEDE7CB00C37095 /* Error.swift in Sources */,
 				0E0FE5F32BB3E6110050498E /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
