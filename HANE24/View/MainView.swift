@@ -41,7 +41,8 @@ struct MainView: View {
                     try await hane.refresh()
 					try await calendar.updateMonthlyLogs(date: .now)
                 } catch {
-                    print("error on MainView \(error.localizedDescription)")
+                    let customError = error as? CustomError
+                    print("error on MainView \(customError?.recoverySuggestion ?? "error occurred")")
                 }
             }
 

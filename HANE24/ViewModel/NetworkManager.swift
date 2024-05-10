@@ -45,9 +45,10 @@ class NetworkManager: NetworkProtocol {
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
 		let (data, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-			/// FIXME: Status Code에 따른 Error Handling
-			throw MyError.tokenExpired("request Failed")
+        let statusCode = (response as? HTTPURLResponse)?.statusCode
+		guard statusCode == 200 else {
+            await ErrorHandler.shared.errorFromHttpRequest(statusCode)
+            throw await ErrorHandler.shared.errorType
 		}
 		let decodedData = try JSONDecoder().decode(type.self, from: data)
 		return decodedData
@@ -66,7 +67,7 @@ class NetworkManager: NetworkProtocol {
 		request.httpMethod = "POST"
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
-		let (_, response) = try await session.data(for: request)
+        let (_, response) = try await session.data(for: request)
 		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
 			throw MyError.tokenExpired("request Failed")
 		}
