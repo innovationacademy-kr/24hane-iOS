@@ -49,12 +49,16 @@ class HomeVM: ObservableObject {
 	}
 
 	@MainActor
-	func updateAccumulationTimes() async throws {
-        guard let accTimes = try await NetworkManager.shared.getRequest("/v3/tag-log/accumulationTimes", type: AccumulationTimes.self) else {
-            throw MyError.tokenExpired("")
+	func updateAccumulationTimes() async {
+        do {
+            guard let accTimes = try await NetworkManager.shared.getRequest("/v3/tag-log/accumulationTimes", type: AccumulationTimes.self) else {
+                throw CustomError.responseBodyEmpty
+            }
+            self.accumulationTimes = accTimes
+            self.dailyAccumulationTime = accTimes.todayAccumulationTime
+        } catch {
+            ErrorHandler.shared.errorType = error as? CustomError
         }
-        self.accumulationTimes = accTimes
-        self.dailyAccumulationTime = accTimes.todayAccumulationTime
 	}
 
     //TODO: 요청한 데이터가 nil일 경우 에러 핸들링

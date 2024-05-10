@@ -13,6 +13,7 @@ enum CustomError: Error {
     case networkDisconnected
     case unAuthorized
     case internalServer
+    case responseBodyEmpty
     case none
 }
 
@@ -29,6 +30,8 @@ extension CustomError: LocalizedError {
             return "알 수 없는 사용자입니다"
         case .internalServer:
             return "서버 에러 발생"
+        case .responseBodyEmpty:
+            return "알 수 없는 에러 발생"
         case .none:
             return nil
         }
@@ -46,6 +49,8 @@ extension CustomError: LocalizedError {
             return "로그인 정보를 다시 확인해주세요"
         case .internalServer:
             return "개발팀에게 문의해주세요"
+        case .responseBodyEmpty:
+            return "개발팀에게 문의주세요"
         case .none:
             return nil
         }
