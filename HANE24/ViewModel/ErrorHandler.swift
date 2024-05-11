@@ -7,7 +7,7 @@
 
 import Foundation
 
-//@MainActor
+
 class ErrorHandler: ObservableObject {
 
     static let shared = ErrorHandler()
