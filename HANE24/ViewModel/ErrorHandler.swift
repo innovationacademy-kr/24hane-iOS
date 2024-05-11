@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 class ErrorHandler: ObservableObject {
@@ -54,7 +55,7 @@ class ErrorHandler: ObservableObject {
         case URLError.networkConnectionLost:
             self.errorType = .networkDisconnected
         case is CustomError:
-            self.errorType = error as! CustomError
+            self.errorType = error as? CustomError ?? .none
         default:
             self.errorType = .unknownError(error.localizedDescription.description)
         }

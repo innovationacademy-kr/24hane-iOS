@@ -12,7 +12,6 @@ struct ContentView: View {
 
     @EnvironmentObject var hane: Hane
     @ObservedObject var networkMonitoringManager = NetworkMonitoringManager()
-    @ObservedObject var errorHandler = ErrorHandler.shared
     @State var signInChecked = false
     let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirst")
 
@@ -43,15 +42,6 @@ struct ContentView: View {
             }
 
         }
-        .alert(
-           "에러가 발생했어요",
-           isPresented: $errorHandler.showAlert) {
-           Button("확인") {
-               errorHandler.errorType = CustomError.none
-           }
-       } message: {
-           Text(errorHandler.errorType.recoverySuggestion ?? "개발팀에 문의해주세요")
-       }
         .alert(isPresented: $networkMonitoringManager.showAlert) {
             Alert(title: Text("Error"), message: Text("네트워크 연결 상태를 확인해주세요."),
             dismissButton: .default(Text("다시시도"), action: {

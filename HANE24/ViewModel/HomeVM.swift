@@ -73,6 +73,7 @@ class HomeVM: ObservableObject {
             self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
             self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
         } catch {
+            print("error caught")
             ErrorHandler.shared.handleError(error)
         }
 	}
