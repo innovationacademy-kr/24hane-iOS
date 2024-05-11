@@ -57,25 +57,29 @@ class HomeVM: ObservableObject {
             self.accumulationTimes = accTimes
             self.dailyAccumulationTime = accTimes.todayAccumulationTime
         } catch {
-            ErrorHandler.shared.errorType = error as? CustomError
+            ErrorHandler.shared.handleError(error)
         }
 	}
 
     //TODO: 요청한 데이터가 nil일 경우 에러 핸들링
 	@MainActor
-    func updateMainInfo() async throws {
-		guard let mainInfo = try await NetworkManager.shared.getRequest("/v3/tag-log/maininfo", type: MainInfo.self) else {
-			throw MyError.tokenExpired("")
-		}
-		self.mainInfo = mainInfo
-        self.isInCluster = mainInfo.inoutState == "IN"
-        self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
-        self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
+    func updateMainInfo() async {
+        do {
+            guard let mainInfo = try await NetworkManager.shared.getRequest("/v3/tag-log/maininfo", type: MainInfo.self) else {
+                throw MyError.tokenExpired("")
+            }
+            self.mainInfo = mainInfo
+            self.isInCluster = mainInfo.inoutState == "IN"
+            self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
+            self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
+        } catch {
+            ErrorHandler.shared.handleError(error)
+        }
 	}
 
     @MainActor
     func refresh() async throws {
-        try await self.updateMainInfo()
-        try await self.updateAccumulationTimes()
+        await self.updateMainInfo()
+        await self.updateAccumulationTimes()
     }
 }

@@ -12,7 +12,7 @@ struct ContentView: View {
 
     @EnvironmentObject var hane: Hane
     @ObservedObject var networkMonitoringManager = NetworkMonitoringManager()
-    @ObservedObject var errorHandler = ErrorHandler()
+    @ObservedObject var errorHandler = ErrorHandler.shared
     @State var signInChecked = false
     let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirst")
 
@@ -50,7 +50,7 @@ struct ContentView: View {
                errorHandler.errorType = CustomError.none
            }
        } message: {
-           Text(errorHandler.errorType.recoverySuggestion)
+           Text(errorHandler.errorType.recoverySuggestion ?? "개발팀에 문의해주세요")
        }
         .alert(isPresented: $networkMonitoringManager.showAlert) {
             Alert(title: Text("Error"), message: Text("네트워크 연결 상태를 확인해주세요."),

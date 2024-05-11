@@ -31,13 +31,12 @@ class NetworkManager: NetworkProtocol {
 
 	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
 		guard let url = URL(string: apiRoot + urlPath) else {
-			/// FIXME: invalid URL의 경우 error handling
-			return nil
+            throw CustomError.invalidURL
 		}
 
 		guard let token = UserDefaults.standard.string(forKey: "Token") else {
 			/// FIXME: token invalid 경우에 signIn 상태 변경
-			throw MyError.tokenExpired("get new token!")
+            throw CustomError.tokenExpired
 		}
 
 		var request = URLRequest(url: url)
@@ -45,9 +44,10 @@ class NetworkManager: NetworkProtocol {
 		request.allHTTPHeaderFields = [
 			"Authorization": "Bearer \(String(describing: token) )"]
 		let (data, response) = try await session.data(for: request)
-		guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-			/// FIXME: Status Code에 따른 Error Handling
-			throw MyError.tokenExpired("request Failed")
+        let statusCode = (response as? HTTPURLResponse)?.statusCode
+		guard statusCode == 200 else {
+            try ErrorHandler.shared.errorFromHttpRequest(statusCode)
+            throw CustomError.unknownError("\(statusCode)")
 		}
 		let decodedData = try JSONDecoder().decode(type.self, from: data)
 		return decodedData

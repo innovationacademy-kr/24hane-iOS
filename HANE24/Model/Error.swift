@@ -14,6 +14,9 @@ enum CustomError: Error {
     case unAuthorized
     case internalServer
     case responseBodyEmpty
+    case decodeFailed
+    case invalidURL
+    case unknownError(String)
     case none
 }
 
@@ -25,13 +28,19 @@ extension CustomError: LocalizedError {
         case .wrongQueryType:
             return "잘못된 요청입니다"
         case .networkDisconnected:
-            return "네트워크가 연결되어있지 않습니다"
+            return "네트워크 상태가 원활하지 않습니다"
         case .unAuthorized:
             return "알 수 없는 사용자입니다"
         case .internalServer:
             return "서버 에러 발생"
         case .responseBodyEmpty:
-            return "알 수 없는 에러 발생"
+            return "내부 에러 발생"
+        case .decodeFailed:
+            return "내부 에러 발생"
+        case .invalidURL:
+            return "잘못된 접근입니다"
+        case .unknownError:
+            return "원인을 알 수 없는 에러 발생"
         case .none:
             return nil
         }
@@ -50,7 +59,13 @@ extension CustomError: LocalizedError {
         case .internalServer:
             return "개발팀에게 문의해주세요"
         case .responseBodyEmpty:
-            return "개발팀에게 문의주세요"
+            return "개발팀에게 문의해주세요"
+        case .decodeFailed:
+            return "개발팀에게 문의해주세요"
+        case .invalidURL:
+            return "개발팀에게 문의해주세요"
+        case .unknownError:
+            return "개발팀에게 문의해주세요"
         case .none:
             return nil
         }

@@ -7,62 +7,65 @@
 
 import Foundation
 
-@MainActor
+//@MainActor
 class ErrorHandler: ObservableObject {
 
     static let shared = ErrorHandler()
 
-    var errorType: CustomError = .none {
-        didSet {
-            handleErrors()
-        }
-    }
+    var errorType: CustomError = .none
     var occurredError: Error? = nil
     @Published var showAlert: Bool = false
     @Published var signInRequired: Bool = false
 
     private init() { }
 
-    func errorFromHttpRequest(_ statusCode: Int?) {
+    func errorFromHttpRequest(_ statusCode: Int?) throws {
         switch statusCode {
         case 400:
-            self.errorType = .wrongQueryType
+            throw CustomError.wrongQueryType
         case 401:
-            self.errorType = .unAuthorized
+            throw CustomError.unAuthorized
         case 500:
-            self.errorType = .internalServer
+            throw CustomError.internalServer
         default:
-            break
+            throw CustomError.unknownError("\(statusCode)")
         }
     }
 
-//    @MainActor
-    func handleErrors() {
+    @MainActor
+    func updateErrorView() {
         switch self.errorType {
-        case .tokenExpired:
+        case .tokenExpired, .unAuthorized:
             self.signInRequired = true
-        case .wrongQueryType:
-            self.showAlert = true
-        case .networkDisconnected:
-            self.showAlert = true
-        case .unAuthorized:
-            self.signInRequired = true
-        case .internalServer:
+        case .wrongQueryType, .networkDisconnected, .internalServer, .responseBodyEmpty,
+                .decodeFailed, .unknownError, .invalidURL:
             self.showAlert = true
         case .none:
             break
         }
     }
     
-    func verifyError(_ error: Error) {
+    func verifyError(_ error: Error) async {
         switch error {
         case DecodingError.dataCorrupted:
+            self.errorType = .decodeFailed
         case URLError.timedOut:
-        case URLError.networkConnectionLost
-            
-            
+            self.errorType = .networkDisconnected
+        case URLError.networkConnectionLost:
+            self.errorType = .networkDisconnected
+        case is CustomError:
+            self.errorType = error as! CustomError
         default:
-            <#code#>
+            self.errorType = .unknownError(error.localizedDescription.description)
         }
     }
+    
+    @MainActor
+    func handleError(_ error: Error) {
+        Task {
+            await self.verifyError(error)
+            self.updateErrorView()
+        }
+    }
+    
  }
