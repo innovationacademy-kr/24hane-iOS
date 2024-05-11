@@ -69,6 +69,7 @@ struct SignInWebView: UIViewRepresentable {
                         UserDefaults.shared.setValue(String(cookie.value), forKey: HaneWidgetConstant.storageKey)
                         WidgetCenter.shared.reloadAllTimelines()
                         self.hane.isSignIn = true
+                        UserDefaults.standard.setValue(true, forKey: "isSignIn")
                         break
                     }
                 }

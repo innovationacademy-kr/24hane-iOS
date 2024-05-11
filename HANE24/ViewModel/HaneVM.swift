@@ -243,12 +243,14 @@ extension Hane {
 
 // Call APIs
 extension Hane {
+    
     @MainActor
     func isLogin() async throws -> Bool {
         guard let url = URL(string: APIroot + "/user/login/islogin") else {
             fatalError("MissingURL")
         }
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
+            
             return false
         }
         var request = URLRequest(url: url)
