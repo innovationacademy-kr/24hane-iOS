@@ -63,23 +63,14 @@ class MockNetwork: NetworkProtocol {
 	var session: URLSession
 
 	var apiRoot: String = ""
-
-	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
-		let decodedData = try JSONDecoder().decode(type.self, from: monthlyJsonData)
-		return decodedData
-	}
-
-	func postRequest(_ urlPath: String) async throws {
-		return
-	}
-
-	func patchRequest(_ urlPath: String) async throws {
-		return
-	}
-
-	func deleteRequest(_ urlPath: String) async throws {
-		return
-	}
+    
+    func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type?) async throws -> T? where T : Decodable {
+        if method == .get, type != nil {
+            let decodedData = try JSONDecoder().decode(type!.self, from: monthlyJsonData)
+            return decodedData
+        }
+        return nil
+    }
 
 	private init(session: URLSession = URLSession.shared) {
 		self.session = session

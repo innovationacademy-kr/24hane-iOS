@@ -59,7 +59,7 @@ struct AlertView: View {
         Button {
             Task {
                 do {
-                    try await hane.postJsonAsync()
+                    try await NetworkManager.shared.apiRequest("/v2/reissue/request", .post)
                     hane.reissueState = .apply
                 }
             }
@@ -80,7 +80,7 @@ struct AlertView: View {
         Button {
             Task {
                 do {
-                    try await hane.patchJsonAsync()
+                    try await NetworkManager.shared.apiRequest("/v2/reissue/request", .patch)
                     hane.reissueState = .done
                 } catch {
                     hane.reissueState = .pickUpRequested
