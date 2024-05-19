@@ -38,7 +38,7 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
             }
             VStack(alignment: .center, spacing: 20) {
-                HeaderView(homeManager: homeManager)
+                HomeHeaderView(homeManager: homeManager)
                 ScrollView {
                     PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                         Task {
