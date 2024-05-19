@@ -14,7 +14,6 @@ class ErrorHandler: ObservableObject {
     static let shared = ErrorHandler()
 
     var errorType: CustomError = .none
-    var occurredError: Error? = nil
     @Published var showAlert: Bool = false
     @Published var signInRequired: Bool = false
 
