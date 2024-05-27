@@ -7,9 +7,35 @@
 
 import Foundation
 
-protocol AccumulationProtocol: ObservableObject {}
+protocol AccumulationDataProtocol {
+    var accumulation: AccumulationModel { get set }
+}
 
-class AccumulationViewModel: AccumulationProtocol {
-	@Published var accumulation: AccumulationModel = AccumulationModel()
+protocol AccumulationApiProtocol {
+    func fetchAccumulationData()
+}
 
+protocol AccumulationViewModelProtocol: ObservableObject {
+    var data: AccumulationDataProtocol { get }
+    var api: AccumulationApiProtocol { get }
+}
+
+class AccumulationViewModel: AccumulationViewModelProtocol {
+    let data: AccumulationDataProtocol
+    let api: AccumulationApiProtocol
+
+    init(data: AccumulationData, api: AccumulationApi) {
+        self.data = data
+        self.api = api
+    }
+}
+
+class AccumulationData: AccumulationDataProtocol {
+    @Published var accumulation: AccumulationModel = AccumulationModel()
+}
+
+class AccumulationApi: AccumulationApiProtocol {
+    func fetchAccumulationData() {
+        // API 호출 로직 구현
+    }
 }

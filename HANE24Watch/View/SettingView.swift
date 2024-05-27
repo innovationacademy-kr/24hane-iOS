@@ -26,7 +26,7 @@ struct TokenTest: View {
 
 struct SettingView: View {
     let settingItems: [(String, String, () -> AnyView)] = [
-        ("토큰 확인", "person.slash", { AnyView(TokenTest()) }),
+        ("토큰 확인", "person.slash", { AnyView(TokenTest()) }), // TODO: 출시 전 제거 필요
         ("화면 설정", "gearshape.fill", { AnyView(DisplaySettingView()) }),
         ("정보", "info.circle.fill", { AnyView(AboutAppView()) }),
         ("로그아웃", "person.fill", { AnyView(EmptyView()) })
