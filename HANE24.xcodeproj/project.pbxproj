@@ -46,7 +46,6 @@
 		0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDFD46299F5AF500A911F7 /* DarkMode.swift */; };
 		2B1326112B2821E600301A8B /* ThisMonthAccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1326102B2821E600301A8B /* ThisMonthAccTimeCardView.swift */; };
 		2B1326132B285B1D00301A8B /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1326122B285B1D00301A8B /* NoticeView.swift */; };
-		3604975B97A4119088C1C3D3 /* Pods_24HANE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9D5EBD040CA1B419BF545D /* Pods_24HANE.framework */; };
 		9A1A4BEE299ADE650076D650 /* TodayAccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A4BED299ADE650076D650 /* TodayAccTimeCardView.swift */; };
 		9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */; };
 		9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */; };
@@ -131,8 +130,6 @@
 		0EFDFD46299F5AF500A911F7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		2B1326102B2821E600301A8B /* ThisMonthAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthAccTimeCardView.swift; sourceTree = "<group>"; };
 		2B1326122B285B1D00301A8B /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
-		38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.debug.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.debug.xcconfig"; sourceTree = "<group>"; };
-		5F9D5EBD040CA1B419BF545D /* Pods_24HANE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_24HANE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1A4BED299ADE650076D650 /* TodayAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAccTimeCardView.swift; sourceTree = "<group>"; };
 		9AF730EC299CC54F00AF2E53 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9AF730EE299D3A4900AF2E53 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
@@ -142,7 +139,6 @@
 		9AF730F7299E2F5000AF2E53 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		9AF730FA299F53C700AF2E53 /* HaneVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaneVM.swift; sourceTree = "<group>"; };
 		9AF730FC299F602D00AF2E53 /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
-		A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.release.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.release.xcconfig"; sourceTree = "<group>"; };
 		D6185AE02BB3C71800E6944A /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
@@ -155,7 +151,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3604975B97A4119088C1C3D3 /* Pods_24HANE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +184,6 @@
 				0ED6E3E62B354D320026E69D /* HANE24Widget */,
 				D646BD0A2B95DCD500ED631E /* HANE24TEST */,
 				0E1654F0299A285B001E5EED /* Products */,
-				CC7009C835DF6CA6ECA500B0 /* Pods */,
 				AF5C32407FEB35F3BB6E0804 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -328,20 +322,10 @@
 		AF5C32407FEB35F3BB6E0804 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5F9D5EBD040CA1B419BF545D /* Pods_24HANE.framework */,
 				0ED6E3E22B354D310026E69D /* WidgetKit.framework */,
 				0ED6E3E42B354D320026E69D /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CC7009C835DF6CA6ECA500B0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */,
-				38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		D646BD0A2B95DCD500ED631E /* HANE24TEST */ = {
@@ -359,7 +343,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E165502299A285E001E5EED /* Build configuration list for PBXNativeTarget "24HANE" */;
 			buildPhases = (
-				5CC7E47886CCABA3F12296BE /* [CP] Check Pods Manifest.lock */,
 				0E1654EB299A285B001E5EED /* Sources */,
 				0E1654EC299A285B001E5EED /* Frameworks */,
 				0E1654ED299A285B001E5EED /* Resources */,
@@ -497,29 +480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		5CC7E47886CCABA3F12296BE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-24HANE-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -723,7 +684,6 @@
 		};
 		0E165503299A285E001E5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38BC7E64D66913E5A6C0834C /* Pods-24HANE.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -763,7 +723,6 @@
 		};
 		0E165504299A285E001E5EED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
