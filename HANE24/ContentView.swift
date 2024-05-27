@@ -34,7 +34,6 @@ struct ContentView: View {
                 UserDefaults.standard.setValue(0, forKey: "MonthlySelectionOption")
                 UserDefaults.standard.set(true, forKey: "isFirst")
             }
-
             do {
                 try hane.isSignIn = await hane.isLogin() ? true : false
                 self.signInChecked = true

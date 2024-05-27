@@ -164,7 +164,7 @@ extension Date {
     var daysOfMonth: [Date?] {
         var days: [Date?] = []
         var day = self.firstDay
-        
+
         for _ in 1..<self.firstDay.weekdayToInt {
             days.append(nil)
         }
