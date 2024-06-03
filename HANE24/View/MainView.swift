@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var hane: Hane
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 247afaff37f2a91312f2c7d69e5d7375b12c8493
     @StateObject var homeVM = HomeVM()
 
     @State var selection = 1

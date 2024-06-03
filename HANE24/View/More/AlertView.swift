@@ -10,7 +10,10 @@ import SwiftUI
 struct AlertView: View {
     @Binding var showAlert: Bool
     @EnvironmentObject var hane: Hane
+	@EnvironmentObject var reissue: ReissueVM
+
     var item: AlertItem
+
     var body: some View {
         ZStack {
             GeometryReader { _ in
@@ -33,9 +36,9 @@ struct AlertView: View {
                     .foregroundColor(.gradientPurple)
                     .padding()
                 if item.id == "신청" {
-                    submitButton
+                    AlertSubmitButton(showAlert: $showAlert)
                 } else {
-                    receiveButton
+                    AlertReceiveButton(showAlert: $showAlert)
                 }
                 Button {
                     showAlert = false
@@ -54,6 +57,7 @@ struct AlertView: View {
         }
         .background(Color.gray.opacity(0.7))
     }
+<<<<<<< HEAD
 
     var submitButton: some View {
         Button {
@@ -98,9 +102,12 @@ struct AlertView: View {
             }
         }
     }
+=======
+>>>>>>> 247afaff37f2a91312f2c7d69e5d7375b12c8493
 }
 
 #Preview {
     AlertView(showAlert: .constant(true), item: AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"))
         .environmentObject(Hane())
+		.environmentObject(ReissueVM())
 }

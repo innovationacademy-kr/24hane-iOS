@@ -8,6 +8,7 @@
 import XCTest
 @testable import Hane
 
+<<<<<<< HEAD
 let emptyJsonData = """
   {
 	"login": "hoslim",
@@ -78,6 +79,9 @@ class MockNetwork: NetworkProtocol {
 }
 
 final class HaneCalendarTest: XCTestCase {
+=======
+final class CalendarTest: XCTestCase {
+>>>>>>> 247afaff37f2a91312f2c7d69e5d7375b12c8493
 
 	// CalendarVM 객체
 	var sut: CalendarVM!
@@ -85,7 +89,7 @@ final class HaneCalendarTest: XCTestCase {
 	// 테스트 객체 초기화
 	override func setUpWithError() throws {
 		try super.setUpWithError()
-		sut = CalendarVM(network: MockNetwork.shared)
+		sut = CalendarVM(network: FakeCalenderNetwork.shared)
 	}
 
 	// 테스트 이후 객체 소멸
