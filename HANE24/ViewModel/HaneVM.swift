@@ -72,31 +72,13 @@ class Hane: ObservableObject {
         self.loginID = ""
         self.clusterPopulation = 0
 
-        self.fundInfoNotice = Notice(title: "", content: "")
-        self.tagLatencyNotice = Notice(title: "", content: "")
+        self.fundInfoNotice = Notice()
+        self.tagLatencyNotice = Notice()
 
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [], totalAccumulationTime: 0, acceptedAccumulationTime: 0)
-        self.mainInfo = MainInfo(
-            login: "",
-            profileImage: "",
-            isAdmin: false,
-            inoutState: "",
-            tagAt: nil,
-            gaepo: 0,
-            infoMessages:
-                InfoMessages(
-                    fundInfoNotice: InfoMessage(title: "", content: ""),
-                    tagLatencyNotice: InfoMessage(title: "", content: "")
-                )
-        )
-        self.accumulationTimes = AccumulationTimes(
-            todayAccumulationTime: 0,
-            monthAccumulationTime: 0,
-            sixWeekAccumulationTime: Array(repeating: 0, count: 6),
-            sixMonthAccumulationTime: Array(repeating: 0, count: 6),
-            monthlyAcceptedAccumulationTime: 0
-        )
+        self.mainInfo = MainInfo()
+        self.accumulationTimes = AccumulationTimes()
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .none

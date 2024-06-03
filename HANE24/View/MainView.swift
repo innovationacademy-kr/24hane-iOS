@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var hane: Hane
+  
+    @StateObject var homeVM = HomeVM()
 
     @State var selection = 1
     @Environment(\.colorScheme) var colorScheme
@@ -19,7 +21,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                HomeView(fundInfo: $isNoticedFundInfo, tagLatencyInfo: $isNoticedTagLatencyInfo)
+                HomeView(homeManager: homeVM, isNoticedFundInfo: $isNoticedFundInfo, isNoticedTagLatencyInfo: $isNoticedTagLatencyInfo)
                     .tabItem({
                         Image(selection == 1 ? "selectedHome" : "home").renderingMode(.template)
                     }) .tag(1)
@@ -38,6 +40,7 @@ struct MainView: View {
             .task {
                 do {
                     try await hane.refresh()
+                    try await homeVM.refresh()
                 } catch {
                     print("error on MainView \(error.localizedDescription)")
                 }

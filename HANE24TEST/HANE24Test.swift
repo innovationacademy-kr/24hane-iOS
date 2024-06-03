@@ -86,5 +86,5 @@ final class CalendarTest: XCTestCase {
 	}
 
 	// MARK: - Missing Data Test
-	
+
 }
