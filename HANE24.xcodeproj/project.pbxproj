@@ -57,7 +57,25 @@
 		9AF730FB299F53C700AF2E53 /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FA299F53C700AF2E53 /* HaneVM.swift */; };
 		9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF730FC299F602D00AF2E53 /* JSONs.swift */; };
 		D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6185AE02BB3C71800E6944A /* CalendarVM.swift */; };
+		D63B24422BBFBA7E001DB9E3 /* FakeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B24412BBFBA7E001DB9E3 /* FakeNetwork.swift */; };
 		D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D646BD0B2B95DCD500ED631E /* HANE24Test.swift */; };
+		D68CC3E62BCC1585008D62E2 /* MockDataForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3E52BCC1585008D62E2 /* MockDataForTest.swift */; };
+		D68CC3E82BCC1764008D62E2 /* ReissueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */; };
+		D68CC3EC2BCC1DCC008D62E2 /* MoreViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3EA2BCC1D34008D62E2 /* MoreViewFooter.swift */; };
+		D68CC3F02BCC1E81008D62E2 /* ReissueButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3EE2BCC1E43008D62E2 /* ReissueButtonAppearance.swift */; };
+		D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3F12BCC1F0A008D62E2 /* ListItemButton.swift */; };
+		D68CC3F62BCC1FA4008D62E2 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3F42BCC1F8E008D62E2 /* LogoutButton.swift */; };
+		D6AECA262BECCBF5009A8018 /* AccTimeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AECA252BECCBF5009A8018 /* AccTimeCardsView.swift */; };
+		D6C528F82BBECE0700F51A06 /* ReissueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C528F72BBECE0700F51A06 /* ReissueVM.swift */; };
+		D6E19CF32BEB427B005DF8C3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E19CF22BEB427B005DF8C3 /* Error.swift */; };
+		D6E780B82BCCDEBE00FB547D /* ReissueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */; };
+		D6E780C72BCCE03700FB547D /* ReissueTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E780C62BCCE03700FB547D /* ReissueTest.swift */; };
+		D6E780C92BCCE84300FB547D /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E780C82BCCE84300FB547D /* CalendarModel.swift */; };
+		D6E780CE2BCD030200FB547D /* Tapbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E780CD2BCD030200FB547D /* Tapbar.swift */; };
+		D6E780D02BCD03AE00FB547D /* HowToReissue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E780CF2BCD03AE00FB547D /* HowToReissue.swift */; };
+		D6E780D22BCD041300FB547D /* ProgressToReissue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E780D12BCD041300FB547D /* ProgressToReissue.swift */; };
+		D6E780D42BCD04AB00FB547D /* ReissueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E780D32BCD04AB00FB547D /* ReissueButton.swift */; };
+		D6E780D72BCD0CAE00FB547D /* AlertButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E780D62BCD0CAE00FB547D /* AlertButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,10 +162,27 @@
 		9AF730FC299F602D00AF2E53 /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
 		A021B0070CB31045F069E3A2 /* Pods-24HANE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24HANE.release.xcconfig"; path = "Target Support Files/Pods-24HANE/Pods-24HANE.release.xcconfig"; sourceTree = "<group>"; };
 		D6185AE02BB3C71800E6944A /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
+		D63B24412BBFBA7E001DB9E3 /* FakeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetwork.swift; sourceTree = "<group>"; };
 		D646BD092B95DCD500ED631E /* HANE24Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HANE24Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D646BD0B2B95DCD500ED631E /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
 		D680AC322BB17CA00083025D /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		D68CC3E52BCC1585008D62E2 /* MockDataForTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataForTest.swift; sourceTree = "<group>"; };
+		D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueModel.swift; sourceTree = "<group>"; };
+		D68CC3EA2BCC1D34008D62E2 /* MoreViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewFooter.swift; sourceTree = "<group>"; };
+		D68CC3EE2BCC1E43008D62E2 /* ReissueButtonAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueButtonAppearance.swift; sourceTree = "<group>"; };
+		D68CC3F12BCC1F0A008D62E2 /* ListItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemButton.swift; sourceTree = "<group>"; };
+		D68CC3F42BCC1F8E008D62E2 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		D69A01AF2B9F1639003C84C1 /* HaneTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = HaneTest.xctestplan; path = HANE24TEST/HaneTest.xctestplan; sourceTree = "<group>"; };
+		D6AECA252BECCBF5009A8018 /* AccTimeCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardsView.swift; sourceTree = "<group>"; };
+		D6C528F72BBECE0700F51A06 /* ReissueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueVM.swift; sourceTree = "<group>"; };
+		D6E19CF22BEB427B005DF8C3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		D6E780C62BCCE03700FB547D /* ReissueTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueTest.swift; sourceTree = "<group>"; };
+		D6E780C82BCCE84300FB547D /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		D6E780CD2BCD030200FB547D /* Tapbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tapbar.swift; sourceTree = "<group>"; };
+		D6E780CF2BCD03AE00FB547D /* HowToReissue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToReissue.swift; sourceTree = "<group>"; };
+		D6E780D12BCD041300FB547D /* ProgressToReissue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressToReissue.swift; sourceTree = "<group>"; };
+		D6E780D32BCD04AB00FB547D /* ReissueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueButton.swift; sourceTree = "<group>"; };
+		D6E780D62BCD0CAE00FB547D /* AlertButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +299,7 @@
 				0E9868262B2B76BE00E127DC /* CalendarBodyView.swift */,
 				9AF730F2299D599300AF2E53 /* TagLogView.swift */,
 				9AF730F0299D58F100AF2E53 /* AccTimeCardForCalendarView.swift */,
+				D6AECA252BECCBF5009A8018 /* AccTimeCardsView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -271,6 +307,9 @@
 		0EE58191299CC03100EE3351 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				D6E780D52BCD0C9A00FB547D /* AlertViewComponent */,
+				D6E780CC2BCD015C00FB547D /* ReissuanceComponent */,
+				D68CC3ED2BCC1DD6008D62E2 /* MoreViewComponent */,
 				0EE58192299CC24000EE3351 /* MoreView.swift */,
 				0EE58197299CC74C00EE3351 /* ReissuanceView.swift */,
 				0EEB0E2329AE2AF700FEB700 /* CardProgressView.swift */,
@@ -310,6 +349,9 @@
 			children = (
 				9AF730F5299E074800AF2E53 /* Structs.swift */,
 				9AF730FC299F602D00AF2E53 /* JSONs.swift */,
+				D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */,
+				D6E780C82BCCE84300FB547D /* CalendarModel.swift */,
+				D6E19CF22BEB427B005DF8C3 /* Error.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF730FA299F53C700AF2E53 /* HaneVM.swift */,
+				D6C528F72BBECE0700F51A06 /* ReissueVM.swift */,
 				D6185AE02BB3C71800E6944A /* CalendarVM.swift */,
 				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
@@ -347,9 +390,42 @@
 		D646BD0A2B95DCD500ED631E /* HANE24TEST */ = {
 			isa = PBXGroup;
 			children = (
+				D6E780C62BCCE03700FB547D /* ReissueTest.swift */,
 				D646BD0B2B95DCD500ED631E /* HANE24Test.swift */,
+				D63B24412BBFBA7E001DB9E3 /* FakeNetwork.swift */,
+				D68CC3E52BCC1585008D62E2 /* MockDataForTest.swift */,
 			);
 			path = HANE24TEST;
+			sourceTree = "<group>";
+		};
+		D68CC3ED2BCC1DD6008D62E2 /* MoreViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D68CC3F42BCC1F8E008D62E2 /* LogoutButton.swift */,
+				D68CC3F12BCC1F0A008D62E2 /* ListItemButton.swift */,
+				D68CC3EE2BCC1E43008D62E2 /* ReissueButtonAppearance.swift */,
+				D68CC3EA2BCC1D34008D62E2 /* MoreViewFooter.swift */,
+			);
+			path = MoreViewComponent;
+			sourceTree = "<group>";
+		};
+		D6E780CC2BCD015C00FB547D /* ReissuanceComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D6E780CD2BCD030200FB547D /* Tapbar.swift */,
+				D6E780CF2BCD03AE00FB547D /* HowToReissue.swift */,
+				D6E780D12BCD041300FB547D /* ProgressToReissue.swift */,
+				D6E780D32BCD04AB00FB547D /* ReissueButton.swift */,
+			);
+			path = ReissuanceComponent;
+			sourceTree = "<group>";
+		};
+		D6E780D52BCD0C9A00FB547D /* AlertViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D6E780D62BCD0CAE00FB547D /* AlertButtons.swift */,
+			);
+			path = AlertViewComponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,13 +604,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E780B82BCCDEBE00FB547D /* ReissueModel.swift in Sources */,
 				0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */,
 				0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */,
 				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
 				0EEB0E2629AE303100FEB700 /* AlertView.swift in Sources */,
 				9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */,
 				2B1326112B2821E600301A8B /* ThisMonthAccTimeCardView.swift in Sources */,
+				D6E780CE2BCD030200FB547D /* Tapbar.swift in Sources */,
+				D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */,
 				9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */,
+				D6E780D42BCD04AB00FB547D /* ReissueButton.swift in Sources */,
+				D6AECA262BECCBF5009A8018 /* AccTimeCardsView.swift in Sources */,
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */,
@@ -544,16 +625,23 @@
 				0E6B608F29AC850D009D8BC4 /* NetworkMonitoringManager.swift in Sources */,
 				2B1326132B285B1D00301A8B /* NoticeView.swift in Sources */,
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
+				D6E780C92BCCE84300FB547D /* CalendarModel.swift in Sources */,
 				D6185AE12BB3C71800E6944A /* CalendarVM.swift in Sources */,
 				9AF730EF299D3A4900AF2E53 /* CalendarGridView.swift in Sources */,
 				0E3ED8A82BB13727001B0BAE /* NetworkManager.swift in Sources */,
+				D68CC3F02BCC1E81008D62E2 /* ReissueButtonAppearance.swift in Sources */,
 				0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */,
+				D6E780D02BCD03AE00FB547D /* HowToReissue.swift in Sources */,
+				D6E780D72BCD0CAE00FB547D /* AlertButtons.swift in Sources */,
+				D68CC3F62BCC1FA4008D62E2 /* LogoutButton.swift in Sources */,
 				0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */,
 				0E9868272B2B76BE00E127DC /* CalendarBodyView.swift in Sources */,
 				9AF730ED299CC54F00AF2E53 /* DateExtensions.swift in Sources */,
 				9AF730F8299E2F5000AF2E53 /* CalendarView.swift in Sources */,
 				0ED6E3FF2B354E670026E69D /* AccumulationTimeStruct.swift in Sources */,
 				9A1A4BEE299ADE650076D650 /* TodayAccTimeCardView.swift in Sources */,
+				D6E780D22BCD041300FB547D /* ProgressToReissue.swift in Sources */,
+				D68CC3EC2BCC1DCC008D62E2 /* MoreViewFooter.swift in Sources */,
 				9AF730F6299E074800AF2E53 /* Structs.swift in Sources */,
 				0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */,
 				0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */,
@@ -563,6 +651,8 @@
 				0E165508299A3C20001E5EED /* ChartView.swift in Sources */,
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
 				0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */,
+				D6C528F82BBECE0700F51A06 /* ReissueVM.swift in Sources */,
+				D6E19CF32BEB427B005DF8C3 /* Error.swift in Sources */,
 				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +676,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D646BD0C2B95DCD500ED631E /* HANE24Test.swift in Sources */,
+				D68CC3E62BCC1585008D62E2 /* MockDataForTest.swift in Sources */,
+				D6E780C72BCCE03700FB547D /* ReissueTest.swift in Sources */,
+				D68CC3E82BCC1764008D62E2 /* ReissueModel.swift in Sources */,
+				D63B24422BBFBA7E001DB9E3 /* FakeNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +849,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -795,6 +890,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

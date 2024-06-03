@@ -52,6 +52,7 @@ struct AccumulationTimes: Codable {
     let monthlyAcceptedAccumulationTime: Int64
 }
 
+// 카드 신청 상태를 확인하는 API의 Response Parsing 구조체
 struct ReissueState: Codable {
     let state: String
 }

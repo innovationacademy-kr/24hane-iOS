@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var hane: Hane
-	@EnvironmentObject var calendar: CalendarVM
 
     @State var selection = 1
     @Environment(\.colorScheme) var colorScheme
@@ -39,7 +38,6 @@ struct MainView: View {
             .task {
                 do {
                     try await hane.refresh()
-					try await calendar.updateMonthlyLogs(date: .now)
                 } catch {
                     print("error on MainView \(error.localizedDescription)")
                 }
