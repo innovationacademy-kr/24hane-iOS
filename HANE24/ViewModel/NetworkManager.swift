@@ -60,7 +60,6 @@ class NetworkManager: NetworkProtocol {
             let decodedData = try JSONDecoder().decode(type.self, from: data)
             return decodedData
         }
-        
         return nil
     }
     
