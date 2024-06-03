@@ -57,56 +57,6 @@ struct AlertView: View {
         }
         .background(Color.gray.opacity(0.7))
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-    var submitButton: some View {
-        Button {
-            Task {
-                do {
-                    try await NetworkManager.shared.apiRequest("/v2/reissue/request", .post)
-                    hane.reissueState = .apply
-                }
-            }
-            showAlert = false
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.gradientPurple)
-                    .frame(width: 250, height: 50)
-                Text("네, 신청하겠습니다")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-            }
-        }
-    }
-
-    var receiveButton: some View {
-        Button {
-            Task {
-                do {
-                    try await NetworkManager.shared.apiRequest("/v2/reissue/request", .patch)
-                    hane.reissueState = .done
-                } catch {
-                    hane.reissueState = .pickUpRequested
-                }
-            }
-            showAlert = false
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.gradientPurple)
-                    .frame(width: 250, height: 50)
-                Text("네, 확인했습니다")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
-            }
-        }
-    }
-=======
->>>>>>> 247afaff37f2a91312f2c7d69e5d7375b12c8493
-=======
->>>>>>> efa5edf07a77692b85f4df2181e7aa8c0393209d
 }
 
 #Preview {
