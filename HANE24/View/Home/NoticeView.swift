@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-//MARK: unused in V3
-
 public struct NoticeView: View {
     @Binding var showNotice: Bool
-    var notice: Notice
-    public var body: some View {
+     var notice: Notice
+     public var body: some View {
         ZStack {
             Color.black.opacity(0.4)
                 .ignoresSafeArea(.all)

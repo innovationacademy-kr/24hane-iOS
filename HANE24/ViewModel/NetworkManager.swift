@@ -17,10 +17,12 @@ enum RequestMethod: String {
 }
 
 protocol NetworkProtocol {
+
 	var session: URLSession { get }
 	var apiRoot: String { get }
 
-    func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type?) async throws -> T? where T: Decodable
+  func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type?) async throws -> T? where T: Decodable
+
 }
 
 class NetworkManager: NetworkProtocol {
@@ -84,5 +86,4 @@ class NetworkManager: NetworkProtocol {
             throw MyError.tokenExpired("request Failed")
         }
     }
-
 }
