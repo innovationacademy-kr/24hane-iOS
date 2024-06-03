@@ -16,27 +16,23 @@ class FakeCalenderNetwork: FakeNetworkProtocol {
 	var session: URLSession
 
 	var apiRoot: String = ""
-
-	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
-		let decodedData = try JSONDecoder().decode(type.self, from: monthlyJsonData)
-		return decodedData
+    
+    func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type? = nil) async throws -> T? where T: Decodable {
+        if let type = type {
+            let decodedData = try JSONDecoder().decode(type.self, from: monthlyJsonData)
+            return decodedData
+        }
+        return nil
 	}
-
-	func postRequest(_ urlPath: String) async throws {
-		return
-	}
-
-	func patchRequest(_ urlPath: String) async throws {
-		return
-	}
-
-	func deleteRequest(_ urlPath: String) async throws {
-		return
-	}
-
-	private init(session: URLSession = URLSession.shared) {
-		self.session = session
-	}
+    
+    func apiRequest(_ urlPath: String, _ method: RequestMethod) async throws {
+        return
+    }
+    
+    private init(session: URLSession = URLSession.shared) {
+        self.session = session
+        self.apiRoot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
+    }
 }
 
 let updateReissueStateMock = """
@@ -58,7 +54,7 @@ class FakeReissueSuccessNetwork: FakeNetworkProtocol {
 	
 	var apiRoot: String = ""
 
-	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
+    func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type? = nil) async throws -> T? where T : Decodable  {
 		var responseValue: String
 		switch urlPath {
 		case "/v2/reissue":
@@ -70,21 +66,16 @@ class FakeReissueSuccessNetwork: FakeNetworkProtocol {
 		default:
 			responseValue = ""
 		}
-		let returnValue = try JSONDecoder().decode(type.self, from: responseValue.data(using: .utf8)!)
-		return returnValue
+        if let type = type {
+            let returnValue = try JSONDecoder().decode(type.self, from: responseValue.data(using: .utf8)!)
+            return returnValue
+        }
+        return nil
 	}
 
-	func postRequest(_ urlPath: String) async throws {
-		return
-	}
-	
-	func patchRequest(_ urlPath: String) async throws {
-		return
-	}
-	
-	func deleteRequest(_ urlPath: String) async throws {
-		return
-	}
+    func apiRequest(_ urlPath: String, _ method: RequestMethod) async throws {
+        return
+    }
 	
 	private init(session: URLSession = URLSession.shared) {
 		self.session = session
@@ -97,20 +88,12 @@ class FakeReissueFailNetwork: FakeNetworkProtocol {
 
 	var apiRoot: String = ""
 
-	func getRequest<T>(_ urlPath: String, type: T.Type) async throws -> T? where T : Decodable {
+    func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type?) async throws -> T? where T: Decodable {
 		throw MyError.tokenExpired("Get Request is Failed")
 	}
 
-	func postRequest(_ urlPath: String) async throws {
+    func apiRequest(_ urlPath: String, _ method: RequestMethod) async throws{
 		throw MyError.tokenExpired("Post Request is Failed")
-	}
-
-	func patchRequest(_ urlPath: String) async throws {
-		throw MyError.tokenExpired("Patch Request is Failed")
-	}
-
-	func deleteRequest(_ urlPath: String) async throws {
-		throw MyError.tokenExpired("Delete Request is Failed")
 	}
 
 	private init(session: URLSession = URLSession.shared) {
