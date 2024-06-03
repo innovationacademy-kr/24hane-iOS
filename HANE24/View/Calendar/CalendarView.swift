@@ -10,8 +10,7 @@ import SwiftUI
 /// selectedDate: Date = 선택 날짜
 struct CalendarView: View {
     @Environment(\.colorScheme) var colorScheme
-//    @EnvironmentObject var hane: Hane
-	@EnvironmentObject var calendarVM: CalendarVM
+    @StateObject var calendarVM = CalendarVM()
 
     var body: some View {
         ZStack {
@@ -46,10 +45,15 @@ struct CalendarView: View {
                 }
             }
         }
+        .onAppear {
+            Task {
+                try await calendarVM.updateMonthlyLogs(date: .now)
+            }
+        }
+        .environmentObject(calendarVM)
     }
 }
 
 #Preview {
     CalendarView()
-		.environmentObject(CalendarVM())
 }
