@@ -58,6 +58,7 @@ struct AlertView: View {
         .background(Color.gray.opacity(0.7))
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     var submitButton: some View {
         Button {
@@ -104,6 +105,8 @@ struct AlertView: View {
     }
 =======
 >>>>>>> 247afaff37f2a91312f2c7d69e5d7375b12c8493
+=======
+>>>>>>> efa5edf07a77692b85f4df2181e7aa8c0393209d
 }
 
 #Preview {

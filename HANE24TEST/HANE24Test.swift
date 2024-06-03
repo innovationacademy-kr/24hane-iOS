@@ -9,6 +9,7 @@ import XCTest
 @testable import Hane
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 let emptyJsonData = """
   {
 	"login": "hoslim",
@@ -82,6 +83,9 @@ final class HaneCalendarTest: XCTestCase {
 =======
 final class CalendarTest: XCTestCase {
 >>>>>>> 247afaff37f2a91312f2c7d69e5d7375b12c8493
+=======
+final class CalendarTest: XCTestCase {
+>>>>>>> efa5edf07a77692b85f4df2181e7aa8c0393209d
 
 	// CalendarVM 객체
 	var sut: CalendarVM!
