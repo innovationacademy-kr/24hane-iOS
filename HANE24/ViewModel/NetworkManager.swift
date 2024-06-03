@@ -21,6 +21,7 @@ protocol NetworkProtocol {
 	var apiRoot: String { get }
 
     func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type?) async throws -> T? where T: Decodable
+    func apiRequest(_ urlPath: String, _ method: RequestMethod) async throws
 }
 
 class NetworkManager: NetworkProtocol {

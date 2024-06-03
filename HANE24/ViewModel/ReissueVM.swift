@@ -49,7 +49,7 @@ class ReissueVM: ReissueProtocol {
 	func requestReissue() async throws {
 		let url = URL(string: "/v2/reissue/request")!
 		do {
-			try await network.postRequest(url.absoluteString)
+            try await network.apiRequest(url.absoluteString, .post)
 		} catch {
 			throw MyError.tokenExpired("get new token!")
 		}
@@ -58,7 +58,7 @@ class ReissueVM: ReissueProtocol {
 	func finishReissue() async throws {
 		let url = URL(string: "/v2/reissue/finish")!
 		do {
-			try await network.patchRequest(url.absoluteString)
+            try await network.apiRequest(url.absoluteString, .patch)
 		} catch {
 			throw MyError.tokenExpired("get new token!")
 		}
@@ -66,7 +66,7 @@ class ReissueVM: ReissueProtocol {
 
 	func getReissueStatus() async throws {
 		let url = URL(string: "/v2/reissue")!
-		guard let state = try await network.getRequest(url.absoluteString, type: ReissueState.self) else {
+        guard let state = try await network.apiRequest(url.absoluteString, .get, type: ReissueState.self) else {
 			fatalError("ReissueVM - getReissueStatus")
 		}
 		switch state.state {
