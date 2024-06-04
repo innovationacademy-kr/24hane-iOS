@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DisplaySettingDataProtocol {
-    var displaySettig: DisplaySettingModel { get }
+    var displaySettig: DisplaySettingModel { get set }
 }
 
 protocol DisplaySettingLogicProtocol {
