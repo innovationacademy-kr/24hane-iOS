@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeaderView: View {
+struct HomeHeaderView: View {
 	@Environment(\.colorScheme) var colorScheme
     @ObservedObject var homeManager: HomeVM
 
@@ -62,5 +62,5 @@ struct HeaderView: View {
 #Preview {
     @StateObject var homeVM = HomeVM()
     
-    return HeaderView(homeManager: homeVM)
+    return HomeHeaderView(homeManager: homeVM)
 }

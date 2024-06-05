@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var hane: Hane
-	@EnvironmentObject var calendar: CalendarVM
+  
     @StateObject var homeVM = HomeVM()
     @ObservedObject var errorHandler = ErrorHandler.shared
 
@@ -42,7 +42,6 @@ struct MainView: View {
                 do {
 //                    try await hane.refresh()
                     try await homeVM.refresh()
-					try await calendar.updateMonthlyLogs(date: .now)
                 } catch {
                     print("error on MainView \(error.localizedDescription)")
                     print("error: ", error)
