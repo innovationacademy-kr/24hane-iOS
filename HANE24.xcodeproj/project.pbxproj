@@ -42,11 +42,7 @@
 		0ED6E3FF2B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
 		0ED6E4002B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
 		0EE06CBD2BB2819500B4988C /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBC2BB2819500B4988C /* HomeVM.swift */; };
-<<<<<<< HEAD
-		0EE06CBF2BB2AD4C00B4988C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */; };
-=======
 		0EE06CBF2BB2AD4C00B4988C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBE2BB2AD4C00B4988C /* HomeHeaderView.swift */; };
->>>>>>> dev
 		0EE06CC12BB2B2EB00B4988C /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
 		0EE58198299CC74C00EE3351 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58197299CC74C00EE3351 /* ReissuanceView.swift */; };
@@ -155,11 +151,7 @@
 		0ED6E4032B3559B80026E69D /* 24HANE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 24HANE.entitlements; sourceTree = "<group>"; };
 		0ED6E4042B3559DF0026E69D /* HANE24WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HANE24WidgetExtension.entitlements; sourceTree = "<group>"; };
 		0EE06CBC2BB2819500B4988C /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		0EE06CBE2BB2AD4C00B4988C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-=======
 		0EE06CBE2BB2AD4C00B4988C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
->>>>>>> dev
 		0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0EE58197299CC74C00EE3351 /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
@@ -642,12 +634,9 @@
 				D6E780CE2BCD030200FB547D /* Tapbar.swift in Sources */,
 				D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */,
 				9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */,
-<<<<<<< HEAD
 				0ECF97A82BEDE8EA00C37095 /* ErrorHandler.swift in Sources */,
-=======
 				D6E780D42BCD04AB00FB547D /* ReissueButton.swift in Sources */,
 				D6AECA262BECCBF5009A8018 /* AccTimeCardsView.swift in Sources */,
->>>>>>> dev
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
 				0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */,
