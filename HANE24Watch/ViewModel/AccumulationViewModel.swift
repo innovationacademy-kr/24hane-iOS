@@ -23,7 +23,7 @@ protocol AccumulationViewModelProtocol: ObservableObject {
 class AccumulationViewModel: AccumulationViewModelProtocol {
     let data: AccumulationDataProtocol
     let api: AccumulationApiProtocol
-
+    
     init(data: AccumulationData, api: AccumulationApi) {
         self.data = data
         self.api = api
@@ -36,6 +36,16 @@ class AccumulationData: AccumulationDataProtocol {
 
 class AccumulationApi: AccumulationApiProtocol {
     func fetchAccumulationData() {
-        // API 호출 로직 구현
+        NetworkModel.shared.apiRequest("", .get, type: String.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print("Error: \(error)")
+                case .finished:
+                    break
+                }
+            }, receiveValue: { value in
+                print(value)
+            })
     }
 }
