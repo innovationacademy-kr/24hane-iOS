@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var hane: Hane
-  
     @StateObject var homeVM = HomeVM()
     @ObservedObject var errorHandler = ErrorHandler.shared
 
@@ -40,7 +39,6 @@ struct MainView: View {
             .accentColor(Theme.toolBarIconColor(forScheme: colorScheme))
             .task {
                 do {
-//                    try await hane.refresh()
                     try await homeVM.refresh()
                 } catch {
                     print("error on MainView \(error.localizedDescription)")

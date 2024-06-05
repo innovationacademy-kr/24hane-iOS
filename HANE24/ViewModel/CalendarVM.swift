@@ -77,9 +77,10 @@ class CalendarVM:  CalendarProtocol {
 		let month = URLQueryItem(name: "month", value: "\(month)")
 		components.queryItems = [year, month]
 
-		guard let perMonth = try await network.getRequest(components.url!.absoluteString, type: PerMonth.self) else {
-			fatalError("CalendarVM - getPerMonth")
-		}
+        guard let perMonth = try await network.apiRequest(components.url!.absoluteString, .get, type: PerMonth.self) else {
+            fatalError("CalendarVM - getPerMonth")
+        }
+
 		return perMonth
 	}
 

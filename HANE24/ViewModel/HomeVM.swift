@@ -51,8 +51,8 @@ class HomeVM: ObservableObject {
 	@MainActor
 	func updateAccumulationTimes() async {
         do {
-            guard let accTimes = try await NetworkManager.shared.getRequest("/v3/tag-log/accumulationTimes", type: AccumulationTimes.self) else {
-                throw CustomError.responseBodyEmpty
+          guard let accTimes = try await NetworkManager.shared.apiRequest("/v3/tag-log/accumulationTimes", .get, type: AccumulationTimes.self) else {
+            throw MyError.tokenExpired("")
             }
             self.accumulationTimes = accTimes
             self.dailyAccumulationTime = accTimes.todayAccumulationTime
@@ -65,9 +65,9 @@ class HomeVM: ObservableObject {
 	@MainActor
     func updateMainInfo() async {
         do {
-            guard let mainInfo = try await NetworkManager.shared.getRequest("/v3/tag-log/maininfo", type: MainInfo.self) else {
-                throw MyError.tokenExpired("")
-            }
+             guard let mainInfo = try await NetworkManager.shared.apiRequest("/v3/tag-log/maininfo", .get, type: MainInfo.self) else {
+			        throw MyError.tokenExpired("")
+	      }
             self.mainInfo = mainInfo
             self.isInCluster = mainInfo.inoutState == "IN"
             self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
