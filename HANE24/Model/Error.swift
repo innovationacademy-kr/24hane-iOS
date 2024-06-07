@@ -2,16 +2,11 @@
 //  Error.swift
 //  24HANE
 //
-<<<<<<< HEAD
-//  Created by Katherine JANG on 5/10/24.
-=======
 //  Created by Hosung Lim on 5/8/24.
->>>>>>> dev
 //
 
 import Foundation
 
-<<<<<<< HEAD
 enum CustomError: Error {
     case tokenExpired
     case wrongQueryType
@@ -77,7 +72,6 @@ extension CustomError: LocalizedError {
     }
 }
 
-=======
 // API 처리에 대한 실패
 enum ReissueError: Error {
     case tokenExpired(String)
@@ -96,4 +90,3 @@ enum NetworkError: Error {
     case tokenExpired(String)
     case networkError(Int, String)
 }
->>>>>>> dev
