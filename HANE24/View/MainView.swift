@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var hane: Hane
     @StateObject var homeVM = HomeVM()
+    @ObservedObject var errorHandler = ErrorHandler.shared
 
     @State var selection = 1
     @Environment(\.colorScheme) var colorScheme
@@ -41,6 +42,7 @@ struct MainView: View {
                     try await homeVM.refresh()
                 } catch {
                     print("error on MainView \(error.localizedDescription)")
+                    print("error: ", error)
                 }
             }
 
@@ -50,6 +52,15 @@ struct MainView: View {
                 NoticeView(showNotice: $isNoticedTagLatencyInfo, notice: hane.tagLatencyNotice)
             }
         }
+        .alert(
+           "에러가 발생했어요",
+           isPresented: $errorHandler.showAlert) {
+           Button("확인") {
+               errorHandler.errorType = CustomError.none
+           }
+       } message: {
+           Text(errorHandler.errorType.recoverySuggestion ?? "개발팀에 문의해주세요")
+       }
     }
 }
 

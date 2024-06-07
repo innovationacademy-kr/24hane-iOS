@@ -25,6 +25,8 @@
 		0E9868252B2B6C0B00E127DC /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9868242B2B6C0B00E127DC /* CalendarHeaderView.swift */; };
 		0E9868272B2B76BE00E127DC /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9868262B2B76BE00E127DC /* CalendarBodyView.swift */; };
 		0EBBF14E29B08D580076AAB9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBBF14D29B08D580076AAB9 /* ErrorView.swift */; };
+		0ECF97A62BEDE7CB00C37095 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF97A52BEDE7CB00C37095 /* Error.swift */; };
+		0ECF97A82BEDE8EA00C37095 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF97A72BEDE8EA00C37095 /* ErrorHandler.swift */; };
 		0ED6E3E32B354D320026E69D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED6E3E22B354D310026E69D /* WidgetKit.framework */; };
 		0ED6E3E52B354D320026E69D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED6E3E42B354D320026E69D /* SwiftUI.framework */; };
 		0ED6E3E82B354D320026E69D /* HANE24WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3E72B354D320026E69D /* HANE24WidgetBundle.swift */; };
@@ -134,6 +136,8 @@
 		0E9868242B2B6C0B00E127DC /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		0E9868262B2B76BE00E127DC /* CalendarBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBodyView.swift; sourceTree = "<group>"; };
 		0EBBF14D29B08D580076AAB9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		0ECF97A52BEDE7CB00C37095 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		0ECF97A72BEDE8EA00C37095 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		0ED6E3E12B354D310026E69D /* HANE24WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HANE24WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED6E3E22B354D310026E69D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		0ED6E3E42B354D320026E69D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -360,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF730F5299E074800AF2E53 /* Structs.swift */,
+				0ECF97A52BEDE7CB00C37095 /* Error.swift */,
 				9AF730FC299F602D00AF2E53 /* JSONs.swift */,
 				D68CC3E72BCC1764008D62E2 /* ReissueModel.swift */,
 				D6E780C82BCCE84300FB547D /* CalendarModel.swift */,
@@ -375,6 +380,7 @@
 				D6C528F72BBECE0700F51A06 /* ReissueVM.swift */,
 				D6185AE02BB3C71800E6944A /* CalendarVM.swift */,
 				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
+				0ECF97A72BEDE8EA00C37095 /* ErrorHandler.swift */,
 				0EE06CBC2BB2819500B4988C /* HomeVM.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
 			);
@@ -628,6 +634,7 @@
 				D6E780CE2BCD030200FB547D /* Tapbar.swift in Sources */,
 				D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */,
 				9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */,
+				0ECF97A82BEDE8EA00C37095 /* ErrorHandler.swift in Sources */,
 				D6E780D42BCD04AB00FB547D /* ReissueButton.swift in Sources */,
 				D6AECA262BECCBF5009A8018 /* AccTimeCardsView.swift in Sources */,
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
@@ -670,6 +677,7 @@
 				D6C528F82BBECE0700F51A06 /* ReissueVM.swift in Sources */,
 				D6E19CF32BEB427B005DF8C3 /* Error.swift in Sources */,
 				9AF730F3299D599300AF2E53 /* TagLogView.swift in Sources */,
+				0ECF97A62BEDE7CB00C37095 /* Error.swift in Sources */,
 				0E0FE5F32BB3E6110050498E /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
