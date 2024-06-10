@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ThisMonthAccTimeCardView: View {
     @EnvironmentObject var hane: Hane
+	@ObservedObject var homeManager: HomeVM
 
     @Binding var isNoticed: Bool
 
@@ -37,11 +38,11 @@ struct ThisMonthAccTimeCardView: View {
                             LoadingAnimation()
                         } else {
                             HStack(alignment: .bottom, spacing: 0) {
-                                Text("\(hane.monthlyAccumulationTime / 3600)")
+                                Text("\(homeManager.accumulationTimes.monthAccumulationTime / 3600)")
                                     .font(.system(size: 20, weight: .bold))
                                 Text("시간 ")
                                     .font(.system(size: 16, weight: .bold))
-                                Text("\(hane.monthlyAccumulationTime % 3600 / 60)")
+                                Text("\(homeManager.accumulationTimes.monthAccumulationTime % 3600 / 60)")
                                     .font(.system(size: 20, weight: .bold))
                                 Text("분")
                                     .font(.system(size: 16, weight: .bold))
@@ -89,6 +90,7 @@ struct ThisMonthAccTimeCardView: View {
                             if hane.loading {
                                 LoadingAnimation()
                             } else {
+								// TODO: hane -> homeVM
                                 HStack(alignment: .bottom, spacing: 0) {
                                     Text("\(hane.thisMonthAcceptedAccumulationTime / 3600)")
                                         .font(.system(size: 20, weight: .bold))
@@ -124,6 +126,6 @@ struct ThisMonthAccTimeCardView: View {
     hane.loading = false
     hane.monthlyAccumulationTime = 34567
     hane.thisMonthAcceptedAccumulationTime = 12345
-    return ThisMonthAccTimeCardView(isNoticed: .constant(false))
+	return ThisMonthAccTimeCardView(homeManager: HomeVM(), isNoticed: .constant(false))
         .environmentObject(hane)
 }

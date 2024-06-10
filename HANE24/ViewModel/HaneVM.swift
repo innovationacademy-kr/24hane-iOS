@@ -13,14 +13,6 @@ enum MyError: Error {
     case tokenExpired(String)
 }
 
-enum CardState {
-    case none
-    case apply
-    case inProgress
-    case pickUpRequested
-    case done
-}
-
 class Hane: ObservableObject {
     /// 기본정보
     @Published var isInCluster: Bool
@@ -80,31 +72,13 @@ class Hane: ObservableObject {
         self.loginID = ""
         self.clusterPopulation = 0
 
-        self.fundInfoNotice = Notice(title: "", content: "")
-        self.tagLatencyNotice = Notice(title: "", content: "")
+        self.fundInfoNotice = Notice()
+        self.tagLatencyNotice = Notice()
 
         self.inOutLog = InOutLog(inTimeStamp: nil, outTimeStamp: nil, durationSecond: nil)
         self.perMonth = PerMonth(login: "", profileImage: "", inOutLogs: [], totalAccumulationTime: 0, acceptedAccumulationTime: 0)
-        self.mainInfo = MainInfo(
-            login: "",
-            profileImage: "",
-            isAdmin: false,
-            inoutState: "",
-            tagAt: nil,
-            gaepo: 0,
-            infoMessages:
-                InfoMessages(
-                    fundInfoNotice: InfoMessage(title: "", content: ""),
-                    tagLatencyNotice: InfoMessage(title: "", content: "")
-                )
-        )
-        self.accumulationTimes = AccumulationTimes(
-            todayAccumulationTime: 0,
-            monthAccumulationTime: 0,
-            sixWeekAccumulationTime: Array(repeating: 0, count: 6),
-            sixMonthAccumulationTime: Array(repeating: 0, count: 6),
-            monthlyAcceptedAccumulationTime: 0
-        )
+        self.mainInfo = MainInfo()
+        self.accumulationTimes = AccumulationTimes()
 
         self.APIroot = "https://" + (Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")
         self.reissueState = .none
@@ -117,17 +91,6 @@ class Hane: ObservableObject {
             if let lastTag = self.lastTag {
                 self.dailyAccumulationTime += (Date.now.millisecondsSince1970 - lastTag.millisecondsSince1970) / 1000
             }
-        }
-    }
-
-    @MainActor
-    func refresh() async throws {
-        do {
-            try await updateMainInfo()
-            try await updateAccumulationTime()
-            try await updateMonthlyLogs(date: selectedDate)
-        } catch {
-            self.isSignIn = false
         }
     }
 
@@ -168,95 +131,6 @@ extension Hane {
             self.reissueState = .done
         }
     }
-
-    @MainActor
-    func updateMainInfo() async throws {
-        self.loading = true
-
-        try await callMainInfo()
-
-        self.loginID = mainInfo.login
-        self.profileImage = mainInfo.profileImage
-        self.isInCluster = mainInfo.inoutState == "IN" ? true : false
-        self.clusterPopulation = mainInfo.gaepo
-
-        self.fundInfoNotice = Notice(
-            title: mainInfo.infoMessages.fundInfoNotice.title,
-            content: mainInfo.infoMessages.fundInfoNotice.content
-        )
-        self.tagLatencyNotice = Notice(
-            title: mainInfo.infoMessages.tagLatencyNotice.title,
-            content: mainInfo.infoMessages.tagLatencyNotice.content
-        )
-
-        // 실시간 이용시간 계산용 마지막 태그 시각
-        if let tagAt = mainInfo.tagAt {
-            let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "en_US_POSIX")
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            self.lastTag = formatter.date(from: tagAt)
-        }
-
-        self.loading = false
-    }
-
-    @MainActor
-    func updateAccumulationTime() async throws {
-        self.loading = true
-
-        try await callAccumulationTimes()
-
-        self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
-        self.monthlyAccumulationTime = self.accumulationTimes.monthAccumulationTime
-        self.sixWeekAccumulationTime = self.accumulationTimes.sixWeekAccumulationTime
-        self.sixMonthAccumulationTime = self.accumulationTimes.sixMonthAccumulationTime
-        self.thisMonthAcceptedAccumulationTime = self.accumulationTimes.monthlyAcceptedAccumulationTime
-
-        // 만약 클러스터 상주중이라면 실시간 이용시간에 현재시간 - 마지막태그시간 값 더해주기
-        if self.isInCluster, let lastTag = self.lastTag {
-            self.dailyAccumulationTime += (Date.now.millisecondsSince1970 - lastTag.millisecondsSince1970) / 1000
-        }
-
-        self.loading = false
-
-        WidgetCenter.shared.reloadAllTimelines()
-    }
-    /**
-     fetch
-     if isLogExist
-        if needUpdate
-            apicall
-        else
-            -
-     else
-        apicall
-     */
-    @MainActor
-	func updateMonthlyLogs(date: Date = .now) async throws {
-        // update MonthlyLogs
-        self.loading = true
-
-        try await callPerMonth(year: date.yearToInt, month: date.monthToInt)
-
-        self.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
-            Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
-        }
-
-        // update Daily Total Accumulation Times (CalendarView)
-        self.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
-        for dailyLog in monthlyLogs {
-            var sum: Int64 = 0
-            for log in dailyLog.value {
-                sum += log.durationSecond ?? 0
-            }
-            self.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
-        }
-
-        self.monthlyTotalAccumulationTime = self.perMonth.totalAccumulationTime
-        self.monthlyAcceptedAccumulationTime = self.perMonth.acceptedAccumulationTime
-
-        self.loading = false
-    }
 }
 
 // Call APIs
@@ -285,85 +159,10 @@ extension Hane {
         }
     }
 
-    private func callJsonAsync<T>(_ url: String, type: T.Type) async throws -> T where T: Decodable {
-        guard let url = URL(string: url) else {
-            fatalError("MissingURL")
-        }
-        guard let token = UserDefaults.standard.string(forKey: "Token") else {
-            fatalError("UnValid Token")
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = [
-            "Authorization": "Bearer \(String(describing: token) )"
-        ]
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            throw MyError.tokenExpired("get new token!")
-        }
-        let decodedData =  try JSONDecoder().decode(type.self, from: data)
-        return decodedData
-    }
-
-    func postJsonAsync() async throws {
-        let urlString = APIroot + "/v2/reissue/request"
-        guard let url = URL(string: urlString) else {
-            fatalError("missingURL")
-        }
-        guard let token = UserDefaults.standard.string(forKey: "Token") else {
-            fatalError("UnValid Token")
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = [
-            "Authorization": "Bearer \(String(describing: token) )"
-        ]
-
-        let (_, response) = try await URLSession.shared.data(for: request)
-        guard (response as? HTTPURLResponse)?.statusCode == 201 else {
-            throw MyError.tokenExpired("get new token!")
-        }
-    }
-
-    func patchJsonAsync() async throws {
-        let urlString = APIroot + "/v2/reissue/finish"
-        guard let url = URL(string: urlString) else {
-            fatalError("missingURL")
-        }
-        guard let token = UserDefaults.standard.string(forKey: "Token") else {
-            fatalError("UnValid Token")
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "PATCH"
-        request.allHTTPHeaderFields = [
-            "Authorization": "Bearer \(String(describing: token) )"
-        ]
-
-        let (_, response) = try await URLSession.shared.data(for: request)
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            throw MyError.tokenExpired("get new token!")
-        }
-    }
-
-    func callAccumulationTimes() async throws {
-        self.accumulationTimes = try await callJsonAsync(APIroot + "/v3/tag-log/accumulationTimes", type: AccumulationTimes.self)
-    }
-
-    func callMainInfo() async throws {
-        self.mainInfo = try await callJsonAsync(APIroot + "/v3/tag-log/maininfo", type: MainInfo.self)
-    }
-
-    func callPerMonth(year: Int, month: Int) async throws {
-        var components = URLComponents(string: APIroot + "/v3/tag-log/getAllTagPerMonth")!
-        let year = URLQueryItem(name: "year", value: "\(year)")
-        let month = URLQueryItem(name: "month", value: "\(month)")
-        components.queryItems = [year, month]
-
-        self.perMonth = try await callJsonAsync(components.url!.absoluteString, type: PerMonth.self)
-    }
-
     func callReissue() async throws {
-        self.cardReissueState = try await callJsonAsync(APIroot + "/v2/reissue", type: ReissueState.self)
+        guard let reissueState = try await NetworkManager.shared.apiRequest(APIroot + "/v2/reissue", .get, type: ReissueState.self) else {
+            return
+        }
+        self.cardReissueState = reissueState
     }
 }

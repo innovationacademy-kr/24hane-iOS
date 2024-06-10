@@ -27,7 +27,8 @@ struct CalendarBodyView: View {
                 if !picker {
                     CalendarGridView(picker: $picker)
                 } else {
-                    ZStack {
+                    VStack {
+                        // TODO: 이 코드는 어떤 의도인지?
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(.backgroundCalendar)
 
@@ -37,10 +38,13 @@ struct CalendarBodyView: View {
                             in: dateRange,
                             displayedComponents: [.date])
                         .datePickerStyle(WheelDatePickerStyle())
+                        .frame(maxWidth: 100)
+                        .padding(0)
+
                     }
-                    .frame(maxWidth: 100)
                 }
             }
+            .frame(minHeight: 240)
         }
         .onChange(of: picker) { pickerState in
             if !pickerState {
@@ -53,5 +57,4 @@ struct CalendarBodyView: View {
 #Preview {
     CalendarBodyView(datePickerSelection: Date())
 		.environmentObject(CalendarVM())
-//        .environmentObject(Hane())
 }

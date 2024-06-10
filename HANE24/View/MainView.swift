@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var hane: Hane
-	@EnvironmentObject var calendar: CalendarVM
+    @StateObject var homeVM = HomeVM()
+    @ObservedObject var errorHandler = ErrorHandler.shared
 
     @State var selection = 1
     @Environment(\.colorScheme) var colorScheme
@@ -20,7 +21,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                HomeView(fundInfo: $isNoticedFundInfo, tagLatencyInfo: $isNoticedTagLatencyInfo)
+                HomeView(homeManager: homeVM, isNoticedFundInfo: $isNoticedFundInfo, isNoticedTagLatencyInfo: $isNoticedTagLatencyInfo)
                     .tabItem({
                         Image(selection == 1 ? "selectedHome" : "home").renderingMode(.template)
                     }) .tag(1)
@@ -39,10 +40,10 @@ struct MainView: View {
             .task {
                 print("refresh")
                 do {
-                    try await hane.refresh()
-					try await calendar.updateMonthlyLogs(date: .now)
+                    try await homeVM.refresh()
                 } catch {
                     print("error on MainView \(error.localizedDescription)")
+                    print("error: ", error)
                 }
             }
 
@@ -52,6 +53,15 @@ struct MainView: View {
                 NoticeView(showNotice: $isNoticedTagLatencyInfo, notice: hane.tagLatencyNotice)
             }
         }
+        .alert(
+           "에러가 발생했어요",
+           isPresented: $errorHandler.showAlert) {
+           Button("확인") {
+               errorHandler.errorType = CustomError.none
+           }
+       } message: {
+           Text(errorHandler.errorType.recoverySuggestion ?? "개발팀에 문의해주세요")
+       }
     }
 }
 
