@@ -25,12 +25,11 @@ jobs:
         with:
           timezoneMacos: "Asia/Seoul"
 
-      # - name: Install pods
-      #   run: |
-      #       touch ./env.xcconfig
-      #       echo ${{ secrets.API_URL }} >> ./env.xcconfig
-      #       pod install --repo-update --clean-install
-      #   shell: bash
+      - name: Setting env
+        run: |
+          touch ./env.xcconfig
+          echo ${{ secrets.API_URL }} >> ./env.xcconfig
+        shell: bash
 
       - name: Select Xcode Version
         run: sudo xcode-select -s /Applications/Xcode_15.0.app
@@ -38,7 +37,7 @@ jobs:
       - name: Run Test
         run: |
           set -o pipefail && \
-          xcodebuild -workspace ./HANE24.xcworkspace \
+          xcodebuild -project ./HANE24.xcodeproj \
           -scheme 24HANE \
           -destination 'platform=iOS Simulator,name=iPhone 14 Pro' \
           -resultBundlePath TestResults test | xcbeautify
