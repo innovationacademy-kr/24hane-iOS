@@ -19,16 +19,16 @@ class ErrorHandler: ObservableObject {
 
     private init() { }
 
-    func errorFromHttpRequest(_ statusCode: Int?) throws {
+    func errorFromHttpRequest(_ statusCode: Int?) -> CustomError {
         switch statusCode {
         case 400:
-            throw CustomError.wrongQueryType
+            return CustomError.wrongQueryType
         case 401:
-            throw CustomError.unAuthorized
+            return CustomError.unAuthorized
         case 500:
-            throw CustomError.internalServer
+            return CustomError.internalServer
         default:
-            throw CustomError.unknownError("\(statusCode)")
+            return CustomError.unknownError("\(statusCode)")
         }
     }
 

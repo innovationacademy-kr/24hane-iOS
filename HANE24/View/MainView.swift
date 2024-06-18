@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var hane: Hane
-    @StateObject var homeVM = HomeVM()
     @ObservedObject var errorHandler = ErrorHandler.shared
 
     @State var selection = 1
     @Environment(\.colorScheme) var colorScheme
 
-    @State var isNoticedFundInfo: Bool = false
-    @State var isNoticedTagLatencyInfo: Bool = false
 
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                HomeView(homeManager: homeVM, isNoticedFundInfo: $isNoticedFundInfo, isNoticedTagLatencyInfo: $isNoticedTagLatencyInfo)
+                HomeView(isNoticedFundInfo: $isNoticedFundInfo, isNoticedTagLatencyInfo: $isNoticedTagLatencyInfo)
                     .tabItem({
                         Image(selection == 1 ? "selectedHome" : "home").renderingMode(.template)
                     }) .tag(1)
@@ -46,11 +42,11 @@ struct MainView: View {
                 }
             }
 
-            if isNoticedFundInfo {
-                NoticeView(showNotice: $isNoticedFundInfo, notice: hane.fundInfoNotice)
-            } else if isNoticedTagLatencyInfo {
-                NoticeView(showNotice: $isNoticedTagLatencyInfo, notice: hane.tagLatencyNotice)
-            }
+//            if isNoticedFundInfo {
+//                NoticeView(showNotice: $isNoticedFundInfo, notice: hane.fundInfoNotice)
+//            } else if isNoticedTagLatencyInfo {
+//                NoticeView(showNotice: $isNoticedTagLatencyInfo, notice: hane.tagLatencyNotice)
+//            }
         }
         .alert(
            "에러가 발생했어요",

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeVM: ObservableObject {
+class HomeViewModel: ObservableObject {
     @Published var isInCluster: Bool
 
 	@Published var fundInfoNotice: InfoMessage
@@ -30,7 +30,7 @@ class HomeVM: ObservableObject {
         self.fundInfoNotice = InfoMessage()
 		self.tagLatencyNotice = InfoMessage( )
 
-		self.isLoading = false
+		self.isLoading = true
 
 		self.mainInfo = MainInfo()
 
@@ -82,5 +82,35 @@ class HomeVM: ObservableObject {
     func refresh() async throws {
         await self.updateMainInfo()
         await self.updateAccumulationTimes()
+        self.isLoading = false
+    }
+    
+    func getWeeklyPeriod() -> [String] {
+        var weeklyPeriod: [String] = []
+        var date = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "M.dd(EEE)"
+        for _ in 0..<6 {
+            let startDay = formatter.string(from: date.startOfWeek!)
+            let endDay = formatter.string(from: date.endOfWeek!)
+            let period = startDay + " - " + endDay
+            weeklyPeriod.append(period)
+            date = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: date)!
+        }
+        return weeklyPeriod
+    }
+    
+    func getMonthlyPeriod() -> [String] {
+        var monthlyPeriod: [String] = []
+        var date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY.M"
+        for _ in 0..<6 {
+            let period = formatter.string(from: date)
+            monthlyPeriod.append(period)
+            date = Calendar.current.date(byAdding: .month, value: -1, to: date)!
+        }
+        return monthlyPeriod
     }
 }

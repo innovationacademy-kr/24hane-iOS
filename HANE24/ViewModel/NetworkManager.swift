@@ -52,8 +52,9 @@ class NetworkManager: NetworkProtocol {
         ]
         
         let (data, response) = try await session.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw MyError.tokenExpired("request Failed")
+        let statusCode = (response as? HTTPURLResponse)?.statusCode
+        guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+            throw ErrorHandler.shared.errorFromHttpRequest(statusCode)
         }
 
         if let type = type {
@@ -80,8 +81,9 @@ class NetworkManager: NetworkProtocol {
         ]
         
         let (_, response) = try await session.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw MyError.tokenExpired("request Failed")
+        let statusCode = (response as? HTTPURLResponse)?.statusCode
+        guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+            throw ErrorHandler.shared.errorFromHttpRequest(statusCode)
         }
     }
 }

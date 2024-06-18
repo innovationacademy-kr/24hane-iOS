@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E0FE5F32BB3E6110050498E /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */; };
-		0E0FE5F42BB3E6180050498E /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */; };
 		0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F2299A285B001E5EED /* HANE24App.swift */; };
 		0E1654F5299A285B001E5EED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1654F4299A285B001E5EED /* ContentView.swift */; };
 		0E1654F7299A285E001E5EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1654F6299A285E001E5EED /* Assets.xcassets */; };
@@ -19,6 +18,12 @@
 		0E16550E299A5887001E5EED /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550D299A5887001E5EED /* MainView.swift */; };
 		0E165510299A5A82001E5EED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16550F299A5A82001E5EED /* HomeView.swift */; };
 		0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */; };
+		0E30891A2C216C1300987D29 /* BackgroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3089192C216C1300987D29 /* BackgroundTheme.swift */; };
+		0E30891D2C216CF400987D29 /* AccTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E30891C2C216CF400987D29 /* AccTimeView.swift */; };
+		0E30891F2C216DFA00987D29 /* AccTimeAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E30891E2C216DFA00987D29 /* AccTimeAnalyticsView.swift */; };
+		0E3089222C2173EB00987D29 /* RotateChevronModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3089212C2173EB00987D29 /* RotateChevronModifier.swift */; };
+		0E3089242C217BBB00987D29 /* FoldableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3089232C217BBB00987D29 /* FoldableView.swift */; };
+		0E3089262C217FB000987D29 /* TimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3089252C217FB000987D29 /* TimeRow.swift */; };
 		0E3B32A929A3815B001D10BF /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B32A829A3815B001D10BF /* SignInWebView.swift */; };
 		0E3ED8A82BB13727001B0BAE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */; };
 		0E6B608F29AC850D009D8BC4 /* NetworkMonitoringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */; };
@@ -41,7 +46,7 @@
 		0ED6E3FC2B354DFC0026E69D /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FA2B354DFC0026E69D /* HANE24WidgetConstant.swift */; };
 		0ED6E3FF2B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
 		0ED6E4002B354E670026E69D /* AccumulationTimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */; };
-		0EE06CBD2BB2819500B4988C /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBC2BB2819500B4988C /* HomeVM.swift */; };
+		0EE06CBD2BB2819500B4988C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBC2BB2819500B4988C /* HomeViewModel.swift */; };
 		0EE06CBF2BB2AD4C00B4988C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CBE2BB2AD4C00B4988C /* HomeHeaderView.swift */; };
 		0EE06CC12BB2B2EB00B4988C /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */; };
 		0EE58193299CC24000EE3351 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE58192299CC24000EE3351 /* MoreView.swift */; };
@@ -128,6 +133,12 @@
 		0E16550D299A5887001E5EED /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0E16550F299A5A82001E5EED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationView.swift; sourceTree = "<group>"; };
+		0E3089192C216C1300987D29 /* BackgroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTheme.swift; sourceTree = "<group>"; };
+		0E30891C2C216CF400987D29 /* AccTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeView.swift; sourceTree = "<group>"; };
+		0E30891E2C216DFA00987D29 /* AccTimeAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeAnalyticsView.swift; sourceTree = "<group>"; };
+		0E3089212C2173EB00987D29 /* RotateChevronModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateChevronModifier.swift; sourceTree = "<group>"; };
+		0E3089232C217BBB00987D29 /* FoldableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableView.swift; sourceTree = "<group>"; };
+		0E3089252C217FB000987D29 /* TimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRow.swift; sourceTree = "<group>"; };
 		0E3B32A729A37D3C001D10BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0E3B32A829A3815B001D10BF /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
 		0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -149,7 +160,7 @@
 		0ED6E3FE2B354E670026E69D /* AccumulationTimeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationTimeStruct.swift; sourceTree = "<group>"; };
 		0ED6E4032B3559B80026E69D /* 24HANE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 24HANE.entitlements; sourceTree = "<group>"; };
 		0ED6E4042B3559DF0026E69D /* HANE24WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HANE24WidgetExtension.entitlements; sourceTree = "<group>"; };
-		0EE06CBC2BB2819500B4988C /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		0EE06CBC2BB2819500B4988C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0EE06CBE2BB2AD4C00B4988C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		0EE06CC02BB2B2EB00B4988C /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		0EE58192299CC24000EE3351 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
@@ -270,6 +281,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0E3089202C21700C00987D29 /* AccTimeViewComponenets */ = {
+			isa = PBXGroup;
+			children = (
+				0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */,
+				9A1A4BED299ADE650076D650 /* TodayAccTimeCardView.swift */,
+				0E3089232C217BBB00987D29 /* FoldableView.swift */,
+				0E3089252C217FB000987D29 /* TimeRow.swift */,
+				0E3089212C2173EB00987D29 /* RotateChevronModifier.swift */,
+				2B1326102B2821E600301A8B /* ThisMonthAccTimeCardView.swift */,
+				0E30891C2C216CF400987D29 /* AccTimeView.swift */,
+			);
+			path = AccTimeViewComponenets;
+			sourceTree = "<group>";
+		};
 		0ED6E3E62B354D320026E69D /* HANE24Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,14 +311,14 @@
 		0EE5818F299CC01D00EE3351 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0E3089202C21700C00987D29 /* AccTimeViewComponenets */,
+				0E3089192C216C1300987D29 /* BackgroundTheme.swift */,
 				0E16550F299A5A82001E5EED /* HomeView.swift */,
-				9A1A4BED299ADE650076D650 /* TodayAccTimeCardView.swift */,
-				0E0FE5F22BB3E6110050498E /* CircularProgressBar.swift */,
+				0E30891E2C216DFA00987D29 /* AccTimeAnalyticsView.swift */,
 				0E165507299A3C20001E5EED /* ChartView.swift */,
 				0E16550B299A3DF6001E5EED /* ChartDetailView.swift */,
 				0EE06CBE2BB2AD4C00B4988C /* HomeHeaderView.swift */,
 				0E17EFA9299B5C0A0089BCD8 /* PopulationView.swift */,
-				2B1326102B2821E600301A8B /* ThisMonthAccTimeCardView.swift */,
 				2B1326122B285B1D00301A8B /* NoticeView.swift */,
 			);
 			path = Home;
@@ -375,7 +400,7 @@
 				D6185AE02BB3C71800E6944A /* CalendarVM.swift */,
 				0E3ED8A72BB13727001B0BAE /* NetworkManager.swift */,
 				0ECF97A72BEDE8EA00C37095 /* ErrorHandler.swift */,
-				0EE06CBC2BB2819500B4988C /* HomeVM.swift */,
+				0EE06CBC2BB2819500B4988C /* HomeViewModel.swift */,
 				0E6B608E29AC850D009D8BC4 /* NetworkMonitoringManager.swift */,
 			);
 			path = ViewModel;
@@ -588,22 +613,26 @@
 				0EFDFD47299F5AF500A911F7 /* DarkMode.swift in Sources */,
 				0E17EFAA299B5C0A0089BCD8 /* PopulationView.swift in Sources */,
 				0E165510299A5A82001E5EED /* HomeView.swift in Sources */,
-				0EE06CBD2BB2819500B4988C /* HomeVM.swift in Sources */,
+				0EE06CBD2BB2819500B4988C /* HomeViewModel.swift in Sources */,
 				0EEB0E2629AE303100FEB700 /* AlertView.swift in Sources */,
 				9AF730F1299D58F100AF2E53 /* AccTimeCardForCalendarView.swift in Sources */,
 				2B1326112B2821E600301A8B /* ThisMonthAccTimeCardView.swift in Sources */,
 				D6E780CE2BCD030200FB547D /* Tapbar.swift in Sources */,
+				0E3089222C2173EB00987D29 /* RotateChevronModifier.swift in Sources */,
 				D68CC3F32BCC1F2A008D62E2 /* ListItemButton.swift in Sources */,
 				9AF730FD299F602D00AF2E53 /* JSONs.swift in Sources */,
+				0E30891D2C216CF400987D29 /* AccTimeView.swift in Sources */,
 				0ECF97A82BEDE8EA00C37095 /* ErrorHandler.swift in Sources */,
 				D6E780D42BCD04AB00FB547D /* ReissueButton.swift in Sources */,
 				D6AECA262BECCBF5009A8018 /* AccTimeCardsView.swift in Sources */,
 				0EE58193299CC24000EE3351 /* MoreView.swift in Sources */,
 				0E16550E299A5887001E5EED /* MainView.swift in Sources */,
+				0E30891A2C216C1300987D29 /* BackgroundTheme.swift in Sources */,
 				0EFAF5BE29A4D97800125948 /* LoadingView.swift in Sources */,
 				0ED6E3F82B354DD00026E69D /* UserDefaultsExtension.swift in Sources */,
 				0ED6E3FB2B354DFC0026E69D /* HANE24WidgetConstant.swift in Sources */,
 				0EFAF5B829A492A500125948 /* SignInView.swift in Sources */,
+				0E3089262C217FB000987D29 /* TimeRow.swift in Sources */,
 				0E6B608F29AC850D009D8BC4 /* NetworkMonitoringManager.swift in Sources */,
 				2B1326132B285B1D00301A8B /* NoticeView.swift in Sources */,
 				0E1654F5299A285B001E5EED /* ContentView.swift in Sources */,
@@ -624,6 +653,7 @@
 				9AF730F8299E2F5000AF2E53 /* CalendarView.swift in Sources */,
 				0ED6E3FF2B354E670026E69D /* AccumulationTimeStruct.swift in Sources */,
 				9A1A4BEE299ADE650076D650 /* TodayAccTimeCardView.swift in Sources */,
+				0E30891F2C216DFA00987D29 /* AccTimeAnalyticsView.swift in Sources */,
 				D6E780D22BCD041300FB547D /* ProgressToReissue.swift in Sources */,
 				D68CC3EC2BCC1DCC008D62E2 /* MoreViewFooter.swift in Sources */,
 				9AF730F6299E074800AF2E53 /* Structs.swift in Sources */,
@@ -634,6 +664,7 @@
 				9AF730FB299F53C700AF2E53 /* HaneVM.swift in Sources */,
 				0E165508299A3C20001E5EED /* ChartView.swift in Sources */,
 				0E1654F3299A285B001E5EED /* HANE24App.swift in Sources */,
+				0E3089242C217BBB00987D29 /* FoldableView.swift in Sources */,
 				0EEB0E2429AE2AF700FEB700 /* CardProgressView.swift in Sources */,
 				D6C528F82BBECE0700F51A06 /* ReissueVM.swift in Sources */,
 				D6E19CF32BEB427B005DF8C3 /* Error.swift in Sources */,
@@ -650,7 +681,6 @@
 				0ED6E4002B354E670026E69D /* AccumulationTimeStruct.swift in Sources */,
 				0ED6E3F92B354DD00026E69D /* UserDefaultsExtension.swift in Sources */,
 				0ED6E3E82B354D320026E69D /* HANE24WidgetBundle.swift in Sources */,
-				0E0FE5F42BB3E6180050498E /* CircularProgressBar.swift in Sources */,
 				0ED6E3EA2B354D320026E69D /* HANE24Widget.swift in Sources */,
 				0ED6E3F52B354DBD0026E69D /* DateExtensions.swift in Sources */,
 				0ED6E3F62B354DC00026E69D /* ColorExtension.swift in Sources */,
