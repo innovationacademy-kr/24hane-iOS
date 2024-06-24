@@ -10,8 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel()
     @State var test: Bool = true
-    @Binding var isNoticedFundInfo: Bool
-    @Binding var isNoticedTagLatencyInfo: Bool
 
     var body: some View {
         ZStack {
@@ -22,7 +20,7 @@ struct HomeView: View {
                 ScrollView {
                     PullToRefresh(coordinateSpaceName: "pullToRefresh") {
                         Task {
-                            try await homeViewModel.refresh()
+                            await homeViewModel.refresh()
                         }
                     }
                     VStack(spacing: 22.5) {
@@ -34,6 +32,9 @@ struct HomeView: View {
                     .padding(EdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 20))
                 } .coordinateSpace(name: "pullToRefresh")
             }
+        }
+        .task {
+            await homeViewModel.refresh()
         }
     }
 }

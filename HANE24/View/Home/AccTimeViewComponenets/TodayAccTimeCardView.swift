@@ -8,33 +8,33 @@
 import SwiftUI
 
 struct TodayAccTimeCardView: View {
-	@ObservedObject var homeManager: HomeViewModel
-
+    @ObservedObject var homeManager: HomeViewModel
+    
     @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
-
+    
     @State var isFold: Bool = true
     @State var drawingStroke = false
-
+    
     @Binding var isNoticed: Bool
-
+    
     let options: [Double] = (4...24).map { Double($0) }
-
+    
     let animation = Animation.easeOut(duration: 0.8).delay(0.1)
-
+    
     var body: some View {
         FoldableView(title: "이용시간",
                      time: homeManager.accumulationTimes.todayAccumulationTime,
                      color: .white,
+                     height: 180,
                      isFold: $isFold) {
             HStack(alignment: .center, spacing: 0) {
                 Text("목표 시간")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.black)
-                    .padding(10)
-                    .padding(.leading, 18)
-
+                //                    .padding(10)
+                
                 Spacer()
-
+                
                 Menu {
                     Picker(selection: $dailySelectionOption) {
                         ForEach(0..<options.count, id: \.self) { times in
@@ -57,8 +57,8 @@ struct TodayAccTimeCardView: View {
                     .foregroundStyle(.black)
                 }
             }
-            .padding(.leading, 10)
-            .padding(.trailing, 14)
+            //            .padding(.leading, 10)
+            //            .padding(.trailing, 14)
             /// Progress Circle
             CircularProgressBar(drawingStroke: $drawingStroke, objectiveTime: options[dailySelectionOption], progressiveTime: Double(homeManager.dailyAccumulationTime))
                 .frame(width: 112, height: 112)
@@ -69,8 +69,6 @@ struct TodayAccTimeCardView: View {
                     drawingStroke = true
                 }
         }
-       
-        .frame(height: isFold ? 80 : 260, alignment: .top)
     }
 }
 

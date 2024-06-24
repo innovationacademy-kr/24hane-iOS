@@ -18,6 +18,7 @@ struct ThisMonthAccTimeCardView: View {
         FoldableView(title: "월 누적 시간",
                      time: homeViewModel.accumulationTimes.monthAccumulationTime,
                      color: Color(hex: "#735BF2"),
+                     height: 120,
                      isFold: $isFold) {
             HStack(spacing: 0) {
                 Button {

@@ -17,7 +17,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                HomeView(isNoticedFundInfo: $isNoticedFundInfo, isNoticedTagLatencyInfo: $isNoticedTagLatencyInfo)
+                HomeView()
                     .tabItem({
                         Image(selection == 1 ? "selectedHome" : "home").renderingMode(.template)
                     }) .tag(1)
@@ -33,14 +33,6 @@ struct MainView: View {
                     }) .tag(3)
             }
             .accentColor(Theme.toolBarIconColor(forScheme: colorScheme))
-            .task {
-                do {
-                    try await homeVM.refresh()
-                } catch {
-                    print("error on MainView \(error.localizedDescription)")
-                    print("error: ", error)
-                }
-            }
 
 //            if isNoticedFundInfo {
 //                NoticeView(showNotice: $isNoticedFundInfo, notice: hane.fundInfoNotice)

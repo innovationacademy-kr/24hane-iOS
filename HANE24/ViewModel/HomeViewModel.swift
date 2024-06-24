@@ -79,7 +79,7 @@ class HomeViewModel: ObservableObject {
 	}
 
     @MainActor
-    func refresh() async throws {
+    func refresh() async {
         await self.updateMainInfo()
         await self.updateAccumulationTimes()
         self.isLoading = false

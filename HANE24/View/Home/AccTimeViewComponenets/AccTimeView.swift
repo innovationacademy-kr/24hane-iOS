@@ -16,10 +16,10 @@ struct AccTimeView: View {
     var body: some View {
         VStack(spacing: 22.5) {
             TodayAccTimeCardView(homeManager: homeViewModel, isNoticed: $isNoticedTagLatencyInfo)
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 20)
             
-            ThisMonthAccTimeCardView(homeManager: homeViewModel, isNoticed: $isNoticedFundInfo)
-                .padding(.horizontal, 30)
+            ThisMonthAccTimeCardView(homeViewModel: homeViewModel, isNoticed: $isNoticedFundInfo)
+                .padding(.horizontal, 20)
         }
     }
 }
