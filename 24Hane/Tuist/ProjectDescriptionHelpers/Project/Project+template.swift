@@ -9,4 +9,9 @@ public extension Project {
     ) -> Project {
         return self.project()
     }
+
+    static func app(
+    ) -> Project {
+        return self.project()
+    }
 }
