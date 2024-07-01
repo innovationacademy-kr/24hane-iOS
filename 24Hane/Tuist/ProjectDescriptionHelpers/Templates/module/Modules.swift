@@ -7,7 +7,7 @@
 
 import ProjectDescription
 
-enum Modules: CaseIterable {
+public enum Modules: CaseIterable {
     case app
     case home
     case calendar
@@ -34,7 +34,7 @@ extension Modules {
         case .network:
             return "NetworkManager"
         case .error:
-            return "HAneError"
+            return "HaneError"
         case .widget:
             return "Widget"
         }
