@@ -28,20 +28,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "73AE3931CC4B18F0FDD028ED"
-               BuildableName = "CalendarDemo.app"
-               BlueprintName = "CalendarDemo"
-               ReferencedContainer = "container:Projects/Features/Calendar/Calendar.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "8B36164494E09CD6962087B9"
                BuildableName = "HANE24.app"
                BlueprintName = "HANE24"
@@ -87,20 +73,6 @@
                BlueprintIdentifier = "52E844066D197E3B81FA748F"
                BuildableName = "Home.framework"
                BlueprintName = "Home"
-               ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "72D0E893F5D9C47A76548325"
-               BuildableName = "HomeDemo.app"
-               BlueprintName = "HomeDemo"
                ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

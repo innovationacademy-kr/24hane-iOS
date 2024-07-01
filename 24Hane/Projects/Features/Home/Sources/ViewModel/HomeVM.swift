@@ -49,38 +49,29 @@ class HomeVM: ObservableObject {
 	}
 
 	@MainActor
-	func updateAccumulationTimes() async {
-        do {
-          guard let accTimes = try await NetworkManager.shared.apiRequest("/v3/tag-log/accumulationTimes", .get, type: AccumulationTimes.self) else {
+	func updateAccumulationTimes() async throws {
+        guard let accTimes = try await NetworkManager.shared.getRequest("/v3/tag-log/accumulationTimes", type: AccumulationTimes.self) else {
             throw MyError.tokenExpired("")
-            }
-            self.accumulationTimes = accTimes
-            self.dailyAccumulationTime = accTimes.todayAccumulationTime
-        } catch {
-            ErrorHandler.shared.handleError(error)
         }
+        self.accumulationTimes = accTimes
+        self.dailyAccumulationTime = accTimes.todayAccumulationTime
 	}
 
     //TODO: 요청한 데이터가 nil일 경우 에러 핸들링
 	@MainActor
-    func updateMainInfo() async {
-        do {
-             guard let mainInfo = try await NetworkManager.shared.apiRequest("/v3/tag-log/maininfo", .get, type: MainInfo.self) else {
-			        throw MyError.tokenExpired("")
-	      }
-            self.mainInfo = mainInfo
-            self.isInCluster = mainInfo.inoutState == "IN"
-            self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
-            self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
-        } catch {
-            print("error caught")
-            ErrorHandler.shared.handleError(error)
-        }
+    func updateMainInfo() async throws {
+		guard let mainInfo = try await NetworkManager.shared.getRequest("/v3/tag-log/maininfo", type: MainInfo.self) else {
+			throw MyError.tokenExpired("")
+		}
+		self.mainInfo = mainInfo
+        self.isInCluster = mainInfo.inoutState == "IN"
+        self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
+        self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
 	}
 
     @MainActor
     func refresh() async throws {
-        await self.updateMainInfo()
-        await self.updateAccumulationTimes()
+        try await self.updateMainInfo()
+        try await self.updateAccumulationTimes()
     }
 }

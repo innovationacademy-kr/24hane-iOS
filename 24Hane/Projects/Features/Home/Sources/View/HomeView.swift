@@ -6,20 +6,12 @@
 //
 
 import SwiftUI
+import HaneCore
 
 struct HomeView: View {
-//    init(homeManageR: HomeVM, fundInfo: Binding<Bool>, tagLatencyInfo: Binding<Bool>) {
-//        //        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.gradientPurple)
-//        //        UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
-//        
-//        self._isNoticedFundInfo = fundInfo
-//        self._isNoticedTagLatencyInfo = tagLatencyInfo
-//        self._
-//    }
 
     @State var test: Bool = true
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var hane: Hane
 
     @ObservedObject var homeManager: HomeVM
 

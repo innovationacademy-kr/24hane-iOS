@@ -33,7 +33,7 @@ struct LoadingAnimation: View {
         HStack(spacing: 6) {
             Circle()
                 .frame(width: 6, height: 6)
-                .foregroundColor(animationTrigger ? Color(hex: "#D9D9D9") : Color(hex: "#735BF2"))
+//                .foregroundColor(animationTrigger ? Color(hex: "#D9D9D9") : Color(hex: "#735BF2"))
                 .animation(changeColor, value: animationTrigger)
             Circle()
                 .frame(width: 6, height: 6)
