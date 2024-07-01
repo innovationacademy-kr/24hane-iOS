@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HaneCore
 
 struct MoreViewFooter: View {
     var body: some View {

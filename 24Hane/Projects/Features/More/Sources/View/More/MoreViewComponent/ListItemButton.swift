@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HaneCore
 
 struct ListItemButton: View {
 	@Environment(\.openURL) private var openURL

@@ -12,9 +12,7 @@ public enum Modules: CaseIterable {
     case home
     case calendar
     case more
-    case utils
-    case network
-    case error
+    case core
     case widget
 }
 
@@ -29,12 +27,8 @@ extension Modules {
             return "Calendar"
         case .more:
             return "More"
-        case .utils:
-            return "HaneUtils"
-        case .network:
-            return "NetworkManager"
-        case .error:
-            return "HaneError"
+        case .core:
+            return "Core"
         case .widget:
             return "Widget"
         }
@@ -50,12 +44,8 @@ extension Modules {
             return "net.HANE24.Calendar"
         case .more:
             return "net.HANE24.More"
-        case .utils:
-            return "net.HANE24.Utils"
-        case .network:
-            return "net.HANE24.Network"
-        case .error:
-            return "net.HANE24.Error"
+        case .core:
+            return "net.HANE24.Core"
         case .widget:
             return "net.HANE24.Widget"
         }
@@ -68,17 +58,13 @@ extension Modules {
         case .app:
             return TargetDependency.project(target: "", path: "")
         case .home:
-            return TargetDependency.project(target: self.name, path: "../Home")
+            return TargetDependency.project(target: self.name, path: .relativeToRoot("Projects/Home"))
         case .calendar:
-            return TargetDependency.project(target: self.name, path: "../Calendar")
+            return TargetDependency.project(target: self.name, path: .relativeToRoot("Projects/Calendar"))
         case .more:
-            return TargetDependency.project(target: self.name, path: "../More")
-        case .utils:
-            return TargetDependency.project(target: self.name, path: "../HaneUtils")
-        case .network:
-            return TargetDependency.project(target: self.name, path: "NetworkManage")
-        case .error:
-            return TargetDependency.project(target: self.name, path: "HaneError")
+            return TargetDependency.project(target: self.name, path: .relativeToRoot("Projects/More"))
+        case .core:
+            return TargetDependency.project(target: self.name, path: .relativeToRoot("Projects/Core"))
         case .widget:
             return TargetDependency.project(target: self.name, path: "Widget")
         }
@@ -91,29 +77,23 @@ extension Modules {
         case .app:
             return []
         case .home:
-            return [Modules.utils.targetDependency,
-                    Modules.network.targetDependency,
-                    Modules.error.targetDependency]
+            return [
+                Modules.core.targetDependency
+            ]
         case .calendar:
-            return [Modules.utils.targetDependency,
-                    Modules.network.targetDependency,
-                    Modules.error.targetDependency]
+            return [
+                Modules.core.targetDependency
+            ]
         case .more:
-            return [Modules.utils.targetDependency,
-                    Modules.network.targetDependency,
-                    Modules.error.targetDependency]
-        case .utils:
+            return [
+                Modules.core.targetDependency
+            ]
+        case .core:
             return []
-        case .network:
-            return [Modules.error.targetDependency]
-        case .error:
-            return [Modules.utils.targetDependency,
-                    Modules.network.targetDependency,
-                    Modules.error.targetDependency]
         case .widget:
-            return [Modules.utils.targetDependency,
-                    Modules.network.targetDependency,
-                    Modules.error.targetDependency]
+            return [
+                Modules.core.targetDependency
+            ]
         }
     }
 }

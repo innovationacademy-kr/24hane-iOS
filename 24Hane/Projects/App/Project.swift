@@ -13,7 +13,6 @@ let targets: [Target] = [
         bundleId: appBundleId,
 //        infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
         dependencies: [
-            .project(target: "Home", path: .relativeToRoot("Projects/Features/Home")),
             .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
         ]
     )

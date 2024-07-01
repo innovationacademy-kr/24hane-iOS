@@ -16,7 +16,6 @@
 		60F1DF7FE90366CEBDE6221E /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ED1E9A36DBA26B716EA1D6 /* CalendarModel.swift */; };
 		676256084B5B4A2F722BAD8A /* CalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B27FA865D6F252E2BD6FD /* CalendarApp.swift */; };
 		680D788864CE747C0C872244 /* TagLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85312124826282803143109 /* TagLogView.swift */; };
-		81FEA9BCAA419B758AD39AAF /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7484A30BA7A7A97F9EA6633 /* Error.swift */; };
 		84F71EB3BAE98E8935939519 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1B06DA9AA489C1E57B144 /* CalendarGridView.swift */; };
 		8740A567D151BB0E7BF90A20 /* Calendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2535DA2C0B972029FA48C4A4 /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE6E74FA2E0BC39C1CFAAAB6 /* TuistAssets+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3BC58E01AB71D15630005 /* TuistAssets+Calendar.swift */; };
@@ -83,7 +82,6 @@
 		8D2725494FE8A3C85796B410 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE1B06DA9AA489C1E57B144 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		A095DE04B6CF72B849B7AA35 /* CalendarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7484A30BA7A7A97F9EA6633 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		BDED67682FA26299D17E8DDD /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
 		D90B27FA865D6F252E2BD6FD /* CalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarApp.swift; sourceTree = "<group>"; };
 		DDBC02E3253C17A102A60A9C /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				57ED1E9A36DBA26B716EA1D6 /* CalendarModel.swift */,
-				B7484A30BA7A7A97F9EA6633 /* Error.swift */,
 				7E4CA4E57456DB9388AACD82 /* JSONs.swift */,
 				DDBC02E3253C17A102A60A9C /* Structs.swift */,
 			);
@@ -348,7 +345,6 @@
 				AE6E74FA2E0BC39C1CFAAAB6 /* TuistAssets+Calendar.swift in Sources */,
 				EDDE1B6C2EB46B4BAFF1D6F3 /* TuistBundle+Calendar.swift in Sources */,
 				60F1DF7FE90366CEBDE6221E /* CalendarModel.swift in Sources */,
-				81FEA9BCAA419B758AD39AAF /* Error.swift in Sources */,
 				3B13903A372DE19B0F9637EC /* JSONs.swift in Sources */,
 				E285C150DDD5A9867EABF978 /* Structs.swift in Sources */,
 				3FF1103E2200A2D729458485 /* AccTimeCardForCalendarView.swift in Sources */,
@@ -393,7 +389,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.calendar";
+				PRODUCT_BUNDLE_IDENTIFIER = net.hejang.calendar;
 				PRODUCT_NAME = Calendar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -596,7 +592,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.calendar";
+				PRODUCT_BUNDLE_IDENTIFIER = net.hejang.calendar;
 				PRODUCT_NAME = Calendar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

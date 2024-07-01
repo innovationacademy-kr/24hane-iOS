@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HaneCore
 
 struct ErrorView: View {
     @Environment(\.colorScheme) var colorScheme

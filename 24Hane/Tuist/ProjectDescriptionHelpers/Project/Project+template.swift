@@ -19,14 +19,16 @@ public extension Target {
         module: Modules
     ) -> Target {
         return .target(
-            name: module.name,
+            name: "\(module.name)Demo",
             destinations: .iOS,
             product: .app,
             bundleId: module.bundleId,
             deploymentTargets: .iOS("15.0"),
             sources: "Demo/Sources/**",
-            resources: "Demo/Resources/**",
-            dependencies: module.dependencies
+//            resources: "Demo/Resources/**",
+            dependencies: [
+                Modules.calendar.targetDependency
+            ]
         )
     }
 
@@ -56,7 +58,7 @@ public extension Target {
         module: Modules
     ) -> Target {
         return .target(
-            name: module.name,
+            name: "\(module.name)Framework",
             destinations: .iOS,
             product: .app,
             bundleId: module.bundleId,

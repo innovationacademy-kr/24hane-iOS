@@ -2,7 +2,7 @@ import ProjectDescription
 
 let appName = "HANE24"
 let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane"
+let appBundleId = "net.hejang.more"
 let targetVersion = "15.0"
 
 let more: Target = .target(
@@ -23,7 +23,7 @@ let moreDemo: Target = .target(
     name: "MoreDemo",
     destinations: .iOS,
     product: .app,
-    bundleId: "net.hejang.-4hane.homeDemo",
+    bundleId: "net.hejang.-4hane.moreDemo",
     deploymentTargets: .iOS("15.0"),
 //    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
     sources: "Demo/Sources/**",

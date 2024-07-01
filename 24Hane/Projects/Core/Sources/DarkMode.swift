@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public struct Theme {
-    static func backgroundColor(forScheme scheme: ColorScheme) -> Color {
+    public static func backgroundColor(forScheme scheme: ColorScheme) -> Color {
         let lightBG = Color(hex: "F5F5F5")
         let darkBG = Color(hex: "333333")
 
@@ -31,7 +31,7 @@ public struct Theme {
         }
     }
 
-    static func textGrayColor(forScheme scheme: ColorScheme) -> Color {
+    public static func textGrayColor(forScheme scheme: ColorScheme) -> Color {
         let lightText = Color(hex: "707070")
         let darkText = Color(hex: "EAEAEA")
 
@@ -42,7 +42,7 @@ public struct Theme {
         }
     }
 
-    static func toolBarIconColor(forScheme scheme: ColorScheme) -> Color {
+    public static func toolBarIconColor(forScheme scheme: ColorScheme) -> Color {
         let lightIcon = Color(hex: "5B5B5B")
         let darkIcon = Color.white
 

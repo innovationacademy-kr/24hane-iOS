@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import HaneCore
 
 protocol ReissueInfomationProtocol {
 	var cardReissueState: CardState { get set }
@@ -51,7 +52,7 @@ class ReissueVM: ReissueProtocol {
 		do {
             try await network.apiRequest(url.absoluteString, .post)
 		} catch {
-			throw MyError.tokenExpired("get new token!")
+//			throw MyError.tokenExpired("get new token!")
 		}
 	}
 
@@ -60,7 +61,7 @@ class ReissueVM: ReissueProtocol {
 		do {
             try await network.apiRequest(url.absoluteString, .patch)
 		} catch {
-			throw MyError.tokenExpired("get new token!")
+//			throw MyError.tokenExpired("get new token!")
 		}
 	}
 

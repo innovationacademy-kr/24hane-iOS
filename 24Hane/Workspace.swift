@@ -2,10 +2,8 @@ import ProjectDescription
 
 let workspace = Workspace(name: "HANE24", projects: [
     "Projects/App",
-    "Projects/Core/Extensions",
-    "Projects/Core/Network",
-    "Projects/Core/Utils",
+    "Projects/Core",
     "Projects/Widget",
-    "Projects/Features/Home",
+    "Projects/Features/More",
     "Projects/Features/Calendar",
 ])
