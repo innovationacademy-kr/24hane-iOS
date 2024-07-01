@@ -1,43 +1,34 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
-let appName = "HANE24"
-let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane"
-let targetVersion = "15.0"
-
-let home: Target = .target(
+let homeTarget = Target.target(
     name: "Home",
     destinations: .iOS,
     product: .framework,
-    bundleId: appBundleId,
+    bundleId: "net.hejang.-4HANE.home",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: ["Sources/**", "Resources/**"],
-    resources: ["Resources/**", "Sources/**"],
+//    infoPlist:  "./HANE24/Info.plist",
+    sources: ["./Sources/**"],
+//    resources: ["../Resources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]
 )
 
-let calendarDemo: Target = .target(
+
+let homeDemoTarget = Target.target(
     name: "HomeDemo",
     destinations: .iOS,
     product: .app,
-    bundleId: "net.hejang.-4hane.homeDemo",
+    bundleId: "net.hejang.-4HANE.homeDemo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: "Demo/Sources/**",
+//    infoPlist:  "./HANE24/Info.plist",
+    sources: ["./Sources/**"],
+//    resources: ["../Resources/**"],
     dependencies: [
         .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
     ]
 )
 
-let targets: [Target] = [
-    home,
-    calendarDemo
-]
 
-let project = Project(
-    name: "Home",
-    targets: targets
-)
+let project = Project.app(target: homeTarget)

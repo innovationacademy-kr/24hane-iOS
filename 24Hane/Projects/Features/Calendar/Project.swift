@@ -18,23 +18,23 @@ let calendar: Target = .target(
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]
 )
-
-let calendarDemo: Target = .target(
-    name: "CalendarDemo",
-    destinations: .iOS,
-    product: .app,
-    bundleId: "net.hejang.-4hane.calendarDemo",
-    deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: "Demo/Sources/**",
-    dependencies: [
-        .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
-    ]
-)
+//
+//let calendarDemo: Target = .target(
+//    name: "CalendarDemo",
+//    destinations: .iOS,
+//    product: .app,
+//    bundleId: "net.hejang.-4hane.calendarDemo",
+//    deploymentTargets: .iOS("15.0"),
+////    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+//    sources: "Demo/Sources/**",
+//    dependencies: [
+//        .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
+//    ]
+//)
 
 let targets: [Target] = [
     calendar,
-    calendarDemo
+//    calendarDemo
 ]
 
 let project = Project(

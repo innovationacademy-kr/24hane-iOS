@@ -11,131 +11,57 @@
 		041E74AC56B25A45B9E60C42 /* AlertButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944FD11B68FD1A4B4CBCCE70 /* AlertButtons.swift */; };
 		0665F3F02167C28CBC41E501 /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF990D0C028433966192611D /* JSONs.swift */; };
 		099FD0EFF6769D10B936F99D /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8959F8BFD52133C04E1B6BF /* GraphView.swift */; };
-		0A6B72FE39EECD80583FAA25 /* ReissueButtonAppearance.swift in Resources */ = {isa = PBXBuildFile; fileRef = E7E943969F1B3A4B14486DA8 /* ReissueButtonAppearance.swift */; };
 		0AAEF41B2021C85479F76B43 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE4CA99426FFA1AF420240 /* LogoutButton.swift */; };
 		0B20780403566A5DB7BF05E2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E8B19ECA9F615B927E2AF6 /* MainView.swift */; };
-		10B17A094C5765485BC6B03E /* NetworkMonitoringManager.swift in Resources */ = {isa = PBXBuildFile; fileRef = 971070C7A8F7D04385AEFCD5 /* NetworkMonitoringManager.swift */; };
 		1638D3121756AD496F94CFEB /* CardProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619ABDC8358BCC72E8C9D531 /* CardProgressView.swift */; };
 		1655839D3AB5D17E6EE116F3 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B127017767561F90F42376 /* CalendarHeaderView.swift */; };
-		17E1EAF4DFAB543A7FE8D528 /* ReissueModel.swift in Resources */ = {isa = PBXBuildFile; fileRef = 3C4FB2C987126E39A0E777DA /* ReissueModel.swift */; };
-		1831CB59AA6681A9B66E809E /* HANE24App.swift in Resources */ = {isa = PBXBuildFile; fileRef = F6C0C15D58C3BBE9C55CED19 /* HANE24App.swift */; };
-		184D92F0E016D682843A5734 /* ErrorHandler.swift in Resources */ = {isa = PBXBuildFile; fileRef = D225637BD78CB498D0BFCF79 /* ErrorHandler.swift */; };
 		1A0293E1584B21CF5CFD3DD9 /* HaneCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F2F556CF95A32D3440FC1A9 /* HaneCore.framework */; };
 		1A6DFFCEE3D7B1A1032B02F9 /* ReissueButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E943969F1B3A4B14486DA8 /* ReissueButtonAppearance.swift */; };
-		1C07522370F9CB5DF1EC76AF /* GraphView.swift in Resources */ = {isa = PBXBuildFile; fileRef = D8959F8BFD52133C04E1B6BF /* GraphView.swift */; };
 		222C34220664DBA028D857DE /* Tapbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E10259D4AE0F2FF99DFD1 /* Tapbar.swift */; };
 		24B65B708596CBD3CC043C9A /* ThisMonthAccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636147E3C2257C378840C67 /* ThisMonthAccTimeCardView.swift */; };
 		25EA5CF2AB41A6A9B93B0E3B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBF27E957A13723728DD9C /* HomeView.swift */; };
 		2657D588016F3C89D9636265 /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9002441C7852E69F9A72453 /* ChartDetailView.swift */; };
-		278B2C6EE3890C3AEB00CB49 /* ChartDetailView.swift in Resources */ = {isa = PBXBuildFile; fileRef = A9002441C7852E69F9A72453 /* ChartDetailView.swift */; };
 		29B36AD1C6513780D66D0F39 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B380A50C505A4A4A56F43 /* HomeVM.swift */; };
-		2A74F52CF6670037F0668264 /* Structs.swift in Resources */ = {isa = PBXBuildFile; fileRef = D59BA464D74FBC5F0F390AB2 /* Structs.swift */; };
-		2C083B70C6FAAA7602DD5121 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9290645AFD421A6E8E0A3C77 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		30BD2A46138DA20D8427E645 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12F50ED86CCE953F0CC2CCE /* ColorExtension.swift */; };
-		30D70A6D8B25348C58BE8C12 /* HowToReissue.swift in Resources */ = {isa = PBXBuildFile; fileRef = 8922D3F22F594C2B4739F6F8 /* HowToReissue.swift */; };
-		32C14FB53F0005A523BC0C51 /* ListItemButton.swift in Resources */ = {isa = PBXBuildFile; fileRef = 0A222785ABE247ED68A27E25 /* ListItemButton.swift */; };
-		35A1431A06B2A56226B65F02 /* MoreViewFooter.swift in Resources */ = {isa = PBXBuildFile; fileRef = 4A56C98E23A61A13455807B0 /* MoreViewFooter.swift */; };
 		37687E986C257FF7EC0BA667 /* ReissueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FB2C987126E39A0E777DA /* ReissueModel.swift */; };
-		37D0D6AB09D30C14F7DBE179 /* LaunchScreen.swift in Resources */ = {isa = PBXBuildFile; fileRef = A28D400C7765091985A3EFFC /* LaunchScreen.swift */; };
-		392DFEB0B9768CB4AE955497 /* ReissueButton.swift in Resources */ = {isa = PBXBuildFile; fileRef = FFDD3896BDF7176BF3643C58 /* ReissueButton.swift */; };
 		3CFF3C48DA31EFF297C44318 /* TagLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886C5E5E33F6EC14C61DD5A5 /* TagLogView.swift */; };
 		406E270D9AB540513AD7F0FA /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA464D74FBC5F0F390AB2 /* Structs.swift */; };
-		4234FFADFF72C52983228FA7 /* PopulationView.swift in Resources */ = {isa = PBXBuildFile; fileRef = E9B1CA714221B450A54D433F /* PopulationView.swift */; };
-		42C22A48A4AB06D12C03CA89 /* CardProgressView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 619ABDC8358BCC72E8C9D531 /* CardProgressView.swift */; };
 		495AE09F3AB04CF703FAEF32 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166B9135A1F5DB5D8442E47D /* NoticeView.swift */; };
-		5122FEF521C52A1D2EE27123 /* UserDefaultsExtension.swift in Resources */ = {isa = PBXBuildFile; fileRef = D36E1BD7FFCF6E2EFA1436D7 /* UserDefaultsExtension.swift */; };
-		54FBF3D3BEEB746ED8A2DCCC /* LoadingView.swift in Resources */ = {isa = PBXBuildFile; fileRef = A0757D8F178B0CB47F167202 /* LoadingView.swift */; };
-		56593EE6FAFD53F74407A163 /* SignInWebView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 42225171FA4CDA16DB3B7491 /* SignInWebView.swift */; };
-		5659BD71D5B6C619162802DA /* NetworkManager.swift in Resources */ = {isa = PBXBuildFile; fileRef = 5790CA56E0A1B81523F017AB /* NetworkManager.swift */; };
 		5670C75D1F094FE7104300FB /* ListItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A222785ABE247ED68A27E25 /* ListItemButton.swift */; };
 		57CD67F3C7B5668FD74A9CCD /* ReissueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3253D22457795524BE0188C /* ReissueVM.swift */; };
 		5B359CE8460222366BBBC7AA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DBFFD79AB8F9569773B689 /* Error.swift */; };
-		5C5FBF727F466A2838D15BD0 /* ThisMonthAccTimeCardView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 1636147E3C2257C378840C67 /* ThisMonthAccTimeCardView.swift */; };
 		5CD053B4735BBD2509AFBA7D /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E1BD7FFCF6E2EFA1436D7 /* UserDefaultsExtension.swift */; };
 		5DDBE73F79DEC8DE8D80E63B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA9FE74B3D3A3ED66FD216 /* CalendarView.swift */; };
-		5F9FF808F416DD619223D75A /* DateExtensions.swift in Resources */ = {isa = PBXBuildFile; fileRef = F96E4942F63039CA467D1D4F /* DateExtensions.swift */; };
 		67C85B44ED1C782694A1DCB0 /* MoreViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A56C98E23A61A13455807B0 /* MoreViewFooter.swift */; };
 		696CC3AE502442D73393C8F7 /* ReissuanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2612D27C5CC7FBC39B24DA /* ReissuanceView.swift */; };
 		69F24EFEEA49E0C1F9E2332B /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F582EBC64FABB6A5A49D9B /* CalendarBodyView.swift */; };
 		70C91F30C02499B309732203 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225637BD78CB498D0BFCF79 /* ErrorHandler.swift */; };
 		70F5C9A67590F5E30588DB07 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311D9877F89D1D00419D49D /* DarkMode.swift */; };
 		7626048087BA6E3070F57C7C /* TodayAccTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DFE6DC2DBB0C79D352AA6D /* TodayAccTimeCardView.swift */; };
-		787EFB9D673CBA8D08F24E36 /* HaneVM.swift in Resources */ = {isa = PBXBuildFile; fileRef = 411C732A036F7357AF60BC67 /* HaneVM.swift */; };
-		7D1E9BD088D8F06D03FB5C5D /* CalendarModel.swift in Resources */ = {isa = PBXBuildFile; fileRef = 96E1BA98AABCEC94898944DB /* CalendarModel.swift */; };
-		7D24D99B6EE81A633098EDE2 /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42225171FA4CDA16DB3B7491 /* SignInWebView.swift */; };
-		8184947D878E99EFD5553C48 /* ProgressToReissue.swift in Resources */ = {isa = PBXBuildFile; fileRef = 11FD22E395BD28797562780E /* ProgressToReissue.swift */; };
 		818850F24C62DA3E3B65F2D7 /* ProgressToReissue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD22E395BD28797562780E /* ProgressToReissue.swift */; };
-		8604F02A2897007BE12FC5EC /* ReissuanceView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 6B2612D27C5CC7FBC39B24DA /* ReissuanceView.swift */; };
-		86157C2EBBFE0E67C10A7371 /* HomeHeaderView.swift in Resources */ = {isa = PBXBuildFile; fileRef = EA33463D2ED45072322E948A /* HomeHeaderView.swift */; };
-		8A1D64FFFBCD3E3BD233E799 /* HomeView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 06BBF27E957A13723728DD9C /* HomeView.swift */; };
-		8B814E0242297D3B48E72621 /* TagLogView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 886C5E5E33F6EC14C61DD5A5 /* TagLogView.swift */; };
-		910EB185F843011C7F9A9B5F /* TuistBundle+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA691B25CAE8B0E1E65FD98 /* TuistBundle+Home.swift */; };
-		91EE228558214549F1002937 /* AlertView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 84C53AE47825BF00588B2B59 /* AlertView.swift */; };
 		934786230640BF329647D293 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1BA98AABCEC94898944DB /* CalendarModel.swift */; };
 		9618F37725F376BC1AAE6991 /* NetworkMonitoringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971070C7A8F7D04385AEFCD5 /* NetworkMonitoringManager.swift */; };
-		9B6AA45C34A54769CF8E48A1 /* ReissueVM.swift in Resources */ = {isa = PBXBuildFile; fileRef = F3253D22457795524BE0188C /* ReissueVM.swift */; };
 		9D28F80B14AAD4A20889C4D7 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5420A8DE4B85DFC5A61F45DE /* CalendarGridView.swift */; };
-		9FD56AB7CCC84AE38556664D /* MainView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 82E8B19ECA9F615B927E2AF6 /* MainView.swift */; };
-		A47187DCE7E4043AD4B37597 /* ColorExtension.swift in Resources */ = {isa = PBXBuildFile; fileRef = C12F50ED86CCE953F0CC2CCE /* ColorExtension.swift */; };
-		A534D22E7BBABD230C6FB663 /* AccTimeCardForCalendarView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 987EA3C1143CAC9E35260D3C /* AccTimeCardForCalendarView.swift */; };
 		A6AF6ABF04C9E1B9D3221094 /* HANE24App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0C15D58C3BBE9C55CED19 /* HANE24App.swift */; };
-		A8EAB555ACE1CCBD22329C85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 640E0EDD30080B6311236846 /* Preview Assets.xcassets */; };
-		A9C2C033A7E98E20171F4D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B220186B58D0B93EA79B9F /* Assets.xcassets */; };
 		AAD5D22101F413BF30D4435D /* PopulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B1CA714221B450A54D433F /* PopulationView.swift */; };
-		AC3B9F7DE93D5CCFBA2DB6D4 /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F2F556CF95A32D3440FC1A9 /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AD40C542AE82292BA91DF40B /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3639AEAEFE2904C38ED04 /* CalendarVM.swift */; };
-		AF96FE4BE6609F0ECA3FF5F7 /* CalendarView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 94BA9FE74B3D3A3ED66FD216 /* CalendarView.swift */; };
-		B8245B4222902A7E833A88B0 /* AccTimeCardsView.swift in Resources */ = {isa = PBXBuildFile; fileRef = FE1BE0C51F56A63A3A89BC0C /* AccTimeCardsView.swift */; };
 		B91279022326BA3B2565667F /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987EA3C1143CAC9E35260D3C /* AccTimeCardForCalendarView.swift */; };
 		BC7A4C4821CF46C71FDEB3C4 /* HowToReissue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D3F22F594C2B4739F6F8 /* HowToReissue.swift */; };
-		BCD07A4C010B12363E1715DA /* CalendarVM.swift in Resources */ = {isa = PBXBuildFile; fileRef = 0FF3639AEAEFE2904C38ED04 /* CalendarVM.swift */; };
-		BE4C1E0F00585E6E8A4B4289 /* ErrorView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 2CA393B167FCEF33B08DF3B1 /* ErrorView.swift */; };
-		C0F1AFD37D258CF64422D405 /* TodayAccTimeCardView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 75DFE6DC2DBB0C79D352AA6D /* TodayAccTimeCardView.swift */; };
 		C19F75FDE42945DFC37A704B /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF7161474BFED3C2647CE50 /* MoreView.swift */; };
-		C210DBF0317D854DB6FAB51D /* MoreView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 1CF7161474BFED3C2647CE50 /* MoreView.swift */; };
-		C304038423A802FDC809E6A9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04962732E00DA3F3153F0C91 /* SignInView.swift */; };
 		C642B73D6F7307713D6F95FE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790CA56E0A1B81523F017AB /* NetworkManager.swift */; };
 		C7E101044A860F829F94D512 /* AccTimeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BE0C51F56A63A3A89BC0C /* AccTimeCardsView.swift */; };
 		C90E57B57DB951FC1C095197 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A4E8D2EF4D8BDBC18752C5 /* PullToRefresh.swift */; };
-		C9B56C1E16BC3385D6374F4C /* ChartView.swift in Resources */ = {isa = PBXBuildFile; fileRef = B0B6B6287148AAD00B0DB560 /* ChartView.swift */; };
 		CA67F5A738609EFBBAE472FD /* HaneVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C732A036F7357AF60BC67 /* HaneVM.swift */; };
 		CB15A4B4F0C6CBF7A63307B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450086BA8E7447814BF9327E /* ContentView.swift */; };
 		CB83AB2DE3F541DFC92FDAD8 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA393B167FCEF33B08DF3B1 /* ErrorView.swift */; };
-		CC1541F73406C8AD9545CBA6 /* CalendarHeaderView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 51B127017767561F90F42376 /* CalendarHeaderView.swift */; };
-		CD12F65ACCE42DB034DD9724 /* JSONs.swift in Resources */ = {isa = PBXBuildFile; fileRef = AF990D0C028433966192611D /* JSONs.swift */; };
-		CE27F51D61539D7E29DA6C52 /* DarkMode.swift in Resources */ = {isa = PBXBuildFile; fileRef = E311D9877F89D1D00419D49D /* DarkMode.swift */; };
 		CE526E17E8C33A9EDB00485D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0757D8F178B0CB47F167202 /* LoadingView.swift */; };
-		CF7AF14D98D1635A12514CC8 /* CircularProgressBar.swift in Resources */ = {isa = PBXBuildFile; fileRef = 2CB63E15C12C62F4D7C7D7C8 /* CircularProgressBar.swift */; };
-		D09F5D0A454E89A5B91C2391 /* Tapbar.swift in Resources */ = {isa = PBXBuildFile; fileRef = 1C7E10259D4AE0F2FF99DFD1 /* Tapbar.swift */; };
 		D5524CC9130D144C24E90E66 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B6B6287148AAD00B0DB560 /* ChartView.swift */; };
-		D9A9A613541104B864719B2B /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9290645AFD421A6E8E0A3C77 /* Home.framework */; };
-		DA7B6E7A1B039C69978198FE /* PullToRefresh.swift in Resources */ = {isa = PBXBuildFile; fileRef = D9A4E8D2EF4D8BDBC18752C5 /* PullToRefresh.swift */; };
-		DD93510594672FD9B5D2783C /* Error.swift in Resources */ = {isa = PBXBuildFile; fileRef = 47DBFFD79AB8F9569773B689 /* Error.swift */; };
-		DDAA40735485EEE6BB48D034 /* SignInView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 04962732E00DA3F3153F0C91 /* SignInView.swift */; };
-		DDBFBFE1AC698A589086BBCB /* AlertButtons.swift in Resources */ = {isa = PBXBuildFile; fileRef = 944FD11B68FD1A4B4CBCCE70 /* AlertButtons.swift */; };
 		E166B8F6FAB9D2883158BA7C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28D400C7765091985A3EFFC /* LaunchScreen.swift */; };
-		E1B5EC428B88B2B1261E0699 /* ContentView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 450086BA8E7447814BF9327E /* ContentView.swift */; };
 		E4B4DF0426C039AA05FD3838 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63E15C12C62F4D7C7D7C8 /* CircularProgressBar.swift */; };
-		E54BE3CF8BEC7BBEE161DFFE /* CalendarGridView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 5420A8DE4B85DFC5A61F45DE /* CalendarGridView.swift */; };
 		F01964B16294742CD77C5C58 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C53AE47825BF00588B2B59 /* AlertView.swift */; };
-		F3B217704CF6F2E37F9DCC85 /* HomeVM.swift in Resources */ = {isa = PBXBuildFile; fileRef = 5B7B380A50C505A4A4A56F43 /* HomeVM.swift */; };
-		F57072E0FC53E7B9580B8DFE /* CalendarBodyView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 44F582EBC64FABB6A5A49D9B /* CalendarBodyView.swift */; };
-		F718A53C6E8924120570A172 /* TuistAssets+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF83EC6A20B49726244D577 /* TuistAssets+Home.swift */; };
-		F93A373BC8DDBB0B894F9979 /* NoticeView.swift in Resources */ = {isa = PBXBuildFile; fileRef = 166B9135A1F5DB5D8442E47D /* NoticeView.swift */; };
 		FA80AEC4025733F56B2B7F4D /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96E4942F63039CA467D1D4F /* DateExtensions.swift */; };
-		FB4138BC39F8DD778DCD68B6 /* LogoutButton.swift in Resources */ = {isa = PBXBuildFile; fileRef = CBAE4CA99426FFA1AF420240 /* LogoutButton.swift */; };
 		FCB2F6FD69A05D9ED2E3C85C /* ReissueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD3896BDF7176BF3643C58 /* ReissueButton.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0D44801879B65028F9D8AA11 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F648A09DF594BC533BCA5FD3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52E844066D197E3B81FA748F;
-			remoteInfo = Home;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3C28B78DE981ED6F9F6774E2 /* Embed Frameworks */ = {
@@ -148,22 +74,9 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BE2802144D5F32DDCDF1CB6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AC3B9F7DE93D5CCFBA2DB6D4 /* HaneCore.framework in Embed Frameworks */,
-				2C083B70C6FAAA7602DD5121 /* Home.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04962732E00DA3F3153F0C91 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		06BBF27E957A13723728DD9C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0A222785ABE247ED68A27E25 /* ListItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemButton.swift; sourceTree = "<group>"; };
 		0FF3639AEAEFE2904C38ED04 /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
@@ -177,7 +90,6 @@
 		2F2F556CF95A32D3440FC1A9 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C4FB2C987126E39A0E777DA /* ReissueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueModel.swift; sourceTree = "<group>"; };
 		411C732A036F7357AF60BC67 /* HaneVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaneVM.swift; sourceTree = "<group>"; };
-		42225171FA4CDA16DB3B7491 /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
 		44F582EBC64FABB6A5A49D9B /* CalendarBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBodyView.swift; sourceTree = "<group>"; };
 		450086BA8E7447814BF9327E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		47DBFFD79AB8F9569773B689 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -188,16 +100,12 @@
 		5B7B380A50C505A4A4A56F43 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		619ABDC8358BCC72E8C9D531 /* CardProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProgressView.swift; sourceTree = "<group>"; };
 		61EC700930D1096A1F12C0D7 /* Home-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Home-Info.plist"; sourceTree = "<group>"; };
-		640E0EDD30080B6311236846 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6B2612D27C5CC7FBC39B24DA /* ReissuanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissuanceView.swift; sourceTree = "<group>"; };
 		75DFE6DC2DBB0C79D352AA6D /* TodayAccTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAccTimeCardView.swift; sourceTree = "<group>"; };
-		7B2F4E91C1C8665AF408A7CA /* HomeDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HomeDemo-Info.plist"; sourceTree = "<group>"; };
-		7FA691B25CAE8B0E1E65FD98 /* TuistBundle+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Home.swift"; sourceTree = "<group>"; };
 		82E8B19ECA9F615B927E2AF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		84C53AE47825BF00588B2B59 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		886C5E5E33F6EC14C61DD5A5 /* TagLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLogView.swift; sourceTree = "<group>"; };
 		8922D3F22F594C2B4739F6F8 /* HowToReissue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToReissue.swift; sourceTree = "<group>"; };
-		8AF83EC6A20B49726244D577 /* TuistAssets+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Home.swift"; sourceTree = "<group>"; };
 		9290645AFD421A6E8E0A3C77 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		944FD11B68FD1A4B4CBCCE70 /* AlertButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtons.swift; sourceTree = "<group>"; };
 		94BA9FE74B3D3A3ED66FD216 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -206,7 +114,6 @@
 		987EA3C1143CAC9E35260D3C /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
 		A0757D8F178B0CB47F167202 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A28D400C7765091985A3EFFC /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
-		A8D4FAFCDA770849214B2A1F /* HomeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9002441C7852E69F9A72453 /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 		AF990D0C028433966192611D /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
 		B0B6B6287148AAD00B0DB560 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -218,7 +125,6 @@
 		D8959F8BFD52133C04E1B6BF /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		D9A4E8D2EF4D8BDBC18752C5 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		E311D9877F89D1D00419D49D /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
-		E3B220186B58D0B93EA79B9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7E943969F1B3A4B14486DA8 /* ReissueButtonAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueButtonAppearance.swift; sourceTree = "<group>"; };
 		E9B1CA714221B450A54D433F /* PopulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationView.swift; sourceTree = "<group>"; };
 		EA33463D2ED45072322E948A /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
@@ -230,14 +136,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4A81BA7AEF6F906AD2DA0A8C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D9A9A613541104B864719B2B /* Home.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		989FE4D10E5FABD20EDC2D85 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -254,7 +152,6 @@
 			children = (
 				2F2F556CF95A32D3440FC1A9 /* HaneCore.framework */,
 				9290645AFD421A6E8E0A3C77 /* Home.framework */,
-				A8D4FAFCDA770849214B2A1F /* HomeDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,19 +227,10 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
-		6CD65BC487D9998FB8FEDE3F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E3B220186B58D0B93EA79B9F /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		70BB71A4919E9DCCA3DEA54A /* Derived */ = {
 			isa = PBXGroup;
 			children = (
 				C7DAD5517A15CCB12559D52C /* InfoPlists */,
-				826AD2047568D60C79FD69F5 /* Sources */,
 			);
 			path = Derived;
 			sourceTree = "<group>";
@@ -353,15 +241,6 @@
 				A0406DFCF5F3BCA58AF39988 /* Project */,
 				156072FA40260C0FBAAE35F3 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		826AD2047568D60C79FD69F5 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				8AF83EC6A20B49726244D577 /* TuistAssets+Home.swift */,
-				7FA691B25CAE8B0E1E65FD98 /* TuistBundle+Home.swift */,
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		970B195056B7BE48AA889DB9 /* MoreViewComponent */ = {
@@ -379,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				70BB71A4919E9DCCA3DEA54A /* Derived */,
-				6CD65BC487D9998FB8FEDE3F /* Resources */,
 				B74810073A3D8A4993EE22B2 /* Sources */,
 			);
 			name = Project;
@@ -408,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				4DBCC52C78D56105C484A5E2 /* Model */,
-				DF1AE0B31AE341D4B08AC230 /* Preview Content */,
 				ACEB8780C8F6D28D35F35067 /* Utils */,
 				FE645B4E4E03FA2167B048A9 /* View */,
 				3027615A25CB4E8FBF763BF5 /* ViewModel */,
@@ -435,17 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				61EC700930D1096A1F12C0D7 /* Home-Info.plist */,
-				7B2F4E91C1C8665AF408A7CA /* HomeDemo-Info.plist */,
 			);
 			path = InfoPlists;
-			sourceTree = "<group>";
-		};
-		DF1AE0B31AE341D4B08AC230 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				640E0EDD30080B6311236846 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		FE645B4E4E03FA2167B048A9 /* View */ = {
@@ -457,8 +325,6 @@
 				A0757D8F178B0CB47F167202 /* LoadingView.swift */,
 				82E8B19ECA9F615B927E2AF6 /* MainView.swift */,
 				D9A4E8D2EF4D8BDBC18752C5 /* PullToRefresh.swift */,
-				04962732E00DA3F3153F0C91 /* SignInView.swift */,
-				42225171FA4CDA16DB3B7491 /* SignInWebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,25 +350,6 @@
 			productReference = 9290645AFD421A6E8E0A3C77 /* Home.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		72D0E893F5D9C47A76548325 /* HomeDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B1314DAB3B789ED82917E639 /* Build configuration list for PBXNativeTarget "HomeDemo" */;
-			buildPhases = (
-				579CBCDC9D4F2B4F2AE84F7C /* Sources */,
-				1F5D7417BA08A6003991F8BE /* Resources */,
-				7BE2802144D5F32DDCDF1CB6 /* Embed Frameworks */,
-				4A81BA7AEF6F906AD2DA0A8C /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4DFEA822D3F75D7A2ED7782E /* PBXTargetDependency */,
-			);
-			name = HomeDemo;
-			productName = HomeDemo;
-			productReference = A8D4FAFCDA770849214B2A1F /* HomeDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -527,77 +374,12 @@
 			projectRoot = "";
 			targets = (
 				52E844066D197E3B81FA748F /* Home */,
-				72D0E893F5D9C47A76548325 /* HomeDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0C6214A8F4021BA62D8E98E9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9C2C033A7E98E20171F4D4E /* Assets.xcassets in Resources */,
-				E1B5EC428B88B2B1261E0699 /* ContentView.swift in Resources */,
-				1C07522370F9CB5DF1EC76AF /* GraphView.swift in Resources */,
-				1831CB59AA6681A9B66E809E /* HANE24App.swift in Resources */,
-				37D0D6AB09D30C14F7DBE179 /* LaunchScreen.swift in Resources */,
-				7D1E9BD088D8F06D03FB5C5D /* CalendarModel.swift in Resources */,
-				DD93510594672FD9B5D2783C /* Error.swift in Resources */,
-				CD12F65ACCE42DB034DD9724 /* JSONs.swift in Resources */,
-				17E1EAF4DFAB543A7FE8D528 /* ReissueModel.swift in Resources */,
-				2A74F52CF6670037F0668264 /* Structs.swift in Resources */,
-				A8EAB555ACE1CCBD22329C85 /* Preview Assets.xcassets in Resources */,
-				A47187DCE7E4043AD4B37597 /* ColorExtension.swift in Resources */,
-				CE27F51D61539D7E29DA6C52 /* DarkMode.swift in Resources */,
-				5F9FF808F416DD619223D75A /* DateExtensions.swift in Resources */,
-				5122FEF521C52A1D2EE27123 /* UserDefaultsExtension.swift in Resources */,
-				A534D22E7BBABD230C6FB663 /* AccTimeCardForCalendarView.swift in Resources */,
-				B8245B4222902A7E833A88B0 /* AccTimeCardsView.swift in Resources */,
-				F57072E0FC53E7B9580B8DFE /* CalendarBodyView.swift in Resources */,
-				E54BE3CF8BEC7BBEE161DFFE /* CalendarGridView.swift in Resources */,
-				CC1541F73406C8AD9545CBA6 /* CalendarHeaderView.swift in Resources */,
-				AF96FE4BE6609F0ECA3FF5F7 /* CalendarView.swift in Resources */,
-				8B814E0242297D3B48E72621 /* TagLogView.swift in Resources */,
-				278B2C6EE3890C3AEB00CB49 /* ChartDetailView.swift in Resources */,
-				C9B56C1E16BC3385D6374F4C /* ChartView.swift in Resources */,
-				CF7AF14D98D1635A12514CC8 /* CircularProgressBar.swift in Resources */,
-				86157C2EBBFE0E67C10A7371 /* HomeHeaderView.swift in Resources */,
-				8A1D64FFFBCD3E3BD233E799 /* HomeView.swift in Resources */,
-				F93A373BC8DDBB0B894F9979 /* NoticeView.swift in Resources */,
-				4234FFADFF72C52983228FA7 /* PopulationView.swift in Resources */,
-				5C5FBF727F466A2838D15BD0 /* ThisMonthAccTimeCardView.swift in Resources */,
-				C0F1AFD37D258CF64422D405 /* TodayAccTimeCardView.swift in Resources */,
-				54FBF3D3BEEB746ED8A2DCCC /* LoadingView.swift in Resources */,
-				9FD56AB7CCC84AE38556664D /* MainView.swift in Resources */,
-				91EE228558214549F1002937 /* AlertView.swift in Resources */,
-				DDBFBFE1AC698A589086BBCB /* AlertButtons.swift in Resources */,
-				42C22A48A4AB06D12C03CA89 /* CardProgressView.swift in Resources */,
-				BE4C1E0F00585E6E8A4B4289 /* ErrorView.swift in Resources */,
-				C210DBF0317D854DB6FAB51D /* MoreView.swift in Resources */,
-				32C14FB53F0005A523BC0C51 /* ListItemButton.swift in Resources */,
-				FB4138BC39F8DD778DCD68B6 /* LogoutButton.swift in Resources */,
-				35A1431A06B2A56226B65F02 /* MoreViewFooter.swift in Resources */,
-				0A6B72FE39EECD80583FAA25 /* ReissueButtonAppearance.swift in Resources */,
-				30D70A6D8B25348C58BE8C12 /* HowToReissue.swift in Resources */,
-				8184947D878E99EFD5553C48 /* ProgressToReissue.swift in Resources */,
-				392DFEB0B9768CB4AE955497 /* ReissueButton.swift in Resources */,
-				D09F5D0A454E89A5B91C2391 /* Tapbar.swift in Resources */,
-				8604F02A2897007BE12FC5EC /* ReissuanceView.swift in Resources */,
-				DA7B6E7A1B039C69978198FE /* PullToRefresh.swift in Resources */,
-				DDAA40735485EEE6BB48D034 /* SignInView.swift in Resources */,
-				56593EE6FAFD53F74407A163 /* SignInWebView.swift in Resources */,
-				BCD07A4C010B12363E1715DA /* CalendarVM.swift in Resources */,
-				184D92F0E016D682843A5734 /* ErrorHandler.swift in Resources */,
-				787EFB9D673CBA8D08F24E36 /* HaneVM.swift in Resources */,
-				F3B217704CF6F2E37F9DCC85 /* HomeVM.swift in Resources */,
-				5659BD71D5B6C619162802DA /* NetworkManager.swift in Resources */,
-				10B17A094C5765485BC6B03E /* NetworkMonitoringManager.swift in Resources */,
-				9B6AA45C34A54769CF8E48A1 /* ReissueVM.swift in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F5D7417BA08A6003991F8BE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -611,8 +393,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F718A53C6E8924120570A172 /* TuistAssets+Home.swift in Sources */,
-				910EB185F843011C7F9A9B5F /* TuistBundle+Home.swift in Sources */,
 				CB15A4B4F0C6CBF7A63307B3 /* ContentView.swift in Sources */,
 				099FD0EFF6769D10B936F99D /* GraphView.swift in Sources */,
 				A6AF6ABF04C9E1B9D3221094 /* HANE24App.swift in Sources */,
@@ -659,8 +439,6 @@
 				222C34220664DBA028D857DE /* Tapbar.swift in Sources */,
 				696CC3AE502442D73393C8F7 /* ReissuanceView.swift in Sources */,
 				C90E57B57DB951FC1C095197 /* PullToRefresh.swift in Sources */,
-				C304038423A802FDC809E6A9 /* SignInView.swift in Sources */,
-				7D24D99B6EE81A633098EDE2 /* SignInWebView.swift in Sources */,
 				AD40C542AE82292BA91DF40B /* CalendarVM.swift in Sources */,
 				70C91F30C02499B309732203 /* ErrorHandler.swift in Sources */,
 				CA67F5A738609EFBBAE472FD /* HaneVM.swift in Sources */,
@@ -671,23 +449,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		579CBCDC9D4F2B4F2AE84F7C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4DFEA822D3F75D7A2ED7782E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Home;
-			target = 52E844066D197E3B81FA748F /* Home */;
-			targetProxy = 0D44801879B65028F9D8AA11 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1B0052CC5DCDA316E217CB85 /* Debug */ = {
@@ -707,7 +469,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.home";
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -726,60 +488,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		222A90C97EF8897B13A8321A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Derived/InfoPlists/HomeDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.homeDemo";
-				PRODUCT_NAME = HomeDemo;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
-				SWIFT_COMPILATION_MODE = singlefile;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		309A26F077D8C94539363423 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Derived/InfoPlists/HomeDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.homeDemo";
-				PRODUCT_NAME = HomeDemo;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
 		};
 		5B23AD7BA110686AF5014647 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -857,7 +565,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE.home";
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -934,15 +642,6 @@
 			buildConfigurations = (
 				5B23AD7BA110686AF5014647 /* Debug */,
 				EBE000C2C15A2514D251F457 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B1314DAB3B789ED82917E639 /* Build configuration list for PBXNativeTarget "HomeDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				222A90C97EF8897B13A8321A /* Debug */,
-				309A26F077D8C94539363423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

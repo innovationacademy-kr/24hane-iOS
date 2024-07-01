@@ -1,45 +1,34 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
-let appName = "HANE24"
-let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane"
-let targetVersion = "15.0"
-
-let login: Target = .target(
-    name: "Login",
+let logInTarget = Target.target(
+    name: "LogIn",
     destinations: .iOS,
     product: .framework,
-    bundleId: appBundleId,
+    bundleId: "net.hejang.-4HANE.LogIn",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: ["Sources/**", "Resources/**"],
-    resources: ["Resources/**", "Sources/**"],
+//    infoPlist:  "./HANE24/Info.plist",
+    sources: ["Sources/**"],
+//    resources: ["../Resources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]
 )
 
-let loginDemo: Target = .target(
-    name: "LoginDemo",
+
+let logInDemoTarget = Target.target(
+    name: "LogInDemo",
     destinations: .iOS,
     product: .app,
-    bundleId: "net.hejang.-4hane.loginDemo",
+    bundleId: "net.hejang.-4HANE.LogIn.Demo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: "Demo/Sources/**",
+//    infoPlist:  "./HANE24/Info.plist",
+    sources: ["Sources/**"],
+//    resources: ["../Resources/**"],
     dependencies: [
-        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
+        .project(target: "LogIn", path: .relativeToRoot("Projects/Features/LogIn"))
     ]
 )
 
 
-
-let targets: [Target] = [
-    login,
-    loginDemo
-]
-
-let project = Project(
-    name: "Login",
-    targets: targets
-)
+let project = Project.app(target: logInTarget)
