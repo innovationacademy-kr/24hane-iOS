@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct LoadingView: View {
+public struct LoadingView: View {
     @Environment(\.colorScheme) var colorScheme
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             Theme.calendarBackgroundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(.all)
@@ -25,10 +25,10 @@ struct LoadingView: View {
     }
 }
 
-struct LoadingAnimation: View {
+public struct LoadingAnimation: View {
     @State private var animationTrigger: Bool = true
 
-    var body: some View {
+    public var body: some View {
         HStack(spacing: 6) {
             Circle()
                 .frame(width: 6, height: 6)

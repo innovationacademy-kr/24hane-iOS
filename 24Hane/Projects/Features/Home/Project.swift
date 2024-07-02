@@ -19,22 +19,22 @@ let home: Target = .target(
     ]
 )
 
-let calendarDemo: Target = .target(
-    name: "HomeDemo",
-    destinations: .iOS,
-    product: .app,
-    bundleId: "net.hejang.-4hane.homeDemo",
-    deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: "Demo/Sources/**",
-    dependencies: [
-        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
-    ]
-)
+//let calendarDemo: Target = .target(
+//    name: "HomeDemo",
+//    destinations: .iOS,
+//    product: .app,
+//    bundleId: "net.hejang.-4hane.homeDemo",
+//    deploymentTargets: .iOS("15.0"),
+////    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+//    sources: "Demo/Sources/**",
+//    dependencies: [
+//        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
+//    ]
+//)
 
 let targets: [Target] = [
     home,
-    calendarDemo
+//    calendarDemo
 ]
 
 let project = Project(

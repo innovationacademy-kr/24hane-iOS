@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BED693F2F511C08586B54BF /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20941C959ABD10CDCE19DE0 /* ErrorHandler.swift */; };
 		2C329C9168FA0F100447707D /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21664300B698E1E2C4F45A4B /* UserDefaultsExtension.swift */; };
-		2CE557734CD580525E6EC6F6 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CF1EA36C62919820360015 /* Error.swift */; };
 		2D6E26E3611F80B37542942A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A7A56D85DE8930ECD4251 /* DateExtensions.swift */; };
-		5CF68859031217B72819AE65 /* NetworkMonitoringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CE9DD27EEF46BBA52A507 /* NetworkMonitoringManager.swift */; };
-		62F4F6FFD83D243EE0F20B4B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7207896B021958B7C585510 /* NetworkManager.swift */; };
-		7D7B48383F89218223E6F53C /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C63AD1EC8C9E290635006 /* ColorExtension.swift */; };
-		BCBE70BA97A968B88131A44E /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCE1DC9AB3EF2EC204CCE9D /* DarkMode.swift */; };
+		3A969D092A99DE03690E4689 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11933531B39BDD0D81D15B60 /* Error.swift */; };
+		579C5647C75BACC120E6926A /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1613FAF6C732B6800E658B3 /* ErrorHandler.swift */; };
+		AD474995076D06102884EB9F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ED61224039398C0A29519C /* ColorExtension.swift */; };
+		BC48462E76315564CFAC359B /* IsHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0B85DCD9C46FAC5D2CEF18 /* IsHidden.swift */; };
+		C5441B035AA04440C5F8D793 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82D11BE8C86E81518192E /* DarkMode.swift */; };
+		C625CA66A70AF666F766114D /* NetworkMonitoringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4642F6BF4D2A385892D40 /* NetworkMonitoringManager.swift */; };
 		C71077C65B32DE94BB47E42B /* HANE24WidgetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A818B19414C5EF7CF666C /* HANE24WidgetConstant.swift */; };
+		CB8EE960970E9A7E71105AE7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FF86799CB5F2CB958681E /* LoadingView.swift */; };
+		DC373EB378AA2AD5F6037413 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F4830123451BF6479317 /* PullToRefresh.swift */; };
+		FEB20B64983E3B5965EF4FB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEF08320948BA853567762 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,17 +35,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		013C63AD1EC8C9E290635006 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		09CF1EA36C62919820360015 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		11933531B39BDD0D81D15B60 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		14CFD029D2E93BE20F9B7D40 /* HaneCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HaneCore-Info.plist"; sourceTree = "<group>"; };
 		21664300B698E1E2C4F45A4B /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		3795F4830123451BF6479317 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		617CE8E142B57ACB26FACEC4 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83ED61224039398C0A29519C /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		8B8A7A56D85DE8930ECD4251 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		B20941C959ABD10CDCE19DE0 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
-		BF7CE9DD27EEF46BBA52A507 /* NetworkMonitoringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitoringManager.swift; sourceTree = "<group>"; };
-		C7207896B021958B7C585510 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CBCE1DC9AB3EF2EC204CCE9D /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
+		9BC82D11BE8C86E81518192E /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
+		A8E4642F6BF4D2A385892D40 /* NetworkMonitoringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitoringManager.swift; sourceTree = "<group>"; };
+		C4AEF08320948BA853567762 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CF3A818B19414C5EF7CF666C /* HANE24WidgetConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WidgetConstant.swift; sourceTree = "<group>"; };
+		CF9FF86799CB5F2CB958681E /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		D1613FAF6C732B6800E658B3 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		FF0B85DCD9C46FAC5D2CEF18 /* IsHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsHidden.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25DCFE2E1560D3FA2822474D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				11933531B39BDD0D81D15B60 /* Error.swift */,
+				D1613FAF6C732B6800E658B3 /* ErrorHandler.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		26C52C08D96F4E224ECE51FE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C4AEF08320948BA853567762 /* NetworkManager.swift */,
+				A8E4642F6BF4D2A385892D40 /* NetworkMonitoringManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		33FB64FCE5D241E5DB58E81E /* InfoPlists */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,20 +105,37 @@
 			name = Project;
 			sourceTree = "<group>";
 		};
+		ABC1177694DC689BCCAEC968 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				83ED61224039398C0A29519C /* ColorExtension.swift */,
+				9BC82D11BE8C86E81518192E /* DarkMode.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		C305AFC6F49718B48C83B4B7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				013C63AD1EC8C9E290635006 /* ColorExtension.swift */,
-				CBCE1DC9AB3EF2EC204CCE9D /* DarkMode.swift */,
+				25DCFE2E1560D3FA2822474D /* Error */,
+				26C52C08D96F4E224ECE51FE /* Network */,
+				ABC1177694DC689BCCAEC968 /* Theme */,
+				C51781ABC5C15A48EAE18A03 /* View */,
 				8B8A7A56D85DE8930ECD4251 /* DateExtensions.swift */,
-				09CF1EA36C62919820360015 /* Error.swift */,
-				B20941C959ABD10CDCE19DE0 /* ErrorHandler.swift */,
 				CF3A818B19414C5EF7CF666C /* HANE24WidgetConstant.swift */,
-				C7207896B021958B7C585510 /* NetworkManager.swift */,
-				BF7CE9DD27EEF46BBA52A507 /* NetworkMonitoringManager.swift */,
 				21664300B698E1E2C4F45A4B /* UserDefaultsExtension.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		C51781ABC5C15A48EAE18A03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF0B85DCD9C46FAC5D2CEF18 /* IsHidden.swift */,
+				CF9FF86799CB5F2CB958681E /* LoadingView.swift */,
+				3795F4830123451BF6479317 /* PullToRefresh.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E1E38B7AC526A234A1AE813A = {
@@ -177,15 +218,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D7B48383F89218223E6F53C /* ColorExtension.swift in Sources */,
-				BCBE70BA97A968B88131A44E /* DarkMode.swift in Sources */,
 				2D6E26E3611F80B37542942A /* DateExtensions.swift in Sources */,
-				2CE557734CD580525E6EC6F6 /* Error.swift in Sources */,
-				1BED693F2F511C08586B54BF /* ErrorHandler.swift in Sources */,
+				3A969D092A99DE03690E4689 /* Error.swift in Sources */,
+				579C5647C75BACC120E6926A /* ErrorHandler.swift in Sources */,
 				C71077C65B32DE94BB47E42B /* HANE24WidgetConstant.swift in Sources */,
-				62F4F6FFD83D243EE0F20B4B /* NetworkManager.swift in Sources */,
-				5CF68859031217B72819AE65 /* NetworkMonitoringManager.swift in Sources */,
+				FEB20B64983E3B5965EF4FB6 /* NetworkManager.swift in Sources */,
+				C625CA66A70AF666F766114D /* NetworkMonitoringManager.swift in Sources */,
+				AD474995076D06102884EB9F /* ColorExtension.swift in Sources */,
+				C5441B035AA04440C5F8D793 /* DarkMode.swift in Sources */,
 				2C329C9168FA0F100447707D /* UserDefaultsExtension.swift in Sources */,
+				BC48462E76315564CFAC359B /* IsHidden.swift in Sources */,
+				CB8EE960970E9A7E71105AE7 /* LoadingView.swift in Sources */,
+				DC373EB378AA2AD5F6037413 /* PullToRefresh.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

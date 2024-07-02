@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PullToRefresh: View {
+public struct PullToRefresh: View {
 	var coordinateSpaceName: String
 	var onRefresh: () -> Void
 

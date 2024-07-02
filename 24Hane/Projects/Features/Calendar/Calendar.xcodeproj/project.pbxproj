@@ -8,17 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		104FD44A870AA88403ED81D2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DECE44F4017E4A175D3AAEB /* LoadingView.swift */; };
-		1098738ED7CF59FFAB85F27B /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2535DA2C0B972029FA48C4A4 /* Calendar.framework */; };
 		2A48FA4018A9093DDE8D7D11 /* HaneCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2725494FE8A3C85796B410 /* HaneCore.framework */; };
 		3060AD4A9D585E6997CE1465 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE266C2440FCDE3509FC0A /* CalendarHeaderView.swift */; };
 		3B13903A372DE19B0F9637EC /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4CA4E57456DB9388AACD82 /* JSONs.swift */; };
 		3FF1103E2200A2D729458485 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDED67682FA26299D17E8DDD /* AccTimeCardForCalendarView.swift */; };
 		60F1DF7FE90366CEBDE6221E /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ED1E9A36DBA26B716EA1D6 /* CalendarModel.swift */; };
-		676256084B5B4A2F722BAD8A /* CalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B27FA865D6F252E2BD6FD /* CalendarApp.swift */; };
 		680D788864CE747C0C872244 /* TagLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85312124826282803143109 /* TagLogView.swift */; };
 		81FEA9BCAA419B758AD39AAF /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7484A30BA7A7A97F9EA6633 /* Error.swift */; };
 		84F71EB3BAE98E8935939519 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1B06DA9AA489C1E57B144 /* CalendarGridView.swift */; };
-		8740A567D151BB0E7BF90A20 /* Calendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2535DA2C0B972029FA48C4A4 /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE6E74FA2E0BC39C1CFAAAB6 /* TuistAssets+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3BC58E01AB71D15630005 /* TuistAssets+Calendar.swift */; };
 		C2FA0A9A5FC2F9F28B4E62A9 /* AccTimeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5105F3D35452188D55701DC /* AccTimeCardsView.swift */; };
 		C40A42C2BE5EEA3448DF4C7E /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C16D5352B8EB34362C7A57 /* CalendarBodyView.swift */; };
@@ -28,18 +25,7 @@
 		EDC7C485ED03DC87BDB295FE /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */; };
 		EDDE1B6C2EB46B4BAFF1D6F3 /* TuistBundle+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67790BF65BD89432AC4A7969 /* TuistBundle+Calendar.swift */; };
 		F6C8046C2EB7A398EAC9C6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451181FDC8CF6C2EDAA844B9 /* Assets.xcassets */; };
-		FE5E2F36D89DC6A53744D6D7 /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2725494FE8A3C85796B410 /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BAD1C3BF1E4868DF7D538E48 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 572E7F2405063E561EB1DBA8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 917276B2C06A6B638EB2B054;
-			remoteInfo = Calendar;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		18BF70861AE113603931C619 /* Embed Frameworks */ = {
@@ -52,18 +38,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C0531798A5E263928111BCE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8740A567D151BB0E7BF90A20 /* Calendar.framework in Embed Frameworks */,
-				FE5E2F36D89DC6A53744D6D7 /* HaneCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +46,6 @@
 		0DECE44F4017E4A175D3AAEB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		2535DA2C0B972029FA48C4A4 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B9C0BDE22276BCC083546EE /* CalendarDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CalendarDemo-Info.plist"; sourceTree = "<group>"; };
 		326FA376E2FCFFA6B41C7897 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		451181FDC8CF6C2EDAA844B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57ED1E9A36DBA26B716EA1D6 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
@@ -82,10 +55,8 @@
 		81C16D5352B8EB34362C7A57 /* CalendarBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBodyView.swift; sourceTree = "<group>"; };
 		8D2725494FE8A3C85796B410 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE1B06DA9AA489C1E57B144 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
-		A095DE04B6CF72B849B7AA35 /* CalendarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7484A30BA7A7A97F9EA6633 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		BDED67682FA26299D17E8DDD /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
-		D90B27FA865D6F252E2BD6FD /* CalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarApp.swift; sourceTree = "<group>"; };
 		DDBC02E3253C17A102A60A9C /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		E5105F3D35452188D55701DC /* AccTimeCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardsView.swift; sourceTree = "<group>"; };
 		E85312124826282803143109 /* TagLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLogView.swift; sourceTree = "<group>"; };
@@ -101,14 +72,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB84554FD65B2EBF0D03F05C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1098738ED7CF59FFAB85F27B /* Calendar.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -116,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				F4B38CE5AB85FCB8172C8062 /* Calendar-Info.plist */,
-				2B9C0BDE22276BCC083546EE /* CalendarDemo-Info.plist */,
 			);
 			path = InfoPlists;
 			sourceTree = "<group>";
@@ -159,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				2535DA2C0B972029FA48C4A4 /* Calendar.framework */,
-				A095DE04B6CF72B849B7AA35 /* CalendarDemo.app */,
 				8D2725494FE8A3C85796B410 /* HaneCore.framework */,
 			);
 			name = Products;
@@ -181,22 +142,6 @@
 				2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		7F40791B91226287B8A0524A /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				D90B27FA865D6F252E2BD6FD /* CalendarApp.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		8DE2A704BB77DE1A90F0A3C5 /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				7F40791B91226287B8A0524A /* Sources */,
-			);
-			path = Demo;
 			sourceTree = "<group>";
 		};
 		99FE590CF614FD3B1BC235A0 = {
@@ -229,7 +174,6 @@
 		F6304BF3F44A3679A0C56FD1 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				8DE2A704BB77DE1A90F0A3C5 /* Demo */,
 				F60B7909C42F7D8310240B63 /* Derived */,
 				FBFB62763B36686480D45B59 /* Resources */,
 				69CCA26CDB9541F7535D4339 /* Sources */,
@@ -248,25 +192,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		73AE3931CC4B18F0FDD028ED /* CalendarDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC6E6F5FC4DEC649E60E8FF7 /* Build configuration list for PBXNativeTarget "CalendarDemo" */;
-			buildPhases = (
-				9D8553195C241BA5D6AC14EF /* Sources */,
-				669F30A8FA52541FA4FA6FAC /* Resources */,
-				6C0531798A5E263928111BCE /* Embed Frameworks */,
-				DB84554FD65B2EBF0D03F05C /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7EC47D94EE3FE1AD9A79E9DD /* PBXTargetDependency */,
-			);
-			name = CalendarDemo;
-			productName = CalendarDemo;
-			productReference = A095DE04B6CF72B849B7AA35 /* CalendarDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
 		917276B2C06A6B638EB2B054 /* Calendar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFE4F3BF595D2D026C2EB203 /* Build configuration list for PBXNativeTarget "Calendar" */;
@@ -309,19 +234,11 @@
 			projectRoot = "";
 			targets = (
 				917276B2C06A6B638EB2B054 /* Calendar */,
-				73AE3931CC4B18F0FDD028ED /* CalendarDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		669F30A8FA52541FA4FA6FAC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CD36FB3B37F65F90FB90F6D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,14 +250,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9D8553195C241BA5D6AC14EF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				676256084B5B4A2F722BAD8A /* CalendarApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C5BB4B652ADFD541C62C199D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,15 +274,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7EC47D94EE3FE1AD9A79E9DD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Calendar;
-			target = 917276B2C06A6B638EB2B054 /* Calendar */;
-			targetProxy = BAD1C3BF1E4868DF7D538E48 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		124E6769CA5E4F71021C616C /* Debug */ = {
@@ -469,60 +369,6 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		7365431B540A6FBEC289EFCC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Derived/InfoPlists/CalendarDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.calendarDemo";
-				PRODUCT_NAME = CalendarDemo;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		861F76E6277A9A29045D5B10 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Derived/InfoPlists/CalendarDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.calendarDemo";
-				PRODUCT_NAME = CalendarDemo;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
-				SWIFT_COMPILATION_MODE = singlefile;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -629,15 +475,6 @@
 			buildConfigurations = (
 				45709D194083CB680DB64624 /* Debug */,
 				97AD3F6B98925125C12BC2F9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC6E6F5FC4DEC649E60E8FF7 /* Build configuration list for PBXNativeTarget "CalendarDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				861F76E6277A9A29045D5B10 /* Debug */,
-				7365431B540A6FBEC289EFCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
