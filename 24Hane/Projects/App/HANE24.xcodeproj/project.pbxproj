@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		20156403AC9A15C172375110 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7FF7CBACF01C71CC46891A7 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23CA5D6E563BFEAD0F8BF0B7 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66034E99314DDF26D4C2ECF6 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91FD027C2B46C36052F9A29E /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; };
 		A30784302A15B006E03AE4C0 /* Calendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BB56D563B9A0425C3EAACA30 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66034E99314DDF26D4C2ECF6 /* Login.framework */; };
 		BF7675E74A8AF4D9ABCEFA40 /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123183688AE5C345E641CA14 /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA3A1CDC95767A17D57B3FB2 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7FF7CBACF01C71CC46891A7 /* Home.framework */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,7 @@
 				A30784302A15B006E03AE4C0 /* Calendar.framework in Embed Frameworks */,
 				BF7675E74A8AF4D9ABCEFA40 /* HaneCore.framework in Embed Frameworks */,
 				20156403AC9A15C172375110 /* Home.framework in Embed Frameworks */,
+				23CA5D6E563BFEAD0F8BF0B7 /* Login.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		123183688AE5C345E641CA14 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66034E99314DDF26D4C2ECF6 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B961B81CCAF23C54A5434EBD /* HANE24-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HANE24-Info.plist"; sourceTree = "<group>"; };
 		BDEC847F761A3512EB17673E /* HANE24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HANE24.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FF7CBACF01C71CC46891A7 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +49,7 @@
 			files = (
 				91FD027C2B46C36052F9A29E /* Calendar.framework in Frameworks */,
 				EA3A1CDC95767A17D57B3FB2 /* Home.framework in Frameworks */,
+				BB56D563B9A0425C3EAACA30 /* Login.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,7 @@
 				BDEC847F761A3512EB17673E /* HANE24.app */,
 				123183688AE5C345E641CA14 /* HaneCore.framework */,
 				D7FF7CBACF01C71CC46891A7 /* Home.framework */,
+				66034E99314DDF26D4C2ECF6 /* Login.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";

@@ -11,6 +11,7 @@
 		2D6E26E3611F80B37542942A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A7A56D85DE8930ECD4251 /* DateExtensions.swift */; };
 		3A969D092A99DE03690E4689 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11933531B39BDD0D81D15B60 /* Error.swift */; };
 		579C5647C75BACC120E6926A /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1613FAF6C732B6800E658B3 /* ErrorHandler.swift */; };
+		8B641F539B82AB93353E45BB /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87B8A0AE11ACF7686B7101F /* Authentication.swift */; };
 		AD474995076D06102884EB9F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ED61224039398C0A29519C /* ColorExtension.swift */; };
 		BC48462E76315564CFAC359B /* IsHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0B85DCD9C46FAC5D2CEF18 /* IsHidden.swift */; };
 		C5441B035AA04440C5F8D793 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82D11BE8C86E81518192E /* DarkMode.swift */; };
@@ -45,6 +46,7 @@
 		9BC82D11BE8C86E81518192E /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		A8E4642F6BF4D2A385892D40 /* NetworkMonitoringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitoringManager.swift; sourceTree = "<group>"; };
 		C4AEF08320948BA853567762 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C87B8A0AE11ACF7686B7101F /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		CF3A818B19414C5EF7CF666C /* HANE24WidgetConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24WidgetConstant.swift; sourceTree = "<group>"; };
 		CF9FF86799CB5F2CB958681E /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D1613FAF6C732B6800E658B3 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 				A8E4642F6BF4D2A385892D40 /* NetworkMonitoringManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		292E708650415622754E48CF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C87B8A0AE11ACF7686B7101F /* Authentication.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		33FB64FCE5D241E5DB58E81E /* InfoPlists */ = {
@@ -117,6 +127,7 @@
 		C305AFC6F49718B48C83B4B7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				292E708650415622754E48CF /* Auth */,
 				25DCFE2E1560D3FA2822474D /* Error */,
 				26C52C08D96F4E224ECE51FE /* Network */,
 				ABC1177694DC689BCCAEC968 /* Theme */,
@@ -218,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B641F539B82AB93353E45BB /* Authentication.swift in Sources */,
 				2D6E26E3611F80B37542942A /* DateExtensions.swift in Sources */,
 				3A969D092A99DE03690E4689 /* Error.swift in Sources */,
 				579C5647C75BACC120E6926A /* ErrorHandler.swift in Sources */,

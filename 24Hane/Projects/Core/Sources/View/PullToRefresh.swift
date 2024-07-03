@@ -12,8 +12,14 @@ public struct PullToRefresh: View {
 	var onRefresh: () -> Void
 
 	@State var needRefresh: Bool = false
+    
+    // public
+    public init(coordinateSpaceName: String, onRefresh: @escaping () -> Void) {
+        self.coordinateSpaceName = coordinateSpaceName
+        self.onRefresh = onRefresh
+    }
 
-	var body: some View {
+	public var body: some View {
 		GeometryReader { geo in
 			if (geo.frame(in: .named(coordinateSpaceName))).midY > 50 {
 				Spacer()

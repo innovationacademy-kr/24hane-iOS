@@ -22,6 +22,9 @@
          <FileRef
             location = "group:Home/Home.xcodeproj">
          </FileRef>
+         <FileRef
+            location = "group:Login/Login.xcodeproj">
+         </FileRef>
       </Group>
    </Group>
 </Workspace>

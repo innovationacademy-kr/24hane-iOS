@@ -1,19 +1,15 @@
 import ProjectDescription
 
-let appName = "HANE24"
-let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane"
-let targetVersion = "15.0"
 
 let login: Target = .target(
     name: "Login",
     destinations: .iOS,
     product: .framework,
-    bundleId: appBundleId,
+    bundleId: "net.hejang.-4hane.login",
     deploymentTargets: .iOS("15.0"),
 //    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: ["Sources/**", "Resources/**"],
-    resources: ["Resources/**", "Sources/**"],
+    sources: "Sources/**",
+    resources: ["Resources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]
@@ -26,7 +22,7 @@ let loginDemo: Target = .target(
     bundleId: "net.hejang.-4hane.loginDemo",
     deploymentTargets: .iOS("15.0"),
 //    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: "Demo/Sources/**",
+    sources: "Sources/**",
     dependencies: [
         .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
     ]
@@ -34,7 +30,7 @@ let loginDemo: Target = .target(
 
 let targets: [Target] = [
     login,
-    loginDemo
+//    loginDemo
 ]
 
 let project = Project(

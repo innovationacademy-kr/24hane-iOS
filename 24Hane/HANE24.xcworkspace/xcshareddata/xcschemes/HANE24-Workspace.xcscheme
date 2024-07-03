@@ -76,6 +76,34 @@
                ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "72D0E893F5D9C47A76548325"
+               BuildableName = "HomeDemo.app"
+               BlueprintName = "HomeDemo"
+               ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EF8CE03A2759141C3B1EAC1D"
+               BuildableName = "Login.framework"
+               BlueprintName = "Login"
+               ReferencedContainer = "container:Projects/Features/Login/Login.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

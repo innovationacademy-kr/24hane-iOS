@@ -9,24 +9,30 @@ import SwiftUI
 
 public struct LoadingView: View {
     @Environment(\.colorScheme) var colorScheme
+    
+    //public
+    public init() { }
 
     public var body: some View {
         ZStack {
             Theme.calendarBackgroundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(.all)
-//            if colorScheme == .light {
+            if colorScheme == .light {
                 Image("LaunchScreen")
                     .ignoresSafeArea(.all)
-//            } else {
-//                Image("LaunchScreen_dark")
-//                    .ignoresSafeArea(.all)
-//            }
+            } else {
+                Image("LaunchScreen_dark")
+                    .ignoresSafeArea(.all)
+            }
         }
     }
 }
 
 public struct LoadingAnimation: View {
-    @State private var animationTrigger: Bool = true
+    @State var animationTrigger: Bool = true
+    
+    //public
+    public init() { }
 
     public var body: some View {
         HStack(spacing: 6) {
@@ -49,13 +55,10 @@ public struct LoadingAnimation: View {
         }
     }
 
-    var changeColor: Animation {
+    public var changeColor: Animation {
         Animation
             .easeInOut(duration: 1.2)
             .repeatForever()
     }
 }
 
-#Preview {
-    LoadingView()
-}

@@ -5,8 +5,11 @@
 //  Created by Katherine JANG on 2/13/23.
 //
 
+import Foundation
 import SwiftUI
 import HaneCore
+import UIKit
+
 
 struct HomeView: View {
 
@@ -14,9 +17,6 @@ struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme
 
     @ObservedObject var homeManager: HomeVM
-
-    @Binding var isNoticedFundInfo: Bool
-    @Binding var isNoticedTagLatencyInfo: Bool
 
     var body: some View {
         ZStack {
@@ -40,63 +40,30 @@ struct HomeView: View {
 
                     VStack(spacing: 22.5) {
                         TodayAccTimeCardView(homeManager: homeManager, isNoticed: $isNoticedTagLatencyInfo)
-                            .padding(.horizontal, 30)
+//                            .padding(.horizontal, 30)
 
                         ThisMonthAccTimeCardView(homeManager: homeManager, isNoticed: $isNoticedFundInfo)
-                            .padding(.horizontal, 30)
+//                            .padding(.horizontal, 30)
 
                         TabView {
-                            ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: getWeeklyPeriod(), data: homeManager.accumulationTimes.sixWeekAccumulationTime))
-                                .padding(.horizontal, 10)
-                            ChartView(item: ChartItem(id: "개월", title: "최근 월간 그래프", period: getMonthlyPeriod(), data: homeManager.accumulationTimes.sixMonthAccumulationTime))
-                                .padding(.horizontal, 10)
+                            ChartView(item: ChartItem(id: "주", title: "최근 주간 그래프", period: homeManager.getWeeklyPeriod(), data: homeManager.accumulationTimes.sixWeekAccumulationTime))
+//                                .padding(.horizontal, 10)
+                            ChartView(item: ChartItem(id: "개월", title: "최근 월간 그래프", period: homeManager.getMonthlyPeriod(), data: homeManager.accumulationTimes.sixMonthAccumulationTime))
+//                                .padding(.horizontal, 10)
                         }
-                        .padding(.horizontal, 20)
+//                        .padding(.horizontal, 20)
                         .tabViewStyle(.page)
                         .frame(height: 289)
                         PopulationView(population: homeManager.mainInfo.gaepo)
-                            .padding(.horizontal, 30)
+//                            .padding(.horizontal, 30)
                     }
-                    .padding(.bottom, 30)
-                    .padding(.top, 10)
+                    .padding(EdgeInsets(top: 10, leading: 30, bottom: 30, trailing: 30))
+//                    .padding(.bottom, 30)
+//                    .padding(.top, 10)
+//                    .padding(.horizontal, 30)
                 } .coordinateSpace(name: "pullToRefresh")
             }
         }
     }
 }
 
-private func getWeeklyPeriod() -> [String] {
-    var weeklyPeriod: [String] = []
-    var date = Date()
-    let formatter = DateFormatter()
-    formatter.locale = Locale(identifier: "ko_KR")
-    formatter.dateFormat = "M.dd(EEE)"
-    for _ in 0..<6 {
-        let startDay = formatter.string(from: date.startOfWeek!)
-        let endDay = formatter.string(from: date.endOfWeek!)
-        let period = startDay + " - " + endDay
-        weeklyPeriod.append(period)
-        date = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: date)!
-    }
-    return weeklyPeriod
-}
-
-private func getMonthlyPeriod() -> [String] {
-    var monthlyPeriod: [String] = []
-    var date = Date()
-    let formatter = DateFormatter()
-    formatter.dateFormat = "YYYY.M"
-    for _ in 0..<6 {
-        let period = formatter.string(from: date)
-        monthlyPeriod.append(period)
-        date = Calendar.current.date(byAdding: .month, value: -1, to: date)!
-    }
-    return monthlyPeriod
-}
-
-
-//
-//#Preview {
-//    HomeView(fundInfo: .constant(false), tagLatencyInfo: .constant(false))
-//        .environmentObject(Hane())
-//}
