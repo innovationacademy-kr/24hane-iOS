@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51D2E4BDFB9EEFC6A4E5C82D /* More.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B54C72A452865732D6E270B /* More.framework */; };
+		599354125EEA2E7E028852FE /* Hane24.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F19921C22CE1501DAFF4C /* Hane24.swift */; };
+		8DF36F55A3B35716C602F149 /* More.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B54C72A452865732D6E270B /* More.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91FD027C2B46C36052F9A29E /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; };
 		A30784302A15B006E03AE4C0 /* Calendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF7675E74A8AF4D9ABCEFA40 /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123183688AE5C345E641CA14 /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F04893EF6457CACC8BD413C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA573AD05627D7EE2DAF202 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,6 +25,7 @@
 			files = (
 				A30784302A15B006E03AE4C0 /* Calendar.framework in Embed Frameworks */,
 				BF7675E74A8AF4D9ABCEFA40 /* HaneCore.framework in Embed Frameworks */,
+				8DF36F55A3B35716C602F149 /* More.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -29,6 +34,11 @@
 
 /* Begin PBXFileReference section */
 		123183688AE5C345E641CA14 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B54C72A452865732D6E270B /* More.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = More.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D41FF4F898511D9937EA83F /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		8F2A1E72473F2FC4294064E0 /* 24HANE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 24HANE.entitlements; sourceTree = "<group>"; };
+		A32F19921C22CE1501DAFF4C /* Hane24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hane24.swift; sourceTree = "<group>"; };
+		AAA573AD05627D7EE2DAF202 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B961B81CCAF23C54A5434EBD /* HANE24-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HANE24-Info.plist"; sourceTree = "<group>"; };
 		BDEC847F761A3512EB17673E /* HANE24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HANE24.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE99B29A00F8E3EEE316191 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,12 +50,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				91FD027C2B46C36052F9A29E /* Calendar.framework in Frameworks */,
+				51D2E4BDFB9EEFC6A4E5C82D /* More.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21F86EF2C5A3D9FB8E5C1A51 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AAA573AD05627D7EE2DAF202 /* ContentView.swift */,
+				A32F19921C22CE1501DAFF4C /* Hane24.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		62A3A43A89FAF0DEA52190B3 /* InfoPlists */ = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +80,7 @@
 				DCE99B29A00F8E3EEE316191 /* Calendar.framework */,
 				BDEC847F761A3512EB17673E /* HANE24.app */,
 				123183688AE5C345E641CA14 /* HaneCore.framework */,
+				1B54C72A452865732D6E270B /* More.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,8 +89,20 @@
 			isa = PBXGroup;
 			children = (
 				C87842156B36B4BD8C66438C /* Derived */,
+				21F86EF2C5A3D9FB8E5C1A51 /* Sources */,
+				99C9CEAC2B1C800B64E6A16B /* Supports */,
 			);
 			name = Project;
+			sourceTree = "<group>";
+		};
+		99C9CEAC2B1C800B64E6A16B /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				8F2A1E72473F2FC4294064E0 /* 24HANE.entitlements */,
+				8D41FF4F898511D9937EA83F /* env.xcconfig */,
+			);
+			name = Supports;
+			path = ../../Supports;
 			sourceTree = "<group>";
 		};
 		C87842156B36B4BD8C66438C /* Derived */ = {
@@ -153,6 +186,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04893EF6457CACC8BD413C4 /* ContentView.swift in Sources */,
+				599354125EEA2E7E028852FE /* Hane24.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +255,10 @@
 		};
 		8593F4118ECAEADE37B815CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D41FF4F898511D9937EA83F /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ../../Supports/24HANE.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/HANE24-Info.plist";
@@ -248,8 +285,10 @@
 		};
 		BC1576CA6C960C37390F5963 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D41FF4F898511D9937EA83F /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ../../Supports/24HANE.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/HANE24-Info.plist";

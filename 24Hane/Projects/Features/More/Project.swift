@@ -17,8 +17,8 @@ let more: Target = .target(
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ],
     settings: .settings(configurations: [
-        .debug(name: "moreDebugSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-        .release(name: "moreReleaseSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
     ])
 )
 
@@ -33,8 +33,8 @@ let moreDemo: Target = .target(
         .project(target: "More", path: .relativeToRoot("Projects/Features/More"))
     ],
     settings: .settings(configurations: [
-        .debug(name: "moreDebugSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-        .release(name: "moreReleaseSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
     ])
 )
 

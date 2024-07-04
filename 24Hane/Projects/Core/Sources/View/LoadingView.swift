@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import HaneCore
 
-struct LoadingView: View {
+public struct LoadingView: View {
     @Environment(\.colorScheme) var colorScheme
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             Theme.calendarBackgroundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(.all)
@@ -26,14 +25,14 @@ struct LoadingView: View {
     }
 }
 
-struct LoadingAnimation: View {
+public struct LoadingAnimation: View {
     @State private var animationTrigger: Bool = true
 
-    var body: some View {
+    public var body: some View {
         HStack(spacing: 6) {
             Circle()
                 .frame(width: 6, height: 6)
-//                .foregroundColor(animationTrigger ? Color(hex: "#D9D9D9") : Color(hex: "#735BF2"))
+                .foregroundColor(animationTrigger ? Color(hex: "#D9D9D9") : Color(hex: "#735BF2"))
                 .animation(changeColor, value: animationTrigger)
             Circle()
                 .frame(width: 6, height: 6)

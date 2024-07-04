@@ -49,11 +49,11 @@ public struct CalendarView: View {
                 }
             }
         }
-        .onAppear {
-            Task {
-                try await calendarVM.updateMonthlyLogs(date: .now)
-            }
-        }
+//        .onAppear {
+//            Task {
+//                try await calendarVM.updateMonthlyLogs(date: .now)
+//            }
+//        }
         .environmentObject(calendarVM)
     }
 }

@@ -11,9 +11,17 @@ let targets: [Target] = [
         destinations: .iOS,
         product: .app,
         bundleId: appBundleId,
+        infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
+        sources: "Sources/**",
+        entitlements: .file(path: .relativeToRoot("Supports/24HANE.entitlements")),
         dependencies: [
-            .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
-        ]
+            .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
+            .project(target: "More", path: .relativeToRoot("Projects/Features/More"))
+        ],
+        settings: .settings(configurations: [
+            .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+            .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        ])
     )
 ]
 
