@@ -2,7 +2,7 @@ import ProjectDescription
 
 let appName = "HANE24"
 let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane.calendar"
+let appBundleId = "net.hejang.calendar"
 let targetVersion = "15.0"
 
 let calendar: Target = .target(
@@ -11,12 +11,16 @@ let calendar: Target = .target(
     product: .framework,
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Sources/**",
     resources: "Resources/**",
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let calendarDemo: Target = .target(
@@ -25,16 +29,20 @@ let calendarDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.calendarDemo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Demo/Sources/**",
     dependencies: [
         .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let targets: [Target] = [
     calendar,
-//    calendarDemo
+   calendarDemo
 ]
 
 let project = Project(

@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct AlertView: View {
+public struct AlertView: View {
     @Binding var showAlert: Bool
-    @EnvironmentObject var hane: Hane
-	@EnvironmentObject var reissue: ReissueVM
+	@ObservedObject var reissue: ReissueVM
 
     var item: AlertItem
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             GeometryReader { _ in
                 EmptyView()
@@ -59,8 +58,8 @@ struct AlertView: View {
     }
 }
 
-#Preview {
-    AlertView(showAlert: .constant(true), item: AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"))
-        .environmentObject(Hane())
-		.environmentObject(ReissueVM())
-}
+//#Preview {
+//    AlertView(showAlert: .consAtant(true), item: AlertItem(id: "신청", title1: "카드 재발급을", title2: "신청하시겠습니까?", statement: "신청 후 취소가 불가능합니다.", buttonTitle: "네, 신청하겠습니다"))
+//        .environmentObject(Hane())
+//		.environmentObject(ReissueVM())
+//}

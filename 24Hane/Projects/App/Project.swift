@@ -11,12 +11,17 @@ let targets: [Target] = [
         destinations: .iOS,
         product: .app,
         bundleId: appBundleId,
-//        infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+        infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
+        sources: "Sources/**",
+        entitlements: .file(path: .relativeToRoot("Supports/24HANE.entitlements")),
         dependencies: [
-            .project(target: "Home", path: .relativeToRoot("Projects/Features/Home")),
             .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
-            .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
-        ]
+            .project(target: "More", path: .relativeToRoot("Projects/Features/More"))
+        ],
+        settings: .settings(configurations: [
+            .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+            .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        ])
     )
 ]
 

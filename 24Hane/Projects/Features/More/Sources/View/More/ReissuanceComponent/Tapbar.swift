@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HaneCore
 
 struct Tapbar: View {
 	@Environment(\.presentationMode) var presentationMode
@@ -29,7 +30,7 @@ struct Tapbar: View {
 				.foregroundColor(Theme.toolBarIconColor(forScheme: colorScheme))
 				.imageScale(.large)
 				.padding()
-				.isHidden(true)
+//				.isHidden(true)
 		}
 		.padding(.bottom, 15)
     }

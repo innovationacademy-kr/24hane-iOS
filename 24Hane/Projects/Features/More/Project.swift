@@ -2,7 +2,7 @@ import ProjectDescription
 
 let appName = "HANE24"
 let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane"
+let appBundleId = "net.hejang.more"
 let targetVersion = "15.0"
 
 let more: Target = .target(
@@ -11,25 +11,31 @@ let more: Target = .target(
     product: .framework,
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
     sources: ["Sources/**", "Resources/**"],
     resources: ["Resources/**", "Sources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let moreDemo: Target = .target(
     name: "MoreDemo",
     destinations: .iOS,
     product: .app,
-    bundleId: "net.hejang.-4hane.homeDemo",
+    bundleId: "net.hejang.-4hane.moreDemo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
     sources: "Demo/Sources/**",
     dependencies: [
         .project(target: "More", path: .relativeToRoot("Projects/Features/More"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let targets: [Target] = [

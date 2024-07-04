@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
+import HaneCore
 
 struct LogoutButton: View {
 	@Environment(\.colorScheme) var colorScheme
-	@EnvironmentObject var hane: Hane
 
     var body: some View {
 		Button {
 			// TODO: SignOut 함수 교체
-			hane.signOut()
 		} label: {
 			HStack(spacing: 10) {
 				Image("logout")
@@ -32,5 +31,4 @@ struct LogoutButton: View {
 
 #Preview {
     LogoutButton()
-		.environmentObject(Hane())
 }

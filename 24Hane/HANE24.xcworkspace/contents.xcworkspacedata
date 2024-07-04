@@ -20,7 +20,7 @@
             location = "group:Calendar/Calendar.xcodeproj">
          </FileRef>
          <FileRef
-            location = "group:Home/Home.xcodeproj">
+            location = "group:More/More.xcodeproj">
          </FileRef>
          <FileRef
             location = "group:Login/Login.xcodeproj">

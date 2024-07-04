@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HaneCore
 
 struct ReissuanceView: View {
     @GestureState private var dragOffset = CGSize.zero
@@ -46,7 +47,10 @@ struct ReissuanceView: View {
                 .padding(.bottom, 30)
             }
             if showAlert {
-                AlertView(showAlert: $showAlert, item: (reissue.cardReissueState == .pickUpRequested) ? items[1] : items[0])
+                AlertView(
+                    showAlert: $showAlert,
+                    reissue: reissue,
+                    item: (reissue.cardReissueState == .pickUpRequested) ? items[1] : items[0])
             }
         }
         .gesture(DragGesture().updating($dragOffset) { (value, _, _) in

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "917276B2C06A6B638EB2B054"
-               BuildableName = "Calendar.framework"
-               BlueprintName = "Calendar"
-               ReferencedContainer = "container:Calendar.xcodeproj">
+               BlueprintIdentifier = "B62D369236B992A982308107"
+               BuildableName = "More.framework"
+               BlueprintName = "More"
+               ReferencedContainer = "container:More.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "73AE3931CC4B18F0FDD028ED"
-               BuildableName = "CalendarDemo.app"
-               BlueprintName = "CalendarDemo"
-               ReferencedContainer = "container:Calendar.xcodeproj">
+               BlueprintIdentifier = "DCFB5E06F61C02255314AEA3"
+               BuildableName = "MoreDemo.app"
+               BlueprintName = "MoreDemo"
+               ReferencedContainer = "container:More.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "72D0E893F5D9C47A76548325"
+               BuildableName = "HomeDemo.app"
+               BlueprintName = "HomeDemo"
+               ReferencedContainer = "container:Home.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -59,10 +73,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "73AE3931CC4B18F0FDD028ED"
-            BuildableName = "CalendarDemo.app"
-            BlueprintName = "CalendarDemo"
-            ReferencedContainer = "container:Calendar.xcodeproj">
+            BlueprintIdentifier = "DCFB5E06F61C02255314AEA3"
+            BuildableName = "MoreDemo.app"
+            BlueprintName = "MoreDemo"
+            ReferencedContainer = "container:More.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -76,10 +90,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "73AE3931CC4B18F0FDD028ED"
-            BuildableName = "CalendarDemo.app"
-            BlueprintName = "CalendarDemo"
-            ReferencedContainer = "container:Calendar.xcodeproj">
+            BlueprintIdentifier = "DCFB5E06F61C02255314AEA3"
+            BuildableName = "MoreDemo.app"
+            BlueprintName = "MoreDemo"
+            ReferencedContainer = "container:More.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

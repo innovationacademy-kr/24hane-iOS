@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WebKit
+import HaneCore
 
 // More 페이지의 내부 페이지들
 var listItems: [MoreItem] = [
@@ -17,13 +18,14 @@ var listItems: [MoreItem] = [
     MoreItem(id: UUID(), title: "이용약관", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/terms", image: "union")
 ]
 
-struct MoreView: View {
+public struct MoreView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var hane: Hane
 	@StateObject var reissue: ReissueVM = ReissueVM()
+    
+    public init() {}
 
-    var body: some View {
+    public var body: some View {
         NavigationView {
             ZStack(alignment: .topLeading) {
                 Theme.backgroundColor(forScheme: colorScheme)
@@ -62,5 +64,4 @@ struct MoreView: View {
 
 #Preview {
     MoreView()
-        .environmentObject(Hane())
 }
