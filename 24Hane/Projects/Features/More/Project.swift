@@ -11,12 +11,15 @@ let more: Target = .target(
     product: .framework,
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
     sources: ["Sources/**", "Resources/**"],
     resources: ["Resources/**", "Sources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "moreDebugSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "moreReleaseSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let moreDemo: Target = .target(
@@ -25,11 +28,14 @@ let moreDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.moreDemo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
     sources: "Demo/Sources/**",
     dependencies: [
         .project(target: "More", path: .relativeToRoot("Projects/Features/More"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "moreDebugSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "moreReleaseSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let targets: [Target] = [

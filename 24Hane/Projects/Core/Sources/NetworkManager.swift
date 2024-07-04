@@ -37,6 +37,7 @@ public class NetworkManager: NetworkProtocol {
     
     // 서버로부터 response body를 받는 경우 (디코딩이 필요한 경우)
     public func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type? = nil) async throws -> T? where T: Decodable {
+        debugPrint(apiRoot)
         guard let url = URL(string: apiRoot + urlPath) else {
             return nil
         }

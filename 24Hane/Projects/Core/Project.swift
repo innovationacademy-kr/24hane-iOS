@@ -15,7 +15,6 @@ let target: Target = .target(
     product: .framework,
     bundleId: bundleId,
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
     sources: "Sources/**",
     dependencies: []
 )

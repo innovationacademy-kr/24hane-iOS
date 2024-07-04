@@ -1,24 +1,3 @@
-//import ProjectDescription
-//import ProjectDescriptionHelpers
-//
-//let appName = "HANE24"
-//let organizationName = "24HANE"
-//let appBundleId = "net.hejang.-4hane.calendar"
-//let targetVersion = "15.0"
-//
-//var calendarFramework: Target = .framework(module: .calendar)
-//var calendarDemo: Target = .demoApp(module: .calendar)
-//
-//let targets: [Target] = [
-//    calendarFramework,
-//    calendarDemo
-//]
-//
-//let project = Project(
-//    name: "Calendar",
-//    targets: targets
-//)
-
 import ProjectDescription
 
 let appName = "HANE24"
@@ -32,12 +11,16 @@ let calendar: Target = .target(
     product: .framework,
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Sources/**",
     resources: "Resources/**",
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "calendarDebugSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "calendarReleaseSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let calendarDemo: Target = .target(
@@ -46,11 +29,15 @@ let calendarDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.calendarDemo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Demo/Sources/**",
     dependencies: [
         .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "calendarDemoDebugSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "calendarDemoReleaseSetting", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let targets: [Target] = [

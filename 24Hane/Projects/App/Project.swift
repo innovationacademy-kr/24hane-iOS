@@ -11,7 +11,6 @@ let targets: [Target] = [
         destinations: .iOS,
         product: .app,
         bundleId: appBundleId,
-//        infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
         dependencies: [
             .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
         ]
