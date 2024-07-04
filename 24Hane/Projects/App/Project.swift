@@ -2,8 +2,7 @@ import ProjectDescription
 
 let name = "HANE24"
 let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane"
-let targetVersion = "15.0"
+let appBundleId = "net.hejang.-4hane.app"
 
 let targets: [Target] = [
     .target(
@@ -11,7 +10,13 @@ let targets: [Target] = [
         destinations: .iOS,
         product: .app,
         bundleId: appBundleId,
-        infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
+        deploymentTargets: .iOS("15.0"),
+        infoPlist: .extendingDefault(with: [
+            "API_URL":"$(API_URL)",
+            "UILaunchScreen":[
+                "UIImageName":""
+            ]
+        ]),
         sources: "Sources/**",
         entitlements: .file(path: .relativeToRoot("Supports/24HANE.entitlements")),
         dependencies: [
@@ -20,15 +25,22 @@ let targets: [Target] = [
             .project(target: "More", path: .relativeToRoot("Projects/Features/More")),
             .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
         ],
-        settings: .settings(configurations: [
-            .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-            .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
-        ])
+        settings: .settings(
+            configurations: [
+                .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+                .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+            ])
     )
 ]
 
 let project = Project(
     name: name,
     organizationName: organizationName,
+    settings: .settings(
+        base: [:],
+        configurations: [
+            .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+            .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        ]),
     targets: targets
 )

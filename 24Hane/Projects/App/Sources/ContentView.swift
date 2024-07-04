@@ -12,12 +12,11 @@ import More
 
 struct ContentView: View {
     var body: some View {
-      TabView {
-        CalendarView()
-        MoreView()
-      }
+        TabView {
+            CalendarView()
+            MoreView()
+        }
     }
-
 }
 
 #Preview {

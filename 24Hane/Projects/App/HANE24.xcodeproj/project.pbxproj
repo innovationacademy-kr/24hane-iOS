@@ -208,6 +208,7 @@
 /* Begin XCBuildConfiguration section */
 		52B19F71EA52B86CD204B648 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D41FF4F898511D9937EA83F /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -274,11 +275,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/HANE24-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.app";
 				PRODUCT_NAME = HANE24;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -304,11 +306,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/HANE24-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.app";
 				PRODUCT_NAME = HANE24;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -323,6 +326,7 @@
 		};
 		D679DA93B4E253836B2A2880 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D41FF4F898511D9937EA83F /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

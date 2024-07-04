@@ -2,7 +2,7 @@ import ProjectDescription
 
 let appName = "HANE24"
 let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane"
+let appBundleId = "net.hejang.home"
 let targetVersion = "15.0"
 
 let home: Target = .target(

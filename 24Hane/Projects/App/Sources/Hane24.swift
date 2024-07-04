@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct HANE24App: App {
-
     var body: some Scene {
         WindowGroup {
             ContentView()

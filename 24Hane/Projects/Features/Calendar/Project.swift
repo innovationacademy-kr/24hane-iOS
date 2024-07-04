@@ -29,7 +29,8 @@ let calendarDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.calendarDemo",
     deploymentTargets: .iOS("15.0"),
-    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
+    infoPlist: .default,
+//    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Demo/Sources/**",
     dependencies: [
         .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))

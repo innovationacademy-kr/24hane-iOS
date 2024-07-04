@@ -397,7 +397,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
+				PRODUCT_BUNDLE_IDENTIFIER = net.hejang.home;
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -547,7 +547,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
+				PRODUCT_BUNDLE_IDENTIFIER = net.hejang.home;
 				PRODUCT_NAME = Home;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

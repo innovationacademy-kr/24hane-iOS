@@ -11,6 +11,7 @@ let more: Target = .target(
     product: .framework,
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),
+    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: ["Sources/**", "Resources/**"],
     resources: ["Resources/**", "Sources/**"],
     dependencies: [
@@ -28,6 +29,7 @@ let moreDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.moreDemo",
     deploymentTargets: .iOS("15.0"),
+    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Demo/Sources/**",
     dependencies: [
         .project(target: "More", path: .relativeToRoot("Projects/Features/More"))
