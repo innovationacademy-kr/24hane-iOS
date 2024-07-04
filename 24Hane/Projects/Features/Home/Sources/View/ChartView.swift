@@ -89,12 +89,3 @@ struct CustomButtonStyle: ButtonStyle {
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }
 }
-
-#Preview {
-    ChartView(item: ChartItem(
-        id: "주",
-        title: "최근 주간 그래프",
-        period: ["1.2(월)-1.8(일)", "1.9(월)-1.15(일)", "1.16(월)-1.22(일)", "1.23(월)-1.29(일)", "1.30(월)-2.5(일)", "2.6(월)-2.12(일)"],
-        data: [1234, 5678, 9012, 3456, 7890, 1234]
-    ))
-}

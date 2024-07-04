@@ -8,7 +8,7 @@
 import Foundation
 import HaneCore
 
-class HomeVM: ObservableObject {
+class HomeViewModel: ObservableObject {
     @Published var isInCluster: Bool
 
     @Published var fundInfoNotice: InfoMessage

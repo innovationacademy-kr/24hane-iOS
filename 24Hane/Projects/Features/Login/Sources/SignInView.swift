@@ -52,7 +52,7 @@ struct SignInView: View {
                                     Text("LOG IN")
                                         .foregroundColor(.white)
                                 } else {
-//                                    LoadingAnimation()
+                                    LoadingAnimation()
                                 }
                             }
                         }

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E522FCF2C35AAB60012D453 /* SignInDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E522FCE2C35AAB60012D453 /* SignInDemoApp.swift */; };
 		18F6B257AE95AEC7C3FFAF13 /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820944B639E51440B033239D /* SignInWebView.swift */; };
 		1EFD47ADF1CA0DC5FD887C88 /* TuistBundle+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B82B89DC5D86855968821 /* TuistBundle+Login.swift */; };
 		61A6CFE2724203545C711718 /* TuistAssets+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D49D85AE6A5AEE8BA4930 /* TuistAssets+Login.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E522FCE2C35AAB60012D453 /* SignInDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDemoApp.swift; sourceTree = "<group>"; };
 		1F122292170A9B08F370E93A /* Login-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Login-Info.plist"; sourceTree = "<group>"; };
 		280835098884ECDBF24D90C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28C6E6787DFAF624F53D6F5B /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 			children = (
 				AE5D83858313424D04EBD8CD /* SignInView.swift */,
 				820944B639E51440B033239D /* SignInWebView.swift */,
+				0E522FCE2C35AAB60012D453 /* SignInDemoApp.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -149,8 +152,6 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 6C10079AF94881EFE73379E4 /* Build configuration list for PBXProject "Login" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -189,6 +190,7 @@
 				61A6CFE2724203545C711718 /* TuistAssets+Login.swift in Sources */,
 				1EFD47ADF1CA0DC5FD887C88 /* TuistBundle+Login.swift in Sources */,
 				8289F1C7BED6F345BF25B3BD /* SignInView.swift in Sources */,
+				0E522FCF2C35AAB60012D453 /* SignInDemoApp.swift in Sources */,
 				18F6B257AE95AEC7C3FFAF13 /* SignInWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,10 +255,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

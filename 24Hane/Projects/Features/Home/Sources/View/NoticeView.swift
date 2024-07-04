@@ -10,6 +10,7 @@ import SwiftUI
 public struct NoticeView: View {
     @Binding var showNotice: Bool
      var notice: Notice
+    
      public var body: some View {
         ZStack {
             Color.black.opacity(0.4)
@@ -53,8 +54,4 @@ public struct NoticeView: View {
             .padding(.horizontal, 45)
         }
     }
-}
-
-#Preview {
-    NoticeView(showNotice: .constant(true), notice: Notice(title: "titleasdasdasd\ntitle2", content: "content"))
 }

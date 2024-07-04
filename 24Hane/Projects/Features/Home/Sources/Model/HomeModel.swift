@@ -72,3 +72,15 @@ struct ChartItem: Identifiable {
     var period: [String]
     var data: [Double]
 }
+
+
+/// HomeView Modal
+struct Notice {
+    var title: String
+    var content: String
+
+    init(title: String = "", content: String = "") {
+        self.title = title
+        self.content = content
+    }
+}

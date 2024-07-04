@@ -1,19 +1,20 @@
 //
-//  HomeDemoApp.swift
-//  Home
+//  SignInDemoApp.swift
+//  Login
 //
-//  Created by Katherine JANG on 7/3/24.
+//  Created by Katherine JANG on 7/4/24.
 //
 
 import Foundation
 import SwiftUI
 
 @main
-struct HomeDemoApp: App {
+struct SignInDemo: App {
+
     var body: some Scene {
         WindowGroup {
             TabView {
-                HomeView()
+                SignInView()
             }
         }
     }
