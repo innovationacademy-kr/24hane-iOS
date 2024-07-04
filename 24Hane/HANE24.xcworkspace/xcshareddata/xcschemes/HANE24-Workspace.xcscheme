@@ -84,24 +84,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B62D369236B992A982308107"
-               BuildableName = "More.framework"
-               BlueprintName = "More"
-               ReferencedContainer = "container:Projects/Features/More/More.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DCFB5E06F61C02255314AEA3"
-               BuildableName = "MoreDemo.app"
-               BlueprintName = "MoreDemo"
-               ReferencedContainer = "container:Projects/Features/More/More.xcodeproj">
+               BlueprintIdentifier = "52E844066D197E3B81FA748F"
+               BuildableName = "Home.framework"
+               BlueprintName = "Home"
+               ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -130,6 +116,34 @@
                BuildableName = "Login.framework"
                BlueprintName = "Login"
                ReferencedContainer = "container:Projects/Features/Login/Login.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B62D369236B992A982308107"
+               BuildableName = "More.framework"
+               BlueprintName = "More"
+               ReferencedContainer = "container:Projects/Features/More/More.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DCFB5E06F61C02255314AEA3"
+               BuildableName = "MoreDemo.app"
+               BlueprintName = "MoreDemo"
+               ReferencedContainer = "container:Projects/Features/More/More.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

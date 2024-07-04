@@ -16,6 +16,7 @@
 		A30784302A15B006E03AE4C0 /* Calendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB56D563B9A0425C3EAACA30 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66034E99314DDF26D4C2ECF6 /* Login.framework */; };
 		BF7675E74A8AF4D9ABCEFA40 /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123183688AE5C345E641CA14 /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EA3A1CDC95767A17D57B3FB2 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7FF7CBACF01C71CC46891A7 /* Home.framework */; };
 		F04893EF6457CACC8BD413C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA573AD05627D7EE2DAF202 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,14 +40,15 @@
 
 /* Begin PBXFileReference section */
 		123183688AE5C345E641CA14 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		66034E99314DDF26D4C2ECF6 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B54C72A452865732D6E270B /* More.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = More.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66034E99314DDF26D4C2ECF6 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D41FF4F898511D9937EA83F /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		8F2A1E72473F2FC4294064E0 /* 24HANE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 24HANE.entitlements; sourceTree = "<group>"; };
 		A32F19921C22CE1501DAFF4C /* Hane24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hane24.swift; sourceTree = "<group>"; };
 		AAA573AD05627D7EE2DAF202 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B961B81CCAF23C54A5434EBD /* HANE24-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HANE24-Info.plist"; sourceTree = "<group>"; };
 		BDEC847F761A3512EB17673E /* HANE24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HANE24.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7FF7CBACF01C71CC46891A7 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE99B29A00F8E3EEE316191 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 

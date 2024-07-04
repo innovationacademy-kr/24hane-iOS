@@ -3,15 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E522FCF2C35AAB60012D453 /* SignInDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E522FCE2C35AAB60012D453 /* SignInDemoApp.swift */; };
 		18F6B257AE95AEC7C3FFAF13 /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820944B639E51440B033239D /* SignInWebView.swift */; };
-		1EFD47ADF1CA0DC5FD887C88 /* TuistBundle+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B82B89DC5D86855968821 /* TuistBundle+Login.swift */; };
-		61A6CFE2724203545C711718 /* TuistAssets+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D49D85AE6A5AEE8BA4930 /* TuistAssets+Login.swift */; };
-		63D3373C04EB0A6E63AFC3BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280835098884ECDBF24D90C1 /* Assets.xcassets */; };
+		1D394C2B3B316B1BA654DAC6 /* SignInDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAF8A060F8751AEB302C78 /* SignInDemoApp.swift */; };
 		8289F1C7BED6F345BF25B3BD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D83858313424D04EBD8CD /* SignInView.swift */; };
 		C87FE30505DE297A91BDC98B /* HaneCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACF9E51FCF320995762AAFC /* HaneCore.framework */; };
 /* End PBXBuildFile section */
@@ -30,15 +27,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0E522FCE2C35AAB60012D453 /* SignInDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDemoApp.swift; sourceTree = "<group>"; };
 		1F122292170A9B08F370E93A /* Login-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Login-Info.plist"; sourceTree = "<group>"; };
-		280835098884ECDBF24D90C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28C6E6787DFAF624F53D6F5B /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACF9E51FCF320995762AAFC /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		820944B639E51440B033239D /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
 		AE5D83858313424D04EBD8CD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		B65D49D85AE6A5AEE8BA4930 /* TuistAssets+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Login.swift"; sourceTree = "<group>"; };
-		B68B82B89DC5D86855968821 /* TuistBundle+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Login.swift"; sourceTree = "<group>"; };
+		FACAF8A060F8751AEB302C78 /* SignInDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDemoApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +51,8 @@
 			isa = PBXGroup;
 			children = (
 				47D08CC30AC651152A01B24B /* InfoPlists */,
-				C77BD46878E3D6652C5A105F /* Sources */,
 			);
 			path = Derived;
-			sourceTree = "<group>";
-		};
-		259A342181DA560846419021 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				280835098884ECDBF24D90C1 /* Assets.xcassets */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		275CA20C12D61868FDE00BD5 /* Products */ = {
@@ -90,9 +75,9 @@
 		82158BAC7310E834F5971A06 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FACAF8A060F8751AEB302C78 /* SignInDemoApp.swift */,
 				AE5D83858313424D04EBD8CD /* SignInView.swift */,
 				820944B639E51440B033239D /* SignInWebView.swift */,
-				0E522FCE2C35AAB60012D453 /* SignInDemoApp.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -101,19 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				212E49CF4F45A085BC2440DF /* Derived */,
-				259A342181DA560846419021 /* Resources */,
 				82158BAC7310E834F5971A06 /* Sources */,
 			);
 			name = Project;
-			sourceTree = "<group>";
-		};
-		C77BD46878E3D6652C5A105F /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				B65D49D85AE6A5AEE8BA4930 /* TuistAssets+Login.swift */,
-				B68B82B89DC5D86855968821 /* TuistBundle+Login.swift */,
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		E31225F45B959E9057547147 = {
@@ -152,6 +127,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 6C10079AF94881EFE73379E4 /* Build configuration list for PBXProject "Login" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -176,7 +153,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D3373C04EB0A6E63AFC3BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,10 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61A6CFE2724203545C711718 /* TuistAssets+Login.swift in Sources */,
-				1EFD47ADF1CA0DC5FD887C88 /* TuistBundle+Login.swift in Sources */,
+				1D394C2B3B316B1BA654DAC6 /* SignInDemoApp.swift in Sources */,
 				8289F1C7BED6F345BF25B3BD /* SignInView.swift in Sources */,
-				0E522FCF2C35AAB60012D453 /* SignInDemoApp.swift in Sources */,
 				18F6B257AE95AEC7C3FFAF13 /* SignInWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +229,10 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

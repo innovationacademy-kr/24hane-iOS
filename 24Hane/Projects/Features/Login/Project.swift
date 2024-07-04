@@ -9,7 +9,7 @@ let login: Target = .target(
     deploymentTargets: .iOS("15.0"),
 //    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
     sources: "Sources/**",
-    resources: ["Resources/**"],
+//    resources: ["Resources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]

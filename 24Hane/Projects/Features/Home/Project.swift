@@ -12,8 +12,8 @@ let home: Target = .target(
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),
 //    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
-    sources: ["Sources/**", "Resources/**"],
-    resources: ["Resources/**", "Sources/**"],
+    sources: "Sources/**",
+//    resources: ["Resources/**", "Sources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]

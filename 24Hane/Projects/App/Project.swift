@@ -16,7 +16,9 @@ let targets: [Target] = [
         entitlements: .file(path: .relativeToRoot("Supports/24HANE.entitlements")),
         dependencies: [
             .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
-            .project(target: "More", path: .relativeToRoot("Projects/Features/More"))
+            .project(target: "Home", path: .relativeToRoot("Projects/Features/Home")),
+            .project(target: "More", path: .relativeToRoot("Projects/Features/More")),
+            .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
         ],
         settings: .settings(configurations: [
             .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
