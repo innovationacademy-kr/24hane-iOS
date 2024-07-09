@@ -15,14 +15,19 @@ enum Stat {
     case readyToSignIn
 }
 
-struct SignInView: View {
+public struct SignInView: View {
+    @ObservedObject var auth: Authentication
     @AppStorage("isSignIn") var isSignIn: Bool = false
     
     @State var viewStat: Stat = .buttonNotTabbed
+    
+    public init(auth: Authentication) {
+        self.auth = auth
+    }
 
-    var body: some View {
+    public var body: some View {
         ZStack {
-            SignInWebView(viewStat: $viewStat)
+            SignInWebView(auth: auth, viewStat: $viewStat)
             if viewStat != .readyToSignIn {
                 ZStack {
                     LinearGradient(gradient: Gradient(colors: [.gradientPurple, .gradientBlue]), startPoint: .bottomLeading, endPoint: .topTrailing)

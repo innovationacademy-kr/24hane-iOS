@@ -25,9 +25,11 @@
 		60BC9AFEDE760EAC514F8865 /* CardProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC6D7137CE217A1B3EE5D26 /* CardProgressView.swift */; };
 		68CCE0E5E195645951D5747E /* More.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6515D4CF3E142C4BB82C16DE /* More.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6AD3D23D986FC750201803B8 /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2694E11FA9400E3DFB3D1751 /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6D3CD863714CAADCC0ED2A38 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10731ABBCAB7FD1EB168C7C1 /* Login.framework */; };
 		7470E1320BA2B56B6EFB42D6 /* CardProgressView.swift in Resources */ = {isa = PBXBuildFile; fileRef = CAC6D7137CE217A1B3EE5D26 /* CardProgressView.swift */; };
 		7D1401E67CA9DC3ED4CFAACF /* AlertButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF54C153999E2D386702167 /* AlertButtons.swift */; };
 		7E52AB77D746BC8963079C82 /* AlertButtons.swift in Resources */ = {isa = PBXBuildFile; fileRef = DEF54C153999E2D386702167 /* AlertButtons.swift */; };
+		8C92DFE58B89B99C19236AB5 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10731ABBCAB7FD1EB168C7C1 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		914271F8868C3E9551D8765E /* ListItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD687BE8C780D1DA3FF05E /* ListItemButton.swift */; };
 		983DE56AAE0AD1E2CFE85EA2 /* ReissueModel.swift in Resources */ = {isa = PBXBuildFile; fileRef = E1DF26835803C04D40EEC38D /* ReissueModel.swift */; };
 		9A8378B14462BB8157514ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E062600733DF3EEC22103FFE /* Assets.xcassets */; };
@@ -81,6 +83,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6AD3D23D986FC750201803B8 /* HaneCore.framework in Embed Frameworks */,
+				8C92DFE58B89B99C19236AB5 /* Login.framework in Embed Frameworks */,
 				68CCE0E5E195645951D5747E /* More.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -90,6 +93,7 @@
 
 /* Begin PBXFileReference section */
 		0E77FE4966B98E3FE0BEB35E /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		10731ABBCAB7FD1EB168C7C1 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C91114FD0692002C83E750 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		1315221B1307F53B8F78F402 /* ReissueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueVM.swift; sourceTree = "<group>"; };
 		2694E11FA9400E3DFB3D1751 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D3CD863714CAADCC0ED2A38 /* Login.framework in Frameworks */,
 				A0E750CA046868EA61AB002F /* More.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				2694E11FA9400E3DFB3D1751 /* HaneCore.framework */,
+				10731ABBCAB7FD1EB168C7C1 /* Login.framework */,
 				6515D4CF3E142C4BB82C16DE /* More.framework */,
 				C87071D5E22D906B9130C9B6 /* MoreDemo.app */,
 			);

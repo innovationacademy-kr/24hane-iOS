@@ -23,7 +23,8 @@ let targets: [Target] = [
             .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
             .project(target: "Home", path: .relativeToRoot("Projects/Features/Home")),
             .project(target: "More", path: .relativeToRoot("Projects/Features/More")),
-            .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
+            .project(target: "Login", path: .relativeToRoot("Projects/Features/Login")),
+            .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
         ],
         settings: .settings(
             configurations: [

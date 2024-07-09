@@ -29,11 +29,17 @@ let calendarDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.calendarDemo",
     deploymentTargets: .iOS("15.0"),
-    infoPlist: .default,
-//    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
+    infoPlist: .extendingDefault(with: [
+        "API_URL":"$(API_URL)",
+        "UILaunchScreen":[
+            "UIImageName":""
+        ]
+    ]),
     sources: "Demo/Sources/**",
     dependencies: [
-        .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
+        .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
+        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login")),
+        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
     ],
     settings: .settings(configurations: [
         .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),

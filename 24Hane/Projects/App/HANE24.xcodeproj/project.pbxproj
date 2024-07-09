@@ -14,6 +14,7 @@
 		8DF36F55A3B35716C602F149 /* More.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B54C72A452865732D6E270B /* More.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91FD027C2B46C36052F9A29E /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; };
 		A30784302A15B006E03AE4C0 /* Calendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF067E08B46BFCFEE7BCF20F /* HaneCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123183688AE5C345E641CA14 /* HaneCore.framework */; };
 		BB56D563B9A0425C3EAACA30 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66034E99314DDF26D4C2ECF6 /* Login.framework */; };
 		BF7675E74A8AF4D9ABCEFA40 /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123183688AE5C345E641CA14 /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA3A1CDC95767A17D57B3FB2 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7FF7CBACF01C71CC46891A7 /* Home.framework */; };
@@ -58,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91FD027C2B46C36052F9A29E /* Calendar.framework in Frameworks */,
+				AF067E08B46BFCFEE7BCF20F /* HaneCore.framework in Frameworks */,
 				EA3A1CDC95767A17D57B3FB2 /* Home.framework in Frameworks */,
 				BB56D563B9A0425C3EAACA30 /* Login.framework in Frameworks */,
 				51D2E4BDFB9EEFC6A4E5C82D /* More.framework in Frameworks */,

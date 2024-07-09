@@ -12,8 +12,14 @@ import WidgetKit
 import HaneCore
 
 struct SignInWebView: UIViewRepresentable {
-//    @EnvironmentObject var hane: Hane
+    @ObservedObject var auth: Authentication
     @Binding var viewStat: Stat
+    
+    init(auth: Authentication, viewStat: Binding<Stat>) {
+        self.auth = auth
+        self._viewStat = viewStat 
+        // 이런 방식으로 Binding 변수를 주입해줄 수 있음(https://stackoverflow.com/questions/56973959/swiftui-how-to-implement-a-custom-init-with-binding-variables)
+    }
 
     var url: URL {
         let path = "/user/login/42?redirect=42"
@@ -23,7 +29,7 @@ struct SignInWebView: UIViewRepresentable {
     }
 
     func makeCoordinator() -> WebViewCoordinator {
-        WebViewCoordinator(self, viewStat: $viewStat)
+        WebViewCoordinator(self, auth, viewStat: $viewStat)
     }
 
     func makeUIView(context: Context) -> WKWebView {
@@ -39,12 +45,12 @@ struct SignInWebView: UIViewRepresentable {
 
     class WebViewCoordinator: NSObject, WKNavigationDelegate {
         var parent: SignInWebView
-//        var hane: Hane
+        var auth: Authentication
         var viewStat: Binding<Stat>
 
-        init(_ parent: SignInWebView, viewStat: Binding<Stat>) {
+        init(_ parent: SignInWebView, _ auth: Authentication , viewStat: Binding<Stat>) {
             self.parent = parent
-//            self.hane = hane
+            self.auth = auth
             self.viewStat = viewStat
             super.init()
         }
@@ -62,15 +68,18 @@ struct SignInWebView: UIViewRepresentable {
 
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                      decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+            debugPrint("webView start")
             let urlToMatch =  "/user/login/callback/42"
 
             if  let urlStr = navigationAction.request.url?.path, urlStr == urlToMatch {
                 WKWebsiteDataStore.default().httpCookieStore.getAllCookies { (cookies) in
                     for cookie in cookies where cookie.name == "accessToken" {
+                        debugPrint("webView: \(cookie.value)")
                         UserDefaults.standard.setValue(String(cookie.value), forKey: "Token")
                         UserDefaults.shared.setValue(String(cookie.value), forKey: HaneWidgetConstant.storageKey)
                         WidgetCenter.shared.reloadAllTimelines()
-//                        self.hane.isSignIn = true
+                        self.auth.isSignIn = true
+                        
                         break
                     }
                 }

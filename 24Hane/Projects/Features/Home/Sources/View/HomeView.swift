@@ -8,11 +8,13 @@
 import SwiftUI
 import HaneCore
 
-struct HomeView: View {
+public struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel()
     @State var test: Bool = true
+    
+    public init() {}
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             BackgroundTheme(isInCluster: homeViewModel.isInCluster)
             
