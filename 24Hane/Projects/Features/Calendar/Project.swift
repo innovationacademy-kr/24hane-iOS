@@ -13,7 +13,10 @@ let calendar: Target = .target(
     deploymentTargets: .iOS("15.0"),
     infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Sources/**",
-    resources: "Resources/**",
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ],
@@ -31,11 +34,18 @@ let calendarDemo: Target = .target(
     deploymentTargets: .iOS("15.0"),
     infoPlist: .extendingDefault(with: [
         "API_URL":"$(API_URL)",
+        "NSAppTransportSecurity":[
+            "NSAllowsArbitraryLoads":"YES"
+        ],
         "UILaunchScreen":[
             "UIImageName":""
         ]
     ]),
     sources: "Demo/Sources/**",
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
         .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
         .project(target: "Login", path: .relativeToRoot("Projects/Features/Login")),
@@ -49,7 +59,7 @@ let calendarDemo: Target = .target(
 
 let targets: [Target] = [
     calendar,
-   calendarDemo
+    calendarDemo
 ]
 
 let project = Project(

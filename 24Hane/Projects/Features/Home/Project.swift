@@ -13,7 +13,10 @@ let home: Target = .target(
     deploymentTargets: .iOS("15.0"),
 //    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
     sources: "Sources/**",
-//    resources: ["Resources/**", "Sources/**"],
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]
@@ -25,8 +28,20 @@ let homeDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.homeDemo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: [
+        "API_URL":"$(API_URL)",
+        "NSAppTransportSecurity":[
+            "NSAllowsArbitraryLoads":"YES"
+        ],
+        "UILaunchScreen":[
+            "UIImageName":""
+        ]
+    ]),
     sources: "Sources/**",
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
         .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
     ]

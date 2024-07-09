@@ -31,11 +31,18 @@ let moreDemo: Target = .target(
     deploymentTargets: .iOS("15.0"),
     infoPlist: .extendingDefault(with: [
         "API_URL":"$(API_URL)",
+        "NSAppTransportSecurity":[
+            "NSAllowsArbitraryLoads":"YES"
+        ],
         "UILaunchScreen":[
             "UIImageName":""
         ]
     ]),
     sources: "Demo/Sources/**",
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
         .project(target: "More", path: .relativeToRoot("Projects/Features/More")),
         .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
