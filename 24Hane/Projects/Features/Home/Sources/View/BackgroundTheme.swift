@@ -10,7 +10,7 @@ import HaneCore
 
 struct BackgroundTheme: View {
     @Environment(\.colorScheme) var colorScheme
-    @State var isInCluster: Bool = false
+    @Binding var isInCluster: Bool
     
     var body: some View {
         if isInCluster {
@@ -22,9 +22,10 @@ struct BackgroundTheme: View {
             Theme.backgroundColor(forScheme: colorScheme)
                 .edgesIgnoringSafeArea(colorScheme == .dark ? .all : .top)
         }
+        
     }
 }
 
-#Preview {
-    BackgroundTheme()
-}
+//#Preview {
+//    BackgroundTheme()
+//}

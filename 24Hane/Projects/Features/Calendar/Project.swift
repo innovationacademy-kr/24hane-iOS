@@ -34,8 +34,14 @@ let calendarDemo: Target = .target(
     deploymentTargets: .iOS("15.0"),
     infoPlist: .extendingDefault(with: [
         "API_URL":"$(API_URL)",
+        "UILaunchStoryboardName":"LaunchScreen.storyboard",
+        "UIApplicationSupportsIndirectInputEvents":true,
+        "UIApplicationSceneManifest":[
+            "UIApplicationSupportsMultipleScenes":true,
+            "UISceneConfigurations":[]
+        ],
         "NSAppTransportSecurity":[
-            "NSAllowsArbitraryLoads":"YES"
+            "NSAllowsArbitraryLoads":true
         ],
         "UILaunchScreen":[
             "UIImageName":""
@@ -57,9 +63,23 @@ let calendarDemo: Target = .target(
     ])
 )
 
+let calendarTest: Target = .target(
+    name: "CalendarTest",
+    destinations: .iOS,
+    product: .unitTests,
+    bundleId: "net.hejang.-4hane.calendarTest",
+    deploymentTargets: .iOS("15.0"),
+    infoPlist: .default,
+    sources: "Test/Sources/**",
+    dependencies: [
+        .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
+    ]
+)
+
 let targets: [Target] = [
     calendar,
-    calendarDemo
+    calendarDemo,
+    calendarTest
 ]
 
 let project = Project(

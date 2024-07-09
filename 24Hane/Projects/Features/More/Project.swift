@@ -31,8 +31,14 @@ let moreDemo: Target = .target(
     deploymentTargets: .iOS("15.0"),
     infoPlist: .extendingDefault(with: [
         "API_URL":"$(API_URL)",
+        "UILaunchStoryboardName":"LaunchScreen.storyboard",
+        "UIApplicationSupportsIndirectInputEvents":true,
+        "UIApplicationSceneManifest":[
+            "UIApplicationSupportsMultipleScenes":true,
+            "UISceneConfigurations":[]
+        ],
         "NSAppTransportSecurity":[
-            "NSAllowsArbitraryLoads":"YES"
+            "NSAllowsArbitraryLoads":true
         ],
         "UILaunchScreen":[
             "UIImageName":""

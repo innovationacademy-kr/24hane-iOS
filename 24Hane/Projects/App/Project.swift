@@ -2,7 +2,7 @@ import ProjectDescription
 
 let name = "HANE24"
 let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane.app"
+let appBundleId = "net.hejang.-4hane"
 
 let targets: [Target] = [
     .target(
@@ -13,11 +13,24 @@ let targets: [Target] = [
         deploymentTargets: .iOS("15.0"),
         infoPlist: .extendingDefault(with: [
             "API_URL":"$(API_URL)",
+            "UILaunchStoryboardName":"LaunchScreen.storyboard",
+            "UIApplicationSupportsIndirectInputEvents":true,
+            "UIApplicationSceneManifest":[
+                "UIApplicationSupportsMultipleScenes":true,
+                "UISceneConfigurations":[]
+            ],
+            "NSAppTransportSecurity":[
+                "NSAllowsArbitraryLoads":true
+            ],
             "UILaunchScreen":[
                 "UIImageName":""
             ]
         ]),
         sources: "Sources/**",
+        resources: [
+            "Resources/**",
+            "Resources/Assets.xcassets/**"
+        ],
         entitlements: .file(path: .relativeToRoot("Supports/24HANE.entitlements")),
         dependencies: [
             .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),

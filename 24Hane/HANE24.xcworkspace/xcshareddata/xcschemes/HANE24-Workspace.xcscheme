@@ -42,6 +42,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4219B8045745C3967A5A4881"
+               BuildableName = "CalendarTest.xctest"
+               BlueprintName = "CalendarTest"
+               ReferencedContainer = "container:Projects/Features/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "8B36164494E09CD6962087B9"
                BuildableName = "HANE24.app"
                BlueprintName = "HANE24"
@@ -154,6 +168,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4219B8045745C3967A5A4881"
+               BuildableName = "CalendarTest.xctest"
+               BlueprintName = "CalendarTest"
+               ReferencedContainer = "container:Projects/Features/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

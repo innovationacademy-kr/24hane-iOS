@@ -46,8 +46,6 @@ public class NetworkManager: NetworkProtocol {
             throw CustomError.tokenExpired
         }
         
-        debugPrint("token: \(token)")
-        
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = [

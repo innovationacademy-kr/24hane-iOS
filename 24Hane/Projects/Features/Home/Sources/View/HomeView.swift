@@ -10,13 +10,12 @@ import HaneCore
 
 public struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel()
-    @State var test: Bool = true
     
     public init() {}
 
     public var body: some View {
         ZStack {
-            BackgroundTheme(isInCluster: homeViewModel.isInCluster)
+            BackgroundTheme(isInCluster: $homeViewModel.isInCluster)
             
             VStack(alignment: .center, spacing: 20) {
                 HomeHeaderView(homeViewModel: homeViewModel)

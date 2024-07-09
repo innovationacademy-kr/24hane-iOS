@@ -68,7 +68,6 @@ struct SignInWebView: UIViewRepresentable {
 
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                      decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-            debugPrint("webView start")
             let urlToMatch =  "/user/login/callback/42"
 
             if  let urlStr = navigationAction.request.url?.path, urlStr == urlToMatch {

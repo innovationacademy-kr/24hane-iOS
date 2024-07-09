@@ -12,11 +12,10 @@ import HaneCore
 import Calendar
 import More
 import Login
-import Home
 
 struct ContentView: View {
     @StateObject var auth = Authentication()
-    @ObservedObject var networkMonitoringManager = NetworkMonitoringManager()
+    @StateObject var networkMonitoringManager = NetworkMonitoringManager()
     @State var signInChecked = false
     let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirst")
 
@@ -29,7 +28,7 @@ struct ContentView: View {
                 case false:
                     SignInView(auth: auth)
                 case true:
-                    HomeView()
+                    MainView()
                 }
             }
         }
