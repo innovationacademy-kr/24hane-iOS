@@ -17,7 +17,7 @@ let login: Target = .target(
         ]
     ]),
     sources: "Sources/**",
-//    resources: ["Resources/**"],
+    resources: ["Resources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]
@@ -45,6 +45,7 @@ let loginDemo: Target = .target(
         ]
     ]),
     sources: "Sources/**",
+    resources: ["Resources/**"],
     dependencies: [
         .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
     ]
@@ -52,7 +53,7 @@ let loginDemo: Target = .target(
 
 let targets: [Target] = [
     login,
-//    loginDemo
+    loginDemo
 ]
 
 let project = Project(
