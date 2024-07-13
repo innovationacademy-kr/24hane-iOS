@@ -39,6 +39,7 @@
 		C749EF5AA1A33BEB3E3BED31 /* HANE24Widget-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HANE24Widget-Info.plist"; sourceTree = "<group>"; };
 		D7D4F6C7A9BD74800FD4EB5B /* HANE24Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Widget.swift; sourceTree = "<group>"; };
 		EE675355DDE98A08094ED687 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFCB919697BB0CFCC2BE2BF4 /* 24HANE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 24HANE.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 				4FF76BEB5BFD81B5505BCBBC /* Derived */,
 				C272C08D1CF6DF7731CE3E8C /* Resources */,
 				5886E458ACDC6A293D9A1FBA /* Sources */,
+				CBBFD33AB5739DAD7E77A1CA /* Supports */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -113,6 +115,15 @@
 				6DF0AF9C6B979093DF68EBA0 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CBBFD33AB5739DAD7E77A1CA /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				FFCB919697BB0CFCC2BE2BF4 /* 24HANE.entitlements */,
+			);
+			name = Supports;
+			path = ../../Supports;
 			sourceTree = "<group>";
 		};
 		F9B69761B96AFD095FE64972 /* Products */ = {
@@ -263,6 +274,7 @@
 		B0D627BD9F75B20B63D89C98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ../../Supports/24HANE.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Derived/InfoPlists/HANE24Widget-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -343,6 +355,7 @@
 		F424B423ADC5BE9317FB488D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ../../Supports/24HANE.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Derived/InfoPlists/HANE24Widget-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

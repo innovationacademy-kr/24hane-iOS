@@ -7,15 +7,15 @@
 
 import SwiftUI
 import CoreData
+import Home
 import Calendar
 import More
+import HaneCore
 
 struct ContentView: View {
+    @StateObject var authManager = Authentication()
     var body: some View {
-        TabView {
-            CalendarView()
-            MoreView()
-        }
+        
     }
 }
 
