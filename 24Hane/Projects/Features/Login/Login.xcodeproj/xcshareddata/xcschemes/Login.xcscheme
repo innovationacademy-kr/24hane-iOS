@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Login.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05CA830C9469AED6B4B67768"
+               BuildableName = "LoginDemo.app"
+               BlueprintName = "LoginDemo"
+               ReferencedContainer = "container:Login.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -41,15 +55,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EF8CE03A2759141C3B1EAC1D"
-            BuildableName = "Login.framework"
-            BlueprintName = "Login"
+            BlueprintIdentifier = "05CA830C9469AED6B4B67768"
+            BuildableName = "LoginDemo.app"
+            BlueprintName = "LoginDemo"
             ReferencedContainer = "container:Login.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,15 +72,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EF8CE03A2759141C3B1EAC1D"
-            BuildableName = "Login.framework"
-            BlueprintName = "Login"
+            BlueprintIdentifier = "05CA830C9469AED6B4B67768"
+            BuildableName = "LoginDemo.app"
+            BlueprintName = "LoginDemo"
             ReferencedContainer = "container:Login.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

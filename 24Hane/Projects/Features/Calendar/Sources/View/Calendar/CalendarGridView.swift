@@ -18,7 +18,7 @@ struct CalendarGridView: View {
     var body: some View {
         ZStack {
             LoadingAnimation()
-//				.isHidden(!calendarVM.loading)
+				.isHidden(!calendarVM.loading)
             VStack {
                 // day of week
                 LazyVGrid(columns: cols, spacing: 12) {
@@ -50,7 +50,7 @@ struct CalendarGridView: View {
                                                     .stroke(Color.dateToday, lineWidth: 1)
                                             }
                                         }
-//                                        .isHidden(day > Date.now)
+                                        .isHidden(day > Date.now)
 
                                     Text("\(day.dayToInt)")
                                         .foregroundColor(getTextColor(day))
@@ -64,7 +64,7 @@ struct CalendarGridView: View {
                         }
                     }
                 }
-//                .isHidden(calendarVM.loading)
+                .isHidden(calendarVM.loading)
             }
         }
     }

@@ -13,7 +13,10 @@ let calendar: Target = .target(
     deploymentTargets: .iOS("15.0"),
     infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Sources/**",
-    resources: "Resources/**",
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ],
@@ -29,11 +32,30 @@ let calendarDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.calendarDemo",
     deploymentTargets: .iOS("15.0"),
-    infoPlist: .default,
-//    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
+    infoPlist: .extendingDefault(with: [
+        "API_URL":"$(API_URL)",
+        "UILaunchStoryboardName":"LaunchScreen.storyboard",
+        "UIApplicationSupportsIndirectInputEvents":true,
+        "UIApplicationSceneManifest":[
+            "UIApplicationSupportsMultipleScenes":true,
+            "UISceneConfigurations":[]
+        ],
+        "NSAppTransportSecurity":[
+            "NSAllowsArbitraryLoads":true
+        ],
+        "UILaunchScreen":[
+            "UIImageName":""
+        ]
+    ]),
     sources: "Demo/Sources/**",
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
-        .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar"))
+        .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
+        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login")),
+        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
     ],
     settings: .settings(configurations: [
         .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
@@ -41,9 +63,23 @@ let calendarDemo: Target = .target(
     ])
 )
 
+let calendarTest: Target = .target(
+    name: "CalendarTest",
+    destinations: .iOS,
+    product: .unitTests,
+    bundleId: "net.hejang.-4hane.calendarTest",
+    deploymentTargets: .iOS("15.0"),
+    infoPlist: .default,
+    sources: "Test/Sources/**",
+    dependencies: [
+        .project(target: "Calendar", path: .relativeToRoot("Projects/Features/Calendar")),
+    ]
+)
+
 let targets: [Target] = [
     calendar,
-   calendarDemo
+    calendarDemo,
+    calendarTest
 ]
 
 let project = Project(

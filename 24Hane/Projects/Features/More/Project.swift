@@ -29,10 +29,29 @@ let moreDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.moreDemo",
     deploymentTargets: .iOS("15.0"),
-    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
+    infoPlist: .extendingDefault(with: [
+        "API_URL":"$(API_URL)",
+        "UILaunchStoryboardName":"LaunchScreen.storyboard",
+        "UIApplicationSupportsIndirectInputEvents":true,
+        "UIApplicationSceneManifest":[
+            "UIApplicationSupportsMultipleScenes":true,
+            "UISceneConfigurations":[]
+        ],
+        "NSAppTransportSecurity":[
+            "NSAllowsArbitraryLoads":true
+        ],
+        "UILaunchScreen":[
+            "UIImageName":""
+        ]
+    ]),
     sources: "Demo/Sources/**",
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
-        .project(target: "More", path: .relativeToRoot("Projects/Features/More"))
+        .project(target: "More", path: .relativeToRoot("Projects/Features/More")),
+        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
     ],
     settings: .settings(configurations: [
         .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),

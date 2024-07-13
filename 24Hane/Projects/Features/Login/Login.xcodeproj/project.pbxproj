@@ -9,9 +9,31 @@
 /* Begin PBXBuildFile section */
 		18F6B257AE95AEC7C3FFAF13 /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820944B639E51440B033239D /* SignInWebView.swift */; };
 		1D394C2B3B316B1BA654DAC6 /* SignInDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAF8A060F8751AEB302C78 /* SignInDemoApp.swift */; };
+		1EFD47ADF1CA0DC5FD887C88 /* TuistBundle+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B82B89DC5D86855968821 /* TuistBundle+Login.swift */; };
+		227F95B19B51DF73EB6C517B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280835098884ECDBF24D90C1 /* Assets.xcassets */; };
+		2FCAE71C4B13DD46E59B3E47 /* TuistBundle+LoginDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67C23F2CC5F4799BDBB9942 /* TuistBundle+LoginDemo.swift */; };
+		306B2348B138B6638839627D /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C6E6787DFAF624F53D6F5B /* Login.framework */; };
+		4BA53357F33825EF7F9E3ADC /* SignInDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAF8A060F8751AEB302C78 /* SignInDemoApp.swift */; };
+		55E0427698299E4ED7CCB8F5 /* TuistAssets+LoginDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD932AE666D2D411513CB51 /* TuistAssets+LoginDemo.swift */; };
+		5D4C8F0126919B817CB91104 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D83858313424D04EBD8CD /* SignInView.swift */; };
+		61A6CFE2724203545C711718 /* TuistAssets+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D49D85AE6A5AEE8BA4930 /* TuistAssets+Login.swift */; };
+		63D3373C04EB0A6E63AFC3BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280835098884ECDBF24D90C1 /* Assets.xcassets */; };
+		6A651941C102A46F7F0F0B5D /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820944B639E51440B033239D /* SignInWebView.swift */; };
 		8289F1C7BED6F345BF25B3BD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D83858313424D04EBD8CD /* SignInView.swift */; };
 		C87FE30505DE297A91BDC98B /* HaneCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACF9E51FCF320995762AAFC /* HaneCore.framework */; };
+		D05EEC2921F2EB9DAF2D5187 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28C6E6787DFAF624F53D6F5B /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D34D25E6E274FE542E8FF47D /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACF9E51FCF320995762AAFC /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		627F57457904B5DCE18522E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 353B4020F35CB9C9FFC126AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF8CE03A2759141C3B1EAC1D;
+			remoteInfo = Login;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		603867D9E1CF1F2DD9B777A0 /* Embed Frameworks */ = {
@@ -24,18 +46,45 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DCA2E7A3EF1B0A5C4CBD6481 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D34D25E6E274FE542E8FF47D /* HaneCore.framework in Embed Frameworks */,
+				D05EEC2921F2EB9DAF2D5187 /* Login.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1F122292170A9B08F370E93A /* Login-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Login-Info.plist"; sourceTree = "<group>"; };
+		280835098884ECDBF24D90C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28C6E6787DFAF624F53D6F5B /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACF9E51FCF320995762AAFC /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		820944B639E51440B033239D /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
+		A521F32EF4E33D87A7F30D8D /* LoginDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LoginDemo-Info.plist"; sourceTree = "<group>"; };
+		A67C23F2CC5F4799BDBB9942 /* TuistBundle+LoginDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+LoginDemo.swift"; sourceTree = "<group>"; };
 		AE5D83858313424D04EBD8CD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		B65D49D85AE6A5AEE8BA4930 /* TuistAssets+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Login.swift"; sourceTree = "<group>"; };
+		B68B82B89DC5D86855968821 /* TuistBundle+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Login.swift"; sourceTree = "<group>"; };
+		CAF9F0472A4FA28A98888399 /* LoginDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACAF8A060F8751AEB302C78 /* SignInDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDemoApp.swift; sourceTree = "<group>"; };
+		FDD932AE666D2D411513CB51 /* TuistAssets+LoginDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+LoginDemo.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B568EC14F94C95E6643AA0D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				306B2348B138B6638839627D /* Login.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5E80A847E8ED564AB08F5FC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,8 +100,17 @@
 			isa = PBXGroup;
 			children = (
 				47D08CC30AC651152A01B24B /* InfoPlists */,
+				C77BD46878E3D6652C5A105F /* Sources */,
 			);
 			path = Derived;
+			sourceTree = "<group>";
+		};
+		259A342181DA560846419021 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				280835098884ECDBF24D90C1 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		275CA20C12D61868FDE00BD5 /* Products */ = {
@@ -60,6 +118,7 @@
 			children = (
 				6ACF9E51FCF320995762AAFC /* HaneCore.framework */,
 				28C6E6787DFAF624F53D6F5B /* Login.framework */,
+				CAF9F0472A4FA28A98888399 /* LoginDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				1F122292170A9B08F370E93A /* Login-Info.plist */,
+				A521F32EF4E33D87A7F30D8D /* LoginDemo-Info.plist */,
 			);
 			path = InfoPlists;
 			sourceTree = "<group>";
@@ -86,9 +146,21 @@
 			isa = PBXGroup;
 			children = (
 				212E49CF4F45A085BC2440DF /* Derived */,
+				259A342181DA560846419021 /* Resources */,
 				82158BAC7310E834F5971A06 /* Sources */,
 			);
 			name = Project;
+			sourceTree = "<group>";
+		};
+		C77BD46878E3D6652C5A105F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B65D49D85AE6A5AEE8BA4930 /* TuistAssets+Login.swift */,
+				FDD932AE666D2D411513CB51 /* TuistAssets+LoginDemo.swift */,
+				B68B82B89DC5D86855968821 /* TuistBundle+Login.swift */,
+				A67C23F2CC5F4799BDBB9942 /* TuistBundle+LoginDemo.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		E31225F45B959E9057547147 = {
@@ -102,6 +174,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		05CA830C9469AED6B4B67768 /* LoginDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CDDBFDA16CFE55576145174 /* Build configuration list for PBXNativeTarget "LoginDemo" */;
+			buildPhases = (
+				280350EC402FA7F65CE584BB /* Sources */,
+				B2E7477148791267CE926265 /* Resources */,
+				DCA2E7A3EF1B0A5C4CBD6481 /* Embed Frameworks */,
+				B568EC14F94C95E6643AA0D9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FE6F8EF928B65C4D035303A /* PBXTargetDependency */,
+			);
+			name = LoginDemo;
+			productName = LoginDemo;
+			productReference = CAF9F0472A4FA28A98888399 /* LoginDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		EF8CE03A2759141C3B1EAC1D /* Login */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF7F2616745712F48F4019C8 /* Build configuration list for PBXNativeTarget "Login" */;
@@ -144,6 +235,7 @@
 			projectRoot = "";
 			targets = (
 				EF8CE03A2759141C3B1EAC1D /* Login */,
+				05CA830C9469AED6B4B67768 /* LoginDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -153,6 +245,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D3373C04EB0A6E63AFC3BC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E7477148791267CE926265 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				227F95B19B51DF73EB6C517B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,15 +264,92 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A6CFE2724203545C711718 /* TuistAssets+Login.swift in Sources */,
+				1EFD47ADF1CA0DC5FD887C88 /* TuistBundle+Login.swift in Sources */,
 				1D394C2B3B316B1BA654DAC6 /* SignInDemoApp.swift in Sources */,
 				8289F1C7BED6F345BF25B3BD /* SignInView.swift in Sources */,
 				18F6B257AE95AEC7C3FFAF13 /* SignInWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		280350EC402FA7F65CE584BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E0427698299E4ED7CCB8F5 /* TuistAssets+LoginDemo.swift in Sources */,
+				2FCAE71C4B13DD46E59B3E47 /* TuistBundle+LoginDemo.swift in Sources */,
+				4BA53357F33825EF7F9E3ADC /* SignInDemoApp.swift in Sources */,
+				5D4C8F0126919B817CB91104 /* SignInView.swift in Sources */,
+				6A651941C102A46F7F0F0B5D /* SignInWebView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9FE6F8EF928B65C4D035303A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Login;
+			target = EF8CE03A2759141C3B1EAC1D /* Login */;
+			targetProxy = 627F57457904B5DCE18522E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		04A4741640B52A355AC0CFE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/LoginDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.loginDemo";
+				PRODUCT_NAME = LoginDemo;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04B968EDEDF4070C4E3D5A0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/LoginDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.loginDemo";
+				PRODUCT_NAME = LoginDemo;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		4415BCB70220082B63C7F44A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -357,6 +535,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3CDDBFDA16CFE55576145174 /* Build configuration list for PBXNativeTarget "LoginDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04B968EDEDF4070C4E3D5A0C /* Debug */,
+				04A4741640B52A355AC0CFE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6C10079AF94881EFE73379E4 /* Build configuration list for PBXProject "Login" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

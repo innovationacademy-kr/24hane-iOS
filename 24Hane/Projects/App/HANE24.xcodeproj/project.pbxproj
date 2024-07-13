@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EEDCF41E962E198D423F790 /* TuistBundle+HANE24.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BCFC928BEB509EF85282C /* TuistBundle+HANE24.swift */; };
+		0FE7C517E1EAEE93B8E4E21B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07AAD2829D6A798DD26B339B /* Assets.xcassets */; };
 		20156403AC9A15C172375110 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7FF7CBACF01C71CC46891A7 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23CA5D6E563BFEAD0F8BF0B7 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66034E99314DDF26D4C2ECF6 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		51D2E4BDFB9EEFC6A4E5C82D /* More.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B54C72A452865732D6E270B /* More.framework */; };
@@ -14,10 +16,13 @@
 		8DF36F55A3B35716C602F149 /* More.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B54C72A452865732D6E270B /* More.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91FD027C2B46C36052F9A29E /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; };
 		A30784302A15B006E03AE4C0 /* Calendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCE99B29A00F8E3EEE316191 /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF067E08B46BFCFEE7BCF20F /* HaneCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123183688AE5C345E641CA14 /* HaneCore.framework */; };
 		BB56D563B9A0425C3EAACA30 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66034E99314DDF26D4C2ECF6 /* Login.framework */; };
+		BD4869B1A60BF9894BF62863 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5526245192DEAA3BC56383 /* MainView.swift */; };
 		BF7675E74A8AF4D9ABCEFA40 /* HaneCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123183688AE5C345E641CA14 /* HaneCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA3A1CDC95767A17D57B3FB2 /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7FF7CBACF01C71CC46891A7 /* Home.framework */; };
 		F04893EF6457CACC8BD413C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA573AD05627D7EE2DAF202 /* ContentView.swift */; };
+		FD56D8AF83F246E8FD9F1787 /* TuistAssets+HANE24.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641FC6D30D48BB1BDB2E6B1 /* TuistAssets+HANE24.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0641FC6D30D48BB1BDB2E6B1 /* TuistAssets+HANE24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+HANE24.swift"; sourceTree = "<group>"; };
+		07AAD2829D6A798DD26B339B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		102BCFC928BEB509EF85282C /* TuistBundle+HANE24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+HANE24.swift"; sourceTree = "<group>"; };
 		123183688AE5C345E641CA14 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B54C72A452865732D6E270B /* More.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = More.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66034E99314DDF26D4C2ECF6 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +58,7 @@
 		BDEC847F761A3512EB17673E /* HANE24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HANE24.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FF7CBACF01C71CC46891A7 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE99B29A00F8E3EEE316191 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5526245192DEAA3BC56383 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91FD027C2B46C36052F9A29E /* Calendar.framework in Frameworks */,
+				AF067E08B46BFCFEE7BCF20F /* HaneCore.framework in Frameworks */,
 				EA3A1CDC95767A17D57B3FB2 /* Home.framework in Frameworks */,
 				BB56D563B9A0425C3EAACA30 /* Login.framework in Frameworks */,
 				51D2E4BDFB9EEFC6A4E5C82D /* More.framework in Frameworks */,
@@ -72,6 +82,7 @@
 			children = (
 				AAA573AD05627D7EE2DAF202 /* ContentView.swift */,
 				A32F19921C22CE1501DAFF4C /* Hane24.swift */,
+				EF5526245192DEAA3BC56383 /* MainView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -82,6 +93,15 @@
 				B961B81CCAF23C54A5434EBD /* HANE24-Info.plist */,
 			);
 			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		664171643C3FD4AF8AEBFC65 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0641FC6D30D48BB1BDB2E6B1 /* TuistAssets+HANE24.swift */,
+				102BCFC928BEB509EF85282C /* TuistBundle+HANE24.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		78D04AC4CDE664451D4A1899 /* Products */ = {
@@ -101,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				C87842156B36B4BD8C66438C /* Derived */,
+				C0D07BA4A7248C067E388018 /* Resources */,
 				21F86EF2C5A3D9FB8E5C1A51 /* Sources */,
 				99C9CEAC2B1C800B64E6A16B /* Supports */,
 			);
@@ -117,10 +138,19 @@
 			path = ../../Supports;
 			sourceTree = "<group>";
 		};
+		C0D07BA4A7248C067E388018 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07AAD2829D6A798DD26B339B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C87842156B36B4BD8C66438C /* Derived */ = {
 			isa = PBXGroup;
 			children = (
 				62A3A43A89FAF0DEA52190B3 /* InfoPlists */,
+				664171643C3FD4AF8AEBFC65 /* Sources */,
 			);
 			path = Derived;
 			sourceTree = "<group>";
@@ -188,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE7C517E1EAEE93B8E4E21B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,8 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD56D8AF83F246E8FD9F1787 /* TuistAssets+HANE24.swift in Sources */,
+				0EEDCF41E962E198D423F790 /* TuistBundle+HANE24.swift in Sources */,
 				F04893EF6457CACC8BD413C4 /* ContentView.swift in Sources */,
 				599354125EEA2E7E028852FE /* Hane24.swift in Sources */,
+				BD4869B1A60BF9894BF62863 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +314,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.app";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
 				PRODUCT_NAME = HANE24;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -311,7 +345,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane.app";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
 				PRODUCT_NAME = HANE24;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
