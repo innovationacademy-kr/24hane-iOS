@@ -7,9 +7,17 @@ let login: Target = .target(
     product: .framework,
     bundleId: "net.hejang.-4hane.login",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: [
+        "API_URL":"$(API_URL)",
+        "NSAppTransportSecurity":[
+            "NSAllowsArbitraryLoads":"YES"
+        ],
+        "UILaunchScreen":[
+            "UIImageName":""
+        ]
+    ]),
     sources: "Sources/**",
-//    resources: ["Resources/**"],
+    resources: ["Resources/**"],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ]
@@ -21,8 +29,23 @@ let loginDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.loginDemo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: [
+        "API_URL":"$(API_URL)",
+        "UILaunchStoryboardName":"LaunchScreen.storyboard",
+        "UIApplicationSupportsIndirectInputEvents":true,
+        "UIApplicationSceneManifest":[
+            "UIApplicationSupportsMultipleScenes":true,
+            "UISceneConfigurations":[]
+        ],
+        "NSAppTransportSecurity":[
+            "NSAllowsArbitraryLoads":true
+        ],
+        "UILaunchScreen":[
+            "UIImageName":""
+        ]
+    ]),
     sources: "Sources/**",
+    resources: ["Resources/**"],
     dependencies: [
         .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
     ]
@@ -30,7 +53,7 @@ let loginDemo: Target = .target(
 
 let targets: [Target] = [
     login,
-//    loginDemo
+    loginDemo
 ]
 
 let project = Project(

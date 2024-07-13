@@ -7,14 +7,16 @@
 
 import Foundation
 import SwiftUI
+import HaneCore
 
 @main
 struct SignInDemo: App {
+    @StateObject var auth = Authentication()
 
     var body: some Scene {
         WindowGroup {
             TabView {
-                SignInView()
+                SignInView(auth: auth)
             }
         }
     }

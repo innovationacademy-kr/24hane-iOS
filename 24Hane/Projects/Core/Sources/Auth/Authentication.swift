@@ -5,8 +5,22 @@ import SwiftUI
 public class Authentication: ObservableObject {
     @Published public var isSignIn: Bool
     
-    init(isSignIn: Bool) {
-        self.isSignIn = isSignIn
+    public init() {
+        self.isSignIn = false
+    }
+    
+    @MainActor
+    public func isLogin() async throws -> Bool {
+        debugPrint("isLogin start")
+        do {
+            try await NetworkManager.shared.apiRequest("/user/login/islogin", .get)
+            debugPrint("isLogin success")
+            return true
+        } catch {
+            ErrorHandler.shared.handleError(error)
+            debugPrint("isLogin failed")
+            return false
+        }
     }
     
     //MARK: - API 요청시 사용자 AccessToken이 만료된 경우

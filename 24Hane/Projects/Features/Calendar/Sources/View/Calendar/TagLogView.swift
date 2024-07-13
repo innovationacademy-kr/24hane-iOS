@@ -9,7 +9,6 @@ import SwiftUI
 import HaneCore
 
 struct TagLogView: View {
-//    @EnvironmentObject var hane: Hane
 	@EnvironmentObject var calendarVM: CalendarVM
     @Environment(\.colorScheme) var colorScheme
 
@@ -69,7 +68,7 @@ struct TagLogView: View {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(colorScheme == .dark ? Color(hex: "555555") : Color(hex: "#EAEAEA"))
                 .frame(height: 24)
-//                .isHidden((log.logTime != "누락"))
+                .isHidden((log.logTime != "누락"))
 
             HStack {
                 Text(log.inTime ?? "-")
@@ -94,5 +93,4 @@ struct TagLogView: View {
 #Preview {
     TagLogView(logList: [])
 		.environmentObject(CalendarVM())
-//        .environmentObject(Hane())
 }

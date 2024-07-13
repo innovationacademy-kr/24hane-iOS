@@ -57,6 +57,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4219B8045745C3967A5A4881"
+               BuildableName = "CalendarTest.xctest"
+               BlueprintName = "CalendarTest"
+               ReferencedContainer = "container:Projects/Features/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "8B36164494E09CD6962087B9"
                BuildableName = "HANE24.app"
                BlueprintName = "HANE24"
@@ -127,6 +141,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05CA830C9469AED6B4B67768"
+               BuildableName = "LoginDemo.app"
+               BlueprintName = "LoginDemo"
+               ReferencedContainer = "container:Projects/Features/Login/Login.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "B62D369236B992A982308107"
                BuildableName = "More.framework"
                BlueprintName = "More"
@@ -155,6 +183,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4219B8045745C3967A5A4881"
+               BuildableName = "CalendarTest.xctest"
+               BlueprintName = "CalendarTest"
+               ReferencedContainer = "container:Projects/Features/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

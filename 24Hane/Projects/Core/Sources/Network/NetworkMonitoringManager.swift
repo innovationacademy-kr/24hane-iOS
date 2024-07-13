@@ -15,7 +15,7 @@ public class NetworkMonitoringManager: ObservableObject {
     @Published public var isConnected = true
     @Published public var showAlert = false
 
-    init() {
+    public init() {
         monitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {
                 self.isConnected =  path.status == .satisfied

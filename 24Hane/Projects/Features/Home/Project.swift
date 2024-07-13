@@ -11,12 +11,19 @@ let home: Target = .target(
     product: .framework,
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: ["API_URL":"$(API_URL)"]),
     sources: "Sources/**",
-//    resources: ["Resources/**", "Sources/**"],
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
-    ]
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let homeDemo: Target = .target(
@@ -25,8 +32,26 @@ let homeDemo: Target = .target(
     product: .app,
     bundleId: "net.hejang.-4hane.homeDemo",
     deploymentTargets: .iOS("15.0"),
-//    infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
+    infoPlist: .extendingDefault(with: [
+        "API_URL":"$(API_URL)",
+        "UILaunchStoryboardName":"LaunchScreen.storyboard",
+        "UIApplicationSupportsIndirectInputEvents":true,
+        "UIApplicationSceneManifest":[
+            "UIApplicationSupportsMultipleScenes":true,
+            "UISceneConfigurations":[]
+        ],
+        "NSAppTransportSecurity":[
+            "NSAllowsArbitraryLoads":true
+        ],
+        "UILaunchScreen":[
+            "UIImageName":""
+        ]
+    ]),
     sources: "Sources/**",
+    resources: [
+        "Resources/**",
+        "Resources/Assets.xcassets/**"
+    ],
     dependencies: [
         .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
     ]

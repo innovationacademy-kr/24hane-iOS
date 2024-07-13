@@ -70,7 +70,7 @@ class HomeViewModel: ObservableObject {
                 throw CustomError.responseBodyEmpty
             }
             self.mainInfo = mainInfo
-            self.isInCluster = mainInfo.inoutState == "IN"
+            self.isInCluster = (mainInfo.inoutState == "IN")
             self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
             self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
         } catch {

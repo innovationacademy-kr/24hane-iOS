@@ -37,13 +37,13 @@ public class NetworkManager: NetworkProtocol {
     
     // 서버로부터 response body를 받는 경우 (디코딩이 필요한 경우)
     public func apiRequest<T>(_ urlPath: String, _ method: RequestMethod, type: T.Type? = nil) async throws -> T? where T: Decodable {
+        debugPrint("apiRequest start")
         guard let url = URL(string: apiRoot + urlPath) else {
-            return nil
+            throw CustomError.invalidURL
         }
         
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
-//            throw MyError.tokenExpired("Token expired, please get a new token")
-            return nil // TODO: - 추후 수정
+            throw CustomError.tokenExpired
         }
         
         var request = URLRequest(url: url)
@@ -53,9 +53,8 @@ public class NetworkManager: NetworkProtocol {
         ]
         
         let (data, response) = try await session.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-//            throw MyError.tokenExpired("request Failed")
-            return nil // TODO: - 추후 수정
+        guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+            throw CustomError.unknownError("Request Failed")
         }
 
         if let type = type {
@@ -68,12 +67,11 @@ public class NetworkManager: NetworkProtocol {
     // 서버로부터 response body를 받지 않거나 사용하지 않는 경우 (디코딩이 필요 없는 경우)
     public func apiRequest(_ urlPath: String, _ method: RequestMethod) async throws {
         guard let url = URL(string: apiRoot + urlPath) else {
-            return
+            throw CustomError.invalidURL
         }
         
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
-//            throw MyError.tokenExpired("Token expired, please get a new token")
-            return // TODO: - 추후 수정
+            throw CustomError.tokenExpired
         }
         
         var request = URLRequest(url: url)
@@ -83,9 +81,8 @@ public class NetworkManager: NetworkProtocol {
         ]
         
         let (_, response) = try await session.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-//            throw MyError.tokenExpired("request Failed")
-            return // TODO: - 추후 수정
+        guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+            throw CustomError.internalServer
         }
     }
 }
