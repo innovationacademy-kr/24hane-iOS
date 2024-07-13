@@ -10,12 +10,15 @@ import SwiftUI
 struct AccTimeView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     
+    @State var isTodayAccTimeCardViewFold = false
+    @State var isMontyAcctimeCardViewFold = false
+    
     @State var isNoticedFundInfo: Bool = false
     @State var isNoticedTagLatencyInfo: Bool = false
     
     var body: some View {
         VStack(spacing: 22.5) {
-            TodayAccTimeCardView(homeManager: homeViewModel, isNoticed: $isNoticedTagLatencyInfo)
+            TodayAccTimeCardView(homeManager: homeViewModel, isFold: $isTodayAccTimeCardViewFold, isNoticed: $isNoticedTagLatencyInfo)
                 .padding(.horizontal, 20)
             
             ThisMonthAccTimeCardView(homeViewModel: homeViewModel, isNoticed: $isNoticedFundInfo)

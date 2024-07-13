@@ -31,7 +31,7 @@ class HomeViewModel: ObservableObject {
         self.fundInfoNotice = InfoMessage()
         self.tagLatencyNotice = InfoMessage( )
 
-        self.isLoading = false
+        self.isLoading = true
 
         self.mainInfo = MainInfo()
 
@@ -82,6 +82,7 @@ class HomeViewModel: ObservableObject {
     func refresh() async {
         await self.updateMainInfo()
         await self.updateAccumulationTimes()
+        self.isLoading = false
     }
     
     func getWeeklyPeriod() -> [String] {

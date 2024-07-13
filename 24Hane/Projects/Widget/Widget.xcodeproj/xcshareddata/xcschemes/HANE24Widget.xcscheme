@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "672578F0D80202C0D2C75158"
-               BuildableName = "24HANEWidget.appex"
-               BlueprintName = "24HANEWidget"
-               ReferencedContainer = "container:HANE24.xcodeproj">
+               BlueprintIdentifier = "6CEE172A2D684FE5B37D07BE"
+               BuildableName = "HANE24Widget.appex"
+               BlueprintName = "HANE24Widget"
+               ReferencedContainer = "container:Widget.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,10 +48,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "672578F0D80202C0D2C75158"
-            BuildableName = "24HANEWidget.appex"
-            BlueprintName = "24HANEWidget"
-            ReferencedContainer = "container:HANE24.xcodeproj">
+            BlueprintIdentifier = "6CEE172A2D684FE5B37D07BE"
+            BuildableName = "HANE24Widget.appex"
+            BlueprintName = "HANE24Widget"
+            ReferencedContainer = "container:Widget.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -65,10 +65,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "672578F0D80202C0D2C75158"
-            BuildableName = "24HANEWidget.appex"
-            BlueprintName = "24HANEWidget"
-            ReferencedContainer = "container:HANE24.xcodeproj">
+            BlueprintIdentifier = "6CEE172A2D684FE5B37D07BE"
+            BuildableName = "HANE24Widget.appex"
+            BlueprintName = "HANE24Widget"
+            ReferencedContainer = "container:Widget.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

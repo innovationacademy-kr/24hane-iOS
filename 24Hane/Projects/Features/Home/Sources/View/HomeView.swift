@@ -31,7 +31,7 @@ public struct HomeView: View {
                         PopulationView(population: homeViewModel.mainInfo.gaepo)
                             .padding(.horizontal, 30)
                     }
-                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 20))
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 30, trailing: 0))
                 } .coordinateSpace(name: "pullToRefresh")
             }
         }

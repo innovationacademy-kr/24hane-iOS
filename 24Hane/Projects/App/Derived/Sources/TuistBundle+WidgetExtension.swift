@@ -8,14 +8,14 @@ import Foundation
 private class BundleFinder {}
 
 extension Foundation.Bundle {
-/// Since 24HANEWidget is a app extension, the bundle for classes within this module can be used directly.
+/// Since WidgetExtension is a app extension, the bundle for classes within this module can be used directly.
 static let module = Bundle(for: BundleFinder.self)
 }
 
 // MARK: - Objective-C Bundle Accessor
 
 @objc
-public class _24HANEWidgetResources: NSObject {
+public class WidgetExtensionResources: NSObject {
 @objc public class var bundle: Bundle {
     return .module
 }
