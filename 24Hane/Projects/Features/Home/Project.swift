@@ -19,7 +19,7 @@ let home: Target = .target(
     ],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core")),
-        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
+//        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
     ],
     settings: .settings(configurations: [
         .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
@@ -54,8 +54,13 @@ let homeDemo: Target = .target(
         "Resources/Assets.xcassets/**"
     ],
     dependencies: [
-        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
-    ]
+        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home")),
+        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login")),
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
 )
 
 let targets: [Target] = [

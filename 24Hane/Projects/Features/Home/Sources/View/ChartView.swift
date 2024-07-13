@@ -40,7 +40,7 @@ struct ChartView: View {
                     Spacer()
                 }
                 .padding(.top, 20)
-                .padding(.leading, 30)
+                .padding(.leading, 20)
                 .padding(.bottom, 10)
                 ChartDetailView(selectedChart: $selectedChart, id: item.id, time: item.data[selectedChart], period: item.period[selectedChart])
                     .frame(width: 290, height: 60)
@@ -74,7 +74,7 @@ struct ChartView: View {
                 }
                 .foregroundColor(Color(hex: "#9B9797"))
                 .font(.system(size: 12, weight: .semibold))
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 40)
                 .padding(.bottom, 20)
             }
         }

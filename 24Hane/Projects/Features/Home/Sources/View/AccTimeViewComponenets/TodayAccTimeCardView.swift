@@ -13,7 +13,7 @@ struct TodayAccTimeCardView: View {
     
     @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
     
-    @Binding var isFold: Bool
+    @State var isFold: Bool = true
     @State var drawingStroke = false
     
     @Binding var isNoticed: Bool

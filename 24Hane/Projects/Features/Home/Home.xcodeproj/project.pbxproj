@@ -33,7 +33,6 @@
 		87D7883A3A128D7A812BB19A /* BackgroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C1C5D5BF226FC429E6EF6F /* BackgroundTheme.swift */; };
 		88807AC231CA3332C0D52E21 /* FoldableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B604E26EA21742CD2B1A69 /* FoldableView.swift */; };
 		910EB185F843011C7F9A9B5F /* TuistBundle+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA691B25CAE8B0E1E65FD98 /* TuistBundle+Home.swift */; };
-		9554F00337ACA3B04211E621 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CF0FECC69CB7BBF4489695 /* Login.framework */; };
 		9B61A3C7E806E29D116386B5 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0578B9D5E23C271EC06C909 /* HomeContentView.swift */; };
 		9DAB78937D5C79EE709BA622 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067FEE4C1340D84FEB8519A7 /* CircularProgressBar.swift */; };
 		9DE6608347DDA597F9BA21A8 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B380A50C505A4A4A56F43 /* HomeVM.swift */; };
@@ -57,6 +56,7 @@
 		FB902EFC3C6DBBF50CEC6AF3 /* TimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC22149B7CCECE1EEDAF55D /* TimeRow.swift */; };
 		FC09AF85E3366F26A8616D9E /* TimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC22149B7CCECE1EEDAF55D /* TimeRow.swift */; };
 		FE62C7DDEB89A52076787BC1 /* AccTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D4D566669CEC2881EE11E /* AccTimeView.swift */; };
+		FE8D4B8D1F56FB70917E45B3 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CF0FECC69CB7BBF4489695 /* Login.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A9A613541104B864719B2B /* Home.framework in Frameworks */,
+				FE8D4B8D1F56FB70917E45B3 /* Login.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +144,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A0293E1584B21CF5CFD3DD9 /* HaneCore.framework in Frameworks */,
-				9554F00337ACA3B04211E621 /* Login.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +476,7 @@
 		};
 		222A90C97EF8897B13A8321A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2FF4DF70EC204962273B4A9 /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -503,6 +504,7 @@
 		};
 		309A26F077D8C94539363423 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2FF4DF70EC204962273B4A9 /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
