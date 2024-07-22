@@ -77,15 +77,14 @@
 
 <div align="center">
 
-| 버전 | 기간 | 비고 |
-| --- | --- | --- |
-| Ver. 1 | 2022.10 - 2022.12 | - |
+| 버전   | 기간              | 비고                                        |
+| ------ | ----------------- | ------------------------------------------- |
+| Ver. 1 | 2022.10 - 2022.12 | -                                           |
 | Ver. 2 | 2023.02 - 2023.03 | 지원금 정책 변경에 따른 리빌딩, 디자인 개편 |
-| Ver. 3 | 2023.12 - 2024.01 | 지원금 정책 변경에 따른 업데이트, 리팩토링 |
-| Ver. 4 | 2024.03 - 2024.06 | 내부 리팩토링, watch OS 추가 |
+| Ver. 3 | 2023.12 - 2024.01 | 지원금 정책 변경에 따른 업데이트, 리팩토링  |
+| Ver. 4 | 2024.03 - 2024.07 | 내부 리팩토링, Tuist 적용                   |
 
 </div>
-
 
 # 🧑‍💻 멤버
 
@@ -160,97 +159,3 @@
   - 이용 가이드(링크)
   - 앱 피드백(링크)
   - 로그아웃
-
-# 👀 기술적인 항목
-
-> **커밋 컨벤션**
-    1. feat: 기능 추가와 새로운 패키지의 추가를 의미합니다. 
-    2. fix: 기존 코드에서 수정사항이 있음을 의미합니다. 
-    3. env: 개발 환경에 대한 변경사항이 있음을 의미합니다.
-    4. docs: 디렉토리의 구조 변경이나 문서에 대한 변경사항이 있음을 의미합니다.(개발 문서, 파일 등등)
-    5. test: git에 대한 테스트가 있음을 의미합니다.
-    6. hotfix: 긴급한 수정사항이 있음을 의미합니다.
-    7. refactor: 내부의 리팩토링이 있음을 의미합니다.
-    8. remove: 파일 또는 기능, 문서의 삭제를 의미합니다.
-
-> **SwiftLint**
-    ```swift
-    identifier_name:
-      min_length: 0
-
-    disabled_rules:
-      - line_length
-    ```
-
-> **디렉토리 구조**
-    .
-    ├── 24HANE.entitlements
-    ├── HANE24
-    │   ├── Assets.xcassets
-    │   │   ├── AccentColor.colorset
-    │   │   ├── AppIcon.appiconset
-    │   │   ├── Background.imageset
-    │   │   └── Colors
-    │   ├── ContentView.swift
-    │   ├── GraphView.swift
-    │   ├── HANE24App.swift
-    │   ├── Info.plist
-    │   ├── LaunchScreen.swift
-    │   ├── Model
-    │   │   ├── JSONs.swift
-    │   │   └── Structs.swift
-    │   ├── Preview Content
-    │   │   └── Preview Assets.xcassets
-    │   │       └── Contents.json
-    │   ├── Utils
-    │   │   ├── ColorExtension.swift
-    │   │   ├── DarkMode.swift
-    │   │   ├── DateExtensions.swift
-    │   │   └── UserDefaultsExtension.swift
-    │   ├── View
-    │   │   ├── Calendar
-    │   │   │   ├── AccTimeCardForCalendarView.swift
-    │   │   │   ├── CalendarBodyView.swift
-    │   │   │   ├── CalendarGridView.swift
-    │   │   │   ├── CalendarHeaderView.swift
-    │   │   │   ├── CalendarView.swift
-    │   │   │   └── TagLogView.swift
-    │   │   ├── Home
-    │   │   │   ├── ChartDetailView.swift
-    │   │   │   ├── ChartView.swift
-    │   │   │   ├── HomeView.swift
-    │   │   │   ├── NoticeView.swift
-    │   │   │   ├── PopulationView.swift
-    │   │   │   ├── ThisMonthAccTimeCardView.swift
-    │   │   │   └── TodayAccTimeCardView.swift
-    │   │   ├── LoadingView.swift
-    │   │   ├── MainView.swift
-    │   │   ├── More
-    │   │   │   ├── AlertView.swift
-    │   │   │   ├── CardProgressView.swift
-    │   │   │   ├── ErrorView.swift
-    │   │   │   ├── MoreView.swift
-    │   │   │   └── ReissuanceView.swift
-    │   │   ├── SignInView.swift
-    │   │   └── SignInWebView.swift
-    │   └── ViewModel
-    │       ├── CalendarVM.swift
-    │       ├── HaneVM.swift
-    │       ├── NetworkManager.swift
-    │       └── NetworkMonitoringManager.swift
-    ├── HANE24TEST
-    │   ├── HANE24Test.swift
-    │   └── HaneTest.xctestplan
-    ├── HANE24Widget
-    │   ├── AccumulationTimeStruct.swift
-    │   ├── Assets.xcassets
-    │   ├── HANE24Widget.swift
-    │   ├── HANE24WidgetBundle.swift
-    │   ├── HANE24WidgetConstant.swift
-    │   └── Info.plist
-    ├── Podfile
-    ├── Podfile.lock
-    ├── Pods
-    ├── README.md
-    ├── env.xcconfig
-    └── pull_request_template.md
