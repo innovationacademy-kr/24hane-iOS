@@ -8,7 +8,6 @@
 import Foundation
 import WidgetKit
 
-
 struct HaneWidgetConstant {
     static var storageKey = "accessToken"
     static var appGroupName = "group.24HoursAreNotEnough"

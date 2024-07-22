@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CalendarHeaderView: View {
     @Binding var picker: Bool
-//    @EnvironmentObject var hane: Hane
 	@EnvironmentObject var calendarVM: CalendarVM
 
     var body: some View {
@@ -17,12 +16,14 @@ struct CalendarHeaderView: View {
             changeMonthButton(isForward: false)
 				.disabled(calendarVM.calendarModel.selectedDate.toString("yyyy.MM") <= "2022.08" || calendarVM.loading)
             Spacer()
+
 			Text("\(calendarVM.calendarModel.selectedDate.yearToString).\(calendarVM.calendarModel.selectedDate.monthToString)")
                 .foregroundColor(picker ? .gradientPurple : .fontDefault )
                 .onTapGesture {
                     picker.toggle()
                 }
             Spacer()
+
             changeMonthButton(isForward: true)
                 .disabled(calendarVM.calendarModel.selectedDate.toString("yyyy.MM") >= Date().toString("yyyy.MM") || calendarVM.loading)
         }
@@ -46,5 +47,4 @@ struct CalendarHeaderView: View {
 #Preview {
     CalendarHeaderView(picker: .constant(false))
 		.environmentObject(CalendarVM())
-//        .environmentObject(Hane())
 }

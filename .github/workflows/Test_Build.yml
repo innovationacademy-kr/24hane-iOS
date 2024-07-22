@@ -5,9 +5,9 @@ name: Swift
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: ["dev"]
   pull_request:
-    branches: [ "dev" ]
+    branches: ["dev"]
 
 jobs:
   SwiftLint:
@@ -16,36 +16,33 @@ jobs:
       - uses: actions/checkout@v3
       - name: Github Action For SwiftLint
         uses: norio-nomura/action-swiftlint@3.2.1
-    
+
   Test:
     runs-on: macos-14
     steps:
-    - uses: actions/checkout@v3
-    - uses: szenius/set-timezone@v1.2
-      with:
-        timezoneMacos: "Asia/Seoul"
-    
-    - name: Install pods
-      run: |
+      - uses: actions/checkout@v3
+      - uses: szenius/set-timezone@v1.2
+        with:
+          timezoneMacos: "Asia/Seoul"
+
+      - name: Setting env
+        run: |
           touch ./env.xcconfig
           echo ${{ secrets.API_URL }} >> ./env.xcconfig
-          pod install --repo-update --clean-install
-      shell: bash
+        shell: bash
 
-    - name: Select Xcode Version
-      run: sudo xcode-select -s /Applications/Xcode_15.0.app
+      - name: Select Xcode Version
+        run: sudo xcode-select -s /Applications/Xcode_15.0.app
 
-    - name: Run Test
-      run: |
-        set -o pipefail && \
-        xcodebuild -workspace ./HANE24.xcworkspace \
-        -scheme 24HANE \
-        -destination 'platform=iOS Simulator,name=iPhone 14 Pro' \
-        -resultBundlePath TestResults test | xcbeautify
-    
-    - uses: kishikawakatsumi/xcresulttool@v1
-      with:
-        path: TestResults.xcresult
-      if: success() || failure()
-        
+      - name: Run Test
+        run: |
+          set -o pipefail && \
+          xcodebuild -project ./HANE24.xcodeproj \
+          -scheme 24HANE \
+          -destination 'platform=iOS Simulator,name=iPhone 14 Pro' \
+          -resultBundlePath TestResults test | xcbeautify
 
+      - uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResults.xcresult
+        if: success() || failure()

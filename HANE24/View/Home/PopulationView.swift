@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PopulationView: View {
-    @EnvironmentObject var hane: Hane
+	var population: Int
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("실시간 현황")
@@ -25,7 +26,7 @@ struct PopulationView: View {
                         .padding(.horizontal, 20)
                         .foregroundColor(.black)
                     Spacer()
-                    Text("\(hane.clusterPopulation)")
+                    Text("\(population)")
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.black)
                         .padding(.leading, 20)
@@ -37,9 +38,4 @@ struct PopulationView: View {
             }
         }
     }
-}
-
-#Preview {
-    PopulationView()
-        .environmentObject(Hane())
 }

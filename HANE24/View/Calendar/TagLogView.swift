@@ -15,13 +15,12 @@ struct TagLogView: View {
     var logList: [Log]
 
     var body: some View {
-        let dailyTotalTime = calendarVM.calendarModel.dailyTotalTimesInAMonth[calendarVM.calendarModel.selectedDate.dayToInt]
         VStack(alignment: .center, spacing: 4) {
             HStack {
                 Text("\(calendarVM.calendarModel.selectedDate.monthToInt).\(calendarVM.calendarModel.selectedDate.dayToInt) \(calendarVM.calendarModel.selectedDate.toString("E"))요일")
                     .padding(.leading, 5)
                 Spacer()
-                Text("\(dailyTotalTime / 3600)시간 \((dailyTotalTime % 3600) / 60)분")
+                Text("\(calendarVM.dailyTotalTime / 3600)시간 \((calendarVM.dailyTotalTime % 3600) / 60)분")
                     .padding(.trailing, 5)
             }
             .font(.system(size: 14, weight: .medium, design: .default))
