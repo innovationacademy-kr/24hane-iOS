@@ -49,7 +49,6 @@ class CalendarVM:  CalendarProtocol {
 
 	@MainActor
 	func updateMonthlyLogs(date: Date) async throws {
-        debugPrint("updateMonthly start")
 		self.loading = true
 		// update MonthlyLogs
 		let perMonth: PerMonth = try await getPerMonth(year: date.yearToInt, month: date.monthToInt)

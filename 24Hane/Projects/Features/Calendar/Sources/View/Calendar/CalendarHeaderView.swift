@@ -43,8 +43,3 @@ struct CalendarHeaderView: View {
         }
     }
 }
-
-#Preview {
-    CalendarHeaderView(picker: .constant(false))
-		.environmentObject(CalendarVM())
-}

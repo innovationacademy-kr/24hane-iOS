@@ -25,7 +25,3 @@ struct AccTimeCardForCalendarView: View {
         .frame(height: 45)
     }
 }
-
-#Preview {
-    AccTimeCardForCalendarView(totalAccTime: 1234567, validAccTime: 1234567)
-}
