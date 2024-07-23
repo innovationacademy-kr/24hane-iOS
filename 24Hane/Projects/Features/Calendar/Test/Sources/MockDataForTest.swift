@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import Hane
+@testable import Calendar
 
 let emptyJsonData = """
   {
