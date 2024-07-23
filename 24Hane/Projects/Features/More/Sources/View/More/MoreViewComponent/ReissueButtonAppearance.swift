@@ -23,7 +23,3 @@ struct ReissueButtonAppearance: View {
 		}
     }
 }
-
-#Preview {
-    ReissueButtonAppearance()
-}

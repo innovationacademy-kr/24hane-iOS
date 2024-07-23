@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,8 @@
 		C5155B9B2B275AAAAAECEFF3 /* LogoutButton.swift in Resources */ = {isa = PBXBuildFile; fileRef = 313068264D259CDFB61CCB47 /* LogoutButton.swift */; };
 		D4A5B2EBE286AAC27CBB2E0C /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449CF8BE8B8CD68C4E874454 /* Structs.swift */; };
 		D5983F75E2EDF9E48B25BA75 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3DE2C1C79791F00EFBCB2B /* ErrorView.swift */; };
+		D6E536DE2C4F8E4B0068C04C /* ReissueButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E536DD2C4F8E4B0068C04C /* ReissueButtonStyle.swift */; };
+		D6E536E02C4F8E730068C04C /* ReceiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E536DF2C4F8E730068C04C /* ReceiveButton.swift */; };
 		D983B08F94A21763EA5D2F1D /* ReissueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315221B1307F53B8F78F402 /* ReissueVM.swift */; };
 		EB1DAC35B3B21A57F21BE5C6 /* TuistAssets+More.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2BE01276CC49C60CF4739F /* TuistAssets+More.swift */; };
 		EB460979B07788F28E3B94A6 /* Tapbar.swift in Resources */ = {isa = PBXBuildFile; fileRef = 8267E3E4966611241290CD99 /* Tapbar.swift */; };
@@ -121,6 +123,8 @@
 		CAEFDF3D12E96B973239B20D /* ProgressToReissue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressToReissue.swift; sourceTree = "<group>"; };
 		CB3DE2C1C79791F00EFBCB2B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		D200D8984C5F5A666FC4C89B /* MoreDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MoreDemo-Info.plist"; sourceTree = "<group>"; };
+		D6E536DD2C4F8E4B0068C04C /* ReissueButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueButtonStyle.swift; sourceTree = "<group>"; };
+		D6E536DF2C4F8E730068C04C /* ReceiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveButton.swift; sourceTree = "<group>"; };
 		DEF54C153999E2D386702167 /* AlertButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtons.swift; sourceTree = "<group>"; };
 		E062600733DF3EEC22103FFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1DF26835803C04D40EEC38D /* ReissueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueModel.swift; sourceTree = "<group>"; };
@@ -188,13 +192,10 @@
 		4E4E1AADF77BC1BC6C3784F2 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				D6E536E52C4F922E0068C04C /* utils */,
 				CCAD105821BE538C23085405 /* AlertViewComponent */,
 				FE5E2392EA2C979C235FA460 /* MoreViewComponent */,
 				F4F79051AC7BBE22197947B0 /* ReissuanceComponent */,
-				0E77FE4966B98E3FE0BEB35E /* AlertView.swift */,
-				CAC6D7137CE217A1B3EE5D26 /* CardProgressView.swift */,
-				CB3DE2C1C79791F00EFBCB2B /* ErrorView.swift */,
-				479641E75A2FC8EE21400625 /* MoreView.swift */,
 				6ADBCAADB35B736ED0EE4287 /* ReissuanceView.swift */,
 			);
 			path = More;
@@ -283,6 +284,16 @@
 			path = AlertViewComponent;
 			sourceTree = "<group>";
 		};
+		D6E536E52C4F922E0068C04C /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				CB3DE2C1C79791F00EFBCB2B /* ErrorView.swift */,
+				479641E75A2FC8EE21400625 /* MoreView.swift */,
+				0E77FE4966B98E3FE0BEB35E /* AlertView.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		E18CF7A90A1E873A1C3342EA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,9 +305,12 @@
 		F4F79051AC7BBE22197947B0 /* ReissuanceComponent */ = {
 			isa = PBXGroup;
 			children = (
+				CAC6D7137CE217A1B3EE5D26 /* CardProgressView.swift */,
 				2B7693BE7C1A10549C6EEBFE /* HowToReissue.swift */,
 				CAEFDF3D12E96B973239B20D /* ProgressToReissue.swift */,
 				797D598F69A3AC96F7E4D981 /* ReissueButton.swift */,
+				D6E536DF2C4F8E730068C04C /* ReceiveButton.swift */,
+				D6E536DD2C4F8E4B0068C04C /* ReissueButtonStyle.swift */,
 				8267E3E4966611241290CD99 /* Tapbar.swift */,
 			);
 			path = ReissuanceComponent;
@@ -370,8 +384,6 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = ACD3097F0575A8698F52D622 /* Build configuration list for PBXProject "More" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -446,6 +458,7 @@
 			files = (
 				EB1DAC35B3B21A57F21BE5C6 /* TuistAssets+More.swift in Sources */,
 				2A67FA0C5132AE9A1719DE09 /* TuistBundle+More.swift in Sources */,
+				D6E536DE2C4F8E4B0068C04C /* ReissueButtonStyle.swift in Sources */,
 				38D67699846D84C7CCF4B63B /* JSONs.swift in Sources */,
 				F7CE865413BBE011156326DE /* ReissueModel.swift in Sources */,
 				D4A5B2EBE286AAC27CBB2E0C /* Structs.swift in Sources */,
@@ -456,6 +469,7 @@
 				A3D04E9AFE4A5C0B7E114113 /* MoreView.swift in Sources */,
 				914271F8868C3E9551D8765E /* ListItemButton.swift in Sources */,
 				BB1B24C1171979C2A002B18C /* LogoutButton.swift in Sources */,
+				D6E536E02C4F8E730068C04C /* ReceiveButton.swift in Sources */,
 				B233BE7514361B76606516AF /* MoreViewFooter.swift in Sources */,
 				FAEC5CE711C64312E4964B9C /* ReissueButtonAppearance.swift in Sources */,
 				4A230221430C0C065FAD1AB2 /* HowToReissue.swift in Sources */,
@@ -498,10 +512,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -534,10 +545,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

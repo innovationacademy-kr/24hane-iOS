@@ -51,24 +51,28 @@ class CalendarVM:  CalendarProtocol {
 	func updateMonthlyLogs(date: Date) async throws {
 		self.loading = true
 		// update MonthlyLogs
-		let perMonth: PerMonth = try await getPerMonth(year: date.yearToInt, month: date.monthToInt)
+        do {
+            let perMonth: PerMonth = try await getPerMonth(year: date.yearToInt, month: date.monthToInt)
+            calendarModel.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
+                Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
+            }
+            // update Daily Total Accumulation Times (CalendarView)
+            calendarModel.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
+            for dailyLog in calendarModel.monthlyLogs {
+                var sum: Int64 = 0
+                for log in dailyLog.value {
+                    sum += log.durationSecond ?? 0
+                }
+                calendarModel.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
+            }
+            calendarModel.monthlyTotalAccumulationTime = perMonth.totalAccumulationTime
+            calendarModel.monthlyAcceptedAccumulationTime = perMonth.acceptedAccumulationTime
 
-		calendarModel.monthlyLogs = Dictionary(grouping: perMonth.inOutLogs) {
-			Date(milliseconds: $0.inTimeStamp ?? $0.outTimeStamp!).toString("yyyy.MM.dd")
-		}
-		// update Daily Total Accumulation Times (CalendarView)
-		calendarModel.dailyTotalTimesInAMonth = Array(repeating: 0, count: 32)
-		for dailyLog in calendarModel.monthlyLogs {
-			var sum: Int64 = 0
-			for log in dailyLog.value {
-				sum += log.durationSecond ?? 0
-			}
-			calendarModel.dailyTotalTimesInAMonth[Int(dailyLog.key.split(separator: ".")[2]) ?? 0] = sum
-		}
-		calendarModel.monthlyTotalAccumulationTime = perMonth.totalAccumulationTime
-		calendarModel.monthlyAcceptedAccumulationTime = perMonth.acceptedAccumulationTime
-
-		self.loading = false
+            self.loading = false
+        } catch {
+            self.loading = false
+            ErrorHandler.shared.handleError(error)
+        }
 	}
 
 	// 데이터를 갱신하거나 불러오는 함수

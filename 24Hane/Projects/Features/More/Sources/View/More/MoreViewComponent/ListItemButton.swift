@@ -33,9 +33,3 @@ struct ListItemButton: View {
 		.padding(.horizontal, 40)
     }
 }
-
-#Preview {
-    ListItemButton(
-		item: MoreItem(id: UUID(), title: "지원금 지침 안내", url: "https://\(Bundle.main.infoDictionary?["API_URL"] as? String ?? "wrong")/redirect/money_guidelines", image: "book")
-	)
-}

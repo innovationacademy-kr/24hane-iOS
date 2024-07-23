@@ -52,7 +52,7 @@ class ReissueVM: ReissueProtocol {
 		do {
             try await network.apiRequest(url.absoluteString, .post)
 		} catch {
-//			throw MyError.tokenExpired("get new token!")
+            await ErrorHandler.shared.handleError(error)
 		}
 	}
 
@@ -61,7 +61,7 @@ class ReissueVM: ReissueProtocol {
 		do {
             try await network.apiRequest(url.absoluteString, .patch)
 		} catch {
-//			throw MyError.tokenExpired("get new token!")
+            await ErrorHandler.shared.handleError(error)
 		}
 	}
 
