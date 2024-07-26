@@ -45,6 +45,8 @@ class HomeViewModel: ObservableObject {
             self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
             if let lastTag = self.lastTag {
                 self.dailyAccumulationTime += (Date.now.millisecondsSince1970 - lastTag.millisecondsSince1970) / 1000
+                print("date.now", Date.now.millisecondsSince1970 )
+                print("last tag", lastTag.millisecondsSince1970)
             }
         }
     }
@@ -73,6 +75,13 @@ class HomeViewModel: ObservableObject {
             self.isInCluster = (mainInfo.inoutState == "IN")
             self.fundInfoNotice = mainInfo.infoMessages.fundInfoNotice
             self.tagLatencyNotice = mainInfo.infoMessages.tagLatencyNotice
+            
+            if let tagAt = mainInfo.tagAt {
+               let formatter = DateFormatter()
+               formatter.locale = Locale(identifier: "en_US_POSIX")
+               formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+               self.lastTag = formatter.date(from: tagAt)
+           }
         } catch {
             ErrorHandler.shared.handleError(error)
         }

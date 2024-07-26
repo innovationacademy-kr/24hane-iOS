@@ -7,6 +7,7 @@
 
 import SwiftUI
 import HaneCore
+import Combine
 
 struct TodayAccTimeCardView: View {
     @ObservedObject var homeManager: HomeViewModel
@@ -14,7 +15,8 @@ struct TodayAccTimeCardView: View {
     @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
     
     @State var isFold: Bool = true
-    @State var drawingStroke = false
+    @State var drawingStroke = true
+    @State var percentage: Int = 0
     
     @Binding var isNoticed: Bool
     
@@ -119,7 +121,7 @@ struct TodayAccTimeCardView: View {
                     .padding(.leading, 10)
                     .padding(.trailing, 14)
                     /// Progress Circle
-                    CircularProgressBar(drawingStroke: $drawingStroke, objectiveTime: options[dailySelectionOption], progressiveTime: Double(homeManager.dailyAccumulationTime))
+                    CircularProgressBar(drawingStroke: $drawingStroke, percentage: $percentage)
                         .frame(width: 112, height: 112)
                         .padding(.top, 11)
                         .padding(.bottom, 18)
@@ -131,5 +133,8 @@ struct TodayAccTimeCardView: View {
             }
         }
         .frame(height: isFold ? 80 : 260, alignment: .top)
+        .onChange(of: homeManager.dailyAccumulationTime) { _ in
+            self.percentage = Int(Double(homeManager.dailyAccumulationTime) / Double(options[dailySelectionOption] * 3600) * 100)
+        }
     }
 }
