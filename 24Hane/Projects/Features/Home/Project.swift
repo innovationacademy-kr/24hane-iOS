@@ -63,9 +63,23 @@ let homeDemo: Target = .target(
     ])
 )
 
+let homeTest: Target = .target(
+    name: "HomeTest",
+    destinations: .iOS,
+    product: .unitTests,
+    bundleId: "net.hejang.-4hane.homeTest",
+    deploymentTargets: .iOS("15.0"),
+    infoPlist: .default,
+    sources: "Test/Sources/**",
+    dependencies: [
+        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home")),
+    ]
+)
+
 let targets: [Target] = [
     home,
-    homeDemo
+    homeDemo,
+    homeTest
 ]
 
 let project = Project(

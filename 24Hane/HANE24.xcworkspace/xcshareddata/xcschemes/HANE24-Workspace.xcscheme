@@ -126,6 +126,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C67FCC6781DBB00560C71F04"
+               BuildableName = "HomeTest.xctest"
+               BlueprintName = "HomeTest"
+               ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "EF8CE03A2759141C3B1EAC1D"
                BuildableName = "Login.framework"
                BlueprintName = "Login"
@@ -204,6 +218,16 @@
                BuildableName = "CalendarTest.xctest"
                BlueprintName = "CalendarTest"
                ReferencedContainer = "container:Projects/Features/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C67FCC6781DBB00560C71F04"
+               BuildableName = "HomeTest.xctest"
+               BlueprintName = "HomeTest"
+               ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
