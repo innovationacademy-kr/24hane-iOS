@@ -19,5 +19,6 @@ struct AccTimeAnalyticsView: View {
         }
         .tabViewStyle(.page)
         .frame(height: 289)
+        .padding(.horizontal, 20)
     }
 }

@@ -18,7 +18,8 @@ let home: Target = .target(
         "Resources/Assets.xcassets/**"
     ],
     dependencies: [
-        .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
+        .project(target: "HaneCore", path: .relativeToRoot("Projects/Core")),
+//        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
     ],
     settings: .settings(configurations: [
         .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
@@ -53,13 +54,32 @@ let homeDemo: Target = .target(
         "Resources/Assets.xcassets/**"
     ],
     dependencies: [
-        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
+        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home")),
+        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login")),
+    ],
+    settings: .settings(configurations: [
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+    ])
+)
+
+let homeTest: Target = .target(
+    name: "HomeTest",
+    destinations: .iOS,
+    product: .unitTests,
+    bundleId: "net.hejang.-4hane.homeTest",
+    deploymentTargets: .iOS("15.0"),
+    infoPlist: .default,
+    sources: "Test/Sources/**",
+    dependencies: [
+        .project(target: "Home", path: .relativeToRoot("Projects/Features/Home")),
     ]
 )
 
 let targets: [Target] = [
     home,
-    homeDemo
+    homeDemo,
+    homeTest
 ]
 
 let project = Project(

@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct CircularProgressBar: View {
-
-	var drawingStroke: Binding<Bool>
-	var percentage: Int
-
-	init(drawingStroke: Binding<Bool>, objectiveTime: Double, progressiveTime: Double) {
-		self.percentage = Int(progressiveTime / objectiveTime * 3600) * 100
-		self.drawingStroke = drawingStroke
-	}
-
+    
+    @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
+    
+    @Binding var drawingStroke: Bool
+    @Binding var percentage: Int
+    
     var body: some View {
 		ZStack {
 			HStack(spacing: 0) {
@@ -49,7 +46,7 @@ struct CircularProgressBar: View {
 				)
 				.overlay {
 					Circle()
-						.trim(from: 0, to: drawingStroke.wrappedValue ? CGFloat(percentage / 100) : 0)
+                        .trim(from: 0, to: drawingStroke ? CGFloat(percentage)/100 : 0)
 						.stroke(
 							AngularGradient(
 								gradient: Gradient(colors: [
@@ -68,9 +65,7 @@ struct CircularProgressBar: View {
 						.rotationEffect(.degrees(270))
 				}
 		}
+
     }
 }
 
-#Preview {
-	CircularProgressBar(drawingStroke: .constant(false), objectiveTime: 12345, progressiveTime: 1234)
-}

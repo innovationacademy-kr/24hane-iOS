@@ -11,7 +11,7 @@
          location = "group:Core/HaneCore.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Widget/HANE24Widget.xcodeproj">
+         location = "group:Widget/Widget.xcodeproj">
       </FileRef>
       <Group
          location = "group:Features"

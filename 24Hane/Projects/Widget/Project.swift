@@ -12,7 +12,7 @@ let organizationName = "24HANE"
 let appBundleId = "net.hejang.-4HANE.HANE24Widget"
 let targetVersion = "15.0"
 
-let targets: [Target] = [
+let widgetTarget: [Target] = [
     .target(
         name: name,
         destinations: .iOS,
@@ -21,6 +21,7 @@ let targets: [Target] = [
 //        infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
         sources: "Sources/**",
         resources: "Resources/**",
+        entitlements: .file(path: .relativeToRoot("Supports/24HANE.entitlements")),
         dependencies: [
             .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
         ]
@@ -28,8 +29,6 @@ let targets: [Target] = [
 ]
 
 let project = Project(
-    name: name,
-    organizationName: organizationName,
-    targets: targets
+    name: "Widget",
+    targets: widgetTarget
 )
-
