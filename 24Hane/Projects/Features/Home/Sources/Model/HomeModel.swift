@@ -7,23 +7,13 @@
 
 import Foundation
 
-struct InfoMessage: Codable {
-    let title: String
-    let content: String
-
-    init() {
-        self.title = ""
-        self.content = ""
-    }
-}
-
 struct InfoMessages: Codable {
-    let fundInfoNotice: InfoMessage
-    let tagLatencyNotice: InfoMessage
+    let fundInfoNotice: Notice
+    let tagLatencyNotice: Notice
 
     init() {
-        self.fundInfoNotice = InfoMessage()
-        self.tagLatencyNotice = InfoMessage()
+        self.fundInfoNotice = Notice()
+        self.tagLatencyNotice = Notice()
     }
 }
 
@@ -75,7 +65,7 @@ struct ChartItem: Identifiable {
 
 
 /// HomeView Modal
-struct Notice {
+struct Notice: Codable {
     var title: String
     var content: String
 
@@ -83,4 +73,10 @@ struct Notice {
         self.title = title
         self.content = content
     }
+}
+
+enum NoticeType {
+    case dailyTime
+    case monthlyTime
+    case none
 }

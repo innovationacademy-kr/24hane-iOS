@@ -11,16 +11,18 @@ import HaneCore
 class HomeViewModel: ObservableObject {
     @Published var isInCluster: Bool
 
-    @Published var fundInfoNotice: InfoMessage
-    @Published var tagLatencyNotice: InfoMessage
+    @Published var fundInfoNotice: Notice
+    @Published var tagLatencyNotice: Notice
 
     /// 누적시간데이터
     @Published var dailyAccumulationTime: Int64 = 0
     @Published var accumulationTimes: AccumulationTimes
 
     @Published var isLoading: Bool
+    @Published var showModal: NoticeType 
 
     @Published var mainInfo: MainInfo
+    
 
     var timer: Timer?
     var lastTag: Date?
@@ -28,17 +30,18 @@ class HomeViewModel: ObservableObject {
     init() {
         self.isInCluster = false
 
-        self.fundInfoNotice = InfoMessage()
-        self.tagLatencyNotice = InfoMessage( )
+        self.fundInfoNotice = Notice()
+        self.tagLatencyNotice = Notice( )
 
         self.isLoading = true
+        self.showModal = .none
 
         self.mainInfo = MainInfo()
 
         self.accumulationTimes = AccumulationTimes()
 
         self.lastTag = Date()
-
+        
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             guard self.isInCluster else { return }
@@ -121,6 +124,17 @@ class HomeViewModel: ObservableObject {
             date = Calendar.current.date(byAdding: .month, value: -1, to: date)!
         }
         return monthlyPeriod
+    }
+    
+    func getInfoMessage() -> Notice {
+        switch self.showModal {
+        case .dailyTime:
+            return self.tagLatencyNotice
+        case .monthlyTime:
+            return self.fundInfoNotice
+        case .none:
+            return Notice()
+        }
     }
     
     

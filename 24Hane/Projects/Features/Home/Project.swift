@@ -19,7 +19,7 @@ let home: Target = .target(
     ],
     dependencies: [
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core")),
-//        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
+        .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
     ],
     settings: .settings(configurations: [
         .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),

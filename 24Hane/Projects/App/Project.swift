@@ -1,13 +1,14 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let name = "HANE24"
+let appTargetName = "HANE24"
+let projectName = "HANE24"
 let organizationName = "24HANE"
-let appBundleId = "net.hejang.-4hane"
+let appBundleId = "net.hejang.-4HANE"
 
 let appTargets: [Target] = [
     .target(
-        name: name,
+        name: appTargetName,
         destinations: .iOS,
         product: .app,
         bundleId: appBundleId,
@@ -25,7 +26,8 @@ let appTargets: [Target] = [
             ],
             "UILaunchScreen":[
                 "UIImageName":""
-            ]
+            ],
+            "CFBundlePackageType":"APPL"
         ]),
         sources: "Sources/**",
         resources: [
@@ -50,7 +52,7 @@ let appTargets: [Target] = [
 ]
 
 let project = Project(
-    name: name,
+    name: projectName,
     organizationName: organizationName,
     settings: .settings(
         base: [:],

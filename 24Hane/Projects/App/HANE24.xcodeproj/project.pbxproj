@@ -437,7 +437,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
 				PRODUCT_NAME = HANE24;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -468,7 +468,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4hane";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.hejang.-4HANE";
 				PRODUCT_NAME = HANE24;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;

@@ -29,7 +29,7 @@ struct FoldableView<Content: View>: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundStyle(isFold ? color : .white)
             
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
                 Button {
                     withAnimation {
                         isFold.toggle()
