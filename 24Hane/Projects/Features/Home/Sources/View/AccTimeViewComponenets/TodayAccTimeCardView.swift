@@ -10,15 +10,13 @@ import HaneCore
 import Combine
 
 struct TodayAccTimeCardView: View {
-    @ObservedObject var homeManager: HomeViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     
     @AppStorage("DailySelectionOption") private var dailySelectionOption =  UserDefaults.standard.integer(forKey: "DailySelectionOption")
     
     @State var isFold: Bool = true
     @State var drawingStroke = true
     @State var percentage: Int = 0
-    
-    @Binding var isNoticed: Bool
     
     let options: [Double] = (4...24).map { Double($0) }
     
@@ -33,17 +31,17 @@ struct TodayAccTimeCardView: View {
                 /// First Line
                 HStack(alignment: .center, spacing: 0) {
                     Button {
-                        if !homeManager.isLoading {
-                            isNoticed = true
+                        if !homeViewModel.isLoading {
+                            homeViewModel.showModal = .dailyTime
                         }
                     } label: {
-                        HStack(spacing: 2) {
-                            Image(systemName: "exclamationmark.circle")
-                                .foregroundStyle(Color(hex: "#9B9797"))
-                                .frame(width: 16, height: 16)
+                        HStack(spacing: 6) {
                             Text("이용 시간")
                                 .font(.system(size: 16, weight: .bold))
                                 .foregroundColor(.black)
+                            Image(systemName: "exclamationmark.circle")
+                                .foregroundStyle(Color(hex: "#9B9797"))
+                                .font(.system(size: 12))
                         }
                         .padding(10)
                     }
@@ -57,15 +55,15 @@ struct TodayAccTimeCardView: View {
                         HStack(spacing: 10) {
                             Spacer()
 
-                            if homeManager.isLoading {
+                            if homeViewModel.isLoading {
                                 LoadingAnimation()
                             } else {
                                 HStack(alignment: .bottom, spacing: 0) {
-                                    Text("\(homeManager.dailyAccumulationTime / 3600)")
+                                    Text("\(homeViewModel.dailyAccumulationTime / 3600)")
                                         .font(.system(size: 20, weight: .bold))
                                     Text("시간 ")
                                         .font(.system(size: 16, weight: .bold))
-                                    Text("\(homeManager.dailyAccumulationTime % 3600 / 60)")
+                                    Text("\(homeViewModel.dailyAccumulationTime % 3600 / 60)")
                                         .font(.system(size: 20, weight: .bold))
                                     Text("분")
                                         .font(.system(size: 16, weight: .bold))
@@ -77,7 +75,7 @@ struct TodayAccTimeCardView: View {
                                 .foregroundStyle(Color(hex: "#9B9797"))
                                 .rotationEffect(isFold ? Angle(degrees: 0) : Angle(degrees: 90))
                                 .frame(width: 24, height: 24)
-                                .isHidden(homeManager.isLoading)
+                                .isHidden(homeViewModel.isLoading)
                         }
                         .foregroundColor(.black)
                     }
@@ -92,7 +90,7 @@ struct TodayAccTimeCardView: View {
                             .font(.system(size: 16, weight: .bold))
                             .foregroundColor(.black)
                             .padding(10)
-                            .padding(.leading, 18)
+//                            .padding(.leading, 18)
 
                         Spacer()
 
@@ -133,8 +131,8 @@ struct TodayAccTimeCardView: View {
             }
         }
         .frame(height: isFold ? 80 : 260, alignment: .top)
-        .onChange(of: homeManager.dailyAccumulationTime) { _ in
-            self.percentage = Int(Double(homeManager.dailyAccumulationTime) / Double(options[dailySelectionOption] * 3600) * 100)
+        .onChange(of: homeViewModel.dailyAccumulationTime) { _ in
+            self.percentage = Int(Double(homeViewModel.dailyAccumulationTime) / Double(options[dailySelectionOption] * 3600) * 100)
         }
     }
 }

@@ -8,13 +8,11 @@
 import SwiftUI
 
 public struct NoticeView: View {
-    @Binding var showNotice: Bool
+    @Binding var showNotice: NoticeType
      var notice: Notice
     
      public var body: some View {
         ZStack {
-            Color.black.opacity(0.4)
-                .ignoresSafeArea(.all)
 
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -34,7 +32,7 @@ public struct NoticeView: View {
                     Spacer()
 
                     Button {
-                        showNotice = false
+                        showNotice = .none
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
