@@ -3,40 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		104FD44A870AA88403ED81D2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DECE44F4017E4A175D3AAEB /* LoadingView.swift */; };
 		1098738ED7CF59FFAB85F27B /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2535DA2C0B972029FA48C4A4 /* Calendar.framework */; };
 		1339DE7FB1F36301445A49C0 /* Calendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2535DA2C0B972029FA48C4A4 /* Calendar.framework */; };
 		13B50E9387C25A4B4CBB507E /* CalendarDemoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CC6CA1AE91E80FB1E37658 /* CalendarDemoContentView.swift */; };
+		1832113A8902AE66CB76097A /* AccTimeValidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31540063661D07E30A41457E /* AccTimeValidView.swift */; };
 		289585234D03946D91734967 /* TuistBundle+CalendarDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A5DE08E2D766CFEB579CFC /* TuistBundle+CalendarDemo.swift */; };
 		2A48FA4018A9093DDE8D7D11 /* HaneCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2725494FE8A3C85796B410 /* HaneCore.framework */; };
 		2C7055D75E93867113311644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451181FDC8CF6C2EDAA844B9 /* Assets.xcassets */; };
 		3060AD4A9D585E6997CE1465 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE266C2440FCDE3509FC0A /* CalendarHeaderView.swift */; };
 		3B13903A372DE19B0F9637EC /* JSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4CA4E57456DB9388AACD82 /* JSONs.swift */; };
-		3FF1103E2200A2D729458485 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDED67682FA26299D17E8DDD /* AccTimeCardForCalendarView.swift */; };
+		4DA09D0282A16A61BE99730E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91F9F48570BD144E8661F9 /* CalendarView.swift */; };
 		5052DD17A47DE93FA09E2B9E /* MockDataForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754821BBF7DD0BF463C5396E /* MockDataForTest.swift */; };
 		60F1DF7FE90366CEBDE6221E /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ED1E9A36DBA26B716EA1D6 /* CalendarModel.swift */; };
+		660161A40481B39C73832AC6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3963347F22CCFBB9E79E415 /* LoadingView.swift */; };
 		676256084B5B4A2F722BAD8A /* CalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B27FA865D6F252E2BD6FD /* CalendarApp.swift */; };
-		680D788864CE747C0C872244 /* TagLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85312124826282803143109 /* TagLogView.swift */; };
 		7A3417726B5DEB9712A63726 /* FakeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B00EB8819FB3E3B435D76FD /* FakeNetwork.swift */; };
+		7DF8CDBA7C58FDFE8A546803 /* TagLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769F1BE7560DA9804FC043B /* TagLogView.swift */; };
 		81D83EF700C59D5B6F075FD3 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E42BE2D6B5E0982F19BBE8FE /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8482DE5209725F2582773281 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42BE2D6B5E0982F19BBE8FE /* Login.framework */; };
 		84F71EB3BAE98E8935939519 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1B06DA9AA489C1E57B144 /* CalendarGridView.swift */; };
 		8740A567D151BB0E7BF90A20 /* Calendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2535DA2C0B972029FA48C4A4 /* Calendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8D4A2B85E830881D78DE7584 /* AccTimeTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77E86390C8151E586CB382 /* AccTimeTotalView.swift */; };
 		95CD991BC6EBC5E9361410DE /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA43B6DCAA60BFFA2125EB22 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE6E74FA2E0BC39C1CFAAAB6 /* TuistAssets+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3BC58E01AB71D15630005 /* TuistAssets+Calendar.swift */; };
 		B1D8B48405B8A2B989B1C11B /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA43B6DCAA60BFFA2125EB22 /* Home.framework */; };
 		B4357F281F1FD413BAF4A343 /* HANE24Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13B2AA9DF720E93D5EF4A1 /* HANE24Test.swift */; };
-		C2FA0A9A5FC2F9F28B4E62A9 /* AccTimeTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5105F3D35452188D55701DC /* AccTimeTotalView.swift */; };
+		B53C923E53473152A59CFBB0 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B588EBF988D5EC0A9BE72FC /* PullToRefresh.swift */; };
+		BD58B3E75B2FC25D71D81690 /* AccTimeCardForCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6063555A39144E06A91CE /* AccTimeCardForCalendarView.swift */; };
 		C40A42C2BE5EEA3448DF4C7E /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C16D5352B8EB34362C7A57 /* CalendarBodyView.swift */; };
-		D5D19ACA5F83341851D4FCCE /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A4763E8663596875B7EE9 /* PullToRefresh.swift */; };
-		D6E536E22C4F91AC0068C04C /* AccTimeValidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E536E12C4F91AC0068C04C /* AccTimeValidView.swift */; };
 		E285C150DDD5A9867EABF978 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBC02E3253C17A102A60A9C /* Structs.swift */; };
 		EA48BF7000C9E714A8C09246 /* TuistAssets+CalendarDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75564ECF2D5BA42699238499 /* TuistAssets+CalendarDemo.swift */; };
-		EADF8F1DEF6A8EA32896D6AE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326FA376E2FCFFA6B41C7897 /* CalendarView.swift */; };
 		EDC7C485ED03DC87BDB295FE /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */; };
 		EDDE1B6C2EB46B4BAFF1D6F3 /* TuistBundle+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67790BF65BD89432AC4A7969 /* TuistBundle+Calendar.swift */; };
 		F1EFAC378B830383630BE18C /* CalendarDemoSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFF47E3C7C76E16879FA577 /* CalendarDemoSplash.swift */; };
@@ -101,19 +101,19 @@
 /* Begin PBXFileReference section */
 		02FE266C2440FCDE3509FC0A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		09D3BC58E01AB71D15630005 /* TuistAssets+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Calendar.swift"; sourceTree = "<group>"; };
-		0DECE44F4017E4A175D3AAEB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		1EFF47E3C7C76E16879FA577 /* CalendarDemoSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDemoSplash.swift; sourceTree = "<group>"; };
 		2090B3D18D2B7F5BB3A7C81C /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
 		2535DA2C0B972029FA48C4A4 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9C0BDE22276BCC083546EE /* CalendarDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CalendarDemo-Info.plist"; sourceTree = "<group>"; };
-		326FA376E2FCFFA6B41C7897 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		31540063661D07E30A41457E /* AccTimeValidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeValidView.swift; sourceTree = "<group>"; };
 		3DBD23511B1C77AFB945ACC2 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		451181FDC8CF6C2EDAA844B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47CC6CA1AE91E80FB1E37658 /* CalendarDemoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDemoContentView.swift; sourceTree = "<group>"; };
 		4B00EB8819FB3E3B435D76FD /* FakeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetwork.swift; sourceTree = "<group>"; };
 		57ED1E9A36DBA26B716EA1D6 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		5DF6063555A39144E06A91CE /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
 		67790BF65BD89432AC4A7969 /* TuistBundle+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Calendar.swift"; sourceTree = "<group>"; };
-		6A6A4763E8663596875B7EE9 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
+		6B588EBF988D5EC0A9BE72FC /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		754821BBF7DD0BF463C5396E /* MockDataForTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataForTest.swift; sourceTree = "<group>"; };
 		75564ECF2D5BA42699238499 /* TuistAssets+CalendarDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+CalendarDemo.swift"; sourceTree = "<group>"; };
 		7E4CA4E57456DB9388AACD82 /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
@@ -124,16 +124,16 @@
 		A02D85F4B329CCDCB2F1DBB7 /* CalendarTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A095DE04B6CF72B849B7AA35 /* CalendarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA43B6DCAA60BFFA2125EB22 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3963347F22CCFBB9E79E415 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B769F1BE7560DA9804FC043B /* TagLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLogView.swift; sourceTree = "<group>"; };
 		BD13B2AA9DF720E93D5EF4A1 /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
-		BDED67682FA26299D17E8DDD /* AccTimeCardForCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeCardForCalendarView.swift; sourceTree = "<group>"; };
-		D6E536E12C4F91AC0068C04C /* AccTimeValidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeValidView.swift; sourceTree = "<group>"; };
+		CD91F9F48570BD144E8661F9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D90B27FA865D6F252E2BD6FD /* CalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarApp.swift; sourceTree = "<group>"; };
 		DDBC02E3253C17A102A60A9C /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		E04B2AA810D34618BC063B3D /* CalendarTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CalendarTest-Info.plist"; sourceTree = "<group>"; };
 		E42BE2D6B5E0982F19BBE8FE /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5105F3D35452188D55701DC /* AccTimeTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeTotalView.swift; sourceTree = "<group>"; };
-		E85312124826282803143109 /* TagLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLogView.swift; sourceTree = "<group>"; };
 		F4B38CE5AB85FCB8172C8062 /* Calendar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Calendar-Info.plist"; sourceTree = "<group>"; };
+		FA77E86390C8151E586CB382 /* AccTimeTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeTotalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +186,16 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		33E50BCB805CE60985EDF0BB /* AccumulateTime */ = {
+			isa = PBXGroup;
+			children = (
+				5DF6063555A39144E06A91CE /* AccTimeCardForCalendarView.swift */,
+				FA77E86390C8151E586CB382 /* AccTimeTotalView.swift */,
+				31540063661D07E30A41457E /* AccTimeValidView.swift */,
+			);
+			path = AccumulateTime;
+			sourceTree = "<group>";
+		};
 		4037021F6F955F0C2937CE14 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +246,16 @@
 				8B782663B5D41532E5E5585B /* Sources */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		7ADDD8BED1DCC41A86B42021 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B3963347F22CCFBB9E79E415 /* LoadingView.swift */,
+				6B588EBF988D5EC0A9BE72FC /* PullToRefresh.swift */,
+				B769F1BE7560DA9804FC043B /* TagLogView.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		7E504A878EFC8F8947655099 /* ViewModel */ = {
@@ -294,32 +314,12 @@
 		A8AEEBA2FFCF7175C4EEDB6B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				326FA376E2FCFFA6B41C7897 /* CalendarView.swift */,
-				D6E536E42C4F91FD0068C04C /* utils */,
-				D6E536E32C4F91E60068C04C /* AccumulateTime */,
+				33E50BCB805CE60985EDF0BB /* AccumulateTime */,
 				330E93EBA04CD1EA6E93D055 /* Calendar */,
+				7ADDD8BED1DCC41A86B42021 /* utils */,
+				CD91F9F48570BD144E8661F9 /* CalendarView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D6E536E32C4F91E60068C04C /* AccumulateTime */ = {
-			isa = PBXGroup;
-			children = (
-				BDED67682FA26299D17E8DDD /* AccTimeCardForCalendarView.swift */,
-				E5105F3D35452188D55701DC /* AccTimeTotalView.swift */,
-				D6E536E12C4F91AC0068C04C /* AccTimeValidView.swift */,
-			);
-			path = AccumulateTime;
-			sourceTree = "<group>";
-		};
-		D6E536E42C4F91FD0068C04C /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				E85312124826282803143109 /* TagLogView.swift */,
-				0DECE44F4017E4A175D3AAEB /* LoadingView.swift */,
-				6A6A4763E8663596875B7EE9 /* PullToRefresh.swift */,
-			);
-			path = utils;
 			sourceTree = "<group>";
 		};
 		F60B7909C42F7D8310240B63 /* Derived */ = {
@@ -418,6 +418,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = DA46F738AEC5CD7FEF4B9DC0 /* Build configuration list for PBXProject "Calendar" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -494,19 +496,19 @@
 			files = (
 				AE6E74FA2E0BC39C1CFAAAB6 /* TuistAssets+Calendar.swift in Sources */,
 				EDDE1B6C2EB46B4BAFF1D6F3 /* TuistBundle+Calendar.swift in Sources */,
-				D6E536E22C4F91AC0068C04C /* AccTimeValidView.swift in Sources */,
 				60F1DF7FE90366CEBDE6221E /* CalendarModel.swift in Sources */,
 				3B13903A372DE19B0F9637EC /* JSONs.swift in Sources */,
 				E285C150DDD5A9867EABF978 /* Structs.swift in Sources */,
-				3FF1103E2200A2D729458485 /* AccTimeCardForCalendarView.swift in Sources */,
-				C2FA0A9A5FC2F9F28B4E62A9 /* AccTimeTotalView.swift in Sources */,
+				BD58B3E75B2FC25D71D81690 /* AccTimeCardForCalendarView.swift in Sources */,
+				8D4A2B85E830881D78DE7584 /* AccTimeTotalView.swift in Sources */,
+				1832113A8902AE66CB76097A /* AccTimeValidView.swift in Sources */,
 				C40A42C2BE5EEA3448DF4C7E /* CalendarBodyView.swift in Sources */,
 				84F71EB3BAE98E8935939519 /* CalendarGridView.swift in Sources */,
 				3060AD4A9D585E6997CE1465 /* CalendarHeaderView.swift in Sources */,
-				EADF8F1DEF6A8EA32896D6AE /* CalendarView.swift in Sources */,
-				680D788864CE747C0C872244 /* TagLogView.swift in Sources */,
-				104FD44A870AA88403ED81D2 /* LoadingView.swift in Sources */,
-				D5D19ACA5F83341851D4FCCE /* PullToRefresh.swift in Sources */,
+				4DA09D0282A16A61BE99730E /* CalendarView.swift in Sources */,
+				660161A40481B39C73832AC6 /* LoadingView.swift in Sources */,
+				B53C923E53473152A59CFBB0 /* PullToRefresh.swift in Sources */,
+				7DF8CDBA7C58FDFE8A546803 /* TagLogView.swift in Sources */,
 				EDC7C485ED03DC87BDB295FE /* CalendarVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,7 +556,10 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -668,7 +673,10 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -804,7 +812,10 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

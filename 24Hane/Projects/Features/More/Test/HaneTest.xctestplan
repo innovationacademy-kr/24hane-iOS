@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "AED0DE9B-00AA-4017-8EFA-FDB32BA7225D",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:HANE24.xcodeproj",
+      "identifier" : "0E1654EE299A285B001E5EED",
+      "name" : "24HANE"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HANE24.xcodeproj",
+        "identifier" : "D646BD082B95DCD500ED631E",
+        "name" : "HANE24Test"
+      }
+    }
+  ],
+  "version" : 1
+}
