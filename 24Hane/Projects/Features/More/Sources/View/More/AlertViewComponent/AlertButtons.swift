@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct AlertButtonsModifier: ButtonStyle {
+    var function: () -> Void
     func makeBody(configuration: Configuration) -> some View {
-        Button(action: {}, label: {
+        Button(action: {
+            function()
+        }, label: {
             buildLabel(for: configuration)
         })
     }
-
+    
     private func buildLabel(for configuration: Configuration) -> some View {
         return ZStack {
             RoundedRectangle(cornerRadius: 10)
@@ -26,54 +29,60 @@ struct AlertButtonsModifier: ButtonStyle {
     }
 }
 
+
+
 struct AlertSubmitButton: View {
-    @EnvironmentObject var reissue: ReissueVM
+    @ObservedObject var reissue: ReissueVM
     @Binding var showAlert: Bool
+    
+    func submitReissue() {
+        Task {
+            do {
+                try await reissue.requestReissue()
+                reissue.cardReissueState = .apply
+            }
+        }
+        showAlert = false
+    }
+    
     var body: some View {
         Button {
-            Task {
-                do {
-                    try await reissue.requestReissue()
-                    reissue.cardReissueState = .apply
-                }
-            }
-            showAlert = false
+            
         } label: {
             Text("네, 신청하겠습니다")
         }
-        .buttonStyle(AlertButtonsModifier())
+        .buttonStyle(AlertButtonsModifier(
+            function: submitReissue
+        ))
     }
 }
 
 struct AlertReceiveButton: View {
-    @EnvironmentObject var reissue: ReissueVM
+    @ObservedObject var reissue: ReissueVM
     @Binding var showAlert: Bool
+    
+    func receiveReissue() {
+        Task {
+            do {
+                try await reissue.finishReissue()
+                reissue.cardReissueState = .done
+            } catch {
+                reissue.cardReissueState = .pickUpRequested
+            }
+        }
+        showAlert = false
+    }
+    
     var body: some View {
         Button {
-            Task {
-                do {
-                    try await reissue.finishReissue()
-                    reissue.cardReissueState = .done
-                } catch {
-                    reissue.cardReissueState = .pickUpRequested
-                }
-            }
-            showAlert = false
+            
         } label: {
             Text("네, 확인했습니다")
         }
-        .buttonStyle(AlertButtonsModifier())
+        .buttonStyle(
+            AlertButtonsModifier(
+                function: receiveReissue
+            )
+        )
     }
-}
-
-struct AlertPreview: PreviewProvider {
-	@State static var showAlert: Bool = false
-	static var previews: some View {
-		VStack {
-			AlertSubmitButton(showAlert: $showAlert)
-				.environmentObject(ReissueVM())
-			AlertReceiveButton(showAlert: $showAlert)
-				.environmentObject(ReissueVM())
-		}
-	}
 }

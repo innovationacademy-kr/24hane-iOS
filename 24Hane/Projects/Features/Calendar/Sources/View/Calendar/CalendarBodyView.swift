@@ -27,10 +27,7 @@ struct CalendarBodyView: View {
                 if !picker {
                     CalendarGridView(picker: $picker)
                 } else {
-                    VStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(.backgroundCalendar)
-
+                    VStack(alignment: .center) {
                         DatePicker(
                             "Date",
                             selection: $datePickerSelection,

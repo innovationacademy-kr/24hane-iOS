@@ -45,8 +45,6 @@ class HomeViewModel: ObservableObject {
             self.dailyAccumulationTime = self.accumulationTimes.todayAccumulationTime
             if let lastTag = self.lastTag {
                 self.dailyAccumulationTime += (Date.now.millisecondsSince1970 - lastTag.millisecondsSince1970) / 1000
-                print("date.now", Date.now.millisecondsSince1970 )
-                print("last tag", lastTag.millisecondsSince1970)
             }
         }
     }

@@ -35,9 +35,9 @@ public struct AlertView: View {
                     .foregroundColor(.gradientPurple)
                     .padding()
                 if item.id == "신청" {
-                    AlertSubmitButton(showAlert: $showAlert)
+                    AlertSubmitButton(reissue: reissue, showAlert: $showAlert)
                 } else {
-                    AlertReceiveButton(showAlert: $showAlert)
+                    AlertReceiveButton(reissue: reissue, showAlert: $showAlert)
                 }
                 Button {
                     showAlert = false
