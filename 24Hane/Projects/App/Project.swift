@@ -1,10 +1,11 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let name = "HANE24"
 let organizationName = "24HANE"
 let appBundleId = "net.hejang.-4hane"
 
-let targets: [Target] = [
+let appTargets: [Target] = [
     .target(
         name: name,
         destinations: .iOS,
@@ -44,7 +45,8 @@ let targets: [Target] = [
                 .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
                 .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
             ])
-    )
+    ),
+    .widgetExtensionTarget()
 ]
 
 let project = Project(
@@ -56,5 +58,5 @@ let project = Project(
             .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
             .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
         ]),
-    targets: targets
+    targets: appTargets
 )

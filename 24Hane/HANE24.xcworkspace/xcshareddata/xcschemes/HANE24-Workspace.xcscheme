@@ -70,10 +70,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "07CD3A018A7B1D55253D8675"
+               BlueprintIdentifier = "6CEE172A2D684FE5B37D07BE"
                BuildableName = "HANE24Widget.appex"
                BlueprintName = "HANE24Widget"
-               ReferencedContainer = "container:Projects/Widget/HANE24Widget.xcodeproj">
+               ReferencedContainer = "container:Projects/Widget/Widget.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -115,6 +115,20 @@
                BlueprintIdentifier = "72D0E893F5D9C47A76548325"
                BuildableName = "HomeDemo.app"
                BlueprintName = "HomeDemo"
+               ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C67FCC6781DBB00560C71F04"
+               BuildableName = "HomeTest.xctest"
+               BlueprintName = "HomeTest"
                ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -174,6 +188,20 @@
                ReferencedContainer = "container:Projects/Features/More/More.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1A6DF28BE1C0FF2641F99152"
+               BuildableName = "WidgetExtension.appex"
+               BlueprintName = "WidgetExtension"
+               ReferencedContainer = "container:Projects/App/HANE24.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -190,6 +218,16 @@
                BuildableName = "CalendarTest.xctest"
                BlueprintName = "CalendarTest"
                ReferencedContainer = "container:Projects/Features/Calendar/Calendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C67FCC6781DBB00560C71F04"
+               BuildableName = "HomeTest.xctest"
+               BlueprintName = "HomeTest"
+               ReferencedContainer = "container:Projects/Features/Home/Home.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

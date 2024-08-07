@@ -12,9 +12,7 @@ import SwiftUI
 struct HomeDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView {
-                HomeView()
-            }
+            HomeContentView()
         }
     }
 }
