@@ -3,7 +3,7 @@ import ProjectDescription
 
 let login: Target = .target(
     name: "Login",
-    destinations: .iOS,
+    destinations: [.iPhone],
     product: .framework,
     bundleId: "net.hejang.-4hane.login",
     deploymentTargets: .iOS("15.0"),

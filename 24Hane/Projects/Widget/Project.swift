@@ -18,6 +18,7 @@ let widgetTarget: [Target] = [
         destinations: .iOS,
         product: .appExtension,
         bundleId: appBundleId,
+        deploymentTargets: .iOS("15.0"),
 //        infoPlist: .file(path: .relativeToRoot("Supports/Info.plist")),
         sources: "Sources/**",
         resources: "Resources/**",

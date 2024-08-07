@@ -9,7 +9,7 @@ let appBundleId = "net.hejang.-4HANE"
 let appTargets: [Target] = [
     .target(
         name: appTargetName,
-        destinations: .iOS,
+        destinations: [.iPhone],
         product: .app,
         bundleId: appBundleId,
         deploymentTargets: .iOS("15.0"),
@@ -25,7 +25,8 @@ let appTargets: [Target] = [
                 "NSAllowsArbitraryLoads":true
             ],
             "UILaunchScreen":[
-                "UIImageName":""
+                "UIImageName":"LaunchLogo",
+                "UIColorName":"launchScreenColor"
             ],
             "CFBundlePackageType":"APPL"
         ]),

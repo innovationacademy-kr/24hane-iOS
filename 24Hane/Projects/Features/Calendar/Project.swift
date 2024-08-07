@@ -7,7 +7,7 @@ let targetVersion = "15.0"
 
 let calendar: Target = .target(
     name: "Calendar",
-    destinations: .iOS,
+    destinations: [.iPhone],
     product: .framework,
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),

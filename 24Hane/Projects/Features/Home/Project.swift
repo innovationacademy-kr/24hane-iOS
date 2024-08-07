@@ -7,7 +7,7 @@ let targetVersion = "15.0"
 
 let home: Target = .target(
     name: "Home",
-    destinations: .iOS,
+    destinations: [.iPhone],
     product: .framework,
     bundleId: appBundleId,
     deploymentTargets: .iOS("15.0"),

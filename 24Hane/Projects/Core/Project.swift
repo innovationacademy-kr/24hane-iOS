@@ -11,7 +11,7 @@ let bundleId = "net.hejang.-4hane.core"
 
 let target: Target = .target(
     name: "HaneCore",
-    destinations: .iOS,
+    destinations: [.iPhone],
     product: .framework,
     bundleId: bundleId,
     deploymentTargets: .iOS("15.0"),
