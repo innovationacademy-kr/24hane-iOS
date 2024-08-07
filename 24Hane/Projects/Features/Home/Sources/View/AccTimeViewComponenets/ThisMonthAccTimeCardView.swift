@@ -11,8 +11,6 @@ import HaneCore
 struct ThisMonthAccTimeCardView: View {
 	@ObservedObject var homeViewModel: HomeViewModel
 
-    @Binding var isNoticed: Bool
-
     @State var isFold: Bool = true
 
     var body: some View {
@@ -24,18 +22,18 @@ struct ThisMonthAccTimeCardView: View {
             HStack(spacing: 0) {
                 Button {
                     if !homeViewModel.isLoading {
-                        isNoticed = true
+                        homeViewModel.showModal = .monthlyTime
                     }
                 } label: {
-                    HStack(spacing: 2) {
-                        Image(systemName: "exclamationmark.circle")
-                            .foregroundStyle(Color(hex: "#9B9797"))
-                            .frame(width: 16, height: 16)
+                    HStack(spacing: 6) {
                         Text("인정 시간")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundColor(Color(hex: "#735BF2"))
+                        Image(systemName: "exclamationmark.circle")
+                            .foregroundStyle(Color(hex: "#9B9797"))
+                            .frame(width: 10, height: 10)
                     }
-                    .padding(10)
+                    .padding(.vertical, 10)
                 }
                 
                 Spacer()

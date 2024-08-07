@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import UIKit
 import HaneCore
 
 public struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel()
     
     public init() {}
-
+    
     public var body: some View {
         ZStack {
             BackgroundTheme(isInCluster: $homeViewModel.isInCluster)
@@ -38,6 +39,18 @@ public struct HomeView: View {
         .task {
             await homeViewModel.refresh()
         }
+        .fullScreenCover(isPresented: Binding<Bool>(
+            get: { homeViewModel.showModal != .none },
+            set: { newValue in
+                if !newValue {
+                    homeViewModel.showModal = .none
+                }
+            }
+        )) {
+            NoticeView(showNotice: $homeViewModel.showModal, notice: homeViewModel.getInfoMessage())
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(BackgroundBlurView())
+                .ignoresSafeArea()
+        }
     }
 }
-
