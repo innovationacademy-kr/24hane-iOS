@@ -33,7 +33,3 @@ struct HowToReissue: View {
 		.padding(.bottom, 20)
     }
 }
-
-#Preview {
-    HowToReissue()
-}

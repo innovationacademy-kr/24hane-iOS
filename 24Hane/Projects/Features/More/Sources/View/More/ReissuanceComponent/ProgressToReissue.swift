@@ -49,6 +49,3 @@ struct ProgressToReissue: View {
     }
 }
 
-#Preview {
-	ProgressToReissue(cardReissueState: .inProgress)
-}

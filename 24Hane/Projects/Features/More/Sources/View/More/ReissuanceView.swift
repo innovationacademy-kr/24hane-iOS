@@ -13,7 +13,7 @@ struct ReissuanceView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) private var openURL
-	@EnvironmentObject var reissue: ReissueVM
+	@ObservedObject var reissue: ReissueVM
 
     @State var showAlert = false
 
@@ -58,12 +58,5 @@ struct ReissuanceView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }
         })
-    }
-}
-
-struct ReissuanceView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReissuanceView()
-			.environmentObject(ReissueVM())
     }
 }

@@ -30,13 +30,14 @@ public struct MoreView: View {
             ZStack(alignment: .topLeading) {
                 Theme.backgroundColor(forScheme: colorScheme)
                     .edgesIgnoringSafeArea(.all)
+
                 VStack(alignment: .leading, spacing: 30) {
                     Text("더보기")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.top)
                         .padding(.leading, 30)
 
-                    NavigationLink(destination: ReissuanceView().environmentObject(reissue)
+                    NavigationLink(destination: ReissuanceView(reissue: reissue)
 					) {
                         ReissueButtonAppearance()
                     }
@@ -60,8 +61,4 @@ public struct MoreView: View {
         }
 
     }
-}
-
-#Preview {
-    MoreView()
 }

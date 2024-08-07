@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Hane
+@testable import Calendar
 
 final class CalendarTest: XCTestCase {
 

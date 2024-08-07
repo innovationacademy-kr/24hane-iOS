@@ -28,7 +28,3 @@ struct LogoutButton: View {
 		.padding(.horizontal, 40)
     }
 }
-
-#Preview {
-    LogoutButton()
-}

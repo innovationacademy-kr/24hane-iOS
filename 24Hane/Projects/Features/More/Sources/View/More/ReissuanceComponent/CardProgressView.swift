@@ -37,6 +37,3 @@ struct CardProgressView: View {
 
 }
 
-#Preview {
-    CardProgressView(item: ProgressItem(id: "신청", title: "신청 후 업체에 입금해주세요", statement: "업체에서 입금 확인 후 제작이 진행됩니다.", isProcessing: true))
-}

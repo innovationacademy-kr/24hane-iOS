@@ -65,6 +65,8 @@ struct CalendarGridView: View {
                     }
                 }
                 .isHidden(calendarVM.loading)
+                
+                Spacer()
             }
         }
     }
@@ -108,9 +110,4 @@ struct CalendarGridView: View {
         }
     }
 
-}
-
-#Preview {
-    CalendarGridView(picker: .constant(false))
-		.environmentObject(CalendarVM())
 }

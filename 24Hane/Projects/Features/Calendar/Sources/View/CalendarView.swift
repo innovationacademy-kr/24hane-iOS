@@ -57,7 +57,3 @@ public struct CalendarView: View {
         .environmentObject(calendarVM)
     }
 }
-
-#Preview {
-    CalendarView()
-}

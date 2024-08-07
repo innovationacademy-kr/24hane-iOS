@@ -90,7 +90,3 @@ struct TagLogView: View {
     }
 }
 
-#Preview {
-    TagLogView(logList: [])
-		.environmentObject(CalendarVM())
-}
