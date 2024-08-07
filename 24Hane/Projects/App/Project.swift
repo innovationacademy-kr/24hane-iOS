@@ -17,6 +17,7 @@ let appTargets: [Target] = [
             "API_URL":"$(API_URL)",
             "UILaunchStoryboardName":"LaunchScreen.storyboard",
             "UIApplicationSupportsIndirectInputEvents":true,
+            "CFBundleShortVersionString":"3.1.0",
             "UIApplicationSceneManifest":[
                 "UIApplicationSupportsMultipleScenes":true,
                 "UISceneConfigurations":[]
