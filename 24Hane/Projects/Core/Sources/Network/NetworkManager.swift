@@ -44,7 +44,7 @@ public class NetworkManager: NetworkProtocol {
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
             throw CustomError.tokenExpired
         }
-        
+        print(" ❕❕❕API requested💡💡💡 \n url:\(url)")
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = [
@@ -53,6 +53,7 @@ public class NetworkManager: NetworkProtocol {
         
         let (data, response) = try await session.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+            print("❌❌❌Error발생❌❌❌\n url: \(url)", response)
             throw CustomError.unknownError("Request Failed")
         }
 
@@ -73,6 +74,7 @@ public class NetworkManager: NetworkProtocol {
             throw CustomError.tokenExpired
         }
         
+        print(" ❕❕❕API requested💡💡💡 \n url:\(url)")
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = [
@@ -81,6 +83,7 @@ public class NetworkManager: NetworkProtocol {
         
         let (_, response) = try await session.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+            print("❌❌❌Error발생❌❌❌\n url: \(url)", response)
             throw CustomError.internalServer
         }
     }

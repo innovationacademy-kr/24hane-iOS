@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		070AD6DE47365A6C919110A4 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F393CA271AEB193BB2957ACB /* NoticeView.swift */; };
+		0E6CF1522C6496CD00E7A73B /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6CF1512C6496CD00E7A73B /* HomeProtocol.swift */; };
+		0E6CF1532C6496CD00E7A73B /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6CF1512C6496CD00E7A73B /* HomeProtocol.swift */; };
 		14B0465C8EDE00EDCB484CB5 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBACD48A2E8F4B2571BE49 /* ChartView.swift */; };
 		1651D2BA2CED373EBB610818 /* BackgroundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C1C5D5BF226FC429E6EF6F /* BackgroundTheme.swift */; };
 		1A0293E1584B21CF5CFD3DD9 /* HaneCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F2F556CF95A32D3440FC1A9 /* HaneCore.framework */; };
@@ -119,6 +121,7 @@
 
 /* Begin PBXFileReference section */
 		067FEE4C1340D84FEB8519A7 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		0E6CF1512C6496CD00E7A73B /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		2F2F556CF95A32D3440FC1A9 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEAD03DA9C84C1BDDFB621A /* HomeTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C1C5D5BF226FC429E6EF6F /* BackgroundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTheme.swift; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7B380A50C505A4A4A56F43 /* HomeVM.swift */,
+				0E6CF1512C6496CD00E7A73B /* HomeProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -407,8 +411,6 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = AA685C1613CFBDFB4ED6BAE7 /* Build configuration list for PBXProject "Home" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -471,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6CF1522C6496CD00E7A73B /* HomeProtocol.swift in Sources */,
 				F718A53C6E8924120570A172 /* TuistAssets+Home.swift in Sources */,
 				910EB185F843011C7F9A9B5F /* TuistBundle+Home.swift in Sources */,
 				D63221D4047D8134570C6889 /* HomeDemoApp.swift in Sources */,
@@ -499,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6CF1532C6496CD00E7A73B /* HomeProtocol.swift in Sources */,
 				24CBDD39048391F6B5EB7260 /* TuistAssets+HomeDemo.swift in Sources */,
 				B0C0C63D8020690D4E15722D /* TuistBundle+HomeDemo.swift in Sources */,
 				C6124D2F044F106BBC2DDA01 /* HomeDemoApp.swift in Sources */,
@@ -566,10 +570,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -598,10 +599,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -735,10 +733,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

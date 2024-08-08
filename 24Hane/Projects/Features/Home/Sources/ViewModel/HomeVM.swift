@@ -8,7 +8,7 @@
 import Foundation
 import HaneCore
 
-class HomeViewModel: ObservableObject {
+class HomeViewModel: HomeProtocol {
     @Published var isInCluster: Bool
 
     @Published var fundInfoNotice: Notice
@@ -61,6 +61,7 @@ class HomeViewModel: ObservableObject {
             self.accumulationTimes = accTimes
             self.dailyAccumulationTime = accTimes.todayAccumulationTime
         } catch {
+            print("❌❌❌Error발생❌❌❌\n updateAccTimes", error)
             ErrorHandler.shared.handleError(error)
         }
     }
@@ -92,6 +93,7 @@ class HomeViewModel: ObservableObject {
     func refresh() async {
         await self.updateMainInfo()
         await self.updateAccumulationTimes()
+
         self.isLoading = false
     }
     

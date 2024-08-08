@@ -10,9 +10,11 @@ import UIKit
 import HaneCore
 
 public struct HomeView: View {
-    @StateObject var homeViewModel = HomeViewModel()
+    @ObservedObject var homeViewModel: HomeViewModel
     
-    public init() {}
+    public init() {
+        self.homeViewModel = HomeViewModel()
+    }
     
     public var body: some View {
         ZStack {
@@ -36,8 +38,10 @@ public struct HomeView: View {
                 } .coordinateSpace(name: "pullToRefresh")
             }
         }
-        .task {
-            await homeViewModel.refresh()
+        .onAppear {
+            Task {
+                await homeViewModel.refresh()
+            }
         }
         .fullScreenCover(isPresented: Binding<Bool>(
             get: { homeViewModel.showModal != .none },

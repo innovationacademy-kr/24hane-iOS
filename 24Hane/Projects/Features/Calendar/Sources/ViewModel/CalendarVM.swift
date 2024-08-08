@@ -71,6 +71,7 @@ class CalendarVM:  CalendarProtocol {
             self.loading = false
         } catch {
             self.loading = false
+            print("❌❌❌Error발생❌❌❌\n updateMonthlyLogs")
             ErrorHandler.shared.handleError(error)
         }
 	}
@@ -83,6 +84,7 @@ class CalendarVM:  CalendarProtocol {
 		components.queryItems = [year, month]
 
         guard let perMonth = try await network.apiRequest(components.url!.absoluteString, .get, type: PerMonth.self) else {
+            print("❌❌❌Error발생❌❌❌\n getPerMonth")
             fatalError("CalendarVM - getPerMonth")
         }
 
