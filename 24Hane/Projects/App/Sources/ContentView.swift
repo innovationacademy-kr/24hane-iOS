@@ -14,7 +14,7 @@ import More
 import Login
 
 struct ContentView: View {
-    @StateObject var auth = Authentication()
+    @EnvironmentObject var auth: Authentication
     @StateObject var networkMonitoringManager = NetworkMonitoringManager()
     @State var signInChecked = false
     let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirst")
@@ -26,7 +26,7 @@ struct ContentView: View {
             } else {
                 switch auth.isSignIn {
                 case false:
-                    SignInView(auth: auth)
+                    SignInView()
                 case true:
                     MainView()
                 }

@@ -12,14 +12,14 @@ import Home
 import Calendar
 
 struct CalendarDemoContentView: View {
-    @StateObject var auth = Authentication()
+    @EnvironmentObject var auth: Authentication
     @State var signInChecked = false
     
     var body: some View {
         ZStack {
             switch auth.isSignIn {
             case false:
-                SignInView(auth: auth)
+                SignInView()
             case true:
                 CalendarView()
             }

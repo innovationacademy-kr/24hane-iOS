@@ -16,7 +16,8 @@ struct SignInDemo: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                SignInView(auth: auth)
+                SignInView()
+                    .environmentObject(auth)
             }
         }
     }

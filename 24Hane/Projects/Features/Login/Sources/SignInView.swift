@@ -16,14 +16,12 @@ enum Stat {
 }
 
 public struct SignInView: View {
-    @ObservedObject var auth: Authentication
+    @EnvironmentObject var auth: Authentication
     @AppStorage("isSignIn") var isSignIn: Bool = false
     
     @State var viewStat: Stat = .buttonNotTabbed
     
-    public init(auth: Authentication) {
-        self.auth = auth
-    }
+    public init() {}
 
     public var body: some View {
         ZStack {

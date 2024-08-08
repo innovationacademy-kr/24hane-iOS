@@ -1,5 +1,6 @@
 
 import Foundation
+import WebKit
 import SwiftUI
 
 public class Authentication: ObservableObject {
@@ -27,9 +28,18 @@ public class Authentication: ObservableObject {
     public func tokenExpired() {
         
     }
-
+    
     //MARK: - More Module 내에서 사용자가 로그아웃 한 경우
     public func signOut() {
+        WKWebsiteDataStore
+            .default()
+            .fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), completionHandler: { (records) -> Void in
+                for record in records {
+                    WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                }
+            })
+        UserDefaults.standard.removeObject(forKey: "Token")
+        self.isSignIn = false
         
     }
     
