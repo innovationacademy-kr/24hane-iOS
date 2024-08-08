@@ -26,4 +26,3 @@ protocol HomeProtocol
 : ObservableObject, HomeDataProtocol, HomeFetchProtocol
 {}
 
-

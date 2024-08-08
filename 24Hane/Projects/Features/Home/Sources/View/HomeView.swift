@@ -10,11 +10,9 @@ import UIKit
 import HaneCore
 
 public struct HomeView: View {
-    @ObservedObject var homeViewModel: HomeViewModel
+    @StateObject var homeViewModel = HomeViewModel()
     
-    public init() {
-        self.homeViewModel = HomeViewModel()
-    }
+    public init() {}
     
     public var body: some View {
         ZStack {
@@ -40,7 +38,7 @@ public struct HomeView: View {
         }
         .onAppear {
             Task {
-                await homeViewModel.refresh()
+                await homeViewModel.fetchHomeData()
             }
         }
         .fullScreenCover(isPresented: Binding<Bool>(

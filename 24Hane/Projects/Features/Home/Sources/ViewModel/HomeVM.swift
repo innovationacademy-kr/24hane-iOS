@@ -15,7 +15,7 @@ class HomeViewModel: HomeProtocol {
     @Published var tagLatencyNotice: Notice
 
     /// 누적시간데이터
-    @Published var dailyAccumulationTime: Int64 = 0
+    @Published var dailyAccumulationTime: Int64
     @Published var accumulationTimes: AccumulationTimes
 
     @Published var isLoading: Bool
@@ -38,6 +38,7 @@ class HomeViewModel: HomeProtocol {
 
         self.mainInfo = MainInfo()
 
+        self.dailyAccumulationTime = -1
         self.accumulationTimes = AccumulationTimes()
 
         self.lastTag = Date()
@@ -95,6 +96,16 @@ class HomeViewModel: HomeProtocol {
         await self.updateAccumulationTimes()
 
         self.isLoading = false
+    }
+    
+    @MainActor
+    func fetchHomeData() async {
+        if dailyAccumulationTime < 0 {
+            await self.updateMainInfo()
+            await self.updateAccumulationTimes()
+
+            self.isLoading = false
+        }
     }
     
     func getWeeklyPeriod() -> [String] {
