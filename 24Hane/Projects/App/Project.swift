@@ -46,8 +46,8 @@ let appTargets: [Target] = [
         ],
         settings: .settings(
             configurations: [
-                .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-                .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+                .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/envDebug.xcconfig")),
+                .release(name: "Release", xcconfig: .relativeToRoot("Supports/envRelease.xcconfig"))
             ])
     ),
     .widgetExtensionTarget()
@@ -59,8 +59,8 @@ let project = Project(
     settings: .settings(
         base: [:],
         configurations: [
-            .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-            .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+            .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/envDebug.xcconfig")),
+            .release(name: "Release", xcconfig: .relativeToRoot("Supports/envRelease.xcconfig"))
         ]),
     targets: appTargets
 )

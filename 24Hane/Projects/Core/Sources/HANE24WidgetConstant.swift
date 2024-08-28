@@ -10,6 +10,7 @@ import WidgetKit
 
 public struct HaneWidgetConstant {
     public static var storageKey = "accessToken"
+    public static var refreshStorageKey = "refreshToken"
     public static var appGroupName = "group.24HoursAreNotEnough"
     public static var widgetKind = "com.24HoursAreNotEnough"
 }

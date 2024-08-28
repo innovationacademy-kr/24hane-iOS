@@ -18,12 +18,18 @@ public class ErrorHandler: ObservableObject {
 
     private init() { }
 
+    
+    /*
+     401의 경우 accessToken 만료인지, refreshToken 만료인지에 대한 구분 피룡
+     */
     public func errorFromHttpRequest(_ statusCode: Int?) throws {
         switch statusCode {
         case 400:
             throw CustomError.wrongQueryType
         case 401:
             throw CustomError.unAuthorized
+        case 409:
+            throw CustomError.refreshTokenExpired
         case 500:
             throw CustomError.internalServer
         default:
@@ -34,7 +40,7 @@ public class ErrorHandler: ObservableObject {
     @MainActor
     public func updateErrorView() {
         switch self.errorType {
-        case .tokenExpired, .unAuthorized:
+        case .accessTokenExpired, .refreshTokenExpired, .unAuthorized:
             self.signInRequired = true
         case .wrongQueryType, .networkDisconnected, .internalServer, .responseBodyEmpty,
                 .decodeFailed, .unknownError, .invalidURL:
@@ -66,5 +72,11 @@ public class ErrorHandler: ObservableObject {
             self.updateErrorView()
         }
     }
-    
  }
+
+extension ErrorHandler {
+    
+    public func authExpiredError() async {
+        
+    }
+}

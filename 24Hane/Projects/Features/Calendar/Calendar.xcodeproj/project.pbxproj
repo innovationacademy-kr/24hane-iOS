@@ -106,7 +106,6 @@
 		2535DA2C0B972029FA48C4A4 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9C0BDE22276BCC083546EE /* CalendarDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CalendarDemo-Info.plist"; sourceTree = "<group>"; };
 		31540063661D07E30A41457E /* AccTimeValidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccTimeValidView.swift; sourceTree = "<group>"; };
-		3DBD23511B1C77AFB945ACC2 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		451181FDC8CF6C2EDAA844B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47CC6CA1AE91E80FB1E37658 /* CalendarDemoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDemoContentView.swift; sourceTree = "<group>"; };
 		4B00EB8819FB3E3B435D76FD /* FakeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetwork.swift; sourceTree = "<group>"; };
@@ -123,12 +122,14 @@
 		9CE1B06DA9AA489C1E57B144 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		A02D85F4B329CCDCB2F1DBB7 /* CalendarTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A095DE04B6CF72B849B7AA35 /* CalendarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A741358AC02E1D5C1AF64AF1 /* envRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = envRelease.xcconfig; sourceTree = "<group>"; };
 		AA43B6DCAA60BFFA2125EB22 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3963347F22CCFBB9E79E415 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B769F1BE7560DA9804FC043B /* TagLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLogView.swift; sourceTree = "<group>"; };
 		BD13B2AA9DF720E93D5EF4A1 /* HANE24Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Test.swift; sourceTree = "<group>"; };
 		CD91F9F48570BD144E8661F9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D90B27FA865D6F252E2BD6FD /* CalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarApp.swift; sourceTree = "<group>"; };
+		DB09D03443320CA2DD850B60 /* envDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = envDebug.xcconfig; sourceTree = "<group>"; };
 		DDBC02E3253C17A102A60A9C /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		E04B2AA810D34618BC063B3D /* CalendarTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CalendarTest-Info.plist"; sourceTree = "<group>"; };
 		E42BE2D6B5E0982F19BBE8FE /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,7 +280,8 @@
 		8973F4EFC26CD2A45A53F9B9 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
-				3DBD23511B1C77AFB945ACC2 /* env.xcconfig */,
+				DB09D03443320CA2DD850B60 /* envDebug.xcconfig */,
+				A741358AC02E1D5C1AF64AF1 /* envRelease.xcconfig */,
 			);
 			name = Supports;
 			path = ../../../Supports;
@@ -533,7 +535,7 @@
 /* Begin XCBuildConfiguration section */
 		124E6769CA5E4F71021C616C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DBD23511B1C77AFB945ACC2 /* env.xcconfig */;
+			baseConfigurationReference = DB09D03443320CA2DD850B60 /* envDebug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -630,7 +632,7 @@
 		};
 		7365431B540A6FBEC289EFCC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DBD23511B1C77AFB945ACC2 /* env.xcconfig */;
+			baseConfigurationReference = A741358AC02E1D5C1AF64AF1 /* envRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -656,7 +658,7 @@
 		};
 		861F76E6277A9A29045D5B10 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DBD23511B1C77AFB945ACC2 /* env.xcconfig */;
+			baseConfigurationReference = DB09D03443320CA2DD850B60 /* envDebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -739,7 +741,7 @@
 		};
 		A200D47EF065EC83C4EFB955 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DBD23511B1C77AFB945ACC2 /* env.xcconfig */;
+			baseConfigurationReference = A741358AC02E1D5C1AF64AF1 /* envRelease.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;

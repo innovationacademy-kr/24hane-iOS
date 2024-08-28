@@ -8,7 +8,8 @@
 import Foundation
 
 public enum CustomError: Error {
-    case tokenExpired
+    case accessTokenExpired
+    case refreshTokenExpired
     case wrongQueryType
     case networkDisconnected
     case unAuthorized
@@ -23,7 +24,9 @@ public enum CustomError: Error {
 extension CustomError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .tokenExpired:
+        case .accessTokenExpired:
+            return "사용자 토큰이 만료되었습니다"
+        case .refreshTokenExpired:
             return "사용자 토큰이 만료되었습니다"
         case .wrongQueryType:
             return "잘못된 요청입니다"
@@ -48,7 +51,9 @@ extension CustomError: LocalizedError {
     
     public var recoverySuggestion: String? {
         switch self {
-        case .tokenExpired:
+        case .accessTokenExpired:
+            return "다시 로그인해주세요"
+        case .refreshTokenExpired:
             return "다시 로그인해주세요"
         case .wrongQueryType:
             return "다시 시도해주세요"

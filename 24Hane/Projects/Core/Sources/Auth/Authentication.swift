@@ -23,6 +23,21 @@ public class Authentication: ObservableObject {
         }
     }
     
+    //MARK: - access Token 재발급 - refreshToken
+    public func refreshAccessToken() async {
+        let urlPath = "/user/login/refresh"
+        
+        do {
+            let auth = try await NetworkManager.shared.apiRequest(urlPath, .post, type: AuthenticationModel.self)
+            UserDefaults.standard.setValue(auth?.accessToken, forKey: "AccessToken")
+            UserDefaults.shared.setValue(auth?.accessToken, forKey: HaneWidgetConstant.storageKey)
+        } catch {
+            debugPrint("refresh AccessToken failed")
+            await ErrorHandler.shared.handleError(error)
+            return
+        }
+    }
+    
     //MARK: - API 요청시 사용자 AccessToken이 만료된 경우
     public func tokenExpired() {
         

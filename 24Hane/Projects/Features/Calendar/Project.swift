@@ -21,8 +21,8 @@ let calendar: Target = .target(
         .project(target: "HaneCore", path: .relativeToRoot("Projects/Core"))
     ],
     settings: .settings(configurations: [
-        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/envDebug.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/envRelease.xcconfig"))
     ])
 )
 
@@ -58,8 +58,8 @@ let calendarDemo: Target = .target(
         .project(target: "Home", path: .relativeToRoot("Projects/Features/Home"))
     ],
     settings: .settings(configurations: [
-        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/envDebug.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/envRelease.xcconfig"))
     ])
 )
 

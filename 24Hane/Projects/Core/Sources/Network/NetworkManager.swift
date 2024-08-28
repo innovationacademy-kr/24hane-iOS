@@ -42,7 +42,7 @@ public class NetworkManager: NetworkProtocol {
         }
         
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
-            throw CustomError.tokenExpired
+            throw CustomError.accessTokenExpired
         }
         
         var request = URLRequest(url: url)
@@ -70,7 +70,7 @@ public class NetworkManager: NetworkProtocol {
         }
         
         guard let token = UserDefaults.standard.string(forKey: "Token") else {
-            throw CustomError.tokenExpired
+            throw CustomError.accessTokenExpired
         }
         
         var request = URLRequest(url: url)

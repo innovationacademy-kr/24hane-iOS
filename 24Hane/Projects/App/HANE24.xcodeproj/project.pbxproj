@@ -69,7 +69,7 @@
 		1B54C72A452865732D6E270B /* More.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = More.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66034E99314DDF26D4C2ECF6 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		794ECD0BF341997E0164436A /* TuistBundle+WidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+WidgetExtension.swift"; sourceTree = "<group>"; };
-		8D41FF4F898511D9937EA83F /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		8D047344C2241AC3E354BE59 /* envRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = envRelease.xcconfig; sourceTree = "<group>"; };
 		8F2A1E72473F2FC4294064E0 /* 24HANE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 24HANE.entitlements; sourceTree = "<group>"; };
 		960D1D68723269AD40E012C4 /* WidgetExtension-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WidgetExtension-Info.plist"; sourceTree = "<group>"; };
 		A32F19921C22CE1501DAFF4C /* Hane24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hane24.swift; sourceTree = "<group>"; };
@@ -79,6 +79,7 @@
 		BDEC847F761A3512EB17673E /* HANE24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HANE24.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FF7CBACF01C71CC46891A7 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9320504B2B7E990D540EC33 /* AccumulationTimeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccumulationTimeStruct.swift; sourceTree = "<group>"; };
+		DC6927830FC31B4312FE763C /* envDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = envDebug.xcconfig; sourceTree = "<group>"; };
 		DCE99B29A00F8E3EEE316191 /* Calendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5526245192DEAA3BC56383 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F7E39A96A6C2CAD5CAE71DC0 /* HANE24Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HANE24Widget.swift; sourceTree = "<group>"; };
@@ -177,7 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				8F2A1E72473F2FC4294064E0 /* 24HANE.entitlements */,
-				8D41FF4F898511D9937EA83F /* env.xcconfig */,
+				DC6927830FC31B4312FE763C /* envDebug.xcconfig */,
+				8D047344C2241AC3E354BE59 /* envRelease.xcconfig */,
 			);
 			name = Supports;
 			path = ../../Supports;
@@ -365,7 +367,7 @@
 		};
 		52B19F71EA52B86CD204B648 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D41FF4F898511D9937EA83F /* env.xcconfig */;
+			baseConfigurationReference = DC6927830FC31B4312FE763C /* envDebug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -425,7 +427,7 @@
 		};
 		8593F4118ECAEADE37B815CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D41FF4F898511D9937EA83F /* env.xcconfig */;
+			baseConfigurationReference = DC6927830FC31B4312FE763C /* envDebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ../../Supports/24HANE.entitlements;
@@ -456,7 +458,7 @@
 		};
 		BC1576CA6C960C37390F5963 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D41FF4F898511D9937EA83F /* env.xcconfig */;
+			baseConfigurationReference = 8D047344C2241AC3E354BE59 /* envRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ../../Supports/24HANE.entitlements;
@@ -507,7 +509,7 @@
 		};
 		D679DA93B4E253836B2A2880 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D41FF4F898511D9937EA83F /* env.xcconfig */;
+			baseConfigurationReference = 8D047344C2241AC3E354BE59 /* envRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

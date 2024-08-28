@@ -22,8 +22,8 @@ let home: Target = .target(
         .project(target: "Login", path: .relativeToRoot("Projects/Features/Login"))
     ],
     settings: .settings(configurations: [
-        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/envDebug.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/envRelease.xcconfig"))
     ])
 )
 
@@ -58,8 +58,8 @@ let homeDemo: Target = .target(
         .project(target: "Login", path: .relativeToRoot("Projects/Features/Login")),
     ],
     settings: .settings(configurations: [
-        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/env.xcconfig")),
-        .release(name: "Release", xcconfig: .relativeToRoot("Supports/env.xcconfig"))
+        .debug(name: "Debug", xcconfig: .relativeToRoot("Supports/envDebug.xcconfig")),
+        .release(name: "Release", xcconfig: .relativeToRoot("Supports/envRelease.xcconfig"))
     ])
 )
 

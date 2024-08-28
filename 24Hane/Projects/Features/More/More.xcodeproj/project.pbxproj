@@ -101,8 +101,8 @@
 /* Begin PBXFileReference section */
 		0EBDBFB149D2F7EEE3D9E5C7 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		10731ABBCAB7FD1EB168C7C1 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10C91114FD0692002C83E750 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		1315221B1307F53B8F78F402 /* ReissueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReissueVM.swift; sourceTree = "<group>"; };
+		1C9699D3F097054643D6EA6E /* envRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = envRelease.xcconfig; sourceTree = "<group>"; };
 		20A9DAA34EBB278E35AB8DBF /* ReceiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveButton.swift; sourceTree = "<group>"; };
 		2694E11FA9400E3DFB3D1751 /* HaneCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaneCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28A1D6BEBE519DD08325C1B1 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -122,6 +122,7 @@
 		94FD345D43A90D5DF2802D96 /* TuistAssets+MoreDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+MoreDemo.swift"; sourceTree = "<group>"; };
 		AF6977C97D22BC4DDE2BAB4C /* JSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONs.swift; sourceTree = "<group>"; };
 		BA9A521A23A8E485759D5D63 /* TuistBundle+More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+More.swift"; sourceTree = "<group>"; };
+		BBB2E0D1C4CE2EE6540E699F /* envDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = envDebug.xcconfig; sourceTree = "<group>"; };
 		BF6F426EB8642DD1AD93EF13 /* More-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "More-Info.plist"; sourceTree = "<group>"; };
 		C50839F518ECAE76BC2E2E3E /* MoreViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewFooter.swift; sourceTree = "<group>"; };
 		C87071D5E22D906B9130C9B6 /* MoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,7 +254,8 @@
 		6461BF5D1EA5FC4F96430EEA /* Supports */ = {
 			isa = PBXGroup;
 			children = (
-				10C91114FD0692002C83E750 /* env.xcconfig */,
+				BBB2E0D1C4CE2EE6540E699F /* envDebug.xcconfig */,
+				1C9699D3F097054643D6EA6E /* envRelease.xcconfig */,
 			);
 			name = Supports;
 			path = ../../../Supports;
@@ -501,7 +503,7 @@
 /* Begin XCBuildConfiguration section */
 		00DE29F195824DD0B15176E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10C91114FD0692002C83E750 /* env.xcconfig */;
+			baseConfigurationReference = BBB2E0D1C4CE2EE6540E699F /* envDebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -531,7 +533,7 @@
 		};
 		838912B65BEA37BD101D2EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10C91114FD0692002C83E750 /* env.xcconfig */;
+			baseConfigurationReference = BBB2E0D1C4CE2EE6540E699F /* envDebug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -569,7 +571,7 @@
 		};
 		88CF2D633121494852839595 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10C91114FD0692002C83E750 /* env.xcconfig */;
+			baseConfigurationReference = 1C9699D3F097054643D6EA6E /* envRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -654,7 +656,7 @@
 		};
 		E10B6677353EDB7549A3CADD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10C91114FD0692002C83E750 /* env.xcconfig */;
+			baseConfigurationReference = 1C9699D3F097054643D6EA6E /* envRelease.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;

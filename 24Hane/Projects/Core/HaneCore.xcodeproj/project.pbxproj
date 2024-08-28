@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E6A630D2C7EF1460084F13F /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6A630C2C7EF1460084F13F /* AuthenticationModel.swift */; };
 		2C329C9168FA0F100447707D /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21664300B698E1E2C4F45A4B /* UserDefaultsExtension.swift */; };
 		2D6E26E3611F80B37542942A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A7A56D85DE8930ECD4251 /* DateExtensions.swift */; };
 		3A969D092A99DE03690E4689 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11933531B39BDD0D81D15B60 /* Error.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E6A630C2C7EF1460084F13F /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		11933531B39BDD0D81D15B60 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		14CFD029D2E93BE20F9B7D40 /* HaneCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HaneCore-Info.plist"; sourceTree = "<group>"; };
 		21664300B698E1E2C4F45A4B /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				C87B8A0AE11ACF7686B7101F /* Authentication.swift */,
+				0E6A630C2C7EF1460084F13F /* AuthenticationModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -196,8 +199,6 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 836B0A2ECE2D768A71EA20E7 /* Build configuration list for PBXProject "HaneCore" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -238,6 +239,7 @@
 				579C5647C75BACC120E6926A /* ErrorHandler.swift in Sources */,
 				C71077C65B32DE94BB47E42B /* HANE24WidgetConstant.swift in Sources */,
 				FEB20B64983E3B5965EF4FB6 /* NetworkManager.swift in Sources */,
+				0E6A630D2C7EF1460084F13F /* AuthenticationModel.swift in Sources */,
 				C625CA66A70AF666F766114D /* NetworkMonitoringManager.swift in Sources */,
 				AD474995076D06102884EB9F /* ColorExtension.swift in Sources */,
 				C5441B035AA04440C5F8D793 /* DarkMode.swift in Sources */,
@@ -276,10 +278,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

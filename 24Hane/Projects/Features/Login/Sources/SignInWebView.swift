@@ -72,10 +72,15 @@ struct SignInWebView: UIViewRepresentable {
 
             if  let urlStr = navigationAction.request.url?.path, urlStr == urlToMatch {
                 WKWebsiteDataStore.default().httpCookieStore.getAllCookies { (cookies) in
-                    for cookie in cookies where cookie.name == "accessToken" {
-                        debugPrint("webView: \(cookie.value)")
-                        UserDefaults.standard.setValue(String(cookie.value), forKey: "Token")
-                        UserDefaults.shared.setValue(String(cookie.value), forKey: HaneWidgetConstant.storageKey)
+                    for cookie in cookies where cookie.name.contains("Token") {
+                        if cookie.name == "accessToken" {
+//                            debugPrint("webView: \(cookie.value)")
+                            UserDefaults.standard.setValue(String(cookie.value), forKey: "AccessToken")
+                            UserDefaults.shared.setValue(String(cookie.value), forKey: HaneWidgetConstant.storageKey)
+                        } else if cookie.name == "refreshToken" {
+                            UserDefaults.standard.setValue(String(cookie.value), forKey: "RefreshToken")
+                            UserDefaults.shared.setValue(String(cookie.value), forKey: HaneWidgetConstant.refreshStorageKey)
+                        }
                         WidgetCenter.shared.reloadAllTimelines()
                         self.auth.isSignIn = true
                         
