@@ -10,10 +10,11 @@ import HaneCore
 
 struct LogoutButton: View {
 	@Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var auth: Authentication
 
     var body: some View {
 		Button {
-			// TODO: SignOut 함수 교체
+            auth.signOut()
 		} label: {
 			HStack(spacing: 10) {
 				Image("logout")

@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import HaneCore
 
 @main
 struct HANE24App: App {
+    @StateObject var auth = Authentication()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(auth)
         }
     }
 }

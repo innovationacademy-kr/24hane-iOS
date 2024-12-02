@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import HaneCore
 import SwiftUI
 
 @main
 struct HomeDemoApp: App {
+    @StateObject var auth = Authentication()
+    
     var body: some Scene {
         WindowGroup {
             HomeContentView()
+                .environmentObject(auth)
         }
     }
 }

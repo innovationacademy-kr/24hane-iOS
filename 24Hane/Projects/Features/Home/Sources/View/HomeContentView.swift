@@ -12,7 +12,7 @@ import Login
 
 
 struct HomeContentView: View {
-    @StateObject var auth = Authentication()
+    @EnvironmentObject var auth: Authentication
     @State var signInChecked = false
 //    let isFirstLogin = UserDefaults.standard.bool(forKey: "isFirst")
     
@@ -20,7 +20,7 @@ struct HomeContentView: View {
         ZStack {
             switch auth.isSignIn {
             case false:
-                SignInView(auth: auth)
+                SignInView()
             case true:
                 HomeView()
             }
